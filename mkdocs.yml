@@ -1,4 +1,7 @@
 site_name: CAM-SIMA
+repo_url: https://github.com/ESCOMP/CAM-SIMA-docs
+repo_name: CAM-SIMA-docs
+edit_uri: edit/main/docs
 nav:
   - Home: index.md
   - Conversion:
@@ -39,8 +42,18 @@ nav:
 
 plugins:
   - search
+  # Date plugin requires fetch-depth: 0
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - git-committers:
+      repository: ESCOMP/CAM-SIMA-docs
+      branch: main
+
 theme:
   icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
     admonition:
       info: material/arrow-up-down-bold
   palette:
@@ -67,6 +80,8 @@ theme:
   name: material
   features:
     - content.code.copy
+    - content.action.edit
+    - content.action.view
 
 markdown_extensions:
   - def_list
