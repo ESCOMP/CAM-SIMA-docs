@@ -1,0 +1,1666 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../directory-structure/">
+      
+      
+        <link rel="next" href="../sima-design-goals/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>History & model output - CAM-SIMA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 8H6l6-6 6 6h-4v8h4l-6 6-6-6h4z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#history-model-output" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CAM-SIMA" class="md-header__button md-logo" aria-label="CAM-SIMA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CAM-SIMA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              History &amp; model output
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CAM-SIMA" class="md-nav__button md-logo" aria-label="CAM-SIMA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CAM-SIMA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Conversion
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Conversion
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/conversion-background/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0 - Background &amp; Prep work
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/convert-portable-layer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 - Convert the "portable" layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 - Create metadata
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-namelist-xml/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 - Create namelist XML file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/interstitials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 - Interstitials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-sdf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 - Create an SDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 - Create snapshots of CAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/check-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7 - Check metadata
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/run-cam-sima/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8 - Run CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/back-to-cam/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9 - Bring back into CAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/final-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 - Final steps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/walkthrough/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Walkthrough Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Design
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cam-build-process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cam-run-process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ccpp-in-cam-sima/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CCPP in CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constituents/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constituents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../directory-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CAM-SIMA directory structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    History &amp; model output
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    History &amp; model output
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#history-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      History Initialization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="History Initialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reading-and-processing-the-history-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading and processing the history configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-history-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up the history data structures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#populating-the-possible-field-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Populating the possible field list
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capturing-history-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capturing history output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-new-history-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defining new history files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-a-history-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing a history file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-history-restart-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defining history restart files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-a-history-restart-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing a history restart file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-a-history-restart-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading a history restart file
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sima-design-goals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design goals &amp; features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-sima-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development workflow for CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-coding-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding standards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging techniques
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Working with git and GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git &amp; GitHub FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-fleximod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git-fleximod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/tool-recommendations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tool recommendations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/creating-a-case/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating, configuring, and running a case
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History &amp; model output
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Atmospheric_physics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Atmospheric_physics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/directory-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    atmospheric_physics directory structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/development_workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development workflow for atmospheric_physics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/Tagging-Instructions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to properly tag an atmospheric_physics commit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#history-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      History Initialization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="History Initialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reading-and-processing-the-history-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading and processing the history configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-the-history-data-structures" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting up the history data structures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#populating-the-possible-field-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Populating the possible field list
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capturing-history-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Capturing history output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-new-history-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defining new history files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-a-history-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing a history file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#defining-history-restart-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Defining history restart files
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-a-history-restart-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing a history restart file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-a-history-restart-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reading a history restart file
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="history-model-output">History &amp; model output</h1>
+<p>CAM-SIMA history is the mechanism for configuring and generating diagnostic output from a model run. It is also used to generate initial-data files and aids in the model-restart process by saving the state of diagnostic fields whose processing window (e.g., averaging, standard deviation) crosses a restart-write cycle. This page describes the implementation of CAM-SIMA history in CAM-SIMA.</p>
+<h2 id="history-initialization">History Initialization</h2>
+<h3 id="reading-and-processing-the-history-configuration">Reading and processing the history configuration</h3>
+<ul>
+<li>The allowable history configuration keywords are defined in <code>cime_config/hist_config.py</code> in <code>_HIST_CONFIG_ENTRY_TYPES</code>.<ul>
+<li>Each of the keywords is configurable via the namelist (<code>user_nl_cam</code>)</li>
+<li>The syntax is <code>&lt;keyword&gt;;&lt;volume&gt;: &lt;value&gt;</code> (see examples below)</li>
+<li>Currently, these configuration keywords are as follows (the <code>atm_in</code> equivalent indicates how <code>hist_config.py</code> parses these into a namelist to be read by SIMA):</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Configuration Keyword</th>
+<th>Description</th>
+<th>atm_in equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">hist_add_avg_fields <br />hist_add_inst_fields<br />hist_add_min_fields<br /> hist_add_max_field<br /> hist_add_var_field<br /> hist_remove_fields</td>
+<td>These configuration keywords add/remove fields to the specified volume with the indicated accumulation flag (average, instantaneous, minimum, maximum, standard deviation). The closest CAM7 equivalent is “finclX”</td>
+<td>&amp;hist_config_arrays_nl<br/>&ensp;hist_num_avg_fields<br/>&ensp;hist_num_inst_fields<br/>&ensp;hist_num_min_fields<br/>&ensp;hist_num_max_fields<br/>&ensp;hist_num_var_fields<br/><br/>&amp;hist_file_config_nl<br/>&ensp;hist_avg_fields<br/>&ensp;hist_inst_fields<br/>&ensp;hist_min_fields<br/>&ensp;hist_max_fields<br/>&ensp;hist_var_fields</td>
+</tr>
+<tr>
+<td style="text-align: left;">hist_file_type</td>
+<td>This keyword determines the type of file. Options are: “history,” “satellite,” and “initial_value”<br/>Defaults to “history”</td>
+<td>&amp;hist_file_config_nl<br/>&ensp;hist_file_type</td>
+</tr>
+<tr>
+<td style="text-align: left;">hist_max_frames</td>
+<td>Indicates the maximum number of samples/frames that can be written to a file before that file is considered “full”. The CAM7 equivalent is “mfilt”.<br/>Defaults to 1 for h0 and 30 for all other volumes.</td>
+<td>&amp;hist_file_config_nl<br/>&ensp;hist_max_frames</td>
+</tr>
+<tr>
+<td style="text-align: left;">hist_output_frequency</td>
+<td>Specifies the frequency of writes to the volume. The syntax is "&lt;integer&gt;*&lt;time period&gt;" where “time_period” can be: steps, seconds, minutes, hours, days, months, years. The closest CAM7 equivalent is “nhtfrq”.</td>
+<td>&amp;hist_file_config_nl<br/>&ensp;hist_output_frequency</td>
+</tr>
+<tr>
+<td style="text-align: left;">hist_precision</td>
+<td>Denotes the precision for the volume. Options are "REAL32" and "REAL64".<br/>Defaults to "REAL32"</td>
+<td>&amp;hist_file_config_nl<br/>&ensp;hist_precision</td>
+</tr>
+<tr>
+<td style="text-align: left;">hist_write_nstep0</td>
+<td>Indicates whether or not to write the nstep=0 sample to the volume.<br/>Defaults to .false.</td>
+<td>&amp;hist_file_config_nl<br/>&ensp;hist_write_nstep0</td>
+</tr>
+<tr>
+<td style="text-align: left;">hist_filename_template</td>
+<td>Specifies the template for the filename for the volume. <br/> Defaults to "%c.cam.%u.%y-%m-%d-%s.nc" where "%c" is the case name, "%u" is the volume, "%y" is the year, "%m" is the month, "%d" is the day, and "%s" is the number of seconds since midnight GMT, with the timestamp itself representing the model time when the file is created.</td>
+<td>&amp;hist_file_config_nl<br/>&ensp;hist_filename_spec</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>hist_config.py</code> also contains the <code>HistoryVolConfig</code> class (all the info pertaining to a single history file), the <code>HistoryConfig</code> class (all the history configuration information including a dict of <code>HistoryVolConfig</code> objects), and helper classes.</li>
+<li>The <code>HistoryConfig</code> object is created in <code>buildnml</code> out of entries in <code>user_nl_cam</code> and written to <code>run/atm_in</code>.</li>
+<li>In order to ensure that all relevant runtime (namelist) values show up in <code>atm_in</code>, the <code>HistoryConfig</code> object must contain all the logic in setting default values.</li>
+</ul>
+<p><img alt="text" src="../figures/hist_config_classes.PNG" title="CAM-SIMA history config class diagram" /></p>
+<h3 id="setting-up-the-history-data-structures">Setting up the history data structures</h3>
+<ul>
+<li>History namelist information is read and history data structures are set up in <code>src/history/cam_hist_file.F90</code></li>
+<li>The driving function in <code>cam_hist_file.F90</code> is <code>hist_read_namelist_config</code>, which is called by <code>history_readnl</code> in <code>src/history/cam_history.F90</code>. This function reads in the hist_config_arrays_nl namelist group, allocates the history field arrays, and then uses those arrays to read in the hist_file_config_nl namelist group (via a call to <code>read_namelist_entry</code>).</li>
+<li>The history configuration namelist options are used to populate <code>cam_history.F90</code>’s module-level hist_configs array of <code>hist_file_t</code> objects (the size of this array is the number of user-configured volumes).</li>
+<li>The <code>hist_file_t</code> object contains information about the configuration options for a given history volume. This includes the maximum number of frames that can be written to the file, the current number of frames on the file, the name of the file, and all of the history fields to be written to the file. It also contains methods to populate the field lists (<code>config_set_up_fields</code>), set up the metadata of the file (<code>config_define_file</code>), and write history fields to the file (<code>config_write_time_dependent_variables</code>).</li>
+<li>Each <code>hist_file_t</code> object contains both a hash table and allocatable field list to keep track of the fields written to the file. The core class for each of these is the <code>hist_field_info_t</code> (in <code>src/history/buffers/src/hist_field.F90</code>), which contains information about a history field. This includes the field names, the accumulate flag (average, instantaneous, minimum, etc), units, type, dimensions, and fill value. It also includes the buffer(s) (type is/are <code>hist_buffer_t</code>) that will and do hold the actual data.</li>
+</ul>
+<p><img alt="text" src="../figures/cam_history_classes" title="CAM-SIMA history Fortran class diagram" /></p>
+<h2 id="populating-the-possible-field-list">Populating the possible field list</h2>
+<p>The possible fields to be output by the history infrastructure are tracked in <code>cam_history.F90</code> via the <code>possible_field_list</code> hash table. It is populated during init time by calls to the subroutine <code>history_add_field</code> (found in <code>src/history/cam_history.F90</code>). “Init time,” means that all calls to <code>history_add_field</code> must occur during the execution of <code>cam_init</code> (found in <code>src/control/cam_comp.F90</code>).</p>
+<ul>
+<li>Within the CCPP physics, this means that any diagnostic fields must be added to possible field list during _init (ideally the diagnostics are kept separate from the core scheme physics to keep the physics portable)</li>
+<li>Within dynamics, the fields must be added during <code>dyn_init</code> or <code>stepon_init</code></li>
+<li>For physics variables:<ul>
+<li>State variables are added to the field list in the init phase of the cam_state_diagnostics scheme in <code>src/physics/ncar_ccpp/diagnostics/cam_diagnostics.F90</code><ul>
+<li>This scheme is included at the end of the <code>physics_before_coupler</code> group in the suite definition file (SDF)</li>
+</ul>
+</li>
+<li>Tendency variables are added to the field list in the init phase of the <code>cam_tend_diagnostics</code> scheme in <code>src/physics/ncar_ccpp/diagnotics/cam_diagnostics.F90</code><ul>
+<li>This scheme is included at the end of the <code>physics_after_coupler</code> group in the SDF</li>
+</ul>
+</li>
+<li>Additional variables specific to the scheme are included in the init phase of a <scheme>_diagnostics scheme in <code>src/physics/ncar_ccpp/diagnostics</code></li>
+</ul>
+</li>
+</ul>
+<p>Each call to <code>history_add_field</code> adds a new field to the end of the <code>possible_field_list_head</code> linked list. At the end of <code>cam_init</code>, the possible field list linked list is used to print the list (to the atm.log* file) and then is converted to the <code>possible_field_list</code> hash table. A sample of the history field list is seen below.</p>
+<pre><code>  ***************** HISTORY FIELD LIST ******************
+             T          K  avg  air_temperature
+            ZM          m  avg  geopotential_height_wrt_surface
+          PHIS     m2 s-2  ins   surface_geopotential
+          PMID         Pa  avg  air_pressure
+       PDELDRY         Pa  avg  air_pressure_thickness_of_dry_air
+             Q    kg kg-1  avg  water_vapor_mixing_ratio_wrt_moist_air_and_condensed_water
+        CLDLIQ    kg kg-1  avg cloud_liquid_water_mixing_ratio_wrt_moist_air_and_condensed_water          
+        RAINQM    kg kg-1  avg  rain_mixing_ratio_wrt_moist_air_and_condensed_water
+         TTEND      K s-1  avg  tendency_of_air_temperature_due_to_model_physics
+  *************** END HISTORY FIELD LIST ****************
+</code></pre>
+<h2 id="capturing-history-output">Capturing history output</h2>
+<p>Outside of CAM-SIMA init and finalize time, history buffers can be populated with data via a call to <code>history_out_field</code> (found in <code>src/history/cam_history.F90</code>)</p>
+<p>The subroutine <code>history_out_field</code> iterates over the <code>hist_configs</code> array and populates the buffer(s) of the <code>hist_field_info_t</code> object of the <code>hist_file_t</code> object if the field name in the call is active on that file (e.g. the field was configured via the namelist to be output for that volume).</p>
+<ul>
+<li>Within the CCPP physics, calls to <code>history_out_field</code> can exist anywhere except _init and _final</li>
+<li>In dynamics, calls to <code>history_out_field</code> can exist anywhere except in <code>dyn_init</code>, <code>stepon_init</code>, and <code>stepon_final</code></li>
+<li>For physics variables, <code>history_out_field</code> calls are included in the run phase of the same schemes described in the section above.</li>
+</ul>
+<h2 id="defining-new-history-files">Defining new history files</h2>
+<p>The <code>cam_history.F90</code> subroutine <code>history_write_files</code> (which is called during <code>cam_timestep_final</code>) does three main actions for each of the user-defined history volumes:</p>
+<ol>
+<li>Determine if it’s time to write to the file based on the user-supplied namelist option hist_output_frequency</li>
+<li><strong>If it's time to write, determine if we need to open a new file</strong></li>
+<li>Write the variables to the file(s)</li>
+</ol>
+<p>The bolded step #2 above is what determines if we need to define a new history file. The situations where we would need to define a new file are:</p>
+<ol>
+<li>It's the first sample we're outputting to a specific volume.</li>
+<li>The last time we output to the volume, we "filled" the file (number of samples written to the file met the user-configured <code>hist_max_frames</code>) and closed it</li>
+</ol>
+<p>We determine if it's time for a new file with the following line of code:</p>
+<pre><code>   mod(num_samples, hist_configs(file_idx)%max_frame()) == 0
+</code></pre>
+<p>If it is indeed time to define a new file, we call the <code>config_define_file</code> subroutine (which is found in <code>src/history/cam_hist_file.F90</code>) for the volume:</p>
+<pre><code>  call hist_configs(file_idx)%define_file(restart, logname, host, model_doi_url)
+</code></pre>
+<ul>
+<li>This subroutine opens the netcdf file(s) and writes the necessary time-independent metadata (for the file and for the history fields) and grid information.<ul>
+<li>Note that there will be a maximum of TWO (2) files opened at this stage. If there are both instantaneous fields AND accumulated fields (average, minimum, maximum, standard deviation) on the volume, two files will be created (hXi AND hXa); otherwise, only the relevant file will be created (hXi OR hXa)</li>
+</ul>
+</li>
+</ul>
+<h2 id="writing-a-history-file">Writing a history file</h2>
+<p>The <code>cam_history.F90</code> subroutine <code>history_write_files</code> (which is called during <code>cam_timestep_final</code>) does three main actions for each of the user-defined history volumes:</p>
+<ol>
+<li>Determine if it’s time to write to the file based on the user-supplied namelist option hist_output_frequency</li>
+<li>If it's time to write, determine if we need to open a new file</li>
+<li><strong>Write the variables to the file(s)</strong></li>
+</ol>
+<p>The bolded step #3 above occurs any time the criteria for #1 is satisfied. At this point, the following call is made to write the history fields (whose data has been stored in their buffers via calls to <code>history_out_field</code>):</p>
+<pre><code>  call hist_configs(file_idx)%write_time_dependent_variables(file_idx, restart)
+</code></pre>
+<p>It is during this call that we increment the number of samples written for this volume and actually write the data held within the buffer(s) to the netcdf file (as well as the time-dependent metadata for the fields).</p>
+<h2 id="defining-history-restart-files">Defining history restart files</h2>
+<p><em>Restarts not yet implemented in CAM-SIMA</em></p>
+<h2 id="writing-a-history-restart-file">Writing a history restart file</h2>
+<p><em>Restarts not yet implemented in CAM-SIMA</em></p>
+<h2 id="reading-a-history-restart-file">Reading a history restart file</h2>
+<p><em>Restarts not yet implemented in CAM-SIMA</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

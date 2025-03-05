@@ -1,0 +1,1794 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ccpp-in-cam-sima/">
+      
+      
+        <link rel="next" href="../directory-structure/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Constituents - CAM-SIMA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 8H6l6-6 6 6h-4v8h4l-6 6-6-6h4z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#constituents" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CAM-SIMA" class="md-header__button md-logo" aria-label="CAM-SIMA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CAM-SIMA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Constituents
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CAM-SIMA" class="md-nav__button md-logo" aria-label="CAM-SIMA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CAM-SIMA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Conversion
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Conversion
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/conversion-background/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0 - Background &amp; Prep work
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/convert-portable-layer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 - Convert the "portable" layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 - Create metadata
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-namelist-xml/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 - Create namelist XML file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/interstitials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 - Interstitials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-sdf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 - Create an SDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 - Create snapshots of CAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/check-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7 - Check metadata
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/run-cam-sima/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8 - Run CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/back-to-cam/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9 - Bring back into CAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/final-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 - Final steps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/walkthrough/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Walkthrough Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Design
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cam-build-process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cam-run-process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ccpp-in-cam-sima/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CCPP in CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Constituents
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Constituents
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introductionoverview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction/Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cam-sima-constituent-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      CAM-SIMA constituent handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CAM-SIMA constituent handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determining-constituents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Determining constituents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registering-initializing-constituents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registering &amp; Initializing Constituents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constituent-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constituent Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constituent Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-to-the-ccpp-constituents-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding to the CCPP constituents object
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding to the CCPP constituents object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-time-static-constituents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build-time (static) constituents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-time-dynamic-constituents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run-time (dynamic) constituents
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-the-ccpp-constituent-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing the CCPP constituent object
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ccpp-framework-constituent-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      CCPP Framework constituent handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CCPP Framework constituent handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constituent-object-fortran" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constituent object (Fortran)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-generation-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code generation (python)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../directory-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CAM-SIMA directory structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History &amp; model output
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sima-design-goals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design goals &amp; features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-sima-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development workflow for CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-coding-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding standards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging techniques
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Working with git and GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git &amp; GitHub FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-fleximod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git-fleximod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/tool-recommendations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tool recommendations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/creating-a-case/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating, configuring, and running a case
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History &amp; model output
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Atmospheric_physics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Atmospheric_physics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/directory-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    atmospheric_physics directory structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/development_workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development workflow for atmospheric_physics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/Tagging-Instructions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to properly tag an atmospheric_physics commit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introductionoverview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction/Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cam-sima-constituent-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      CAM-SIMA constituent handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CAM-SIMA constituent handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determining-constituents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Determining constituents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registering-initializing-constituents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registering &amp; Initializing Constituents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constituent-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constituent Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constituent Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-to-the-ccpp-constituents-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding to the CCPP constituents object
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding to the CCPP constituents object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-time-static-constituents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build-time (static) constituents
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-time-dynamic-constituents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run-time (dynamic) constituents
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accessing-the-ccpp-constituent-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accessing the CCPP constituent object
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ccpp-framework-constituent-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      CCPP Framework constituent handling
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CCPP Framework constituent handling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constituent-object-fortran" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constituent object (Fortran)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-generation-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code generation (python)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="constituents">Constituents</h1>
+<h2 id="introductionoverview">Introduction/Overview</h2>
+<p>Some definitions to start (as written by a non-scientist, so there is more nuance than this!):</p>
+<ul>
+<li>A <strong>constituent</strong> is a physical quantity or substance that exists in the atmosphere</li>
+<li>A constituent can be <strong>advected</strong>, which means it is moved through the atmosphere by some sort of dynamical method<ul>
+<li>The <strong>dynamical core</strong> (dycore) is the part of an atmosphere model (like CAM-SIMA) that advects the quantities over the underlying grid. Dynamical cores include:<ul>
+<li><em>null/none</em> - the null dycore does nothing and is used in CAM-SIMA to validate physics schemes</li>
+<li><em>spectral element (SE)</em>: the only dycore currently implemented in CAM-SIMA</li>
+<li><em>finite-volume cubed-sphere (FV3)</em>: not currently implemented in CAM-SIMA</li>
+<li><em>model for prediction across scales (MPAS)</em>: in progress</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A constituent had additional properties, such as:<ul>
+<li><strong>water type</strong>: can be "dry", "wet", or "moist" (we can convert between any of these quantities - "dry" means that it's the "amount" of that constituent with respect to dry air</li>
+<li><strong>mixing ratio type</strong>: can be "volume" or "mass"<ul>
+<li>volume mixing ratio: constituent values are a ratio of how much of the constituent exists per mole of air (units = mol mol-1)</li>
+<li>mass mixing ratio: constituent values are the mass of the constituent per unit volume (kg m-3)</li>
+</ul>
+</li>
+<li><strong>molar mass</strong>: Molar mass of a given quantity; used in converting between mass mixing ratio and volume mixing ratio</li>
+<li><strong>thermodynamically active</strong>: thermodynamically active constituents in CAM-SIMA can be found in <code>src/data/air_composition.F90</code></li>
+<li><strong>minimum value</strong>: The scheme <code>qneg</code> will set constituent values that are less than the minimum to the minimum</li>
+</ul>
+</li>
+</ul>
+<h2 id="cam-sima-constituent-handling">CAM-SIMA constituent handling</h2>
+<h3 id="determining-constituents">Determining constituents</h3>
+<p>There are three ways to identify a quantity as a constituent in CAM-SIMA:</p>
+<ol>
+<li>Constituent is provided by host (CAM-SIMA):<ul>
+<li>Host model constituents allow for constituents to be added as a constituent independent of the physics being run</li>
+<li>Host constituents are added in <code>cam_register_constituents</code> (in <code>src/control/cam_comp.F90</code>). Currently, we are always adding water vapor as a host constituent because it is expected by the SE dycore.</li>
+</ul>
+</li>
+<li>Constituent is a build-time physics constituent in a CCPP-ized scheme:<ul>
+<li>If a quantity is known to be a constituent at build-time, it is identified in the metadata for the scheme with: <code>advected = True</code></li>
+</ul>
+</li>
+<li>Constituent is a run-time physics constituent in a CCPP-ized scheme:<ul>
+<li>Sometimes, a scheme does not know what constituents it will require until run-time. In this case, an array of constituent properties (one for each needed constituent) is returned from the cam register phase. An example of how this works can be found in <code>src/physics/ncar_ccpp/musica/micm/micm.F90</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="registering-initializing-constituents">Registering &amp; Initializing Constituents</h3>
+<p>The registration and initializaiton of the constituent data array and the constituent properties object are done through calls to the generated CCPP cap.</p>
+<ul>
+<li><strong>cam_ccpp_register_constituents</strong>: combines the three sources of constituents into one <code>ccpp_model_constituents_t</code> object<ul>
+<li>Called before the physics grid (which requires the number of constituents) is initialized</li>
+</ul>
+</li>
+<li><strong>cam_ccpp_initialize_constituents</strong>: initializes the data array within the <code>ccpp_model_constituents_t</code> object<ul>
+<li>Called after the physics grid is initialized (so we know the size of the array allocate)</li>
+<li>The array is initialized to (columns, levels, number of constituents)</li>
+</ul>
+</li>
+</ul>
+<h3 id="constituent-usage">Constituent Usage</h3>
+<h4 id="adding-to-the-ccpp-constituents-object">Adding to the CCPP constituents object</h4>
+<h5 id="build-time-static-constituents">Build-time (static) constituents</h5>
+<p>Build-time constituents are those that you know your scheme will always need. These constituents are treated <em>almost</em> as if they were normal arguments. To tell the CCPP Framework that a given argument is a constituent, you will add the following line to the metadata for that variable:</p>
+<pre><code>advected = True
+</code></pre>
+<p>This instructs the framework to handle that variable (you will not need to add it to the registry or anywhere else in the model). The framework will generate the code to allocate and initialize all constituents, and will also create and handle the associated <strong>tendency</strong> variable (which will be accessible via metadata with the standard name <code>tendency_of_&lt;const_stdname&gt;</code> and the metadata property <code>constituent = true</code>)</p>
+<h5 id="run-time-dynamic-constituents">Run-time (dynamic) constituents</h5>
+<p>Run-time constituents are those that are conditional on the configuration of the model. If your scheme has runtime constituents, you will instantiate them in the register phase of your scheme. Example Fortran is below:</p>
+<pre><code>!&gt; \section arg_table_&lt;scheme&gt;_register Argument Table
+!! \htmlinclude &lt;scheme&gt;_register.html
+subroutine &lt;scheme&gt;_register(constituent_props, filename, errmsg, errcode)
+  use ccpp_constituent_prop_mod, only: ccpp_constituent_properties_t
+
+  type(ccpp_constituent_properties_t), allocatable, intent(out) :: constituent_props(:)
+  character(len=256),                               intent(in)  :: filename
+  character(len=512),                               intent(out) :: errmsg
+  integer,                                          intent(out) :: errcode
+
+  integer :: const_idx
+  character(len=512), allocatable :: const_names(:)
+
+  ! Read the file and determine what constituents are needed at runtime
+  ! Allocate and populate const_names with those constituents
+
+  ! Allocate the constituent properties array
+  allocate(constituent_props(size(const_names)), stat=ierr)
+  if (ierr /= 0) then
+     errcode = 1
+     errmsg = 'Failed to allocate &quot;constituent_props&quot;'
+     return
+  end if
+
+  ! Instantiate each constituent
+  do const_idx = 1, size(const_names)
+     ! Instantiate call may vary based on the properties of each runtime constituent
+     call constituent_props(const_idx)%instantiate( &amp;
+             std_name = const_names(const_idx), &amp;
+             long_name = const_names(const_idx), &amp;
+             units = 'kg kg-1', &amp;
+             vertical_dim = 'vertical_layer_dimension', &amp;
+             min_value = 0.0_kind_phys, &amp;
+             advected = .true., &amp;
+             water_species = .true., &amp;
+             mixing_ratio_type = 'wet', &amp;
+             errcode = errcode, &amp;
+             errmsg = errmsg)
+     if (errcode /= 0) then
+        return
+     end if
+  end do
+
+end subroutine &lt;scheme&gt;_register
+</code></pre>
+<p>Note that only scalar variables may be passed into the register phase as the grid has not yet been set up when the CCPP register phases are called. The metadata for the above routine is below.</p>
+<div class="admonition note">
+<p class="admonition-title">Standard name for runtime constituents variable</p>
+<p>The only requirement for this standard name is that it is unique.</p>
+</div>
+<pre><code>[ccpp-arg-table]
+  name = &lt;scheme&gt;_register
+  type = scheme
+[ constituent_props ]
+  standard_name = dynamic_constituents_for_&lt;scheme&gt;
+  units = none
+  dimensions = (:)
+  allocatable = True
+  type = ccpp_constituent_properties_t
+  intent = out
+[ filename ]
+  standard_name = filename_for_runtime_constituents
+  units = none
+  dimensions = ()
+  type = character | kind = len=256
+  intent = in
+[ errmsg ]
+  standard_name = ccpp_error_message
+  long_name = Error message for error handling in CCPP
+  units = none
+  type = character | kind = len=512
+  dimensions = ()
+  intent = out
+[ errcode ]
+  standard_name = ccpp_error_code
+  long_name = Error flag for error handling in CCPP
+  units = 1
+  type = integer
+  dimensions = ()
+  intent = out
+
+</code></pre>
+<h4 id="accessing-the-ccpp-constituent-object">Accessing the CCPP constituent object</h4>
+<p>Constituent values and properties can be accessed from the host side and from the physics in the following ways:</p>
+<ul>
+<li>Host side: constituents and properties can be accessed via the host model and dycore by way of the <code>cam_constituents.F90</code> module, which is an interface to the CCPP cap, which is in turn an interface to the constituents object</li>
+<li>Physics: the constituent array, constituent tendencies, and/or the constituent properties object are passed into a scheme via the following metadata (the local name and intent may vary):</li>
+</ul>
+<pre><code>[ q ]
+  standard_name = ccpp_constituents
+  units = none
+  type = real | kind = kind_phys
+  dimensions = (horizontal_loop_extent,vertical_layer_dimension,number_of_ccpp_constituents)
+  intent = in
+[ qtend ]
+  standard_name = ccpp_constituent_tendencies
+  units = none
+  type = real | kind = kind_phys
+  dimensions = (horizontal_loop_extent,vertical_layer_dimension,number_of_ccpp_constituents)
+  intent = inout
+[ const_props ]
+  standard_name = ccpp_constituent_properties
+  units = None
+  type = ccpp_constituent_prop_ptr_t
+  dimensions = (number_of_ccpp_constituents)
+  intent = in
+</code></pre>
+<h2 id="ccpp-framework-constituent-handling">CCPP Framework constituent handling</h2>
+<p>This section can be removed when constituents are documented in the CCPP Framework documentation.</p>
+<h3 id="constituent-object-fortran">Constituent object (Fortran)</h3>
+<p>The constituent object (found in <code>$CAM-SIMA/ccpp_framework/src/ccpp_constituent_prop_ mod.F90</code>) is a flexible and extendable means of containing necessary constituent data for the framework. The primary object is <code>ccpp_model_constituents_t</code>.</p>
+<p><img alt="text" src="../figures/constituents-classes.PNG" title="CCPP Framework constituent object(s)" /></p>
+<p>This object, importantly, contains the following properties (for which there is metadata; CCPP standard name in parenthesis):</p>
+<ul>
+<li><code>const_metadata</code> (ccpp_constituent_properties)</li>
+<li><code>num_layer_vars</code> (number_of_ccpp_constituents)</li>
+<li><code>num_advected_vars</code> (number_of_ccpp_advected_constituents)</li>
+<li><code>vars_layer</code> (ccpp_constituents)</li>
+</ul>
+<p>The <code>const_metadata</code> property is of type <code>ccpp_constituent_prop_ptr_t</code>, which contains a pointer to a <code>ccpp_constituent_properties_t</code> object, as depicted above. This object contains all of the constituent properties for the constituents in the constituents array, with the same indices as the constituents array.</p>
+<p>The <code>ccpp_model_constituents_t</code> type also contains a hash table of constituent properties for more efficient searching, as well as several methods used by the generated cap code. Some methods are highlighted below:</p>
+<ul>
+<li><em>new_field</em>: add a new constituent’s set of metadata fields to the hash table</li>
+<li><em>lock_table</em>: lock the constituent hash table and initialize the constituent array<ul>
+<li>Initializes the constituent array to the default value specified for each constituent (min value held in constituent props array for each constituent)</li>
+<li>Packs the advected constituents at the front of the constituents array</li>
+</ul>
+</li>
+<li><em>const_index</em>: retrieves the constituent index for a constituent (provided the standard name)</li>
+</ul>
+<h3 id="code-generation-python">Code generation (python)</h3>
+<p>The constituents-related code generation routines provide an interface to the constituents object. These routines can be found in <code>$CAM-SIMA/ccpp_framework/scripts/constituents.py</code>, primarily within the “write_host_routines” function. The (most often used) generated routines related to constituents are:</p>
+<ul>
+<li>&lt;hostname&gt;_ccpp_register_constituents</li>
+<li>&lt;hostname&gt;_ccpp_initialize_constituents</li>
+<li>&lt;hostname&gt;_ccpp_number_constituents</li>
+<li>&lt;hostname&gt;_constituents_array</li>
+<li>&lt;hostname&gt;_model_const_properties</li>
+<li>&lt;hostname&gt;_const_get_index</li>
+</ul>
+<p>The routines above are generated during <code>./preview_namelists</code> or <code>./case.build</code> and can be found here: <code>$CASE/bld/atm/obj/ccpp/cam_ccpp_cap.F90</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

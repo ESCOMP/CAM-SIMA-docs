@@ -1,0 +1,1907 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../directory-structure/">
+      
+      
+        <link rel="next" href="../Tagging-Instructions/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Development workflow for atmospheric_physics - CAM-SIMA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 8H6l6-6 6 6h-4v8h4l-6 6-6-6h4z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#development-workflow-for-atmospheric_physics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CAM-SIMA" class="md-header__button md-logo" aria-label="CAM-SIMA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CAM-SIMA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Development workflow for atmospheric_physics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CAM-SIMA" class="md-nav__button md-logo" aria-label="CAM-SIMA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CAM-SIMA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Conversion
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Conversion
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/conversion-background/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0 - Background &amp; Prep work
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/convert-portable-layer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 - Convert the "portable" layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 - Create metadata
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-namelist-xml/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 - Create namelist XML file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/interstitials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 - Interstitials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-sdf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 - Create an SDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 - Create snapshots of CAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/check-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7 - Check metadata
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/run-cam-sima/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8 - Run CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/back-to-cam/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9 - Bring back into CAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/final-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 - Final steps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/walkthrough/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Walkthrough Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Design
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/cam-build-process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/cam-run-process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/ccpp-in-cam-sima/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CCPP in CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/constituents/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constituents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/directory-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CAM-SIMA directory structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History &amp; model output
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/sima-design-goals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design goals &amp; features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-sima-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development workflow for CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-coding-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding standards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging techniques
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Working with git and GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git &amp; GitHub FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-fleximod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git-fleximod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/tool-recommendations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tool recommendations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/creating-a-case/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating, configuring, and running a case
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History &amp; model output
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Atmospheric_physics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Atmospheric_physics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../directory-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    atmospheric_physics directory structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Development workflow for atmospheric_physics
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Development workflow for atmospheric_physics
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-open-an-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Open an issue.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-fork-if-you-havent-already" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Create a fork (if you haven't already).
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-update-your-code-with-changes-from-the-official-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Update your code with changes from the official repo.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-committing-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Committing code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-unit-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Unit Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Unit Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-unit-test-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the unit test suite
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding unit tests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding unit tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-new-pfunit-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding a new pFUnit test
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-creating-a-pull-request-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Creating a Pull Request (PR)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-namesnotindictionarytxt-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating NamesNotInDictionary.txt file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-old-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing old branches
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit-testing-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit testing example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tagging-Instructions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to properly tag an atmospheric_physics commit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-details" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow details
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow details">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-open-an-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Open an issue.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-fork-if-you-havent-already" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Create a fork (if you haven't already).
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-update-your-code-with-changes-from-the-official-repo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Update your code with changes from the official repo.
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-committing-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Committing code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-unit-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Unit Testing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Unit Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-the-unit-test-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running the unit test suite
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-unit-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding unit tests
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding unit tests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-a-new-pfunit-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding a new pFUnit test
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-creating-a-pull-request-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Creating a Pull Request (PR)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-namesnotindictionarytxt-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating NamesNotInDictionary.txt file
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-old-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing old branches
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unit-testing-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit testing example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="development-workflow-for-atmospheric_physics">Development workflow for atmospheric_physics</h1>
+<p>This page describes the general workflow for adding new developments to the <a href="https://github.com/ESCOMP/atmospheric_physics">atmospheric_physics</a> repo, which is the location of all CGD-developed CCPP-ized physics schemes and Suite Definition Files (SDFs).</p>
+<h2 id="workflow-summary">Workflow summary</h2>
+<p>The general workflow for adding a feature, bug-fix, or modification to atmospheric_physics is as follows:</p>
+<ol>
+<li><a href="#1-open-an-issue"><strong>Open an issue.</strong></a></li>
+<li><strong><a href="#3-update-your-code-with-changes-from-the-official-repo">Add your code modifications</a> to a branch on your <a href="#2-create-a-fork-if-you-havent-already">fork</a>.</strong></li>
+<li><strong><a href="#5-unit-testing">Add/amend unit tests</a></strong></li>
+<li><strong><a href="#6-creating-a-pull-request-pr">Open a PR</a> from your branch to the <code>development</code> branch.</strong></li>
+<li><strong>Respond to any reviewer requests.</strong></li>
+<li><strong>Fix any failing automated Github tests.</strong></li>
+<li><strong>RECOMMENDED: Rerun <a href="https://github.com/ESCOMP/CAM/wiki/CAM-SE-Workflows#run-cam-tests">CAM</a> and/or <a href="../../development/cam-testing/#regression-testing">CAM-SIMA</a> regression tests to ensure your updates haven't broken anything.</strong></li>
+<li><strong><a href="#updating-namesnotindictionarytxt-file">Update <code>doc/NamesNotInDictionary.txt</code> file.</a></strong></li>
+<li><strong>If you know that this PR will need an official tag, then also add the <a href="../Tagging-Instructions/#tag-naming-conventions">tag name</a> to the PR description.</strong></li>
+<li><strong>If this PR contains updates that will impact CAM, DO NOT MERGE the PR until you have been assigned a CAM tag by the CAM gatekeeper</strong><ul>
+<li>If there are associated changes to CAM-SIMA, it is also good practice to get those changes approved before merging the atmospheric_physics PR.</li>
+</ul>
+</li>
+<li><strong>Once you're ready to merge, squash the commits and merge the PR (e.g. the "squash and merge" option).</strong></li>
+</ol>
+<p>If you need an official tag for your new additions, then once your <code>development</code> PR has been merged you will need to do the following:</p>
+<ol>
+<li><strong>Open a PR that merges the atmospheric_physics <code>development</code> branch into <code>main</code>.  Ensure that the PR description lists the title and number of every PR that went into <code>development</code> since the last update to <code>main</code>.</strong></li>
+<li><strong>Fix any failing tests.  This includes tests on the target host models that will be using the new tag.</strong></li>
+<li><strong>Merge (do not squash!) the PR.</strong></li>
+<li><strong><a href="../Tagging-Instructions/">Tag</a> the new merge commit.</strong></li>
+</ol>
+<h2 id="workflow-details">Workflow details</h2>
+<p>The following sections describe various workflow actions in more detail.</p>
+<h3 id="1-open-an-issue">1.  Open an issue.</h3>
+<p>It is generally recommended to <a href="https://github.com/ESCOMP/atmospheric_physics/issues/new">open an issue</a> for any new feature that will be added or bug that has been found that will need to be fixed.  There is currently no official requirement on what should be contained within the issue text, so generally just put any information you think might be relevant.</p>
+<h3 id="2-create-a-fork-if-you-havent-already">2.  Create a fork (if you haven't already).</h3>
+<p>We recommend creating a fork of the atmospheric_physics repo, and doing all of the development there.  Instructions for how to set up a fork, and how to configure git in general, can be <a href="../../development/git-basics/">found here</a>.</p>
+<h3 id="3-update-your-code-with-changes-from-the-official-repo">3. Update your code with changes from the official repo.</h3>
+<p><strong>1.  Clone your repo and add an upstream remote</strong></p>
+<pre><code>   git clone https://github.com/&lt;GitHub userid&gt;/atmospheric_physics
+   cd atmospheric_physics
+   git remote add upstream https://github.com/ESCOMP/atmospheric_physics.git
+</code></pre>
+<p><strong>2.  Fetch the latest version of the ESCOMP repo:</strong></p>
+<pre><code>   git fetch upstream
+</code></pre>
+<p><strong>3.  Rebase your local forked branch to the ESCOMP version.  For example, assuming you are working on a local branch called <code>feature</code>:</strong></p>
+<pre><code>   git checkout feature
+   git rebase upstream/development
+</code></pre>
+<p>Please note that you may also do a <code>git merge upstream/development</code> if you feel more comfortable with that method.</p>
+<p>If you then want to update the <code>feature</code> branch on your Github fork, then push your changes like so:</p>
+<p>rebase:</p>
+<pre><code>   git push -f
+</code></pre>
+<p>merge:</p>
+<pre><code>   git push
+</code></pre>
+<p>Of course, if you run into any problems with either method then please create a discussion post that contains your message and someone will try and assist you.</p>
+<h3 id="4-committing-code">4. Committing code</h3>
+<p><strong>1. Create a new branch off of the ESCOMP development branch:</strong></p>
+<pre><code>   git checkout -b cool_new_feature upstream/development
+</code></pre>
+<p>where <code>cool_new_feature</code> is an example branch name (you can use any name you want).  Next, push that new branch to your fork on Github:</p>
+<pre><code>   git push -u origin cool_new_feature
+</code></pre>
+<p><strong>2.  Apply your code modifications and/or script additions, and perform at least one test making sure that your modifications work as expected.</strong></p>
+<p><strong>3.  Add all the files that you want to commit.  There are multiple ways to do this, but one of the safer ways is to first check your status:</strong></p>
+<pre><code>   git status
+</code></pre>
+<p>This will provide a list of all modified files.  For each one of those files whose modifications you want to add to the main package, you will do the following:</p>
+<pre><code>   git add awesome_scheme.meta
+</code></pre>
+<p>Where <code>awesome_script.meta</code> should be replaced with whatever your file name is.  Do this for each file you want to include.  If you are confident that every file listed by <code>git status</code> needs to be added, then you can do it all at once by doing:</p>
+<pre><code>   git add -A
+</code></pre>
+<p>You can then type <code>git status</code> again, at which point all of the files you added should be "staged" for commit.</p>
+<p><strong>4.  Commit your changes to your local branch:</strong></p>
+<pre><code>   git commit -m &quot;&lt;message&gt;&quot;
+</code></pre>
+<p>where <code>&lt;message&gt;</code> is a short descriptor or sentence stating what the commits are for, e.g. "Fixed color bar bug" or "Added significance hatching".</p>
+<p><strong>5.  Push your committed changes to your fork:</strong></p>
+<pre><code>   git push
+</code></pre>
+<h3 id="5-unit-testing">5. Unit Testing</h3>
+<p>Also make sure that the unit tests all pass and verify if your changes can be unit tested and added to the test suite. </p>
+<p>Atmospheric_physics uses <a href="https://github.com/Goddard-Fortran-Ecosystem/pFUnit">pFUnit</a> as the toolkit for unit testing Fortran codes.  It is similar to <a href="https://github.com/google/googletest">googletest</a> in providing an explicit interface/setup procedure to make it clear what you are testing and how.</p>
+<h4 id="running-the-unit-test-suite">Running the unit test suite</h4>
+<p>To run the tests, you will need to build pFUnit manually (see either the github workflow for atmospheric_physics or the <a href="https://github.com/Goddard-Fortran-Ecosystem/pFUnit?tab=readme-ov-file#building-and-installing-pfunit">pFUnit documentation</a> on how to build) and then use that to build the tests:</p>
+<pre><code class="language-bash">$ cmake -DCMAKE_PREFIX_PATH=&lt;path_to_pfunit&gt;/build/installed \
+        -S./test/unit-test \
+        -B./build
+$ cd build &amp;&amp; make
+$ ctest
+</code></pre>
+<p>This should print something along the lines of</p>
+<pre><code class="language-bash">100% tests passed, 0 tests failed out of 1
+</code></pre>
+<p>or show an error if a test failed.</p>
+<h4 id="adding-unit-tests">Adding unit tests</h4>
+<p><strong>For modules that are currently being built with CMake, are independent of any external library modules, and/or are dependent only on other modules that are already unit tested, it is recommended to add relevant tests that cover those new lines of code. If this doesn't apply to your module(s), skip this section.</strong></p>
+<p>As unit test development is just as much an art form as source code development, we will defer a discussion on what constitutes as "good tests" to other sources such as <a href="https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices">MS.net</a>, <a href="https://abseil.io/resources/swe-book/html/ch12.html">abseil</a>, <a href="https://github.com/google/googletest/blob/main/docs/primer.md">googletest</a>, <a href="https://martinfowler.com/testing/">Martin Fowler</a>, etc.  Just like with source code, philosophical/technical conventions will evolve with the code over time as well.</p>
+<h5 id="adding-a-new-pfunit-test">Adding a new pFUnit test</h5>
+<p>If you are adding a new file, add it to the list of files being built by the <code>test/unit-test/CMakeLists.txt</code>, and if it builds successfully, add a corresponding unit test.  The current workflow is to take your new file in <code>schemes/{path_to_file}/new_file.F90</code> and add a corresponding test file in <code>test/unit-test/tests/{path_to_file}/test_{new_file}.pf</code>.</p>
+<p>To add a test:</p>
+<ol>
+<li>Ensure you need to have a currently existing CMake infrastructure.</li>
+<li>Add the code being tested added to a library via <code>add_library(LIBNAME ...)</code> in the <code>test/unit-test/CMakeLists.txt</code> file.</li>
+<li>Create a new pFUnit test file to a corresponding directory matching the source file path into the unit-test directory.  For example, if your update added the file <code>schemes/utilities/new_file.F90</code>, create a new test file called <code>test/unit-test/tests/utilities/test_new_file.pf</code>.</li>
+<li>Add <code>add_pfunit_ctest(TESTNAME TEST_SOURCES test_new_file.pf LINK_LIBRARIES LIBNAME)</code> in the <code>CMakeLists.txt</code> file in the test directory corresponding to the new test file (ex. <code>test/unit-testing/tests/utilities/CMakeLists.txt</code> in this example).</li>
+<li>Add subroutines to the <code>test_new_file.pf</code> file of the form:</li>
+</ol>
+<pre><code class="language-fortran">@test
+subroutine test_added_element_equals_get_element()
+  use funit
+  use module_under_test_mod
+   ...
+   @assertEqual(expectedValue, atualValue)
+</code></pre>
+<p>Additional CMake integration details as well as the different assertion methods can be found in pFUnit's <a href="https://github.com/Goddard-Fortran-Ecosystem/pFUnit">github</a> documentation and the <a href="https://github.com/Goddard-Fortran-Ecosystem/pFUnit_demos">pFUnit demo</a> repository as well.</p>
+<p>Currently, only certain <code>utilities</code> modules are being tested but this will expand to the rest of atmospheric_physics so check the files being built by the <code>test/unit-test/CMakeLists.txt</code> file regularly to see if you are modifying a file currently being tested.</p>
+<p>At a minimum, unit tests for ESCOMP source code should:</p>
+<ol>
+<li>Keep the setup code to the absolute minimum needed to effectively assert object/state data (ie, each line before calling <code>assert</code> statements should be modifying or preparing state data/objects to be modified exactly as a client or user would do).</li>
+<li>Only be 1 block/set of <code>assert</code> statements per test.  If there are multiple sets of <code>assert</code> statements with module API calls in between each set, that <em>probably</em> would constitute a new test with a different name.</li>
+<li>Have as explicit of names as possible.  There are going to be hundreds of names in each test report and having the ability for a reviewer/contributor to be able to look at a test and intuitively understand what said test is doing is paramount (this is obviously going to vary slightly based on preference but the goal is to have a test name be as intuitive as possible).</li>
+<li>Have clear and consise comments on what is being tested above each set of assert statements.</li>
+</ol>
+<p>You can find a unit testing example at the <a href="#unit-testing-example">bottom of this page</a>.</p>
+<h3 id="6-creating-a-pull-request-pr">6. Creating a Pull Request (PR)</h3>
+<p><strong>1.  Go to the <a href="https://github.com/ESCOMP/atmospheric_physics">ESCOMP atmospheric_physics repo</a>, and click on the "Pull requests" tab.</strong></p>
+<p><img alt="text" src="../figures/atm_phys_PR_tab_circle.png" title="Pull requests tab" /></p>
+<p><strong>2.  There, you should see a "New pull request" button, which you should click.</strong></p>
+<p><img alt="text" src="../figures/new_PR_button.png" title="New PR button" /></p>
+<p><strong>3.  On the new "Compare changes" page, you should see a "compare across forks" link, which you should click.</strong></p>
+<p><img alt="text" src="../figures/compare_forks_link.png" title="Compare forks" /></p>
+<p><strong>4.  You should now see two new pull down boxes (to the right of an arrow).  Using those pull down boxes, select the "development" branch of the ESCOMP repo and select your fork (which should be <code>&lt;username&gt;/atmospheric_physics</code>):</strong></p>
+<p><img alt="text" src="../figures/fork_repo_dropdown.png" title="fork select list" /></p>
+<p><strong>Then select the branch which contains the new commits:</strong></p>
+<p><img alt="text" src="../figures/fork_branch_dropdown.png" title="branch select list" /></p>
+<p><strong>5. You should then see a list of all the different modifications.  If they generally look correct to you, then click the "Create pull request" button.</strong></p>
+<p><img alt="text" src="../figures/create_PR_button.png" title="Create PR button" /></p>
+<p><strong>6. A new page should appear.  In the first text box add the title of your Pull request.  The second text box should contain additional fields that you should fill out to the best of your ability.</strong></p>
+<p><strong>7.  If you are contributing something into development that needs to go into the <code>main</code> branch quickly then please make it known in the PR description.  Also add the eventual tag name to the PR description.</strong></p>
+<p><strong>8.  Add any relevant labels to the Pull request, add yourself as the assignee, and add any reviewers you would like to have.  Otherwise the core SE team will add reviewers for you.</strong></p>
+<p><strong>9.  Fix any failing tests that show up on Github.</strong></p>
+<p><strong>10.  If you get any change requests during code review, then simply apply those changes in the same way you applied your original modifications.  Please note that once you <code>push</code> your changes then the PR will automatically be updated and the GitHub tests will be automatically run.</strong></p>
+<p><strong>11.  Update the <code>NamesNotInDictionary.txt</code> file using the instructions <a href="#updating-namesnotindictionarytxt-file">below</a>.</strong></p>
+<p><strong>12.  Once all reviewers sign off on your modifications, then the PR can be merged.  Congratulations!  Your code is now in atmospheric_physics!</strong></p>
+<ul>
+<li>If the PR is to <code>develop</code>, you should select "Squash and Merge"</li>
+<li>If the PR is to <code>main</code>, DO NOT squash and instead select "Merge Commit"</li>
+</ul>
+<h3 id="updating-namesnotindictionarytxt-file">Updating NamesNotInDictionary.txt file</h3>
+<p><strong>1.  Clone the CCPP standard names dictionary.</strong></p>
+<p><code>git clone https://github.com/ESCOMP/CCPPStandardNames.git</code></p>
+<p><strong>2. Run the "meta_stdname_check.py" script to generate a new "NamesNotInDictionary.txt" file.</strong></p>
+<p><code>CCPPStandardNames/tools/meta_stdname_check.py -m &lt;/path/to/atm_phys_repo&gt; -s CCPPStandardNames/standard_names.xml &gt; NamesNotInDictionary.txt</code></p>
+<p>Where <code>&lt;/path/to/atm_phys_repo&gt;</code> is a path to the head of your atmospheric_physics repo with all of the relevant changes.</p>
+<p><strong>3.  Replace old names file with new one.</strong></p>
+<p><code>cp NamesNotInDictionary.txt &lt;/path/to/atm_phys_repo&gt;/doc/NamesNotInDictionary.txt</code></p>
+<p>Finally, once the <code>NamesNotInDictionary.txt</code> file has been updated, then commit and push it to your branch/fork on Github following the instructions in the section above.</p>
+<h3 id="removing-old-branches">Removing old branches</h3>
+<p>Once your modifications have been merged into the official CAM repo, you may have no more use for the local fork branch created to develop those modifications.  In that case, you can remove the branch both from your local cloned repo and your atmospheric_physics fork:</p>
+<p><strong>1.   First, make sure your local repo isn't checking out the old branch, by simply checking out a different branch:</strong></p>
+<pre><code>    git checkout &lt;some_other_branch&gt;
+</code></pre>
+<p><strong>2.   Then, remove branch from local repo:</strong></p>
+<pre><code>    git branch -d &lt;branch_name&gt;
+</code></pre>
+<p><strong>3.   Finally, remove branch from personal fork repo:</strong></p>
+<pre><code>    git push --delete &lt;origin&gt; &lt;branch_name&gt;
+</code></pre>
+<p>You can also remove the branch via GitHub's <a href="https://help.github.com/en/articles/creating-and-deleting-branches-within-your-repository#deleting-a-branch">user interface</a>.</p>
+<h3 id="unit-testing-example">Unit testing example</h3>
+<p>Lets say you added a utility function in <code>physics_tendency_updaters.F90</code> to apply the pressure tendency of the atmosphere:</p>
+<pre><code class="language-fortran">subroutine apply_tendency_of_air_pressure_run(nz, p_tend, pressure, dPdt_total,   &amp;
+    dt, errcode, errmsg)
+  ! Dummy arguments
+  integer,            intent(in)    :: nz              ! Num vertical  layers
+  real(kind_phys),    intent(in)    :: p_tend(:,:)     ! pressure tendency
+  real(kind_phys),    intent(inout) :: pressure(:,:)       ! air pressure
+  real(kind_phys),    intent(inout) :: dPdt_total(:,:) ! total temp. tendency
+  real(kind_phys),    intent(in)    :: dt              ! physics time step
+  integer,            intent(out)   :: errcode
+  character(len=512), intent(out)   :: errmsg
+
+  ! Local variable
+  integer :: klev
+
+  errcode = 0
+  errmsg = ''
+
+  do klev = 1, nz
+      pressure(:, klev) = pressure(:, klev) + (p_tend(:, klev) * dt)
+      dPdt_total(:, klev) = dPdt_total(:, klev) + p_tend(:, klev)
+  end do
+
+end subroutine apply_tendency_of_air_pressure_run
+</code></pre>
+<p>Then you would need to check that the file you've modified is being built by the tests.  You can check this in <code>test/unit-test/CMakeLists.txt</code> and see that we have:</p>
+<pre><code class="language-cmake">set(UTILITIES_SRC
+    ../../schemes/utilities/state_converters.F90
+    ../../schemes/utilities/static_energy.F90
+    ../../schemes/utilities/physics_tendency_updaters.F90
+    include/ccpp_kinds.F90
+)
+</code></pre>
+<p>Since the file is being built, we don't have to add to this list.</p>
+<p>Next we look for <code>test/unit-test/tests/utilities/CMakeLists.txt</code> to see if there is a matching test file:</p>
+<pre><code class="language-bash">$ ls test/unit-test/tests/utilities/
+CMakeLists.txt
+test_state_converters.pf
+$ cat test/unit-test/tests/utilities/CMakeLists.txt
+add_pfunit_ctest(utilities_tests
+  TEST_SOURCES test_state_converters.pf
+  LINK_LIBRARIES utilities
+)
+</code></pre>
+<p>Because there is no matching file or test, we need to create it:</p>
+<pre><code class="language-bash">$ cat &gt; test/unit-test/tests/utilities/test_physics_tendency_updaters.pf &lt;&lt; EOF
+@test
+subroutine test_pressure_tendency_update()
+  use funit
+  use physics_tendency_updaters
+
+end subroutine test_pressure_tendency_update
+EOF
+</code></pre>
+<p>And add the ability to build/run it from the test harness by updating <code>test/unit-test/tests/utilities/CMakeLists.txt</code>:</p>
+<pre><code class="language-cmake">add_pfunit_ctest(utilities_tests
+  TEST_SOURCES test_state_converters.pf test_physics_tendency_updaters.pf
+  LINK_LIBRARIES utilities
+</code></pre>
+<p>where <code>test_physics_tendency_updaters.pf</code> has been added to the <code>TEST_SOURCES</code> list.</p>
+<p>Now, to actually test the function, we can try something like:</p>
+<pre><code class="language-fortran">@test
+subroutine test_pressure_tendency_update()
+  use funit
+  use ccpp_kinds, only: kind_phys
+  use physics_tendency_updaters
+
+  # Declare and setup test data with known results
+
+  integer, parameter :: ncol = 3            ! Num columns
+  integer, parameter :: nz = 3              ! Num vertical layers
+  integer, parameter :: errcode = 0
+  character(len=512), parameter :: errmsg = ''
+
+  real(kind_phys) :: p_tend(ncol, nz)    ! pressure tendency
+  real(kind_phys) :: pressure(ncol, nz)  ! air pressure
+  real(kind_phys) :: dPdt_total(nol, nz) ! total temp. tendency
+  real(kind_phys) :: dt                  ! physics time step
+
+  pressure = 1
+  p_tend = 1
+  dPdt_total = 0
+  dt = 1
+
+  call apply_tendency_of_air_pressure_run(nz, p_tend, pressure, &amp;
+                                          dPdt_total, dt,       &amp;
+                                          errcode, errmsg)
+
+  @assertEqual(2, pressure)
+  @assertEqual(1, dPdt_total)
+  @assertEqual(0, errcode)
+  @assertEqual('', errmsg)
+end subroutine test_pressure_tendency_update
+</code></pre>
+<p>The values should be scientifically relevant to test a valid physics case or be set up to test edge cases that the subroutine must support.</p>
+<p>Notice that we are only testing <code>intent(out)</code> and <code>intent(inout)</code> as these are the only values that can change.</p>
+<p>Assuming you have built the test framework according to the <a href="#5-unit-testing">instructions</a>, you can now run:</p>
+<pre><code class="language-bash">$ cmake \
+  -DCMAKE_PREFIX_PATH=&lt;PATH_TO_PFUNIT&gt;/build/installed \
+  -DATMOSPHERIC_PHYSICS_ENABLE_CODE_COVERAGE=ON \
+  -B./build \
+  -S./test/unit-test
+$ cd build
+$ make
+$ ctest -V --output-on-failure
+</code></pre>
+<p>After which you should see output similar to:</p>
+<pre><code>1:  Start: &lt;test_state_converters_suite.test_temp_to_potential_temp&gt;
+1: .   end: &lt;test_state_converters_suite.test_temp_to_potential_temp&gt;
+1:
+1: Time:         0.000 seconds
+1:
+1:  OK
+1:  (1 test)
+1:
+2:  Start: &lt;test_physics_tendency_updaters_suite.test_pressure_tendency_update&gt;
+2: .   end: &lt;test_physics_tendency_updaters_suite.test_pressure_tendency_update&gt;
+2:
+2: Time:         0.000 seconds
+2:
+2:  OK
+2:  (1 test)
+2/2 Test #1: utilities_tests ..................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 1
+</code></pre>
+<p>If 100% of the tests pass, you're good to go!</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
