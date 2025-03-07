@@ -1,0 +1,1847 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../cam-build-process/">
+      
+      
+        <link rel="next" href="../ccpp-in-cam-sima/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Run process - CAM-SIMA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 8H6l6-6 6 6h-4v8h4l-6 6-6-6h4z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#run-process" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CAM-SIMA" class="md-header__button md-logo" aria-label="CAM-SIMA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CAM-SIMA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Run process
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CAM-SIMA" class="md-nav__button md-logo" aria-label="CAM-SIMA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CAM-SIMA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Conversion
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Conversion
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/conversion-background/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0 - Background &amp; Prep work
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/convert-portable-layer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 - Convert the "portable" layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 - Create metadata
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-namelist-xml/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 - Create namelist XML file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/interstitials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 - Interstitials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-sdf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 - Create an SDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 - Create snapshots of CAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/check-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7 - Check metadata
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/run-cam-sima/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8 - Run CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/back-to-cam/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9 - Bring back into CAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/final-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 - Final steps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/walkthrough/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Walkthrough Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Design
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cam-build-process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Run process
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Run process
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cam-sima-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      CAM-SIMA API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CAM-SIMA API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cam_init" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_init
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cam_timestep_init" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_timestep_init
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cam_run1" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_run1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cam_run2" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_run2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cam_run3" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_run3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cam_run4" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_run4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cam_timestep_final" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_timestep_final
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cam_final" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_final
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-run-sequence-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static run sequence images
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ccpp-in-cam-sima/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CCPP in CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constituents/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constituents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../directory-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CAM-SIMA directory structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History &amp; model output
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sima-design-goals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design goals &amp; features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-sima-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development workflow for CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-coding-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding standards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging techniques
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Working with git and GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git &amp; GitHub FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-fleximod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git-fleximod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/tool-recommendations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tool recommendations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/creating-a-case/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating, configuring, and running a case
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History &amp; model output
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Atmospheric_physics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Atmospheric_physics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/directory-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    atmospheric_physics directory structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/development_workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development workflow for atmospheric_physics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/Tagging-Instructions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to properly tag an atmospheric_physics commit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cam-sima-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      CAM-SIMA API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CAM-SIMA API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cam_init" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_init
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cam_timestep_init" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_timestep_init
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cam_run1" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_run1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cam_run2" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_run2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cam_run3" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_run3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cam_run4" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_run4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cam_timestep_final" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_timestep_final
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cam_final" class="md-nav__link">
+    <span class="md-ellipsis">
+      cam_final
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static-run-sequence-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Static run sequence images
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="run-process">Run process</h1>
+<figure>
+  <img alt="text" src="../figures/run-sequence.gif" title="CAM-SIMA run sequence" width="80%" />
+  <figcaption>CAM-SIMA run sequence*</figcaption>
+</figure>
+<p>*Static images can be found at the <a href="#static-run-sequence-images">bottom</a> of this page</p>
+<h2 id="cam-sima-api">CAM-SIMA API</h2>
+<p>Upon running <code>./case.submit</code> the core CAM-SIMA driver code* is in <code>$CAM-SIMA/src/control/cam_comp.F90</code>. This section lays out each of the subroutines within <code>cam_comp.F90</code>.
+The subroutines in <code>cam_comp.F90</code> are set up to mirror the phases of the <a href="https://ccpp-techdoc.readthedocs.io/en/v6.0.0/">Common Community Physics Package</a> (CCPP).</p>
+<p>* <code>cam_comp.F90</code> subroutines are called by the NUOPC cap: <code>$CAM-SIMA/src/cpl/nuopc/atm_comp_nuopc.F90</code></p>
+<h3 id="cam_init">cam_init</h3>
+<p><code>cam_init</code> sets up the metadata and configuration objects/modules for the run. It is called once at startup. Below are the variables passed in:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable (intent)</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">How it's Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">caseid (in)</td>
+<td style="text-align: left;">case name (as input to ./create_newcase)</td>
+<td style="text-align: left;">metadata for cam_control_mod and cam_history</td>
+</tr>
+<tr>
+<td style="text-align: left;">ctitle (in)</td>
+<td style="text-align: left;">case title (matches caseid)</td>
+<td style="text-align: left;">metadata for cam_control_mod and cam_history</td>
+</tr>
+<tr>
+<td style="text-align: left;">model_doi_url (in)</td>
+<td style="text-align: left;">CESM model DOI (currently hard-coded to "non_set")</td>
+<td style="text-align: left;">metadata for cam_history</td>
+</tr>
+<tr>
+<td style="text-align: left;">initial_run_in (in)</td>
+<td style="text-align: left;">logical that is TRUE if this is a startup run**</td>
+<td style="text-align: left;">determines whether to call dyn_init or read restart</td>
+</tr>
+<tr>
+<td style="text-align: left;">restart_run_in (in)</td>
+<td style="text-align: left;">logical that is TRUE if this is a restart run**</td>
+<td style="text-align: left;">metadata for cam_control_mod</td>
+</tr>
+<tr>
+<td style="text-align: left;">branch_run_in (in)</td>
+<td style="text-align: left;">logical that is TRUE if this is a branch run**</td>
+<td style="text-align: left;">metadata for cam_control_mod</td>
+</tr>
+<tr>
+<td style="text-align: left;">post_assim_in (in)</td>
+<td style="text-align: left;">logical that is TRUE if data assimilation mode (DART) is on</td>
+<td style="text-align: left;">metadata for cam_control_mod</td>
+</tr>
+<tr>
+<td style="text-align: left;">calendar (in)</td>
+<td style="text-align: left;">calendar type (NOLEAP or GREGORIAN)</td>
+<td style="text-align: left;">input to time manager init</td>
+</tr>
+<tr>
+<td style="text-align: left;">brnch_retain_casename (in)</td>
+<td style="text-align: left;">flag to allow a branch to use the same caseid as the run being branched from</td>
+<td style="text-align: left;">metadata for cam_control_mod</td>
+</tr>
+<tr>
+<td style="text-align: left;">aqua_planet (in)</td>
+<td style="text-align: left;">flag to run model in <a href="https://www.cesm.ucar.edu/models/simple/aquaplanet">aqua planet</a> mode</td>
+<td style="text-align: left;">metadata for cam_control_mod</td>
+</tr>
+<tr>
+<td style="text-align: left;">single_column (in)</td>
+<td style="text-align: left;">flag to run the <a href="https://www.cesm.ucar.edu/models/simple/scam">single column model</a> (SCAM)</td>
+<td style="text-align: left;">passed into scam_readnl (not yet enabled in CAM-SIMA</td>
+</tr>
+<tr>
+<td style="text-align: left;">scmlat (in)</td>
+<td style="text-align: left;">SCAM latitude</td>
+<td style="text-align: left;">passed into scam_readnl (not yet enabled in CAM-SIMA)</td>
+</tr>
+<tr>
+<td style="text-align: left;">scmlon (in)</td>
+<td style="text-align: left;">SCAM longitude</td>
+<td style="text-align: left;">passed into scam_readnl (not yet enabled in CAM-SIMA)</td>
+</tr>
+<tr>
+<td style="text-align: left;">eccen (in)</td>
+<td style="text-align: left;">Earth's eccentricity factor</td>
+<td style="text-align: left;">used to set module-level <code>eccen</code> in cam_control_mod</td>
+</tr>
+<tr>
+<td style="text-align: left;">obliqr (in)</td>
+<td style="text-align: left;">Earth's obliquity in radians</td>
+<td style="text-align: left;">used to set module-level <code>obliqr</code> in cam_control_mod</td>
+</tr>
+<tr>
+<td style="text-align: left;">lambm0 (in)</td>
+<td style="text-align: left;">Mean longitude of perihelion at the vernal equinox (radians)</td>
+<td style="text-align: left;">used to set module-level <code>lambm0</code> in cam_control_mod</td>
+</tr>
+<tr>
+<td style="text-align: left;">mvelpp (in)</td>
+<td style="text-align: left;">Earth's moving vernal equinox longitude of perihelion plus pi (radians)</td>
+<td style="text-align: left;">used to set module-level <code>mvelpp</code> in cam_control_mod</td>
+</tr>
+<tr>
+<td style="text-align: left;">perpetual_run (in)</td>
+<td style="text-align: left;">flag to determine if perpetual mode is enabled</td>
+<td style="text-align: left;">passed to time manager init</td>
+</tr>
+<tr>
+<td style="text-align: left;">perpetual_ymd (in)</td>
+<td style="text-align: left;">perpetual year, month, day (YYYYMMDD) used to determine the sun position and interpolate boundary data sets</td>
+<td style="text-align: left;">passed to time manager init</td>
+</tr>
+<tr>
+<td style="text-align: left;">dtime (in)</td>
+<td style="text-align: left;">model timestep size in seconds</td>
+<td style="text-align: left;">passed to time manager init</td>
+</tr>
+<tr>
+<td style="text-align: left;">start_ymd (in)</td>
+<td style="text-align: left;">start date (YYYYMMDD)</td>
+<td style="text-align: left;">passed to time manager init</td>
+</tr>
+<tr>
+<td style="text-align: left;">start_tod (in)</td>
+<td style="text-align: left;">start time of day (sec)</td>
+<td style="text-align: left;">passed to time manager init</td>
+</tr>
+<tr>
+<td style="text-align: left;">ref_ymd (in)</td>
+<td style="text-align: left;">reference date (YYYYMMDD) (defaults to start_ymd)</td>
+<td style="text-align: left;">passed to time manager init</td>
+</tr>
+<tr>
+<td style="text-align: left;">ref_tod (in)</td>
+<td style="text-align: left;">reference time of day (sec) (defaults to start_tod)</td>
+<td style="text-align: left;">passed to time manager init</td>
+</tr>
+<tr>
+<td style="text-align: left;">stop_ymd (in)</td>
+<td style="text-align: left;">stop date (YYYYMMDD)</td>
+<td style="text-align: left;">passed to time manager init</td>
+</tr>
+<tr>
+<td style="text-align: left;">stop_tod (in)</td>
+<td style="text-align: left;">stop time of day (sec)</td>
+<td style="text-align: left;">passed to time manager init</td>
+</tr>
+<tr>
+<td style="text-align: left;">curr_ymd (in)</td>
+<td style="text-align: left;">current date (YYYYMMDD) (same as start date)</td>
+<td style="text-align: left;">passed to time manager init</td>
+</tr>
+<tr>
+<td style="text-align: left;">curr_tod (in)</td>
+<td style="text-align: left;">current time of day (sec) (same as start tod)</td>
+<td style="text-align: left;">passed to time manager init</td>
+</tr>
+<tr>
+<td style="text-align: left;">cam_in (inout)</td>
+<td style="text-align: left;">surface exchange object - coupler to CAM-SIMA</td>
+<td style="text-align: left;">allocated if this is an initial run</td>
+</tr>
+<tr>
+<td style="text-align: left;">cam_out (inout)</td>
+<td style="text-align: left;">surface exchange object - CAM-SIMA to coupler</td>
+<td style="text-align: left;">allocated if this is an initial run</td>
+</tr>
+</tbody>
+</table>
+<p>** For additional information on run types, see the <a href="https://ncar.github.io/CESM-Tutorial/notebooks/modifications/xml/modify_run_type/hybrid_branch_restart.html">CESM Tutorial</a></p>
+<p><code>cam_init</code> calls the following key subroutines (locations) in this order:</p>
+<ol>
+<li><code>cam_ctrl_init</code> (<code>src/control/cam_control_mod.F90</code>): Sets the module-level run configuration variables; logs configurations to the atm log</li>
+<li><code>cam_ctrl_set_orbit</code> (<code>src/control/cam_control_mod.F90</code>): Sets the module-level orbital variables</li>
+<li><code>timemgr_init (</code>src/utils/time_manager.F90`): Initializes the time manager; logs configurations to the atm log</li>
+<li><code>read_namelist</code> (<code>src/control/runtime_opts.F90</code>): Reads all namelists for the run, including auto-generated scheme namelists (see <a href="../cam-build-process/#cam-sima-source-and-namelist-generation-buildnml-workflow">build process</a>)</li>
+<li><code>cam_ctrl_set_physics_type</code> (<code>src/control/cam_control_mod.F90</code>): sets module-level configuration for variables for simple physics and moist physics schemes; logs configurations to atm log</li>
+<li><code>cam_initfiles_open</code> (<code>src/control/cam_initfiles.F90</code>): Opens initial or restart file, and topography file if specified</li>
+<li><code>phys_register</code> (<code>src/physics/utils/phys_comp.F90</code>): Registers physics (includes call to CCPP cap to run register phases of schemes in the Suite Definition File (SDF))</li>
+<li><code>cam_register_constituents</code> (<code>src/control/cam_comp.F90</code>): Sets the total number and advected number of <a href="../constituents/">constituents</a>; currently ALWAYS adds water vapor as constituent (expected by the SE dycore)</li>
+<li><code>air_composition_init</code> (<code>src/data/air_composition.F90</code>): Initializes air-composition-dependent model constants</li>
+<li><code>model_grid_init</code> (<code>src/dynamics/&lt;dycore&gt;/dyn_grid.F90</code>): Initializes model grids and decompositions</li>
+<li><code>cam_ccpp_initialize_constituents</code> (<code>$CASE/bld/atm/obj/ccpp/cam_ccpp_cap.F90</code>): initializes the constituent data array; after this point, we cannot add new constituents</li>
+<li><code>dyn_init</code> (<code>src/dynamics/&lt;dycore&gt;/dyn_comp.F90</code>): Initializes the dynamical core</li>
+<li><code>atm2hub_alloc</code> and <code>hub2atm_alloc</code> (<code>src/control/camsrfexch.F90</code>): Allocates and sets up surface exchange data</li>
+<li><code>phys_init</code> (<code>src/physics/utils/phys_comp.F90</code>): Initializes physics (includes call to CCPP cap to run init phases of schemes in the Suite Definition File (SDF))</li>
+<li><code>stepon_init</code> (<code>src/dynamics/&lt;dycore&gt;/stepon.F90</code>): Initializes dynamics &lt;--&gt; physics coupling</li>
+</ol>
+<h3 id="cam_timestep_init">cam_timestep_init</h3>
+<p><code>cam_timestep_init</code> is called at the start of each timestep. It has no input/output/inout variables.</p>
+<p>The routine calls the following subroutines (locations) in this order:</p>
+<ol>
+<li><code>stepon_timestep_init</code> (<code>src/dynamics/&lt;dycore&gt;/stepon.F90</code>): First phase of dynamics (couple from dynamics to physics); also returns timestep for physics</li>
+<li><code>phys_timestep_init</code> (<code>src/physics/utils/phys_comp.F90</code>):<ol>
+<li>Read un-initialized data from initial data file<ul>
+<li>For the null dycore, this means we're reading most physics input variables (as defined in <code>src/data/registry.xml</code>) from the ncdata file</li>
+<li>For the SE dycore, we are reading in any variables not marked as initialized by the SE dycore initialization</li>
+</ul>
+</li>
+<li>Calls the CCPP cap to run timestep_init phases of all schemes in the user-specified SDF</li>
+</ol>
+</li>
+</ol>
+<h3 id="cam_run1">cam_run1</h3>
+<p><code>cam_run1</code> is the first "run" phase called in the physics loop. It is called every timestep BEFORE the mediator/surface coupler and calls the following subroutine (location):</p>
+<ol>
+<li><code>phys_run1</code> (<code>src/physics/utils/phys_comp.F90</code>): Calls the run phase for all physics schemes in the "physics_before_coupler" group in the SDF</li>
+</ol>
+<h3 id="cam_run2">cam_run2</h3>
+<p><code>cam_run2</code> is the second "run" phase called in the physics loop. It is called every timestep AFTER the mediator/coupler. Input/output variables:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable (intent)</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">How it's Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">cam_in (inout)</td>
+<td style="text-align: left;">surface exchange object - input to CAM-SIMA</td>
+<td style="text-align: left;">Passed into stepon_run2</td>
+</tr>
+<tr>
+<td style="text-align: left;">cam_out (inout)</td>
+<td style="text-align: left;">surface exchange object - output from CAM-SIMA</td>
+<td style="text-align: left;">Passed into stepon_run2</td>
+</tr>
+</tbody>
+</table>
+<p><code>cam_run2</code> calls these subroutines (locations):</p>
+<ol>
+<li><code>phys_run2</code> (<code>src/physics/utils/phys_comp.F90</code>): Calls the run phase for all physics schemes in the "physics_after_coupler" group in the SDF</li>
+<li><code>stepon_run2</code> (<code>src/dynamics/&lt;dycore&gt;/stepon.F90</code>): The second phase of dynamics (couple from physics to dynamics)</li>
+</ol>
+<h3 id="cam_run3">cam_run3</h3>
+<p><code>cam_run3</code> is the third "run" phase called in the physics loop. It is called every timestep AFTER cam_run3 and BEFORE cam_run4 (unsurprisingly). In/out variables:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable (intent)</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">How it's Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">cam_out (inout)</td>
+<td style="text-align: left;">surface exchange object - output from CAM-SIMA</td>
+<td style="text-align: left;">Passed into stepon_run3</td>
+</tr>
+</tbody>
+</table>
+<p><code>cam_run3</code> calls the following subroutine (location):</p>
+<ol>
+<li><code>stepon_run3</code> (<code>src/dynamics/&lt;dycore&gt;/stepon.F90</code>): Calls <code>dyn_run</code>, which runs the dycore</li>
+</ol>
+<h3 id="cam_run4">cam_run4</h3>
+<p><code>cam_run4</code> currently does nothing! (but it is called every timestep)</p>
+<h3 id="cam_timestep_final">cam_timestep_final</h3>
+<p><code>cam_timestep_final</code> runs at the end of each timestep. In/out variables:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable (intent)</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">How it's Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">rstwr (in)</td>
+<td style="text-align: left;">flag to write a restart file</td>
+<td style="text-align: left;">Passed into history_wrap_up</td>
+</tr>
+<tr>
+<td style="text-align: left;">nlend (in)</td>
+<td style="text-align: left;">flag to indicate whether this is the final timestep</td>
+<td style="text-align: left;">Passed into history_wrap_up</td>
+</tr>
+</tbody>
+</table>
+<p><code>cam_timestep_final</code> calls the following subroutines (locations):</p>
+<ol>
+<li><a href="../history/">History</a> routines. If it's not the last (half) timestep,<ol>
+<li><code>history_write_files</code> (<code>src/history/cam_history.F90</code>): Writes fields to user-configured history files (if applicable)</li>
+<li><code>history_wrap_up</code> (<code>src/history/cam_history.F90</code>): Closes files and zeros buffers as necessary</li>
+</ol>
+</li>
+<li><code>phys_timestep_final</code> (<code>src/physics/utils/phys_comp.F90</code>):<ol>
+<li>Calls the timestep_final phase for all physics schemes in the SDF</li>
+<li>If <code>ncdata_check</code> is set in <code>user_nl_cam</code>, calls <code>physics_check_data</code> (<code>$CASE/bld/atm/obj/phys_init/physics_inputs.F90</code>) to perform snapshot checking</li>
+</ol>
+</li>
+</ol>
+<h3 id="cam_final">cam_final</h3>
+<p><code>cam_final</code> is called once at the end of the model execution. In/out variables:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable (intent)</th>
+<th style="text-align: left;">Definition</th>
+<th style="text-align: left;">How it's Used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">cam_in (inout)</td>
+<td style="text-align: left;">surface exchange object - input to CAM-SIMA</td>
+<td style="text-align: left;">Deallocated</td>
+</tr>
+<tr>
+<td style="text-align: left;">cam_out (inout)</td>
+<td style="text-align: left;">surface exchange object - output from CAM-SIMA</td>
+<td style="text-align: left;">Deallocated</td>
+</tr>
+</tbody>
+</table>
+<p><code>cam_final</code> calls the following subroutines (locations):</p>
+<ol>
+<li><code>phys_final</code> (<code>src/physics/utils/phys_comp.F90</code>): calls "final" phase of all schemes in the SDF</li>
+<li><code>stepon_final</code> (<code>src/dynamics/&lt;dycore&gt;/stepon.F90</code>): finalizes dycore (doesn't currently do anything)</li>
+<li><code>atm2hub_deallocate</code> and <code>hub2atm_deallocate</code> (<code>src/control/camsrfexch.F90</code>): deallocate cam_in/cam_out objects</li>
+</ol>
+<h2 id="static-run-sequence-images"><em>Static run sequence images</em></h2>
+<p><img alt="text" src="../figures/run-sequence-api.png" title="CAM-SIMA run sequence from CAM API perspective" />
+<img alt="text" src="../figures/run-sequence-physics.png" title="CAM-SIMA run sequence from physics perspective" />
+<img alt="text" src="../figures/run-sequence-dynamics.png" title="CAM-SIMA run sequence from dynamics perspective" />
+<img alt="text" src="../figures/run-sequence-history.png" title="CAM-SIMA run sequence from history perspective" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2380 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../final-steps/">
+      
+      
+        <link rel="next" href="../../design/cam-build-process/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Walkthrough Example - CAM-SIMA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 8H6l6-6 6 6h-4v8h4l-6 6-6-6h4z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#walkthrough-example" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CAM-SIMA" class="md-header__button md-logo" aria-label="CAM-SIMA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CAM-SIMA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Walkthrough Example
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CAM-SIMA" class="md-nav__button md-logo" aria-label="CAM-SIMA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CAM-SIMA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Conversion
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Conversion
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conversion-background/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0 - Background &amp; Prep work
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../convert-portable-layer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 - Convert the "portable" layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 - Create metadata
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-namelist-xml/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 - Create namelist XML file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interstitials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 - Interstitials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-sdf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 - Create an SDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../create-snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 - Create snapshots of CAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../check-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7 - Check metadata
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../run-cam-sima/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8 - Run CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../back-to-cam/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9 - Bring back into CAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../final-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 - Final steps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Walkthrough Example
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Walkthrough Example
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-background-prep-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      0 - Background &amp; prep work
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-convert-the-portable-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 - Convert the portable layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Convert the portable layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1a-change-routine-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      1a - Change routine names
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1b-add-required-htmlinclude-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      1b - Add required \htmlinclude lines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1c-clean-up-dummy-argument-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      1c - Clean up dummy argument dimensions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1d-use-kind_phys-instead-of-r8" class="md-nav__link">
+    <span class="md-ellipsis">
+      1d - Use kind_phys instead of r8
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1e-remove-use-statements" class="md-nav__link">
+    <span class="md-ellipsis">
+      1e - Remove use statements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1f-add-error-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      1f - Add error variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1g-replace-state-and-ptend-variables-in-calling-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      1g - Replace state and ptend variables in calling list
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1h-remove-pbuf-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      1h - Remove pbuf variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1i-mark-variables-as-initialized" class="md-nav__link">
+    <span class="md-ellipsis">
+      1i - Mark variables as initialized
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1j-initial-standard-name-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      1j - Initial standard name check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1k-update-cam-interface-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      1k - Update CAM interface call(s)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1l-optional-make-a-cam-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      1l - OPTIONAL: Make a CAM tag
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-snapshots-of-cam" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 - Create snapshots of CAM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-metadata-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 - Create metadata file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-create-namelist-xml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 - Create namelist XML file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-interstitials" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 - Interstitials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-create-an-sdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 - Create an SDF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-check-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 - Check metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-run-cam-sima" class="md-nav__link">
+    <span class="md-ellipsis">
+      8 - Run CAM-SIMA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-bring-back-into-cam" class="md-nav__link">
+    <span class="md-ellipsis">
+      9 - Bring back into CAM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-final-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      10 - Final steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Design
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/cam-build-process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/cam-run-process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/ccpp-in-cam-sima/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CCPP in CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/constituents/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constituents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/directory-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CAM-SIMA directory structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History &amp; model output
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/sima-design-goals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design goals &amp; features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-sima-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development workflow for CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-coding-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding standards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/cam-testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging techniques
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Working with git and GitHub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git &amp; GitHub FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/git-fleximod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git-fleximod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/tool-recommendations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tool recommendations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/creating-a-case/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating, configuring, and running a case
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History &amp; model output
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Atmospheric_physics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Atmospheric_physics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/directory-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    atmospheric_physics directory structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/development_workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development workflow for atmospheric_physics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/Tagging-Instructions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to properly tag an atmospheric_physics commit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0-background-prep-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      0 - Background &amp; prep work
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-convert-the-portable-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      1 - Convert the portable layer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 - Convert the portable layer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1a-change-routine-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      1a - Change routine names
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1b-add-required-htmlinclude-lines" class="md-nav__link">
+    <span class="md-ellipsis">
+      1b - Add required \htmlinclude lines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1c-clean-up-dummy-argument-dimensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      1c - Clean up dummy argument dimensions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1d-use-kind_phys-instead-of-r8" class="md-nav__link">
+    <span class="md-ellipsis">
+      1d - Use kind_phys instead of r8
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1e-remove-use-statements" class="md-nav__link">
+    <span class="md-ellipsis">
+      1e - Remove use statements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1f-add-error-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      1f - Add error variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1g-replace-state-and-ptend-variables-in-calling-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      1g - Replace state and ptend variables in calling list
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1h-remove-pbuf-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      1h - Remove pbuf variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1i-mark-variables-as-initialized" class="md-nav__link">
+    <span class="md-ellipsis">
+      1i - Mark variables as initialized
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1j-initial-standard-name-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      1j - Initial standard name check
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1k-update-cam-interface-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      1k - Update CAM interface call(s)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1l-optional-make-a-cam-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      1l - OPTIONAL: Make a CAM tag
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-create-snapshots-of-cam" class="md-nav__link">
+    <span class="md-ellipsis">
+      2 - Create snapshots of CAM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-create-metadata-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      3 - Create metadata file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-create-namelist-xml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      4 - Create namelist XML file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-interstitials" class="md-nav__link">
+    <span class="md-ellipsis">
+      5 - Interstitials
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-create-an-sdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      6 - Create an SDF
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-check-metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      7 - Check metadata
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-run-cam-sima" class="md-nav__link">
+    <span class="md-ellipsis">
+      8 - Run CAM-SIMA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-bring-back-into-cam" class="md-nav__link">
+    <span class="md-ellipsis">
+      9 - Bring back into CAM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-final-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      10 - Final steps
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="walkthrough-example">Walkthrough Example</h1>
+<p>GASP! Our favorite imaginary software engineer <strong>Bug E. Code</strong> has been tasked with CCPP-izing lunar_tides*!</p>
+<p>*Scheme doesn't do anything outside of WACCM; chosen because it won't be CCPP-ized for real any time soon (so you can see what the existing code looks like)</p>
+<p><em>Here's how Bug completes this assignment...</em></p>
+<h2 id="0-background-prep-work">0 - Background &amp; prep work</h2>
+<ol>
+<li>
+<p>Bug updates the <a href="https://docs.google.com/spreadsheets/d/1_1TTpnejam5jfrDqAORCCZtfkNhMRcu7cul37YTr_WM/edit#gid=0">conversion spreadsheet</a> with his new assignment.</p>
+<p><img alt="text" src="../figures/spreadsheet-change-highlighted.PNG" title="Spreadsheet update" /></p>
+</li>
+<li>
+<p>Bug opens issues in ESCOMP/CAM and ESCOMP/atmospheric_physics</p>
+<p><img alt="text" src="../figures/cam-issue.PNG" title="CAM issue" /></p>
+<p><img alt="text" src="../figures/atmos-phys-issue.PNG" title="atmospheric_physics issue" /></p>
+</li>
+<li>
+<p>He sets up his sandbox (with his preexisting forks) and copies the portable layer via the following commands:</p>
+</li>
+</ol>
+<pre><code>git clone -o bugsy9236 https://github.com/bugsy9236/CAM CAM
+cd CAM
+git fetch --tags ESCOMP
+git branch ccppize-lunar-tides ESCOMP/cam_development
+git checkout ccppize-lunar-tides 
+git push -u bugsy9236 ccppize-lunar-tides
+bin/git-fleximod update
+cd ..
+git clone -o bugsy9236 https://github.com/bugsy9236/CAM-SIMA CAM-SIMA
+cd CAM-SIMA
+git remote add ESCOMP https://github.com/ESCOMP/CAM-SIMA
+git fetch --tags ESCOMP
+git branch ccppize-lunar-tides ESCOMP/development
+git checkout ccppize-lunar-tides 
+git push -u bugsy9236 ccppize-lunar-tides
+bin/git-fleximod update
+mkdir src/physics/ncar_ccpp/schemes/lunar_tides
+cp ../CAM/src/physics/cam/lunar_tides.F90 src/physics/ncar_ccpp/schemes/lunar_tides/
+cd src/physics/ncar_ccpp
+git remote add bugsy9236 https://github.com/bugsy9236/atmospheric_physics
+git fetch bugsy9236
+git checkout -b ccppize-lunar-tides
+git push -u bugsy9236 ccppize-lunar-tides
+
+</code></pre>
+<h2 id="1-convert-the-portable-layer">1 - Convert the portable layer</h2>
+<h3 id="1a-change-routine-names">1a - Change routine names</h3>
+<p>Bug notes that there are three routines in <code>lunar_tides.F90</code>:</p>
+<pre><code>public :: lunar_tides_readnl
+public :: lunar_tides_init
+public :: lunar_tides_tend
+</code></pre>
+<ol>
+<li>He ignores <code>lunar_tides_readnl</code> for now (just leaves it as is)</li>
+<li>He's <em>pretty sure</em> that <code>lunar_tides_init</code> is an init routine, but confirms this by checking where it is called in <code>physpkg.F90</code>. It is indeed called by <code>phys_init</code>, so he can comfortably keep the <code>lunar_tides_init</code> routine name as is. No action needed here yet.</li>
+<li>Bug determines that <code>lunar_tides_tend</code> is called in <code>tphysac</code> (called every timestep after the coupler), so he renames <code>lunar_tides_tend</code> to <code>lunar_tides_run</code> throughout the module and proceeds</li>
+</ol>
+<p>End result:</p>
+<pre><code>public :: lunar_tides_readnl
+public :: lunar_tides_init
+public :: lunar_tides_run
+</code></pre>
+<h3 id="1b-add-required-htmlinclude-lines">1b - Add required <code>\htmlinclude</code> lines</h3>
+<p>Bug adds the necessary two lines above both the <code>lunar_tides_init</code> and <code>lunar_tides_run</code> routines.</p>
+<pre><code>!&gt; \section arg_table_lunar_tides_init Argument Table
+!! \htmlinclude lunar_tides_init.html
+  subroutine lunar_tides_init()
+    use cam_history, only: addfld
+    use time_manager,only: timemgr_get_calendar_cf
+
+    if (apply_lunar_tides) then
+       if (timemgr_get_calendar_cf().ne.'gregorian') then
+          call endrun('lunar_tides_init: calendar must be gregorian')
+       endif
+       call addfld('UT_LUNAR', (/ 'lev' /), 'A','m/s2','Zonal wind tendency due to lunar tides')
+       call addfld('VT_LUNAR', (/ 'lev' /), 'A','m/s2','Meridional wind tendency due to lunar tides')
+    end if
+
+  end subroutine lunar_tides_init
+
+  !==========================================================================
+  !==========================================================================
+!&gt; \section arg_table_lunar_tides_run Argument Table
+!! \htmlinclude lunar_tides_run.html
+  subroutine lunar_tides_run( state, ptend )
+    use time_manager, only: get_curr_date, get_julday
+    use physconst,    only: pi, rearth
+    use ppgrid,       only: pver
+    use cam_history,  only: outfld
+
+    type(physics_state), intent(in) :: state
+    type(physics_ptend), intent(out):: ptend
+    ...
+</code></pre>
+<h3 id="1c-clean-up-dummy-argument-dimensions">1c - Clean up dummy argument dimensions</h3>
+<p>Bug makes sure no input/output variables have named dimensions in their declaration inside the routines. In this case, there are no dimensioned variables in the argument lists. So hooray!</p>
+<h3 id="1d-use-kind_phys-instead-of-r8">1d - Use kind_phys instead of r8</h3>
+<p>Bug changes the use statement</p>
+<pre><code>use shr_kind_mod,   only: r8=&gt;shr_kind_r8
+</code></pre>
+<p>to </p>
+<pre><code>use ccpp_kinds, only: kind_phys
+</code></pre>
+<p>And does a find-and-replace for <code>r8</code> with <code>kind_phys</code></p>
+<p><code>lunar_tides_run</code> change (old -&gt; new):</p>
+<div class="grid">
+<pre><code>subroutine lunar_tides_run( state, ptend )
+    use time_manager, only: get_curr_date, get_julday
+    use physconst,    only: pi, rearth
+    use ppgrid,       only: pver
+    use cam_history,  only: outfld
+
+    type(physics_state), intent(in) :: state
+    type(physics_ptend), intent(out):: ptend
+
+    integer  :: tod,yr,mm,dd
+    real(r8) :: jd,nu,lt,lun_lt
+
+    integer :: i, k
+
+    real(r8), parameter :: deg2hrs = 1._r8/15._r8
+    real(r8), parameter :: rad2deg = 180._r8/pi
+    real(r8), parameter :: rad2hrs = rad2deg*deg2hrs
+    real(r8), parameter :: tod2hrs = 24._r8/86400._r8
+    real(r8), parameter :: hrs2rad = 1._r8/rad2hrs
+</code></pre>
+<pre><code>subroutine lunar_tides_run( state, ptend )
+    use time_manager, only: get_curr_date, get_julday
+    use physconst,    only: pi, rearth
+    use ppgrid,       only: pver
+    use cam_history,  only: outfld
+
+    type(physics_state), intent(in) :: state
+    type(physics_ptend), intent(out):: ptend
+
+    integer  :: tod,yr,mm,dd
+    real(kind_phys) :: jd,nu,lt,lun_lt
+
+    integer :: i, k
+
+    real(kind_phys), parameter :: deg2hrs = 1._kind_phys/15._kind_phys
+    real(kind_phys), parameter :: rad2deg = 180._kind_phys/pi
+    real(kind_phys), parameter :: rad2hrs = rad2deg*deg2hrs
+    real(kind_phys), parameter :: tod2hrs = 24._kind_phys/86400._kind_phys
+    real(kind_phys), parameter :: hrs2rad = 1._kind_phys/rad2hrs
+</code></pre>
+</div>
+<h3 id="1e-remove-use-statements">1e - Remove use statements</h3>
+<p>Bug removes the <code>use</code> statements (except for <code>addfld</code> and <code>outfld</code> calls) and adds the relevant variables to the calling list. He also comments out any use statements from cam_history as well as any addfld and outfld calls. He also moves the namelist variable to module-level (above the <code>CONTAINS</code> statement) and passes it in to the calling list for _init</p>
+<p>For <code>lunar_tides_init</code>:</p>
+<div class="grid">
+<pre><code>subroutine lunar_tides_init()
+    use cam_history, only: addfld
+    use time_manager,only: timemgr_get_calendar_cf
+
+    if (apply_lunar_tides) then
+       if (timemgr_get_calendar_cf().ne.'gregorian') then
+          call endrun('lunar_tides_init: calendar must be gregorian')
+       endif
+       call addfld('UT_LUNAR', (/ 'lev' /), 'A','m/s2','Zonal wind tendency due to lunar tides')
+       call addfld('VT_LUNAR', (/ 'lev' /), 'A','m/s2','Meridional wind tendency due to lunar tides')
+    end if
+
+  end subroutine lunar_tides_init
+</code></pre>
+<pre><code>subroutine lunar_tides_init(calendar, apply_lunar_tides_in)
+    !use cam_history, only: addfld
+    character(len=32), intent(in) :: calendar
+    logical,           intent(in) :: apply_lunar_tides_in
+
+    apply_lunar_tides = apply_lunar_tides_in
+
+    if (apply_lunar_tides) then
+       if (calendar.ne.'gregorian') then
+          call endrun('lunar_tides_init: calendar must be gregorian')
+       endif
+       !call addfld('UT_LUNAR', (/ 'lev' /), 'A','m/s2','Zonal wind tendency due to lunar tides')
+       !call addfld('VT_LUNAR', (/ 'lev' /), 'A','m/s2','Meridional wind tendency due to lunar tides')
+    end if
+
+  end subroutine lunar_tides_init
+</code></pre>
+</div>
+<p>For <code>lunar_tides_run</code>:</p>
+<div class="grid">
+<pre><code>subroutine lunar_tides_run( state, ptend )
+    use time_manager, only: get_curr_date, get_julday
+    use physconst,    only: pi, rearth
+    use ppgrid,       only: pver
+    use cam_history,  only: outfld
+
+    type(physics_state), intent(in) :: state
+    type(physics_ptend), intent(out):: ptend
+</code></pre>
+<pre><code>subroutine lunar_tides_run(state, ptend, curr_date_yr, &amp;
+     curr_date_mm, curr_date_dd, curr_date_tod, julday, &amp;
+     pi, rearth, pver)
+    !use cam_history,  only: outfld
+
+    type(physics_state), intent(in) :: state
+    type(physics_ptend), intent(out):: ptend
+    integer,             intent(in) :: curr_date_yr
+    integer,             intent(in) :: curr_date_mm
+    integer,             intent(in) :: curr_date_dd
+    integer,             intent(in) :: curr_date_tod
+    real(kind_phys),     intent(in) :: julday
+    real(kind_phys),     intent(in) :: pi
+    real(kind_phys),     intent(in) :: rearth
+    integer,             intent(in) :: pver
+
+</code></pre>
+</div>
+<h3 id="1f-add-error-variables">1f - Add error variables</h3>
+<p>Bug adds the <code>errmsg</code> and <code>errflg</code> variables to the end of the calling list and initializes them.</p>
+<pre><code>subroutine lunar_tides_run(state, ptend, curr_date_yr, &amp;
+     curr_date_mm, curr_date_dd, curr_date_tod, julday, &amp;
+     pi, rearth, pver, errmsg, errflg)
+    !use cam_history,  only: outfld
+
+    type(physics_state), intent(in) :: state
+    type(physics_ptend), intent(out):: ptend
+    integer,             intent(in) :: curr_date_yr
+    integer,             intent(in) :: curr_date_mm
+    integer,             intent(in) :: curr_date_dd
+    integer,             intent(in) :: curr_date_tod
+    real(kind_phys),     intent(in) :: julday
+    real(kind_phys),     intent(in) :: pi
+    real(kind_phys),     intent(in) :: rearth
+    integer,             intent(in) :: pver
+    character(len=512),  intent(out):: errmsg
+    integer,             intent(out):: errflg
+
+    ...
+
+    errflg = 0
+    errmsg = ''
+</code></pre>
+<h3 id="1g-replace-state-and-ptend-variables-in-calling-list">1g - Replace state and ptend variables in calling list</h3>
+<p><code>lunar_tides_run</code> includes both <code>state</code> and <code>ptend</code>! Bug starts with <code>state</code> and figures out which state variables are used in the routine</p>
+<ul>
+<li>He determines that the routine uses <code>state%lat</code>, <code>state%lon</code>, <code>state%ncols</code>, and <code>state%zm</code></li>
+<li>He passes each in individually and ends up with:</li>
+</ul>
+<pre><code>subroutine lunar_tides_run(ncols, lat, lon, zm, ptend, &amp;
+     curr_date_yr, curr_date_mm, curr_date_dd, curr_date_tod, &amp;
+     julday, pi, rearth, pver, errmsg, errflg)
+    !use cam_history,  only: outfld
+
+    integer,             intent(in) :: ncols
+    real(kind_phys),     intent(in) :: lat(:)
+    real(kind_phys),     intent(in) :: lon(:)
+    real(kind_phys),     intent(in) :: zm(:,:)
+    type(physics_ptend), intent(out):: ptend
+    integer,             intent(in) :: curr_date_yr
+    integer,             intent(in) :: curr_date_mm
+    integer,             intent(in) :: curr_date_dd
+    integer,             intent(in) :: curr_date_tod
+    real(kind_phys),     intent(in) :: julday
+    real(kind_phys),     intent(in) :: pi
+    real(kind_phys),     intent(in) :: rearth
+    integer,             intent(in) :: pver
+    character(len=512),  intent(out):: errmsg
+    integer,             intent(out):: errflg
+
+</code></pre>
+<p>Now he does the same with <code>ptend</code> (the routine uses <code>ptend%u</code> and <code>ptend%v</code>) and ends up with:</p>
+<pre><code>subroutine lunar_tides_run(ncols, lat, lon, zm, dudt, dvdt, &amp;
+     curr_date_yr, curr_date_mm, curr_date_dd, curr_date_tod, &amp;
+     julday, pi, rearth, pver, errmsg, errflg)
+    !use cam_history,  only: outfld
+
+    integer,             intent(in) :: ncols
+    real(kind_phys),     intent(in) :: lat(:)
+    real(kind_phys),     intent(in) :: lon(:)
+    real(kind_phys),     intent(in) :: zm(:,:)
+    real(kind_phys),     intent(out):: dudt(:,:)
+    real(kind_phys),     intent(out):: dvdt(:,;)
+    integer,             intent(in) :: curr_date_yr
+    integer,             intent(in) :: curr_date_mm
+    integer,             intent(in) :: curr_date_dd
+    integer,             intent(in) :: curr_date_tod
+    real(kind_phys),     intent(in) :: julday
+    real(kind_phys),     intent(in) :: pi
+    real(kind_phys),     intent(in) :: rearth
+    integer,             intent(in) :: pver
+    character(len=512),  intent(out):: errmsg
+    integer,             intent(out):: errflg
+</code></pre>
+<p>As part of removing <code>ptend</code>, Bug removes the call to <code>physics_ptend_init</code> in <code>lunar_tides_run</code></p>
+<p>Replacing all the relevant variables in the routine results in...</p>
+<pre><code>subroutine lunar_tides_run(ncols, lat, lon, zm, dudt, dvdt, &amp;
+     curr_date_yr, curr_date_mm, curr_date_dd, curr_date_tod, &amp;
+     julday, pi, rearth, pver, errmsg, errflg)
+    !use cam_history,  only: outfld
+
+    integer,             intent(in) :: ncols
+    real(kind_phys),     intent(in) :: lat(:)
+    real(kind_phys),     intent(in) :: lon(:)
+    real(kind_phys),     intent(in) :: zm(:,:)
+    real(kind_phys),     intent(out):: dudt(:,:)
+    real(kind_phys),     intent(out):: dvdt(:,;)
+    integer,             intent(in) :: curr_date_yr
+    integer,             intent(in) :: curr_date_mm
+    integer,             intent(in) :: curr_date_dd
+    integer,             intent(in) :: curr_date_tod
+    real(kind_phys),     intent(in) :: julday
+    real(kind_phys),     intent(in) :: pi
+    real(kind_phys),     intent(in) :: rearth
+    integer,             intent(in) :: pver
+    character(len=512),  intent(out):: errmsg
+    integer,             intent(out):: errflg
+
+    real(kind_phys) :: nu,lt,lun_lt
+
+    integer :: i, k
+
+    real(kind_phys), parameter :: deg2hrs = 1._kind_phys/15._kind_phys
+    real(kind_phys), parameter :: rad2deg = 180._kind_phys/pi
+    real(kind_phys), parameter :: rad2hrs = rad2deg*deg2hrs
+    real(kind_phys), parameter :: tod2hrs = 24._kind_phys/86400._kind_phys
+    real(kind_phys), parameter :: hrs2rad = 1._kind_phys/rad2hrs
+
+    if (apply_lunar_tides) then
+
+       ! calculation relies on time from noon on December 31, 1899, so
+       ! subtract 2415020, which corresponds to the Julian date for Dec. 31 1899.
+       julday = julday - 2415020._kind_phys
+       julday = julday / 36525._kind_phys ! convert to julian centuries
+
+       ! Calculate the lunar local time (nu) based on the the time
+       ! in Julian centuries using the formula given in Chapman and Lindzen (1970)
+       nu = -9.26009_kind_phys + 445267.12165_kind_phys*julday+0.00168_kind_phys*julday*julday !nu in degrees
+
+       do i=1,ncol
+          ! solar local time (hours)
+          lt = real(curr_tod,kind=kind_phys)*tod2hrs + lon(i)*rad2hrs
+
+          ! lunar local time
+          lun_lt = lt - nu*deg2hrs ! hours
+          lun_lt = lun_lt*hrs2rad ! radians
+
+          do k=1,pver
+             ! Calculate the M2 lunar tide forcing in the zonal and meridional directions.
+             ! The forcing is calculated based on the gradient of the M2 tidal
+             ! potential, which is given in Chapman and Lindzen (1970).
+             ! Additional details on the derivation of the forcing are in
+             ! Pedatella, Liu, and Richmond (2012)
+             dudt(i,k) = (-1._kind_phys/((zm(i,k)+rearth)*cos(lat(i))))*2.456_kind_phys*3._kind_phys *  &amp;
+                  ((zm(i,k)+rearth)/rearth)**2*cos(lat(i))*cos(lat(i))*2._kind_phys*sin(2._kind_phys*lun_lt)
+             dvdt(i,k) = (1._kind_phys/(zm(i,k)+rearth))*2.456_kind_phys*3._kind_phys * &amp;
+                  ((zm(i,k)+rearth)/rearth)**2*cos(2._kind_phys*lun_lt)*2._kind_phys*cos(lat(i))*sin(lat(i))
+          end do
+       end do
+
+       !call outfld('UT_LUNAR', ptend%u(:state%ncol,:), state%ncol, state%lchnk)
+       !call outfld('VT_LUNAR', ptend%v(:state%ncol,:), state%ncol, state%lchnk)
+
+    end if
+
+  end subroutine lunar_tides_run
+
+</code></pre>
+<h3 id="1h-remove-pbuf-variables">1h - Remove pbuf variables</h3>
+<p>Bug discovers that there are no <code>pbuf</code> variables in lunar_tides! Yay!</p>
+<h3 id="1i-mark-variables-as-initialized">1i - Mark variables as initialized</h3>
+<p>There are no variables that Bug needs to mark as initialized. At least, so he thinks. He may revisit this!</p>
+<h3 id="1j-initial-standard-name-check">1j - Initial standard name check</h3>
+<p>Bug does an initial check of the <a href="https://docs.google.com/spreadsheets/d/1vpQ_xDZk00Z-_3SpW5N2EF3_FY6K7opNN4cqtSMlbwU/edit?gid=0#gid=0">standard names spreadsheet</a>. He is able to find standard names for all of the variables except the calendar type, current date and julian date info. He adds those to the spreadsheet and sends an email to the other CAM SEs about needing to decide on a standard name for these variables.</p>
+<h3 id="1k-update-cam-interface-calls">1k - Update CAM interface call(s)</h3>
+<p>Bug updates the call in <code>physpkg.F90</code>:</p>
+<ul>
+<li>He renames the subroutine <code>lunar_tides_run</code></li>
+<li>He moves the use statements that he removed from <code>lunar_tides_run</code> to <code>tphysac</code> and adds calls to <code>get_curr_date</code> and <code>get_julday</code> to just before the call to <code>lunar_tides_run</code>. He passes in all the new variables.</li>
+<li>He moves the use statement that he removed from <code>lunar_tides_init</code> to <code>phys_init</code>, adds a call, and passes the <code>calendar</code> variable into <code>lunar_tides_init</code></li>
+</ul>
+<h3 id="1l-optional-make-a-cam-tag">1l - OPTIONAL: Make a CAM tag</h3>
+<p>Bug opts not to make a CAM tag at this time.</p>
+<h2 id="2-create-snapshots-of-cam">2 - Create snapshots of CAM</h2>
+<p>Bug discovers that there are no snapshot calls around <code>lunar_tides_run</code> in <code>physpkg.F90</code>. So he uses <code>user_set</code> snapshot calls as such:</p>
+<pre><code>! Lunar tides
+    if (trim(cam_take_snapshot_before) == &quot;user_set&quot;) then
+       call cam_snapshot_all_outfld_tphysac(cam_snapshot_before_num, state, tend, cam_in, cam_out, pbuf, &amp;
+       flx_heat, cmfmc, cmfcme, zdu, rliq, rice, dlf, dlf2, rliq2, det_s, det_ice, net_flx)
+    end if
+    call lunar_tides_tend( state, ptend )
+    if ( (trim(cam_take_snapshot_after) == &quot;user_set&quot;) .and.      &amp;
+         (trim(cam_take_snapshot_before) == trim(cam_take_snapshot_after))) then
+       call cam_snapshot_ptend_outfld(ptend, lchnk)
+    end if
+    if ( ptend%lu ) then
+      call outfld( 'UTEND_LUNART', ptend%u, pcols, lchnk)
+    end if
+    if ( ptend%lv ) then
+      call outfld( 'VTEND_LUNART', ptend%v, pcols, lchnk)
+    end if
+    call physics_update(state, ptend, ztodt, tend)
+    if (trim(cam_take_snapshot_after) == &quot;user_set&quot;) then
+       call cam_snapshot_all_outfld_tphysac(cam_snapshot_after_num, state, tend, cam_in, cam_out, pbuf, &amp;
+       flx_heat, cmfmc, cmfcme, zdu, rliq, rice, dlf, dlf2, rliq2, det_s, det_ice, net_flx)
+    end if
+</code></pre>
+<p>Our main man Bug creates a test case with resolution <code>ne3pg3_ne3pg3_mg37</code> with DEBUG=True and the following <code>user_nl_cam</code>:</p>
+<pre><code>apply_lunar_tides = .true.
+cam_snapshot_before_num=6
+cam_snapshot_after_num=7
+cam_take_snapshot_before='user_set'
+cam_take_snapshot_after='user_set'
+nhtfrq = 0,0,0,0,0,1,1
+ndens = 2,2,2,2,2,1,1
+</code></pre>
+<p>and runs the model for 7 timesteps. He saves the snapshot files in <code>/glade/campaign/cesm/community/amwg/sima_baselines/cam_sima_test_snapshots</code> with the names <code>cam_ne3pg3_lunar_tides_snapshot_derecho_gnu_before_c20240801.nc</code> and <code>cam_ne3pg3_lunar_tides_snapshot_derecho_gnu_after_c20240801.nc</code></p>
+<h2 id="3-create-metadata-file">3 - Create metadata file</h2>
+<p>To generate his metadata file, Bug runs:</p>
+<pre><code>python ../../../../ccpp_framework/scripts/ccpp_fortran_to_metadata.py lunar_tides.F90
+</code></pre>
+<p>He then populates the generated metadata template (<code>lunar_tides.meta</code>) with the standard names, dimensions, and units. He ends up with:</p>
+<pre><code>[ccpp-table-properties]
+  name = lunar_tides
+  type = scheme
+
+[ccpp-arg-table]
+  name  = lunar_tides_init
+  type  = scheme
+[ calendar ]
+  standard_name = enter_standard_name_1
+  units = none
+  type = character | kind = len=32
+  dimensions = ()
+  intent = in
+[ apply_lunar_tides_in ]
+  standard_name = do_apply_lunar_tides
+  units = none
+  type = logical
+  dimensions = ()
+  intent = in
+[ errmsg ]
+  standard_name = ccpp_error_message
+  units = none
+  type = character | kind = len=512
+  dimensions = ()
+  intent = out
+[ errflg ]
+  standard_name = ccpp_error_code
+  units = 1
+  type = integer
+  dimensions = ()
+  intent = out
+
+[ccpp-arg-table]
+  name  = lunar_tides_run
+  type  = scheme
+[ ncols ]
+  standard_name = horizontal_loop_extent
+  units = count
+  type = integer
+  dimensions = ()
+  intent = in
+[ lat ]
+  standard_name = latitude
+  units = degree_north
+  type = real | kind = kind_phys
+  dimensions = (horizontal_loop_extent)
+  intent = in
+[ lon ]
+  standard_name = longitude
+  units = degree_east
+  type = real | kind = kind_phys
+  dimensions = (horizontal_loop_extent)
+  intent = in
+[ zm ]
+  standard_name = geopotential_height_wrt_surface
+  units = m
+  type = real | kind = kind_phys
+  dimensions = (horizontal_loop_extent, vertical_layer_dimension)
+  intent = in
+[ dudt ]
+  standard_name = tendency_of_eastward_wind
+  units = m s-2
+  type = real | kind = kind_phys
+  dimensions = (horizontal_loop_extent, vertical_layer_dimension)
+  intent = out
+[ dvdt ]
+  standard_name = tendency_of_northward_wind
+  units = m s-2
+  type = real | kind = kind_phys
+  dimensions = (horizontal_loop_extent, vertical_layer_dimension)
+  intent = out
+[ curr_date_yr ]
+  standard_name = enter_standard_name_9
+  units = count
+  type = integer
+  dimensions = ()
+  intent = in
+[ curr_date_mm ]
+  standard_name = enter_standard_name_10
+  units = count
+  type = integer
+  dimensions = ()
+  intent = in
+[ curr_date_dd ]
+  standard_name = enter_standard_name_11
+  units = count
+  type = integer
+  dimensions = ()
+  intent = in
+[ curr_date_tod ]
+  standard_name = enter_standard_name_12
+  units = count
+  type = integer
+  dimensions = ()
+  intent = in
+[ julday ]
+  standard_name = enter_standard_name_13
+  units = none
+  type = real | kind = kind_phys
+  dimensions = ()
+  intent = in
+[ pi ]
+  standard_iname = pi_constant
+  units = 1
+  type = real | kind = kind_phys
+  dimensions = ()
+  intent = in
+[ rearth ]
+  standard_name = radius_of_earth
+  units = m
+  type = real | kind = kind_phys
+  dimensions = ()
+  intent = in
+[ pver ]
+  standard_name = vertical_layer_dimension
+  units = count
+  type = integer
+  dimensions = ()
+  intent = in
+[ errmsg ]
+  standard_name = ccpp_error_message
+  units = none
+  type = character | kind = len=512
+  dimensions = ()
+  intent = out
+[ errflg ]
+  standard_name = ccpp_error_code
+  units = 1
+  type = integer
+  dimensions = ()
+  intent = out
+</code></pre>
+<p>Bug will revisit the missing standard names when he hears back from the other CAM SEs/scientists about what the names should be.</p>
+<h2 id="4-create-namelist-xml-file">4 - Create namelist XML file</h2>
+<p>Bug creates the following namelist xml file (called <code>lunar_tides_namelist.xml</code>) in the <code>ncar_ccpp/schemes/lunar_tides</code> directory. It contains one entry - for <code>apply_lunar_tides</code></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+
+&lt;?xml-stylesheet type=&quot;text/xsl&quot;?&gt;
+
+&lt;entry_id_pg version=&quot;2.0&quot;&gt;
+  &lt;entry id=&quot;apply_lunar_tides&quot;&gt;
+    &lt;type&gt;logical&lt;/type&gt;
+    &lt;category&gt;waccm_phys&lt;/category&gt;
+    &lt;group&gt;lunar_tides_opts&lt;/group&gt;
+    &lt;standard_name&gt;control_for_lunar_tides&lt;/standard_name&gt;
+    &lt;units&gt;none&lt;/units&gt;
+    &lt;valid_values&gt;&lt;/valid_values&gt;
+    &lt;desc&gt;
+      Switch to apply lunar tidal tendencies to neutral winds. Default: FALSE
+    &lt;/desc&gt;
+    &lt;values&gt;
+      &lt;value&gt;.false.&lt;/value&gt;
+    &lt;/values&gt;
+  &lt;/entry&gt;
+&lt;/entry_id_pg&gt;
+
+</code></pre>
+<p>He then removes <code>lunar_tides_readnl</code> from <code>lunar_tides.F90</code>. This routine and it's metadata will be auto-generated by CAM-SIMA.</p>
+<h2 id="5-interstitials">5 - Interstitials</h2>
+<p>Bug determines that he does not need any interstitials. The only candidates were calculations of the current time and julian year, but, after consulting with other CAM SEs, it was determined that CAM-SIMA will be updated to provide these values.</p>
+<h2 id="6-create-an-sdf">6 - Create an SDF</h2>
+<p>Bug creates the following Suite Definition File (including state updaters):</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;suite name=&quot;lunar_tides&quot; version=&quot;1.0&quot;&gt;
+   &lt;group name=&quot;physics_after_coupler&quot;&gt;
+       &lt;scheme&gt;lunar_tides&lt;/scheme&gt;
+       &lt;scheme&gt;apply_tendency_of_eastward_wind&lt;/scheme&gt;
+       &lt;scheme&gt;apply_tendency_of_northward_wind&lt;/scheme&gt;
+   &lt;/group&gt;
+&lt;/suite&gt;
+</code></pre>
+<h2 id="7-check-metadata">7 - Check metadata</h2>
+<p>Once he hears back about the missing standard names and populates them in the metadata, Bug creates a new case and runs <code>./preview_namelists</code>.</p>
+<p>He runs into the following error:</p>
+<pre><code>Input argument for lunar_tides_init, calendar_type, not found.
+</code></pre>
+<p>This is one of the new standard names, but it isn't something read in from a file. He'll need to add it to the registry and then initialize the variable within CAM-SIMA.
+He adds this entry to the registry (<code>src/data/registry.xml</code>):</p>
+<pre><code>&lt;variable local_name=&quot;calendar_type&quot;
+          standard_name=&quot;calendar_type&quot;
+          units=&quot;none&quot; type=&quot;character&quot; kind=&quot;len=32&quot;&gt;
+  &lt;long_name&gt;calendar type&lt;/long_name&gt;
+&lt;/variable&gt;
+</code></pre>
+<p>Then, in <code>cam_comp.F90</code>, he adds these use statements to the top of the module:</p>
+<pre><code>use time_manager, only: timemgr_get_calendar_cf
+use physics_types, only: calendar_type
+use phys_vars_init_check, only: mark_as_initialized
+</code></pre>
+<p>Then adds these calls after the call to <code>timemgr_init</code>:</p>
+<pre><code>calendar_type = timemgr_get_calendar_cf()
+call mark_as_initialized('calendar_type')
+</code></pre>
+<p>Bug then works through any remaining errors until the <code>preview_namelists</code> command completes.</p>
+<h2 id="8-run-cam-sima">8 - Run CAM-SIMA</h2>
+<p>Bug builds and runs the model with <code>user_nl_cam</code> pointing to the before/after snapshots.</p>
+<pre><code>ncdata = '/glade/campaign/cesm/community/amwg/sima_baselines/cam_sima_test_snapshots/cam_ne3pg3_lunar_tides_snapshot_derecho_gnu_before_c20240801.nc'
+ncdata_check = '/glade/campaign/cesm/community/amwg/sima_baselines/cam_sima_test_snapshots/cam_ne3pg3_lunar_tides_snapshot_derecho_gnu_after_c20240801.nc'
+</code></pre>
+<p>Bug gets extremely lucky (or maybe he's just really skilled) and there are no differences found in the atm.log file!</p>
+<h2 id="9-bring-back-into-cam">9 - Bring back into CAM</h2>
+<ol>
+<li>Bug moves the CCPP-ized version of lunar_tides.F90 into the CAM source tree by checking out his branch's hash of the atmospheric_physics branch (NOTE: this will need to be a tag before the PR to CAM can be brought in). </li>
+<li>He renames the old <code>src/physics/cam/lunar_tides.F90</code> file to <code>src/physics/cam/lunar_tides_cam.F90</code><ul>
+<li>He removes everything from <code>lunar_tides_cam.F90</code> except <code>lunar_tides_readnl</code></li>
+</ul>
+</li>
+<li>Bug updates the <code>lunar_tides_init</code> and <code>lunar_tides_tend</code> subroutine calls in <code>physpkg.F90</code> to reflect the new CCPP-ized versions (full calling list, changing <code>lunar_tides_tend</code> to <code>lunar_tides_run</code>)</li>
+<li>Bug updates <code>configure</code>, and runs CAM. He confirms that it runs and answers haven't changed.</li>
+</ol>
+<p>Bug commits his changes to his fork/branch of the three repos: CAM, CAM-SIMA, atmospheric_physics.</p>
+<h2 id="10-final-steps">10 - Final steps</h2>
+<ul>
+<li>He opens a PR into atmospheric_physics (target: <code>development</code> branch), goes through the review process, updates the NamesNotInDictionary.txt file, and then commits the PR when approvals are received. He then opens a PR from <code>development</code> to <code>main</code> and makes a tag (incrementing the minor version) when that is merged.</li>
+<li>Once he has a tag, he opens PRs into CAM (target: <code>cam_development</code> branch) and CAM-SIMA (target: <code>development</code> branch) with the updated tag in <code>.gitmodules</code> (and code changes needed, including adding a new snapshot regression test in CAM-SIMA). When approvals are in and he gets the go-ahead to make a tag, he follows the procedures to make a CAM or CAM-SIMA tag.</li>
+<li>Once all tags are made, he checks off "lunar tides" as completed in the <a href="https://docs.google.com/spreadsheets/d/1_1TTpnejam5jfrDqAORCCZtfkNhMRcu7cul37YTr_WM/edit#gid=0">spreadsheet</a>.</li>
+</ul>
+<p>A single tear of joy navigates its way down Bug's weathered face. He has prevailed. He solemnly closes his computer and walks off, disappearing into the horizon.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

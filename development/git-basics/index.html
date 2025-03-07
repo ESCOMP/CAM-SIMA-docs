@@ -1,0 +1,2108 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../debugging/">
+      
+      
+        <link rel="next" href="../git-faq/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+    
+    
+      
+        <title>Working with git and GitHub - CAM-SIMA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 8H6l6-6 6 6h-4v8h4l-6 6-6-6h4z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#working-with-git-and-github" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="CAM-SIMA" class="md-header__button md-logo" aria-label="CAM-SIMA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CAM-SIMA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Working with git and GitHub
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CAM-SIMA" class="md-nav__button md-logo" aria-label="CAM-SIMA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CAM-SIMA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Conversion
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Conversion
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/conversion-background/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    0 - Background &amp; Prep work
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/convert-portable-layer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    1 - Convert the "portable" layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2 - Create metadata
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-namelist-xml/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3 - Create namelist XML file
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/interstitials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    4 - Interstitials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-sdf/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    5 - Create an SDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/create-snapshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    6 - Create snapshots of CAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/check-metadata/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    7 - Check metadata
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/run-cam-sima/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    8 - Run CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/back-to-cam/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    9 - Bring back into CAM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/final-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10 - Final steps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conversion/walkthrough/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Walkthrough Example
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Design
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/cam-build-process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/cam-run-process/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Run process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/ccpp-in-cam-sima/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CCPP in CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/constituents/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constituents
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/directory-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CAM-SIMA directory structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History &amp; model output
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/sima-design-goals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Design goals &amp; features
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cam-sima-workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development workflow for CAM-SIMA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cam-coding-standards/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coding standards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cam-testing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging techniques
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Working with git and GitHub
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Working with git and GitHub
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting started with git
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-set-up-your-git-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to set up your git development environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to set up your git development environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-time-github-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      One time GitHub setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-git-environment-on-new-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up git environment on new machine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set up git environment on new machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-git-global-configuration-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required git global configuration settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-git-global-configuration-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended git global configuration settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-git-on-shared-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring git on shared machines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-tools-for-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      git tools for Bash
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-your-login-to-a-github-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating your login to a GitHub token
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-clones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with clones
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with clones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new clone
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-out-a-tag-or-switching-to-a-new-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking out a tag or switching to a new tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with branches
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-remotes-upstream-repository-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with remotes (upstream repository locations)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with remotes (upstream repository locations)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-remote-new-upstream-repository-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding remote (new upstream repository locations)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-your-branch-to-latest-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating your branch to latest development
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tagging-a-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tagging a commit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tagging a commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tag-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-new-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a new tag
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-differences-using-git-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing differences using git diff
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparing differences using git diff">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-and-using-a-graphical-difference-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring and using a graphical difference tool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-diffmerge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using diffmerge
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git &amp; GitHub FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-fleximod/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git-fleximod
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool-recommendations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tool recommendations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Usage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/creating-a-case/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Creating, configuring, and running a case
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/history/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History &amp; model output
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Atmospheric_physics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Atmospheric_physics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/directory-structure/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    atmospheric_physics directory structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/development_workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Development workflow for atmospheric_physics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../atmospheric_physics/Tagging-Instructions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to properly tag an atmospheric_physics commit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-git" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting started with git
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-set-up-your-git-development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to set up your git development environment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to set up your git development environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#one-time-github-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      One time GitHub setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-git-environment-on-new-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set up git environment on new machine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set up git environment on new machine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-git-global-configuration-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required git global configuration settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recommended-git-global-configuration-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended git global configuration settings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-git-on-shared-machines" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring git on shared machines
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-tools-for-bash" class="md-nav__link">
+    <span class="md-ellipsis">
+      git tools for Bash
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-your-login-to-a-github-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating your login to a GitHub token
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-clones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with clones
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with clones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new clone
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-out-a-tag-or-switching-to-a-new-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Checking out a tag or switching to a new tag
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with branches
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-remotes-upstream-repository-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with remotes (upstream repository locations)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with remotes (upstream repository locations)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-remote-new-upstream-repository-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding remote (new upstream repository locations)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updating-your-branch-to-latest-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating your branch to latest development
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tagging-a-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tagging a commit
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tagging a commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tag-syntax" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tag syntax
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-new-tag" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a new tag
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparing-differences-using-git-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparing differences using git diff
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Comparing differences using git diff">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuring-and-using-a-graphical-difference-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuring and using a graphical difference tool
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-diffmerge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using diffmerge
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="working-with-git-and-github">Working with git and GitHub</h1>
+<h2 id="getting-started-with-git">Getting started with git</h2>
+<ul>
+<li>For a quick, visual introduction to git, try a <a href="https://www.youtube.com/watch?v=xvwBtODV0ms">5 Minute Overview of Git</a> on Youtube</li>
+<li>Need an introduction to version control along with git and GitHub? Try <a href="https://www.youtube.com/watch?v=BCQHnlnPusY">Git and GitHub for Poets</a>, a Youtube series</li>
+<li>For a glossary of common terms used in git and GitHub documentation, see the <a href="https://docs.github.com/en/get-started/learning-about-github/github-glossary">GitHub glossary</a>.</li>
+<li><a href="https://docs.github.com/en/get-started/using-git/about-git">GitHub's Git Handbook</a> offers a brief overview of git and GitHub, including example workflows and links to more in-depth resources.</li>
+<li>Software Carpentry offers a <a href="https://swcarpentry.github.io/git-novice/">hands-on introduction to git</a>.</li>
+<li>A highly-regarded, comprehensive git reference is the book Pro Git (available as a <a href="https://www.boulderbookstore.net/book/9781484200773">book</a> or a <a href="https://git-scm.com/book/en/v2">free pdf</a>).<ul>
+<li>The first three chapters of Pro Git, along with sections 6.1 and 6.2 on GitHub, are particularly useful if you're getting started with git. [1]</li>
+<li>The site also contains <a href="https://git-scm.com/doc">links</a> to git reference pages along with introductory videos on git.</li>
+<li>You can skip the last section of chapter 3, on rebasing, until you have more experience with git. It's easy to cause problems for yourself or others with rebasing so only use rebasing in CAM-SIMA following the workflow instructions below as rebasing rewrites history, which can make it impossible to reproduce exactly what you have done before.</li>
+</ul>
+</li>
+<li>For a clear introduction to git internals, try <a href="https://www.youtube.com/watch?v=Y2Msq90ZknI">Dissecting Git Guts</a> by Emily Xie.</li>
+<li><a href="https://maryrosecook.com/blog/post/git-from-the-inside-out">Git from the inside out</a> is a blog post with accommpaning video from Mary Rose Cook that looks under the covers a bit to show what happens when you execute git commands.</li>
+<li><a href="https://jwiegley.github.io/git-from-the-bottom-up/">Git from the Bottom Up</a> by Josh Wiegley provides a quick glossary of the main terms describing a git repository with links to detailed descriptions. Good site for reminders about a git concept.</li>
+<li>Need to really understand the science behind how git works? Try <a href="https://www.youtube.com/watch?v=ig5E8CcdM9g">Advanced Git: Graphs, Hashes, and Compression, Oh My!</a> by Matthew McCullough</li>
+</ul>
+<p>Git also offers extensive built-in (i.e., command line) help, although it can be hard to understand until you are familiar with basic git concepts:</p>
+<p><code>git help</code></p>
+<p><code>git help COMMAND</code></p>
+<p><a href="https://mirrors.edge.kernel.org/pub/software/scm/git/docs/gittutorial.html">man gittutorial</a></p>
+<p><a href="https://mirrors.edge.kernel.org/pub/software/scm/git/docs/giteveryday.html">man giteveryday</a></p>
+<h2 id="how-to-set-up-your-git-development-environment">How to set up your git development environment</h2>
+<p>There are several stages in setting up your git and GitHub development environment. Below, they are broken into three sections which represent the different stages:</p>
+<ul>
+<li><a href="#one-time-github-setup">One time GitHub setup</a></li>
+<li><a href="#set-up-git-environment-on-new-machine">Set up git environment on new machine</a></li>
+<li><a href="#working-with-clones">Working with clones</a></li>
+</ul>
+<h3 id="one-time-github-setup">One time GitHub setup</h3>
+<ol>
+<li>Set-up personal github account (if one does not already exist): <a href="https://github.com">https://github.com</a></li>
+<li>
+<p>Create a new personal CAM-SIMA fork of the <a href="https://github.com/ESCOMP/CAM-SIMA">ESCOMP/CAM-SIMA</a> repo:</p>
+<p><img alt="text" src="../figures/fork_button.png" title="Fork the repository" /></p>
+</li>
+<li>
+<p>Set up SSH keys on GitHub (optional):</p>
+<p>If you will be pushing changes to GitHub (either to your own fork or to shared forks), or if you will be pulling changes from private repositories on GitHub, then it's worth the time to set up ssh keys for each machine you'll be using. By doing so, you won't have to enter your password when pushing to or pulling from GitHub.</p>
+<p>See <a href="https://help.github.com/articles/connecting-to-github-with-ssh">here</a> for instructions. After doing this, you can use the ssh form of GitHub URLs (e.g., <code>git@github.com:ESCOMP/cam-sima.git</code>) in place of the <code>https</code> form.</p>
+</li>
+<li>
+<p>Configure GitHub notifications (optional): It is important to keep track of activity on GitHub but there are ways to manage how you are notified.</p>
+<ul>
+<li><strong>Controlling how you receive notifications</strong>: Click on your profile picture in the upper-right of any GitHub page, then click on "Settings", and then on "Notifications". You will see several options, here are a few recommended settings:<ul>
+<li><em>Automatically watch repositories</em>: <strong>Yes</strong> (check box)</li>
+<li><em>Participating</em>: <strong>Email</strong></li>
+<li><em>Watching</em>: <strong>Web</strong></li>
+</ul>
+</li>
+<li><strong>To see and manage Web notifications</strong>: Click on the bell in the upper right of any GitHub page to see Web notifications and to manage which repositories you are watching. There will be a blue dot on the bell if there are new (unread) notifications).</li>
+</ul>
+</li>
+</ol>
+<h3 id="set-up-git-environment-on-new-machine">Set up git environment on new machine</h3>
+<p>git has global settings which apply to all repository clones on your machine. These settings reside in a file called <code>.gitconfig</code> in your home directory. Below are some required and some optional but recommended global git settings to apply to any new machine where you will do CAM-SIMA development (e.g., Derecho, Izumi, personal laptop). Apply the settings below or simply copy a <code>.gitconfig</code> file from a machine that is already configured.</p>
+<h4 id="required-git-global-configuration-settings">Required git global configuration settings</h4>
+<pre><code>git config --global user.name &quot;Your Name&quot;
+git config --global user.email &lt;GitHub email address&gt;
+</code></pre>
+<p>We recommend that you use your UCAR email address as your GitHub email address but if you use another address, you can add your UCAR email address by clicking on your profile picture in the upper-right of any GitHub page, then clicking on "Settings", and then on "Emails".</p>
+<h4 id="recommended-git-global-configuration-settings">Recommended git global configuration settings</h4>
+<p>You can set which editor to use for log messages, etc., with:</p>
+<pre><code>git config --global core.editor &lt;editor of your choice: emacs, vi, vim, etc&gt;
+</code></pre>
+<p>(See <a href="http://swcarpentry.github.io/git-novice/02-setup">http://swcarpentry.github.io/git-novice/02-setup</a> for specific settings to use for many common editor choices.)</p>
+<p>The following setting generates better patches than the default:</p>
+<pre><code>git config --global diff.algorithm histogram
+</code></pre>
+<p>The following setting makes it easier to resolve conflicts if you're doing conflict resolution by hand as opposed to with a dedicated conflict resolution tool. Without this setting, you'll just see your version and the version you're merging in delimited by conflict markers. With this setting, you'll also see the common ancestor of the two sides of the merge, which can make it much easier to figure out how to resolve the conflict:</p>
+<pre><code>git config --global merge.conflictstyle diff3
+</code></pre>
+<p>Alternatively, look into using a graphical conflict-resolution tool such as kdiff3 or the Emacs built-in <code>M-x vc-resolve-coflicts</code>.</p>
+<p>We recommend that you set git to not push anything by default:</p>
+<pre><code>git config --global push.default nothing
+</code></pre>
+<p>This can help prevent you from accidentally pushing work to the wrong repository.</p>
+<h4 id="configuring-git-on-shared-machines">Configuring git on shared machines</h4>
+<p>If using git on shared resources, such as on the login nodes for CISL machines, then one may find their git commands being killed by sys admins due to git spawning too many threads and thus blocking (or at least slowing down) other users. To avoid this situation, you can limit the number of threads git spawns for various activities by setting the following git config variables:</p>
+<pre><code>git config --global --add index.threads 8
+git config --global --add grep.threads 8
+git config --global --add pack.threads 8
+</code></pre>
+<p>Please note that a limit of 8 threads was chosen specifically for CISL machines. If you are using a separate shared system you may find it beneficial to choose a different thread limit.</p>
+<h4 id="git-tools-for-bash">git tools for Bash</h4>
+<p>There are two helpful things you can do to streamline your use of git if you use the bash shell. These are completely optional, but improve your git experience. These are documented in the appendix of the excellent Pro Git book.</p>
+<h3 id="updating-your-login-to-a-github-token">Updating your login to a GitHub token</h3>
+<p>If you have been denied access to push to a GitHub repo, note that the old password system has been deprecated and no longer works. If you do not make changes, you will no longer be able to work with GitHub on personal forks and private repos.</p>
+<p>If you only ever git clone from public repositories like ESCOMP and ESMCI, you may ignore the rest of this wiki page.</p>
+<p>If you've already created and are using a GitHub token, you may ignore the rest of this wiki page.</p>
+<p>GitHub will soon be requiring that you use a GitHub generated token (basically a long password that they autogenerate for you).</p>
+<ol>
+<li>If you are on a Mac and do not need to use your password, but still receive an error message, you may have stored your password in the keychain. <a href="https://docs.github.com/en/github/getting-started-with-github/getting-started-with-git/updating-credentials-from-the-macos-keychain">Remove a password on Macs</a></li>
+<li><a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">Create a GitHub password token</a>. Make sure you copy it to a safe place as they only show it to you once.</li>
+<li>
+<p>Store your credentials on every machine you use GitHub on.</p>
+<ul>
+<li>
+<p>On a private / secure Linux system:</p>
+<p><code>git config --global credential.helper store</code></p>
+</li>
+<li>
+<p>Note that the <code>store</code> option to git's credential helper stores your GitHub token in plain text. If you are on a public machine, you should store your GitHub token in a password manager and use the credential cache mechanism to open command-line access to your GitHub repositories:</p>
+<p><code>git config --global credential.helper cache --timeout &lt;seconds&gt;</code></p>
+<p>where <code>&lt;seconds&gt;</code> is the number of seconds git 'remembers' your token. For example, to only have to enter your token once per day:</p>
+<p><code>git config --global credential.helper cache --timeout 86400</code></p>
+</li>
+<li>
+<p>On Windows:</p>
+<p><code>git config --global credential.helper wincred</code>
+    - On Macs (make sure you select the Mac tab in the middle of the window): see <a href="https://docs.github.com/en/github/getting-started-with-github/caching-your-github-credentials-in-git">this documentation</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p>On each machine, do a <code>git clone</code> of your personal repo. It will ask for your username and password. The password needs to be your saved token. You should only need to do this once.</p>
+</li>
+<li>To test that your credentials are successfully cached, do a new <code>git clone</code> of your personal repo. If it clones without asking for your username/password you are done.</li>
+</ol>
+<h2 id="working-with-clones">Working with clones</h2>
+<p>Here are some commands for creating and working with clones:</p>
+<h3 id="create-a-new-clone">Create a new clone</h3>
+<pre><code>git clone https://github.com/&lt;GitHub userid&gt;/CAM-SIMA
+cd CAM-SIMA
+</code></pre>
+<p>or</p>
+<pre><code>git clone git@github.com:&lt;GitHub userid&gt;/CAM-SIMA
+cd CAM-SIMA
+</code></pre>
+<p>where <code>&lt;GitHub userid&gt;</code> is your GitHub account login ID. Some useful options to the clone command are:</p>
+<ul>
+<li><code>--origin &lt;origin name&gt;</code>: A clone knows where it came from and by default, calls that location, "origin". You can change that name with the <code>--origin</code> option. This can come in handy when dealing with multiple upstream repositories.
+Change the clone directory name: By default, the clone is created in a directory with the same name as the repository. You can change this by adding a directory name to the clone command. Use the appropriate example below:</li>
+</ul>
+<pre><code>git clone https://github.com/&lt;GitHub userid&gt;/CAM-SIMA  &lt;clone_dir_name&gt;
+cd &lt;clone_dir_name&gt;
+</code></pre>
+<p>or</p>
+<pre><code>git clone git@github.com:&lt;GitHub userid&gt;/CAM-SIMA &lt;clone_dir_name&gt;
+cd &lt;clone_dir_name&gt;
+</code></pre>
+<h3 id="checking-out-a-tag-or-switching-to-a-new-tag">Checking out a tag or switching to a new tag</h3>
+<ul>
+<li>To check out a tag: </li>
+</ul>
+<pre><code>git checkout &lt;tag&gt;
+</code></pre>
+<p>note that <code>&lt;tag&gt;</code> can also be the name of a branch or a commit hash. If you specify the name of a branch, you will check out the head of the branch. If you name a remote branch (e.g., <code>origin/branch_name</code>), you will create a detached HEAD but you can still use the code. Please note that if you plan on changing the code, first create a branch (see <a href="#working-with-branches">Working with branches</a>)</p>
+<h3 id="working-with-branches">Working with branches</h3>
+<p>When you create a clone, your clone will contain pointers all the branches that existed at the clone's origin (e.g., the repository at GitHub). While you can check out these branches, however, before attempting to make any changes, you should first create a local version branch (so git can keep track of the local commits).</p>
+<ul>
+<li>To create a new local branch that starts at a certain point:</li>
+</ul>
+<pre><code>git branch &lt;new branch name&gt; &lt;tag or branch name&gt;
+</code></pre>
+<p>for example</p>
+<pre><code>git branch new_feature cam6_2_024
+</code></pre>
+<ul>
+<li>To check out a local branch:</li>
+</ul>
+<pre><code>git checkout &lt;new branch name&gt;
+</code></pre>
+<ul>
+<li>If you are working with a repository that uses <a href="../git-fleximod/"><code>git-fleximod</code></a> (e.g., CAM-SIMA, CESM), always run that tool after checking out a new branch or tag:</li>
+</ul>
+<pre><code>bin/git-fleximod update
+</code></pre>
+<h3 id="working-with-remotes-upstream-repository-locations">Working with remotes (upstream repository locations)</h3>
+<p>While working with clones created using the methods above will be sufficient for most if not all of your development needs, there may be times when you will want to access or compare your code with code from a different repository. git has no problem storing revisions from multiple repositories in a single clone!</p>
+<p>To begin, your clone probably has a single remote (also known as an upstream repository). To see the current status of which upstream repositories are configured for your clone, use the <code>git remote</code> command:</p>
+<pre><code>git remote
+</code></pre>
+<p>To see the location of the remote repositories in your current directory:</p>
+<pre><code>git remote -v
+</code></pre>
+<p>You should see something like:</p>
+<pre><code>origin  https://github.com/gituser/CAM-SIMA (fetch)
+origin  https://github.com/gituser/CAM-SIMA (push)
+</code></pre>
+<p>This tells you the "upstream" location from where new code is downloaded (when you run <code>git fetch origin</code>) or where code is uploaded (when you run <code>git push origin &lt;branch&gt;</code>). Note that most <code>git</code> commands are purely local, using only information in the .git directory of your clone.</p>
+<p>You can rename an existing remote:</p>
+<pre><code>git remote rename origin ESCOMP
+</code></pre>
+<p>You can set the remote name as part of a clone command (the default is 'origin'):</p>
+<pre><code>git clone -o ESCOMP https://github.com/ESCOMP/cam-sima
+</code></pre>
+<h4 id="adding-remote-new-upstream-repository-locations">Adding remote (new upstream repository locations)</h4>
+<p>To add a new upstream repository, use the <code>remote add</code> command. For example:</p>
+<pre><code>git remote add ESCOMP https://github.com/ESCOMP/CAM-SIMA
+git fetch --tags ESCOMP
+</code></pre>
+<p>You should see messages much like a new clone when you execute the <code>git fetch</code> command. Note that you can call the new remote anything, in this example we are calling it ESCOMP.</p>
+<h2 id="updating-your-branch-to-latest-development">Updating your branch to latest development</h2>
+<p>Note that while this section explains how to update your local branch to the <code>ESCOMP/CAM-SIMA/development</code> branch, the instructions can easily be generalized for any branch from any upstream remote.</p>
+<p>Before starting, you should have either:</p>
+<ul>
+<li>A fresh clone of your fork with the branch you wish to update checked out (see <a href="#create-a-new-clone">Create a new clone</a> and <a href="#working-with-branches">Working with branches</a>).</li>
+<li>An existing clone with the branch you wish to update checked out and in a clean state (i.e., make sure you do a <code>git commit</code> and that <code>git status</code> shows no modified files).</li>
+</ul>
+<p>Add the upstream remote, if you have not already done so (see <a href="#adding-remote-new-upstream-repository-locations">Adding remotes</a>).</p>
+<p>Merge the specific remote/branch into your branch. In this example, it is ESCOMP/development</p>
+<pre><code>git fetch ESCOMP
+git merge ESCOMP/development
+</code></pre>
+<h2 id="tagging-a-commit">Tagging a commit</h2>
+<p>When a PR is ready to be merged into CAM-SIMA's code base, you will need to consider whether or not a new tag is appropriate. In CAM-SIMA, the standard is whether or not the baselines have changed since the last tag. After you have run the tests (per the <a href="../cam-testing/#running-the-regression-tests-manual">regression testing workflow</a>):</p>
+<ol>
+<li>If there are no baseline differences (no tests "FAIL" or yield a "DIFF"), no tag is necessary and you can proceed to SQUASH &amp; MERGE your PR (you will also not archive the baselines)</li>
+<li>If there are baseline differences (at least one test results in a "DIFF"), you will need to follow the procedure below to create a tag <strong>after</strong> you SQUASH &amp; MERGE your PR</li>
+</ol>
+<h3 id="tag-syntax">Tag syntax</h3>
+<p>We use the following syntax for CAM-SIMA tags: <strong>simaX_YY_ZZZ</strong>, where:</p>
+<ul>
+<li>X: major version; incremented only during major releases</li>
+<li>YY: minor version; incremented any time the answers for the CAM7 physics suite change (zero-padded)</li>
+<li>ZZZ: patch version; incremented when answers or fieldlists change for non-CAM7 configurations (zero-padded)</li>
+</ul>
+<p>To see the latest tag: <a href="https://github.com/ESCOMP/CAM-SIMA/tags">https://github.com/ESCOMP/CAM-SIMA/tags</a>.</p>
+<h3 id="creating-a-new-tag">Creating a new tag</h3>
+<ol>
+<li>Clone <a href="https://github.com/ESCOMP/CAM">https://github.com/ESCOMP/CAM</a> or update an existing clone with <code>git fetch &lt;escomp_remote&gt; development</code></li>
+<li>Find the PR merge commit (<code>&lt;merge_commit&gt;</code>) for the tag<ul>
+<li>In your up-to-date CAM clone, find the merge commit with <code>git log --oneline -1 &lt;escomp_remote&gt;/development</code> where the merge commit is the first field in the output.</li>
+</ul>
+</li>
+<li>Tag the <code>&lt;merge_commit&gt;</code> with <code>git tag -a &lt;tag&gt; &lt;merge_commit&gt; -m '&lt;commit_message&gt;</code> where <code>&lt;commit_message&gt;</code> is the same as the message for the <code>&lt;merge_commit&gt;</code></li>
+<li>Push the tag to the proper remote with <code>git push &lt;escomp_remote&gt; &lt;tag&gt;</code></li>
+</ol>
+<h2 id="comparing-differences-using-git-diff">Comparing differences using git diff</h2>
+<p>If you have a git clone, you can view differences between commits or tags. As far as <code>git diff</code> is concerned, a commit hash is the same as a tag so in the examples below will use <code>&lt;tag&gt;</code>.</p>
+<ul>
+<li>To see the full difference between two tags (i.e., a changeset):</li>
+</ul>
+<pre><code>  git diff &lt;tag1&gt; &lt;tag2&gt;
+</code></pre>
+<ul>
+<li>To see the full difference between the current checkout (sandbox) and a tag:</li>
+</ul>
+<pre><code>  git diff &lt;tag&gt;
+</code></pre>
+<ul>
+<li>To see only the names of files that are different:</li>
+</ul>
+<pre><code>  git diff --name-only &lt;tag&gt; [ &lt;tag2&gt; ]
+</code></pre>
+<ul>
+<li>To see the difference in one or more specific files:</li>
+</ul>
+<pre><code>  git diff &lt;tag&gt; [ &lt;tag2&gt; ] -- &lt;path_to_file1&gt; &lt;path_to_file2&gt;
+</code></pre>
+<h3 id="configuring-and-using-a-graphical-difference-tool">Configuring and using a graphical difference tool</h3>
+<p>git has a command, <code>difftool</code>, that can run a graphical tool on each file that is different between two commits.</p>
+<ul>
+<li>To configure <code>opendiff</code> as the graphical difference tool:</li>
+</ul>
+<pre><code>  git config --global diff.tool opendiff
+</code></pre>
+<ul>
+<li>To see the available graphical difference tools:</li>
+</ul>
+<pre><code>  git difftool --tool-help
+</code></pre>
+<ul>
+<li>To run <code>difftool</code> on <code>&lt;file1&gt;</code> and <code>&lt;file2&gt;</code></li>
+</ul>
+<pre><code>  git difftool &lt;tag&gt; [ &lt;tag2&gt; ] -- &lt;path_to_file1&gt; &lt;path_to_file2&gt;
+</code></pre>
+<ul>
+<li>To optionally run <code>difftool</code> on all files in a changeset (answer 'y' or 'n' for each file):</li>
+</ul>
+<pre><code>  git difftool &lt;tag&gt; [ &lt;tag2&gt; ]
+</code></pre>
+<ul>
+<li>To run <code>difftool</code> on all files in a changeset (i.e., same as 'y' for every file):</li>
+</ul>
+<pre><code>  yes | git difftool &lt;tag&gt; [ &lt;tag2&gt; ]
+</code></pre>
+<h3 id="using-diffmerge">Using <code>diffmerge</code></h3>
+<p>This section contains the complete modifications needed for using the graphical tool diffmerge for "git difftool" and "git mergetool"</p>
+<p>There is a tool called <code>diffmerge</code> which enables both side-by-side comparison of edited files in git as well as providing a three way-pane for editing merge conflicts. This tool is available for download at: <a href="https://sourcegear.com/diffmerge/">https://sourcegear.com/diffmerge/</a>. It has been installed on izumi and derecho by the system administrators in public areas, so you don't need to download it for those machines.</p>
+<p>To use the differencing tool type: <code>git difftool</code></p>
+<p>If after a <code>git merge</code> the git command says there are conflicts, then you may type <code>git mergetool</code> to allow you to resolve the conflicts and complete the merge. The mergetool with diffmerge properly installed will display three panes. From left to right these panes are: </p>
+<pre><code>Code being merged in          Merged code               Your code
+</code></pre>
+<p>The panes are opened in a visual editor, and any changes you make in the middle pane, may be saved by selecting the save icon at the top of the screen and then exiting the window. This will finalize the merge for that particular file.</p>
+<p>For a presentation which can be used as a tutorial, you may refer to: <a href="https://docs.google.com/presentation/d/1BqrbnpZjjaODVjAtLUCfj-OeBC_4jTPa/edit#slide=id.g2c48a8cae8d_0_75">Presentation on diffmerge tool for git</a></p>
+<p>The following modifications may be copy/pasted into the user's <code>.gitconfig</code> file which resides in the home directory. Since the potential for making an editing mistake is possible, it is recommended that a copy be made of the <code>.gitconfig</code> file prior to these edits in case an error is discovered.</p>
+<p>If you have problems, check out the tips at the bottom of this page</p>
+<pre><code>[diff]
+        tool = diffmerge
+        algorithm = histogram
+[difftooldiffmerge]
+        cmd = diffmerge \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot;
+[difftool &quot;diffmerge&quot;]
+        cmd = diffmerge \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot;
+[difftool]
+        prompt = false
+[push]
+        default = simple
+[merge]
+        tool = diffmerge
+        ff = false
+[mergetool &quot;diffmerge&quot;]
+        cmd = diffmerge --merge --result=$MERGED $REMOTE $BASE $LOCAL
+[mergetool]
+        keepBackup = false
+</code></pre>
+<p><strong>Useful tips</strong></p>
+<ul>
+<li>On derecho, if you get an error message about diffmerge not being loaded, make sure you are using <code>ncarenv/23.09</code> or newer (to check say "module list")</li>
+<li>If you do not get a response when clicking on the "git mergetool" window, make sure you find the "conflict" popup and hit "exit" on it</li>
+<li>If your git mergetool gives blank windows and says: "Files are identical or equivalent under the current RuleSet", hit OK and then go to the File dropdown menu and select "Reload". This filled in the blank windows for the user with this error. <ul>
+<li><strong>CAUTION</strong>: Check your file carefully if you do this, as a second user who did this discovered that all of the changes which were automatically merged did not reside in the final saved version.</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
