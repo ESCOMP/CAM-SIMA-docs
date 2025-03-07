@@ -174,7 +174,7 @@ cd <clone_dir_name>
 git checkout <tag>
 ```
 
-note that `<tag>` can also be the name of a branch or a commit hash. If you specify the name of a branch, you will check out the head of the branch. If you name a remote branch (e.g., `origin/branch_name`), you will create a detached HEAD but you can still use the code. Please note that if you plan on changing the code, first create a branch (see [Working with branches](#working-with-branches)
+note that `<tag>` can also be the name of a branch or a commit hash. If you specify the name of a branch, you will check out the head of the branch. If you name a remote branch (e.g., `origin/branch_name`), you will create a detached HEAD but you can still use the code. Please note that if you plan on changing the code, first create a branch (see [Working with branches](#working-with-branches))
 
 ### Working with branches
 When you create a clone, your clone will contain pointers all the branches that existed at the clone's origin (e.g., the repository at GitHub). While you can check out these branches, however, before attempting to make any changes, you should first create a local version branch (so git can keep track of the local commits).
@@ -241,7 +241,7 @@ Note that while this section explains how to update your local branch to the `ES
 
 Before starting, you should have either:
 
-- A fresh clone of your fork with the branch you wish to update checked out (see [Create a new clone](#create-a-new-clone) and [Working with branches](#working-with-branches).
+- A fresh clone of your fork with the branch you wish to update checked out (see [Create a new clone](#create-a-new-clone) and [Working with branches](#working-with-branches)).
 - An existing clone with the branch you wish to update checked out and in a clean state (i.e., make sure you do a `git commit` and that `git status` shows no modified files).
 
 Add the upstream remote, if you have not already done so (see [Adding remotes](#adding-remote-new-upstream-repository-locations)).
@@ -251,6 +251,30 @@ Merge the specific remote/branch into your branch. In this example, it is ESCOMP
 git fetch ESCOMP
 git merge ESCOMP/development
 ```
+
+## Tagging a commit
+When a PR is ready to be merged into CAM-SIMA's code base, you will need to consider whether or not a new tag is appropriate. In CAM-SIMA, the standard is whether or not the baselines have changed since the last tag. After you have run the tests (per the [regression testing workflow](cam-testing.md/#running-the-regression-tests-manual)):
+
+1. If there are no baseline differences (no tests "FAIL" or yield a "DIFF"), no tag is necessary and you can proceed to SQUASH & MERGE your PR (you will also not archive the baselines)
+1. If there are baseline differences (at least one test results in a "DIFF"), you will need to follow the procedure below to create a tag **after** you SQUASH & MERGE your PR
+
+### Tag syntax
+
+We use the following syntax for CAM-SIMA tags: **simaX_YY_ZZZ**, where:
+
+- X: major version; incremented only during major releases
+- YY: minor version; incremented any time the answers for the CAM7 physics suite change (zero-padded)
+- ZZZ: patch version; incremented when answers or fieldlists change for non-CAM7 configurations (zero-padded)
+
+To see the latest tag: [https://github.com/ESCOMP/CAM-SIMA/tags](https://github.com/ESCOMP/CAM-SIMA/tags).
+
+### Creating a new tag
+
+1. Clone [https://github.com/ESCOMP/CAM](https://github.com/ESCOMP/CAM) or update an existing clone with `git fetch <escomp_remote> development`
+1. Find the PR merge commit (`<merge_commit>`) for the tag
+    - In your up-to-date CAM clone, find the merge commit with `git log --oneline -1 <escomp_remote>/development` where the merge commit is the first field in the output.
+1. Tag the `<merge_commit>` with `git tag -a <tag> <merge_commit> -m '<commit_message>` where `<commit_message>` is the same as the message for the `<merge_commit>`
+1. Push the tag to the proper remote with `git push <escomp_remote> <tag>`
 
 ## Comparing differences using git diff
 If you have a git clone, you can view differences between commits or tags. As far as `git diff` is concerned, a commit hash is the same as a tag so in the examples below will use `<tag>`.

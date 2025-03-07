@@ -2,6 +2,60 @@
 
 This page lists out the directory structure for CAM-SIMA, and what the general purpose of each directory and subdirectory is.
 
+## Overview
+Linked directories represent externals submodules (except .lib/git-fleximod, which is not a submodule but instead code copied from the external repository)
+<small><pre>
+CAM-SIMA
+|-- .github
+|-- [.lib/git-fleximod](https://github.com/ESMCI/git-fleximod)
+|-- bin
+|-- [ccpp_framework](https://github.com/NCAR/ccpp-framework)
+|-- [ccs_config](https://github.com/ESMCI/ccs_config_cesm)
+|-- [cime](https://github.com/ESMCI/cime)
+|-- cime_config
+|-- components
+|   |-- [cdeps](https://github.com/ESCOMP/CDEPS)
+|   |-- [cice](https://github.com/ESCOMP/CESM_CICE)
+|   |-- [cism](https://github.com/ESCOMP/CISM-wrapper)
+|   |-- [clm](https://github.com/ESCOMP/CTSM)
+|   |-- [cmeps](https://github.com/ESCOMP/CMEPS)
+|   |-- [mizuRoute](https://github.com/ESCOMP/mizuRoute)
+|   |-- [mosart](https://github.com/ESCOMP/MOSART)
+|   |-- [rtm](https://github.com/ESCOMP/RTM)
+|-- docker
+|-- libraries
+|   |-- [FMS](https://github.com/ESCOMP/FMS_interface)
+|   |-- [parallelio](https://github.com/NCAR/ParallelIO)
+|-- [share](https://github.com/ESCOMP/CESM_share)
+|-- src
+|   |-- control
+|   |-- core_utils
+|   |-- cpl
+|   |   |-- nuopc
+|   |-- data
+|   |-- dynamics
+|   |   |-- mpas
+|   |   |   |-- assets
+|   |   |   |-- driver
+|   |   |   |-- [dycore](https://github.com/MPAS-Dev/MPAS-Model)
+|   |   |-- none
+|   |   |-- se
+|   |   |   |-- dycore
+|   |   |-- tests
+|   |   |   |-- initial_conditions
+|   |   |-- utils
+|   |-- history
+|   |-- physics
+|   |   |-- [ncar_ccpp](https://github.com/ESCOMP/atmospheric_physics)
+|   |   |-- utils
+|   |-- utils
+|-- test
+|   |-- system
+|   |-- unit
+|   |   |-- sample_files
+|-- tools
+</pre></small>
+
 ## Top-level external directories
 
 These directories contain external repository source code, libraries, or tools, and usually are only present after `bin/git-fleximod update` has been run.
@@ -111,6 +165,8 @@ Contains all of the dynamical core (dycore) source code.
 **Subdirectories**:
 
 - mpas/ - Contains all of the source code needed for SIMA to properly couple to the [Model for Prediction Across Scales (MPAS) dynamical core](https://github.com/MPAS-Dev/MPAS-Model).
+    - assests/ - Contains helper scripts, makefiles, and other files that are needed or useful but don't have scientific model source code.
+    - driver/ - Contains the MPAS <-> SIMA interface source code.
     - dycore/ (external) - External submodule that contains the MPAS dycore code.
 - none/ - Contains the "null" dycore source code, which allows physics and chemistry routines to be forced with atmospheric data coming directly from input files as opposed to dycore calculations.
 - se/ - Contains all of the source code needed for SIMA to properly couple to the [Spectral Element dynamical core](https://ncar.github.io/CAM/doc/build/html/cam5_scientific_guide/dynamics.html#spectral-element-dynamical-core).

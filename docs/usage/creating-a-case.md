@@ -76,6 +76,7 @@ Many configurable settings can be found within the env_*.xml files in your case 
 - `CAM_CONFIG_OPTS`: This is where we tell CAM-SIMA what physics scheme(s) we wish to run, as well as if we wish to run the `null` dycore.
     - FKESSLER will default to `--physics-suites kessler --analytic_ic`, which means we're running the `suite_kessler.xml` SDF with the SE dycore (with analytic initial conditions - no need to supply an ncdata initial conditions file)
     - If you instead want to run a test with the null dycore, you'll want to change this with `./xmlchange CAM_CONFIG_OPTS = "--physics-suites kessler --dyn none"`
+    - A list of all possible configuration options can be found at the bottom of this page, or [here](#current-cam_config_opts-options-in-cam-sima)
 - `CAM_LINKED_LIBS`: Hopefully, you won't have to change this often; however, if you are getting linking errors during your build, try turning off the linked libraries (`./xmlchange CAM_LINKED_LIBS=''`)
 - `DOUT_S`: This is the flag to archive log files of successful runs. During development, we advise turning this off so your log files don't disappear on you (`./xmlchange DOUT_S=False`)
 - `STOP_OPTION` & `STOP_N`: How long you are going to run the model. If `STOP_N` is 8 and `STOP_OPTION` is "ndays", you are setting the model up to run for 8 days.
@@ -110,3 +111,30 @@ The job will be submitted to the system's queue. You can see the status of your 
 
 [Debugging tips](../development/debugging.md#run-time-errors)
 
+## Current CAM_CONFIG_OPTS options in CAM-SIMA
+
+The following is a list of all the allowed options that can be included in `CAM_CONFIG_OPTS`, what each option does, whether or not they are required (and if not what the default value is), and what config variable it maps to in the `ConfigCAM` code.
+
+- **physics-suites** (required)
+    - usage example: `--physics-suites cam7`
+    - purpose:  Specifies what CCPP physics suite(s) will be built and made available for the given case.  More than one suite can be specified using a semi-colon, e.g. `cam4;cam7`.
+    - ConfigCAM variable:  `physics_suites`
+- **dyn** (required)
+    - usage example: `--dyn mpas`
+    - purpose:  Specifies what dynamical core will be built and made available for the given case.
+    - ConfigCAM variable: `dyn`
+- **analytic-ic** (optional)
+    - useage example: `--analytic-ic`
+    - purpose: Specifies whether Analytic Initial Conditions (IC) will be used for the given case.
+    - default value:  `False` (file-provided ICs will be used instead)
+    - ConfigCAM variable: `analytic_ic`
+- **dyn-kind** (optional)
+    - useage example: `--dyn-kind REAL64`
+    - purpose: Specifies the precision used by the dycore for real-type variables.  Currently the only two options are `REAL64` for double precision and `REAL32` for single precision.
+    - default value:  `REAL64`
+    - ConfigCAM variable: `dyn_kind`
+- **phys-kind**
+    - useage example: `--phys-kind REAL64`
+    - purpose: Specifies the precision used by the physics for real-type variables.  Currently the only two options are `REAL64` for double precision and `REAL32` for single precision.
+    - default value: `REAL64`
+    - ConfigCAM variable: `phys_kind`

@@ -4,7 +4,7 @@ This page lists instructions for how to create a new atmospheric_physics tag.  A
 
 1.  Tags should always be annotated (no lightweight tags).
 2.  Tags should follow the naming convention listed [below](#tag-naming-conventions).
-3.  Tags should point to merge commits into the main branch.
+3.  All merge commits into the main branch should be tagged.
 4.  Tags can only be created by people who have write access.
 
 ## How to create a git tag via the command line

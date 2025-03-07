@@ -66,9 +66,9 @@ See below for error variable metadata
   dimensions = ()
   intent = out
 [ errflg ]
-  standard_name = ccpp_error_flag
+  standard_name = ccpp_error_code
   long_name = Error flag for error handling in CCPP
-  units = flag
+  units = 1
   type = integer
   dimensions = ()
   intent = out

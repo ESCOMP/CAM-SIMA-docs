@@ -98,12 +98,16 @@ During **init** time, fields can be added to the possible field list with a call
 |:---------------------|-----------|-----------|------------------------------------------------|
 | diagnostic_name      | No        | string    | diagnostic name for the field - will be the name in netcdf output file |
 | description          | No        | string    | Description of the variable                    |
-| vdim_name            | No        | string    | vertical dimension: 'horiz_only' for no vertical dimension; 'lev' for vertical_layer_dimension; 'ilev' for vertical_interface_dimension |
-| avgflag              | No        | string    | default average flag; options: 'avg', 'lst' (instantaneous), 'min', 'max', 'var' (standard deviation) |
+| vdim_name            | No        | string    | vertical dimension: `horiz_only` for no vertical dimension (see note below this table); 'lev' for vertical_layer_dimension; 'ilev' for vertical_interface_dimension|
+| avgflag              | No        | string    | default average flag; options: 'avg', 'inst', 'min', 'max', 'var' (standard deviation) |
 | units                | No        | string    | variable units                                 |
 | gridname             | Yes       | string    | gridname on which the variable's data is mapped (defaults to the physics grid) |
 | flag_xyfill          | Yes       | string    | fill value for variable values                 |
 | mixing_ratio         | Yes       | string    | constituent mixing ratio type ('wet' or 'dry'); not set to anything if not passed in |
+
+!!!Note "horiz_only"
+    `horiz_only` is a variable, not a string. If you have a variable with only a horizontal dimension, include this use statement in your module: `use cam_history_support, only: horiz_only`
+
 
 Example:
 ```
@@ -167,5 +171,5 @@ ncdiff -v <field_name> -o <output_file> <file1> <file2>
 
 *`cprnc` can be found:
 
-- on derecho: `/glade/p/cesmdata/cseg/tools/cime/tools/cprnc/cprnc`
+- on derecho: `/glade/campaign/cesm/cesmdata/cprnc/cprnc`
 - on izumi: `/fs/cgd/csm/tools/cime/tools/cprnc/cprnc`

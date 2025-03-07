@@ -2,6 +2,125 @@
 
 This page describes the various automated and manual tests that are run for CAM-SIMA whenever the code is modified, as well as instructions for how to add new tests.
 
+## Regression Testing
+### Running the regression tests (manual)
+
+**NOTE:  Regression testing on derecho should be done for every PR before merging!**
+
+Users can manually run regression tests on Derecho to ensure that the model builds correctly in various configurations.  The tests can be run with a local copy of CAM-SIMA by using the `test_driver.sh` script under `$CAM-SIMA/test/system`.  To run the tests associated with a particular compiler option one can do the following commands:
+
+!!! Warning "run git-fleximod"
+    Make sure you have run `bin/git-fleximod update` before you run the tests!
+
+For running GNU tests*:
+```
+env CAM_FC=gnu ./test_driver.sh -f
+```
+
+For running Intel tests*:
+```
+env CAM_FC=intel ./test_driver.sh -f
+```
+
+*Note: you may also have to include the environment variable `CAM_ACCOUNT` on derecho, which is your account key
+
+!!! Note "test_driver.sh default"
+    By default, `test_driver.sh` will compare against the baselines in `/glade/campaign/cesm/community/amwg/sima_baselines/latest_<CAM_FC>`. If you wish to compare against different baselines, specify the path to those baselines with the environment variable `BL_TESTDIR`
+
+!!! Note "Running test_driver.sh with no baseline comparison"
+    If you do not wish to compare to baselines, don't use the `BL_TESTDIR` environment variable and use the flag `--no-bl-compare`
+
+
+Running the script will produce a directory in your scratch space labeled `aux_sima_<CAM_FC>_<timestamp>`, where `<CAM_FC>` is the compiler you chose, and `<timestamp>` is the timestamp (starting with the date) of when the tests were started, along with a job submitted to the local batch system.
+
+Inside the directory you should see an executable labeled `cs.status.*`.  Running that command after the submitted job has finished will display the test results. **Everything should be labeled `PASS`.  Any other label indicates that a test may have failed, and should be investigated.** Expected failures can be found in the `$CAM-SIMA/test/existing-test-failures.txt` file.
+
+#### Inspecting test output
+If you have an unexpected FAIL or PEND or DIFF, you will want to investigate further. Start by navigating into the test directory, for example:
+```
+cd SMS_Ln9.ne5pg3_ne5pg3_mg37.FTJ16.derecho_intel.cam-outfrq_se_cslam.GC.aux_sima_intel_20241223100339
+```
+
+If you have familiarity with CAM cases, the setup and directory structure will be familiar.
+
+- A good place to start is the `TestStatus.log` file, which will include almost all test output (including build failures and information on where to look for other failures)
+- Build logs for each component are in the `bld` directory. If you look at the filenames and one or more doesn't have the `.gz` end tag, those are likely culprits for having the error.
+- Run logs are in the `run` directory. Similar to the build logs, log files that aren't zipped up are candidates for containing errors. The `atm.log.*` and `cesm.log.*` files are likely going to contain the information about the error you're seeking.
+- Refer to the procedures for [checking metadata](../conversion/check-metadata.md) and [running CAM-SIMA](../conversion/run-cam-sima.md) for additional debugging help
+
+#### Additional test info
+The tests themselves are listed in `<CAM-SIMA>/cime_config/testdefs/testlist_cam.xml`. Any files that need to be included in order for the tests to run properly are located in `<CAM-SIMA/cime_config/testdefs/testmods_dirs/cam/outfrq_XXX`, where `XXX` is the name of the test.  Additional information on the CIME testing system, which is what this testing infrastructure is built on, can be found [online here](https://esmci.github.io/cime/versions/master/html/users_guide/testing.html). 
+
+### Archiving baselines
+**If your PR changes answers**, then after you have run the tests, merged your PR, and created a tag (see [tag workflow](git-basics.md#tagging-a-commit)), you will need to archive your baselines for the next person.
+
+To do this, navigate to `$CAM-SIMA/test/system` on derecho and run:
+
+```
+env CESM_TESTDIR=/glade/derecho/scratch/YourName/aux_sima_yyyymmddsssss CAM_FC=INTEL ./archive_baseline.sh <sima tag>
+```
+```
+env CESM_TESTDIR=/glade/derecho/scratch/YourName/aux_sima_yyyymmddsssss CAM_FC=GNU ./archive_baseline.sh <sima tag>
+```
+
+!!! Note "Baseline 'latest' symlink"
+    By default, `archive_baseline.sh` will create a symlink to the relevant `latest_<CAM_FC>` directory. If you are archiving old baselines and do not want to create the symlink, use the `--no-symlink` flag.
+
+### Adding a new regression test
+
+The test list can be found here: `$CAM-SIMA/cime_config/testdefs/testlist_cam.xml`
+
+- If you are adding a new machine, compiler or category for an existing test, add a new `<machine>` XML entry to that `<test>` entry
+- If you are adding a fully new test, add a *new* `<test>` XML entry with the following structure:
+```
+<test compset="<COMPSET_NAME>" grid="<GRID_ALIAS>" name="<TEST_TYPE>_<TEST_MOD>" testmods="<RELPATH_TO_TESTMODS_DIR>">
+  <machines>
+    <machine name="<MACH_NAME>" compiler="<COMPILER>" category="<TEST_CATEGORY>"/>
+  </machines>
+  <options>
+    <option name="comment">COMMENT HERE</option>
+    <option name="wallclock">WALLCLOCK_TIME</option>
+  </options>
+</test>
+```
+
+- `<COMPSET_NAME>`: component set alias (or long name) - you can see more about compsets [here](../usage/creating-a-case.md)
+- `<GRID_ALIAS>`: model grid/resolution you'd like to run on - you can see more about grids [here](../usage/creating-a-case.md)
+    - **Try to use the lowest/coarsest resolution that will still accomplish your testing goals**
+- `<TEST_TYPE>`: type of test to be run. You can find the testing types [here](https://esmci.github.io/cime/versions/master/html/users_guide/testing.html#testtype).
+- `<TEST_MOD>`: test modifier that changes the default behavior of the test type. More [here](https://esmci.github.io/cime/versions/master/html/users_guide/testing.html#modifiers)
+    - **Unless a longer run is necessary to exercise the code you are testing, run for 9 timesteps (_Ln9)**
+- `<RELPATH_TO_TESTMODS_DIR>`: relative path to the testmods directory for this run; usually looks something like `"cam/some_directory_name/"`
+    - The testmods directory will contain any namelist mods and XML configuration variable changes for the test (`user_nl_cam` and/or `shell_commands`)
+    - testmods directories can be found in `$CAM-SIMA/cime_config/testdefs/testmods_dirs/cam/`
+!!! Note "standard snapshot test mods"
+    All new test mod directories will likely include a mod to CAM_CONFIG_OPTS in `shell_commands` as well as the following mods to `user_nl_cam`:
+    
+      - `ncdata` (initial data file - the "before" snapshot)
+      - `ncdata_check` (check file - the "after" snapshot)
+      - `ncdata_check_err=.true.` (will cause the test to fail if the ncdata check process fails)
+      - `min_difference=<some small number>` (if your ncdata_check had roundoff errors, set this to a number slightly above your roundoff)
+      - `pver=30` (to match your snapshot file)
+      - Some relevant history fields for baseline comparisons - see [history usage](../usage/history.md)
+- `<MACH_NAME>`: machine name (options: `derecho`, `izumi`, `casper`)
+- `<COMPILER>`: compiler to be used (options: `gnu`, `nag`, `intel`, `nvhpc`)
+- `<TEST_CATEGORY>`: group of tests that this test belongs to - the default run by `test_driver.sh` is `aux_sima` (which is run for each PR to CAM-SIMA)
+- `WALLCLOCK_TIME`: maximum amount of time that the job will be allowed to run
+
+Here is an example test entry for a 2-timestep smoke test of kessler physics on a coarse MPAS grid, run with both intel and gnu 
+```
+  <test compset="FKESSLER" grid="mpasa480_mpasa480" name="SMS_Ln2" testmods="cam/outfrq_kessler_mpas_derecho_nooutput/">
+    <machines>
+      <machine name="derecho" compiler="intel" category="aux_sima"/>
+      <machine name="derecho" compiler="gnu" category="aux_sima"/>
+    </machines>
+    <options>
+      <option name="wallclock">00:10:00</option>
+      <option name="comment">GNU build test for MPAS dycore (with Kessler physics)</option>
+    </options>
+  </test>
+```
+
 ## Github continuous integration testing
 The following tests/linters are run automatically on pull requests to `develop` in github. You can see previous runs of the CI tests [here](https://github.com/ESCOMP/CAM-SIMA/actions)
 
@@ -22,9 +141,22 @@ All `doctest` tests are also run automatically as long as the scripts they are l
 
 To manually run all of the unit tests at any time, simply run the following shell script:
 
-`CAM-SIMA/test/run_tests.sh`
+`CAM-SIMA/test/run_unit_tests.sh`
 
 Finally, when adding new tests, determine if the test can be done in only a few lines with minimal interaction with external files or variables.  If so, then it would likely be best as a `doctest`.  Otherwise it should be a `unittest` test.  Failure to follow this rule of thumb could result in test failures in the Github Actions workflow.  Also remember to add your new tests to the `run_tests.sh` script so future users can easily run the tests manually.
+
+#### Updating sample files
+If you modified any python files in your code modifications (those in `cime_config` or in `src/data`), you may need to update the sample files to match what is now expected.
+
+1. Run the unit tests as described above
+1. If you have failures, quickly check that the diffs are expected
+
+    ```
+    diff <tmp file> <sample file>
+    ```
+
+1. Copy over the changed files from the `tmp` directory to the `sample_files` directory
+1. Rerun the tests to confirm they all pass now.
 
 ### Static Source Code Analysis
 
@@ -82,75 +214,3 @@ Sparse checkout file missing (check the path):
 ```
 mpas sparse checkout file .mpas_sparse_checkout not found
 ```
-
-## Regression Testing
-### Running the regression tests (manual)
-
-**NOTE:  Regression testing on Derecho should be done for every PR before merging!**
-
-Users can manually run regression tests on Derecho to ensure that the model builds correctly in various configurations.  The tests can be run with a local copy of CAM-SIMA by using the `test_driver.sh` script under `$CAM-SIMA/test/system`.  To run the tests associated with a particular compiler option one can do the following commands:
-
-For running GNU tests*:
-```
-env CAM_FC=gnu ./test_driver.sh -f
-```
-
-For running Intel tests*:
-```
-env CAM_FC=intel ./test_driver.sh -f
-```
-
-Running the script will produce a directory in your scratch space labeled `aux_sima_<CAM_FC>_<timestamp>`, where `<CAM_FC>` is the compiler you chose, and `<timestamp>` is the timestamp (starting with the date) of when the tests were started, along with a job submitted to the local batch system.
-
-Inside the directory you should see an executable labeled `cs.status.*`.  Running that command after the submitted job has finished will display the test results.  Currently for all tests everything should be labeled `PASS` except the `SUBMIT` step, which should be labeled `PEND`.  Any other label indicates that a test may have failed, and should be investigated.
-
-Finally, the tests themselves are listed in `<CAM-SIMA>/cime_config/testdefs/testlist_cam.xml`.  Any files that need to be included in order for the tests to run properly are located in `<CAM-SIMA/cime_config/testdefs/testmods_dirs/cam/outfrq_XXX`, where `XXX` is the name of the test.  Additional information on the CIME testing system, which is what this testing infrastructure is built on, can be found [online here](https://esmci.github.io/cime/versions/master/html/users_guide/testing.html). 
-
-*Note: you may also have to include the environment variable `CAM_ACCOUNT` on derecho, which points to your account key
-
-### Adding a new regression test
-
-The test list can be found here: `$CAM-SIMA/cime_config/testdefs/testlist_cam.xml`
-
-- If you are adding a new machine, compiler or category for an existing test, add a new `<machine>` XML entry to that `<test>` entry
-- If you are adding a fully new test, add a *new* `<test>` XML entry with the following structure:
-```
-<test compset="<COMPSET_NAME>" grid="<GRID_ALIAS>" name="<TEST_TYPE>_<TEST_MOD>" testmods="<RELPATH_TO_TESTMODS_DIR>">
-  <machines>
-    <machine name="<MACH_NAME>" compiler="<COMPILER>" category="<TEST_CATEGORY>"/>
-  </machines>
-  <options>
-    <option name="comment">COMMENT HERE</option>
-    <option name="wallclock">WALLCLOCK_TIME</option>
-  </options>
-</test>
-```
-
-- `<COMPSET_NAME>`: component set alias (or long name) - you can see more about compsets [here](../usage/creating-a-case.md)
-- `<GRID_ALIAS>`: model grid/resolution you'd like to run on - you can see more about grids [here](../usage/creating-a-case.md)
-    - **Try to use the lowest/coarsest resolution that will still accomplish your testing goals**
-- `<TEST_TYPE>`: type of test to be run. You can find the testing types [here](https://esmci.github.io/cime/versions/master/html/users_guide/testing.html#testtype).
-- `<TEST_MOD>`: test modifier that changes the default behavior of the test type. More [here](https://esmci.github.io/cime/versions/master/html/users_guide/testing.html#modifiers)
-    - **Unless a longer run is necessary to exercise the code you are testing, run for 9 timesteps (_Ln9)**
-- `<RELPATH_TO_TESTMODS_DIR>`: relative path to the testmods directory for this run; usually looks something like `"cam/some_directory_name/"`
-    - The testmods directory will contain any namelist mods and XML configuration variable changes for the test (`user_nl_cam` and/or `shell_commands`)
-    - testmods directories can be found in `$CAM-SIMA/cime_config/testdefs/testmods_dirs/cam/`
-- `<MACH_NAME>`: machine name (options: `derecho`, `izumi`, `casper`)
-- `<COMPILER>`: compiler to be used (options: `gnu`, `nag`, `intel`, `nvhpc`)
-- `<TEST_CATEGORY>`: group of tests that this test belongs to - the default run by `test_driver.sh` is `aux_sima` (which is run for each PR to CAM-SIMA)
-- `WALLCLOCK_TIME`: maximum amount of time that the job will be allowed to run
-
-Here is an example test entry for a 2-timestep smoke test of kessler physics on a coarse MPAS grid, run with both intel and gnu 
-```
-  <test compset="FKESSLER" grid="mpasa480_mpasa480" name="SMS_Ln2" testmods="cam/outfrq_kessler_mpas_derecho_nooutput/">
-    <machines>
-      <machine name="derecho" compiler="intel" category="aux_sima"/>
-      <machine name="derecho" compiler="gnu" category="aux_sima"/>
-    </machines>
-    <options>
-      <option name="wallclock">00:10:00</option>
-      <option name="comment">GNU build test for MPAS dycore (with Kessler physics)</option>
-    </options>
-  </test>
-```
-

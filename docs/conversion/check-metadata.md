@@ -62,6 +62,11 @@ cd <casedir>
    <td markdown>Confirm that the dimension is valid and that you selected the correct one (e.g. `vertical_layer_dimension` vs `vertical_interface_dimension`. If it's valid and still missing, consult with the other CAM SEs</td>
 </tr>
 <tr markdown>
+   <td markdown>`parse_source.ParseInternalError: Duplicate Group variable <variable>`</td>
+   <td markdown>You have multiple variables (with different standard names) that have the same local name</td>
+   <td markdown>Change the local name of one (or more) of the variables in your Fortran and metadata</td>
+</tr>
+<tr markdown>
    <td markdown>Some other misc error</td>
    <td markdown>You've run into either a bug or just a weird scenario</td>
    <td markdown>If the error message is unhelpful, ask Courtney</td>

@@ -160,6 +160,7 @@ Do a preliminary look at the variables on the calling lists and make sure that C
 - If variables are not filled out in the list, highlight the entire line with yellow.  
 - If they don't exist at all in the spreadsheet, enter them into the bottom of the sheet and highlight them with yellow.  Note that physconst and diagnostic-only variables *may* not reside in the spreadsheet.
 - Let Jesse, Courtney or Cheryl know if you've encountered missing CCPP standardnames and/or units and added them to the list, so they can be discussed at an upcoming meeting.  
+- If you create your own name, add `_TBD` to the end of the name to signify that it has not been discussed yet.
 
 !!! note
     This process can normally take 2-4 weeks, so a preliminary look is advisable.

@@ -15,6 +15,7 @@ nav:
     - conversion/check-metadata.md
     - conversion/run-cam-sima.md
     - conversion/back-to-cam.md
+    - conversion/final-steps.md
     - conversion/walkthrough.md
   - Design:
     - design/cam-build-process.md
@@ -25,6 +26,7 @@ nav:
     - design/history.md
     - design/sima-design-goals.md
   - Development:
+    - development/cam-sima-workflow.md
     - development/cam-coding-standards.md
     - development/cam-testing.md
     - development/debugging.md

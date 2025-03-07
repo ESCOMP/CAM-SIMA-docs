@@ -51,27 +51,13 @@ As mentioned, there are some calculations/conversions/translations that are perf
 
 - **physics_tendency_updaters.F90**: apply tendencies output by physics to state variables. You'll need to include a tendency updater in your SDF for any `ptend%X` variables in the CAM-version of your code.
 
-| Scheme name | Description | Inout variable | Input variable |
-|:------------|-------------|----------------|----------------|
-| apply_tendency_of_<br/>eastward_wind | Apply the eastward wind tendency calculated in the previous physics scheme(s) to the `eastward_wind` state variable | eastward_wind | tendency_of_eastward_wind_<br/>due_to_model_physics<br/>timestep_for_physics |
-| apply_tendency_of_<br/>northward_wind| Apply the northward wind tendency calculated in the previous physics scheme(s) to the `northward_wind` state variable | northward_wind | tendency_of_northward_wind_<br/>due_to_model_physics<br/>timestep_for_physics |
-| apply_heating_rate | Apply the heating rate (`tendency_of_dry_air_enthalpy_at_constant_pressure`) to the temperature tendency and temperature state variable | air_temperature<br/>tendency_of_air_temperature_<br/>due_to_model_physics | tendency_of_dry_air_enthalpy_<br/>&ensp;&ensp;at_constant_pressure<br/>composition_dependent_specific_heat_<br/>&ensp;&ensp;of_dry_air_at_constant_pressure<br/>timestep_for_physics |
-| apply_tendency_of_<br/>air_temperature | Apply the temperature tendency calculated in the previous physics scheme(s) to the `air_temperature` state variable | air_temperature | tendency_of_air_temperature_<br/>due_to_model_physics<br/>timestep_for_physics |
-
-## Temporary constituent handling
-For now, we don't have tendency updaters for the constituents. As a result, if your parameterization includes one or more constituent, you'll have to do a little finagling. 
-
-!!! Note "Problem overview"
-    CAM outputs a tendency and then passes that tendency to physics_update to be added to state%q, but CAM-SIMA (currently) updates the constituent array directly
-
-1. Write the scheme to update the constituent data directly (constituent variable passed in with `intent(inout)`)
-1. In CAM, pass in a temporary array for the constituent rather than the actual `state%q(:,:,index)`
-1. Then, back out the tendency after calling scheme_run and reassign that to `state%q(:,:,index)`
-
-An example of how this is done can be found ~line 276 in:
-```
-$CAM/src/physics/simple/kessler_cam.F90
-```
+| Scheme name | Description | inout variables | onput variables |
+|:------------|-------------|-----------------|-----------------|
+| apply_tendency_of_<br/>eastward_wind | Apply the eastward wind tendency calculated in the previous physics scheme(s) to the `eastward_wind` state variable | eastward_wind<br/>tendency_of_eastward_wind | tendency_of_eastward_wind_<br/>&ensp;&ensp;due_to_model_physics<br/>timestep_for_physics |
+| apply_tendency_of_<br/>northward_wind| Apply the northward wind tendency calculated in the previous physics scheme(s) to the `northward_wind` state variable | northward_wind<br/>tendency_of_northward_wind | tendency_of_northward_wind_<br/>&ensp;&ensp;due_to_model_physics<br/>timestep_for_physics |
+| apply_heating_rate | Apply the heating rate (`tendency_of_dry_air_enthalpy_at_constant_pressure`) to the temperature tendency and temperature state variable | air_temperature<br/>tendency_of_air_temperature_<br/>&ensp;&ensp;due_to_model_physics<br/>heating_rate | tendency_of_dry_air_enthalpy_<br/>&ensp;&ensp;at_constant_pressure<br/>composition_dependent_specific_heat_<br/>&ensp;&ensp;of_dry_air_at_constant_pressure<br/>timestep_for_physics |
+| apply_tendency_of_<br/>air_temperature | Apply the temperature tendency calculated in the previous physics scheme(s) to the `air_temperature` state variable | air_temperature<br/>tendency_of_air_temperature | tendency_of_air_temperature_<br/>&ensp;&ensp;due_to_model_physics<br/>timestep_for_physics |
+| apply_constituent_<br/>tendencies | Apply the constituent tendencies calculated in the previous physics scheme(s) to the constituent state array | ccpp_constituents<br/>ccpp_constituent_tendencies | timestep_for_physics |
 
 Proceed to [5 - Create an SDF](create-sdf.md). 
 

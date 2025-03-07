@@ -48,7 +48,7 @@ Build-time constituents are those that you know your scheme will always need. Th
 ```
 advected = True
 ```
-This instructs the framework to handle that variable (you will not need to add it to the registry or anywhere else in the model). The framework will generate the code to allocate and initialize all constituents, and will also create and handle the associated **tendency** variable (which will be accessible via metadata with the standard name `tendency_of_<const_stdname>`)
+This instructs the framework to handle that variable (you will not need to add it to the registry or anywhere else in the model). The framework will generate the code to allocate and initialize all constituents, and will also create and handle the associated **tendency** variable (which will be accessible via metadata with the standard name `tendency_of_<const_stdname>` and the metadata property `constituent = true`)
 
 ##### Run-time (dynamic) constituents
 Run-time constituents are those that are conditional on the configuration of the model. If your scheme has runtime constituents, you will instantiate them in the register phase of your scheme. Example Fortran is below:
