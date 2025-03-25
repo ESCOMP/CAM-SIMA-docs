@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.9">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -36,7 +36,7 @@
     
   
   
-  <style>:root{--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 8H6l6-6 6 6h-4v8h4l-6 6-6-6h4z"/></svg>');}</style>
+  <style>:root{--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M10%208H6l6-6%206%206h-4v8h4l-6%206-6-6h4z%22/%3E%3C/svg%3E');}</style>
 
 
 
@@ -1700,14 +1700,14 @@
 <h3 id="python-unit-testing">Python unit testing</h3>
 <p>CAM-SIMA supports two kinds of python unit tests, <code>doctest</code> and <code>unittest</code> tests, both of which are part of the standard python library.  </p>
 <p>All <code>unittest</code> tests should  be in:</p>
-<p><code>CAM-SIMA/test/unit</code></p>
+<p><code>CAM-SIMA/test/unit/python</code></p>
 <p>while all files used by the tests should be in:</p>
-<p><code>CAM-SIMA/test/unit/sample_files</code></p>
+<p><code>CAM-SIMA/test/unit/python/sample_files</code></p>
 <p>All <code>unittest</code> tests are automatically run via Github Actions whenever a Pull Request (PR) is opened, modified, or merged.  </p>
 <p>All <code>doctest</code> tests are also run automatically as long as the scripts they are located in are under <code>CAM-SIMA/cime_config</code> or <code>CAM-SIMA/src/data</code>.</p>
 <p>To manually run all of the unit tests at any time, simply run the following shell script:</p>
-<p><code>CAM-SIMA/test/run_unit_tests.sh</code></p>
-<p>Finally, when adding new tests, determine if the test can be done in only a few lines with minimal interaction with external files or variables.  If so, then it would likely be best as a <code>doctest</code>.  Otherwise it should be a <code>unittest</code> test.  Failure to follow this rule of thumb could result in test failures in the Github Actions workflow.  Also remember to add your new tests to the <code>run_tests.sh</code> script so future users can easily run the tests manually.</p>
+<p><code>CAM-SIMA/test/run_python_unit_tests.sh</code></p>
+<p>Finally, when adding new tests, determine if the test can be done in only a few lines with minimal interaction with external files or variables.  If so, then it would likely be best as a <code>doctest</code>.  Otherwise it should be a <code>unittest</code> test.  Failure to follow this rule of thumb could result in test failures in the Github Actions workflow.  Also remember to add your new tests to the <code>run_python_unit_tests.sh</code> script so future users can easily run the tests manually.</p>
 <h4 id="updating-sample-files">Updating sample files</h4>
 <p>If you modified any python files in your code modifications (those in <code>cime_config</code> or in <code>src/data</code>), you may need to update the sample files to match what is now expected.</p>
 <ol>
@@ -1790,7 +1790,7 @@ bin/git-fleximod test</code></p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 17, 2025 00:19:00">January 17, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 25, 2025 15:32:01">March 25, 2025</span>
   </span>
 
     
@@ -1818,6 +1818,11 @@ bin/git-fleximod test</code></p>
     
     <nav>
       
+        <a href="https://github.com/mwaxmonsky" class="md-author" title="@mwaxmonsky">
+          
+          <img src="https://avatars.githubusercontent.com/u/137746677?v=4&size=72" alt="mwaxmonsky">
+        </a>
+      
         <a href="https://github.com/peverwhee" class="md-author" title="@peverwhee">
           
           <img src="https://avatars.githubusercontent.com/u/26393487?v=4&size=72" alt="peverwhee">
@@ -1833,12 +1838,13 @@ bin/git-fleximod test</code></p>
           <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
         </a>
       
-        <a href="https://github.com/jimmielin" class="md-author" title="@jimmielin">
-          
-          <img src="https://avatars.githubusercontent.com/u/123603?v=4&size=72" alt="jimmielin">
-        </a>
       
       
+        
+          <a href="https://github.com/ESCOMP/CAM-SIMA-docs/blob/main/docs/development/cam-testing.md" class="md-author md-author--more">
+            +1
+          </a>
+        
       
     </nav>
   </span>
