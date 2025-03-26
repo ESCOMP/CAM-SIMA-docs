@@ -1306,27 +1306,28 @@
 &lt;entry_id_pg version=&quot;2.0&quot;&gt;
 
 
-&lt;entry id=&quot;rayk0&quot;&gt;
-    &lt;type&gt;integer&lt;/type&gt;
-    &lt;category&gt;rayleigh_friction&lt;/category&gt;
-    &lt;group&gt;rayleigh_friction_nl&lt;/group&gt;
-    &lt;standard_name&gt;rayleigh_friction_center_vertical_index&lt;/standard_name&gt;
-    &lt;units&gt;1&lt;/units&gt;
+  &lt;entry id=&quot;cldfrc_premit&quot;&gt;
+    &lt;type&gt;real&lt;/type&gt;
+    &lt;category&gt;cldfrc&lt;/category&gt;
+    &lt;group&gt;cldfrc_nl&lt;/group&gt;
+    &lt;standard_name&gt;tunable_parameter_for_top_pressure_bound_for_mid_level_clouds_for_cloud_fraction&lt;/standard_name&gt;
+    &lt;units&gt;Pa&lt;/units&gt;
     &lt;desc&gt;
-      Variable to specify the vertical index at which the
-      Rayleigh friction term is centered (the peak value).
+      Top pressure bound for mid level cloud.
     &lt;/desc&gt;
     &lt;values&gt;
-      &lt;value&gt;2&lt;/value&gt;
+      &lt;value dyn=&quot;mpas&quot;&gt;75000.0D0&lt;/value&gt;
+      &lt;value dyn=&quot;se&quot;&gt;40000.0D0&lt;/value&gt;
+      &lt;value&gt;40000.0D0&lt;/value&gt;
     &lt;/values&gt;
-&lt;/entry&gt;
+  &lt;/entry&gt;
 
 
 &lt;/entry_id_pg&gt;
 </code></pre>
 <div class="admonition note">
 <p class="admonition-title">namelist values</p>
-<p>When populating the value fields, you don't need to port all of them at this time.  You need to put in the value that is used by default by CAM, but the rest will be ported once all schemes have been ported.</p>
+<p>When porting namelist values from CAM namelist defaults, the attributes supported in CAM-SIMA can be retrieved by printing out <code>cam_nml_dict</code> (or <code>cam_nml_dict.keys()</code>) in <code>cime_config/buildnml</code> <a href="https://github.com/ESCOMP/CAM-SIMA/blob/3699359ebfe81b00273a9815d128cae903a26208/cime_config/buildnml#L355">at the end of the function call</a>. An example of supported attributes that may be commonly used are: <code>phys_suite</code>, <code>ic_ymd</code>, <code>dyn</code>, <code>hgrid</code>, <code>analytic_ic</code>, <code>ocn</code>.</p>
 </div>
 <p>Once you have made your namelist file, proceed to <a href="../interstitials/">4 - Interstitials</a></p>
 
@@ -1351,7 +1352,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 8, 2024 16:55:01">August 8, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 26, 2025 16:53:08">March 26, 2025</span>
   </span>
 
     
@@ -1378,6 +1379,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/jimmielin" class="md-author" title="@jimmielin">
+          
+          <img src="https://avatars.githubusercontent.com/u/123603?v=4&size=72" alt="jimmielin">
+        </a>
       
         <a href="https://github.com/peverwhee" class="md-author" title="@peverwhee">
           
