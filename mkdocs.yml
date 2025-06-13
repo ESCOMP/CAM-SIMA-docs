@@ -41,6 +41,8 @@ nav:
     - atmospheric_physics/directory-structure.md
     - atmospheric_physics/development_workflow.md
     - atmospheric_physics/Tagging-Instructions.md
+  - Dynamical Core:
+    - MPAS: dycore/mpas
 
 plugins:
   - search
@@ -69,7 +71,6 @@ theme:
       # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-
 
       toggle:
         icon: material/brightness-7

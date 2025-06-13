@@ -15,6 +15,13 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Check out CAM-SIMA
+        uses: actions/checkout@v4
+        with:
+          repository: ESCOMP/CAM-SIMA
+          ref: development
+          path: CAM-SIMA
+
       - name: Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
@@ -22,14 +29,42 @@ jobs:
 
       - name: Setup Python
         run: |
-             sudo apt update
-             sudo apt install -y python3 python3-venv python3-pip
-             python3 -m venv myenv
-             source myenv/bin/activate
-             pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-git-committers-plugin-2
-             echo "cache_id=$(date --utc '+%F')" >> $GITHUB_ENV
+          sudo apt update
+          sudo apt install -y python3 python3-venv python3-pip
+          echo "cache_id=$(date --utc '+%F')" >> $GITHUB_ENV
+          echo "python_version=$(python3 --version | awk '{print $2}')" >> $GITHUB_ENV
 
-      - name: Configure cache
+      - name: Configure cache for pip
+        uses: actions/cache@v4
+        with:
+          key: python-${{ env.python_version }}-pip-${{ env.cache_id }}
+          path: ~/.cache/pip
+          restore-keys: |
+            python-${{ env.python_version }}-pip-
+
+      - name: Setup FORD
+        run: |
+          sudo apt install -y graphviz
+          python3 -m venv venv-ford
+          source venv-ford/bin/activate
+          python3 -m pip install Jinja2 Pygments beautifulsoup4 graphviz markdown markdown-include pcpp python-markdown-math rich tomli tomli-w toposort tqdm
+          python3 -m pip install --no-deps "ford@git+https://github.com/kuanchihwang/ford.git@develop/cam-sima-ford-patches"
+
+      - name: Setup MkDocs
+        run: |
+          python3 -m venv venv-mkdocs
+          source venv-mkdocs/bin/activate
+          python3 -m pip install mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-git-committers-plugin-2
+
+      - name: Generate documentation by FORD
+        run: |
+          source venv-ford/bin/activate
+          cd CAM-SIMA
+          ford src/dynamics/mpas/assets/ford-config.md
+          mkdir -pv ../docs/dycore/mpas
+          cp -afv src/dynamics/mpas/assets/ford/* ../docs/dycore/mpas
+
+      - name: Configure cache for mkdocs-material
         uses: actions/cache@v4
         with:
           key: mkdocs-material-${{ env.cache_id }}
@@ -39,6 +74,5 @@ jobs:
 
       - name: Deploy to gh-pages
         run: |
-             source myenv/bin/activate
-             mkdocs gh-deploy -b gh-pages --force
-
+          source venv-mkdocs/bin/activate
+          mkdocs gh-deploy -b gh-pages --force
