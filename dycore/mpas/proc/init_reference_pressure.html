@@ -1,0 +1,1618 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="MPAS dynamical core solves the fully compressible non-hydrostatic equations of atmospheric motion.">
+    <meta name="author" content="CAM-SIMA & MPAS Developers">
+    <link href="../favicon.png" rel="icon">
+
+    <title>init_reference_pressure – MPAS Dynamical Core</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      rel="stylesheet"
+    >
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    ></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      async
+      crossorigin="anonymous"
+      integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw="
+    ></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html"
+            >MPAS Dynamical Core </a
+          >
+          <button
+            class="navbar-toggler"
+            data-bs-target="#navbar"
+            data-bs-toggle="collapse"
+            type="button"
+            aria-controls="navbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbar">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>
+      init_reference_pressure
+      <small
+        >Subroutine</small
+      >
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 1.7% of total for procedures.">66 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dyn_grid.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dyn_grid.f90.html'>dyn_grid.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/dyn_grid.html'>dyn_grid</a></li>
+            <li class="breadcrumb-item active" aria-current="page">init_reference_pressure</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">  <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/init_reference_pressure.html#variable-dzw">dzw</a>
+            <a class="list-group-item" href="../proc/init_reference_pressure.html#variable-ierr~28">ierr</a>
+            <a class="list-group-item" href="../proc/init_reference_pressure.html#variable-k~2">k</a>
+            <a class="list-group-item" href="../proc/init_reference_pressure.html#variable-l">l</a>
+            <a class="list-group-item" href="../proc/init_reference_pressure.html#variable-num_pure_p_lev">num_pure_p_lev</a>
+            <a class="list-group-item" href="../proc/init_reference_pressure.html#variable-p_ref_int">p_ref_int</a>
+            <a class="list-group-item" href="../proc/init_reference_pressure.html#variable-p_ref_mid">p_ref_mid</a>
+            <a class="list-group-item" href="../proc/init_reference_pressure.html#variable-rdzw">rdzw</a>
+            <a class="list-group-item" href="../proc/init_reference_pressure.html#variable-subname~57">subname</a>
+            <a class="list-group-item" href="../proc/init_reference_pressure.html#variable-zu">zu</a>
+            <a class="list-group-item" href="../proc/init_reference_pressure.html#variable-zw">zw</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/init_reference_pressure.html#src">init_reference_pressure</a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+    <div class="col-md-9" id="text">
+      <h2>private  subroutine init_reference_pressure()  
+</h2>
+          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item">std_atm_profile</li>
+                  <li class="list-inline-item">cam_abortutils</li>
+                  <li class="list-inline-item">cam_history_support</li>
+                  <li class="list-inline-item">ref_pres</li>
+                  <li class="list-inline-item">dynconst</li>
+                  <li class="list-inline-item">shr_kind_mod</li>
+                  <li class="list-inline-item">string_utils</li>
+                  <li class="list-inline-item"><a href='../module/dyn_mpas_subdriver.html'>dyn_mpas_subdriver</a></li>
+                  <li class="list-inline-item">cam_logfile</li>
+                  <li class="list-inline-item"><a href='../module/dyn_comp.html'>dyn_comp</a></li>
+                  <li class="list-inline-item">vert_coord</li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~init_reference_pressure~~UsesGraph Pages: 1 -->
+<svg id="procinit_reference_pressureUsesGraph" width="618pt" height="448pt"
+ viewBox="0.00 0.00 618.00 448.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~init_reference_pressure~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 444)">
+<title>proc~~init_reference_pressure~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-444 614,-444 614,4 -4,4"/>
+<!-- proc~init_reference_pressure -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node1" class="node">
+<title>proc~init_reference_pressure</title>
+<polygon fill="none" stroke="black" points="610,-232 474,-232 474,-208 610,-208 610,-232"/>
+<text text-anchor="middle" x="542" y="-217.6" font-family="Helvetica,sans-Serif" font-size="10.50">init_reference_pressure</text>
+</g>
+<!-- cam_abortutils -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node2" class="node">
+<title>cam_abortutils</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="422,-440 331,-440 331,-416 422,-416 422,-440"/>
+<text text-anchor="middle" x="376.5" y="-425.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cam_abortutils</text>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;cam_abortutils -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge1" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;cam_abortutils</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M537.71,-232.01C528.09,-264.91 496.93,-357.29 438,-407 435.96,-408.72 433.76,-410.31 431.46,-411.77"/>
+<polygon fill="#000000" stroke="#000000" points="429.31,-408.95 422.18,-416.78 432.64,-415.11 429.31,-408.95"/>
+</g>
+<!-- cam_history_support -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node3" class="node">
+<title>cam_history_support</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="438,-398 315,-398 315,-374 438,-374 438,-398"/>
+<text text-anchor="middle" x="376.5" y="-383.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cam_history_support</text>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;cam_history_support -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge2" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;cam_history_support</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M535.65,-232.05C522.83,-259.61 487.65,-327.75 438,-365 435.94,-366.55 433.75,-367.99 431.48,-369.32"/>
+<polygon fill="#000000" stroke="#000000" points="429.69,-366.31 422.4,-374 432.9,-372.53 429.69,-366.31"/>
+</g>
+<!-- cam_logfile -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node4" class="node">
+<title>cam_logfile</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="413.5,-356 339.5,-356 339.5,-332 413.5,-332 413.5,-356"/>
+<text text-anchor="middle" x="376.5" y="-341.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cam_logfile</text>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;cam_logfile -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge3" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;cam_logfile</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M531.85,-232.26C515.34,-253.57 478.5,-297.62 438,-323 433.35,-325.91 428.24,-328.49 423.03,-330.74"/>
+<polygon fill="#000000" stroke="#000000" points="421.62,-327.53 413.6,-334.45 424.18,-334.04 421.62,-327.53"/>
+</g>
+<!-- dynconst -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node5" class="node">
+<title>dynconst</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="407,-314 346,-314 346,-290 407,-290 407,-314"/>
+<text text-anchor="middle" x="376.5" y="-299.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dynconst</text>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;dynconst -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge4" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;dynconst</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M523,-232.17C502.9,-245.4 469.11,-266.57 438,-281 431.27,-284.12 423.95,-287.04 416.79,-289.65"/>
+<polygon fill="#000000" stroke="#000000" points="415.48,-286.4 407.2,-293.01 417.8,-293.01 415.48,-286.4"/>
+</g>
+<!-- module~dyn_comp -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node6" class="node">
+<title>module~dyn_comp</title>
+<g id="a_proc~~init_reference_pressure~~UsesGraph_node6"><a xlink:href="../module/dyn_comp.html" xlink:title="dyn_comp">
+<polygon fill="#337ab7" stroke="#337ab7" points="410,-272 343,-272 343,-248 410,-248 410,-272"/>
+<text text-anchor="middle" x="376.5" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_comp</text>
+</a>
+</g>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;module~dyn_comp -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge5" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;module~dyn_comp</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491.94,-232C469.11,-237.59 442.19,-244.17 420.2,-249.55"/>
+<polygon fill="#000000" stroke="#000000" points="419.36,-246.16 410.48,-251.93 421.02,-252.96 419.36,-246.16"/>
+</g>
+<!-- module~dyn_mpas_subdriver -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node7" class="node">
+<title>module~dyn_mpas_subdriver</title>
+<g id="a_proc~~init_reference_pressure~~UsesGraph_node7"><a xlink:href="../module/dyn_mpas_subdriver.html" xlink:title="dyn_mpas_subdriver">
+<polygon fill="#337ab7" stroke="#337ab7" points="279,-252 157,-252 157,-228 279,-228 279,-252"/>
+<text text-anchor="middle" x="218" y="-237.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_mpas_subdriver</text>
+</a>
+</g>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;module~dyn_mpas_subdriver -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge6" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;module~dyn_mpas_subdriver</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M473.89,-224.17C419.84,-227.53 344.09,-232.23 289.23,-235.64"/>
+<polygon fill="#000000" stroke="#000000" points="289,-232.15 279.24,-236.26 289.43,-239.13 289,-232.15"/>
+</g>
+<!-- ref_pres -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node8" class="node">
+<title>ref_pres</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="404,-192 349,-192 349,-168 404,-168 404,-192"/>
+<text text-anchor="middle" x="376.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ref_pres</text>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;ref_pres -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge7" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;ref_pres</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491.94,-208C466.98,-201.89 437.16,-194.59 414.21,-188.98"/>
+<polygon fill="#000000" stroke="#000000" points="414.74,-185.51 404.19,-186.53 413.07,-192.31 414.74,-185.51"/>
+</g>
+<!-- shr_kind_mod -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node9" class="node">
+<title>shr_kind_mod</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="419.5,-150 333.5,-150 333.5,-126 419.5,-126 419.5,-150"/>
+<text text-anchor="middle" x="376.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">shr_kind_mod</text>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;shr_kind_mod -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge8" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;shr_kind_mod</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M523,-207.83C502.9,-194.6 469.11,-173.43 438,-159 433.98,-157.13 429.74,-155.34 425.45,-153.64"/>
+<polygon fill="#000000" stroke="#000000" points="426.64,-150.35 416.04,-150.08 424.16,-156.89 426.64,-150.35"/>
+</g>
+<!-- std_atm_profile -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node10" class="node">
+<title>std_atm_profile</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="423.5,-108 329.5,-108 329.5,-84 423.5,-84 423.5,-108"/>
+<text text-anchor="middle" x="376.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">std_atm_profile</text>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;std_atm_profile -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge9" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;std_atm_profile</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M531.85,-207.74C515.34,-186.43 478.5,-142.38 438,-117 435.35,-115.34 432.56,-113.79 429.68,-112.35"/>
+<polygon fill="#000000" stroke="#000000" points="430.84,-109.04 420.28,-108.11 427.96,-115.42 430.84,-109.04"/>
+</g>
+<!-- string_utils -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node11" class="node">
+<title>string_utils</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="411.5,-66 341.5,-66 341.5,-42 411.5,-42 411.5,-66"/>
+<text text-anchor="middle" x="376.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">string_utils</text>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;string_utils -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge10" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;string_utils</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M535.65,-207.95C522.83,-180.39 487.65,-112.25 438,-75 432.92,-71.19 427.1,-68.04 421.12,-65.43"/>
+<polygon fill="#000000" stroke="#000000" points="422.26,-62.12 411.67,-61.78 419.74,-68.65 422.26,-62.12"/>
+</g>
+<!-- vert_coord -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node12" class="node">
+<title>vert_coord</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="411.5,-24 341.5,-24 341.5,0 411.5,0 411.5,-24"/>
+<text text-anchor="middle" x="376.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">vert_coord</text>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;vert_coord -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge11" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;vert_coord</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M537.71,-207.99C528.09,-175.09 496.93,-82.71 438,-33 433.09,-28.86 427.32,-25.52 421.32,-22.83"/>
+<polygon fill="#000000" stroke="#000000" points="422.39,-19.49 411.81,-19.11 419.85,-26.01 422.39,-19.49"/>
+</g>
+<!-- module~dyn_comp&#45;&gt;module~dyn_mpas_subdriver -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge12" class="edge">
+<title>module~dyn_comp&#45;&gt;module~dyn_mpas_subdriver</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M342.69,-255.81C327.12,-253.82 307.87,-251.36 289.23,-248.97"/>
+<polygon fill="#000000" stroke="#000000" points="289.63,-245.5 279.26,-247.7 288.74,-252.44 289.63,-245.5"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node13" class="node">
+<title>iso_fortran_env</title>
+<g id="a_proc~~init_reference_pressure~~UsesGraph_node13"><a xlink:href="https://www.intel.com/content/www/us/en/docs/fortran-compiler/developer-guide-reference/2024-2/iso-fortran-env-module.html" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="107.5,-315 13.5,-315 13.5,-291 107.5,-291 107.5,-315"/>
+<text text-anchor="middle" x="60.5" y="-300.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- module~dyn_mpas_subdriver&#45;&gt;iso_fortran_env -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge13" class="edge">
+<title>module~dyn_mpas_subdriver&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.73,-252.11C171.56,-260.8 144.86,-272.58 121,-282 116.28,-283.86 111.32,-285.74 106.36,-287.56"/>
+<polygon fill="#000000" stroke="#000000" points="105.11,-284.29 96.9,-290.99 107.49,-290.88 105.11,-284.29"/>
+</g>
+<!-- mpas_derived_types -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node14" class="node">
+<title>mpas_derived_types</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="121,-273 0,-273 0,-249 121,-249 121,-273"/>
+<text text-anchor="middle" x="60.5" y="-258.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_derived_types</text>
+</g>
+<!-- module~dyn_mpas_subdriver&#45;&gt;mpas_derived_types -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge14" class="edge">
+<title>module~dyn_mpas_subdriver&#45;&gt;mpas_derived_types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M156.88,-248.12C148.46,-249.26 139.76,-250.43 131.18,-251.59"/>
+<polygon fill="#000000" stroke="#000000" points="130.65,-248.13 121.2,-252.94 131.58,-255.07 130.65,-248.13"/>
+</g>
+<!-- mpas_kind_types -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node15" class="node">
+<title>mpas_kind_types</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="112,-231 9,-231 9,-207 112,-207 112,-231"/>
+<text text-anchor="middle" x="60.5" y="-216.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_kind_types</text>
+</g>
+<!-- module~dyn_mpas_subdriver&#45;&gt;mpas_kind_types -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge15" class="edge">
+<title>module~dyn_mpas_subdriver&#45;&gt;mpas_kind_types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M156.88,-231.88C145.63,-230.36 133.85,-228.77 122.57,-227.25"/>
+<polygon fill="#000000" stroke="#000000" points="122.75,-223.74 112.37,-225.87 121.81,-230.68 122.75,-223.74"/>
+</g>
+<!-- mpi -->
+<g id="proc~~init_reference_pressure~~UsesGraph_node16" class="node">
+<title>mpi</title>
+<g id="a_proc~~init_reference_pressure~~UsesGraph_node16"><a xlink:href="https://www.mpi-forum.org/docs/mpi-4.1/mpi41-report/node467.htm" xlink:title="mpi">
+<polygon fill="#337ab7" stroke="#337ab7" points="87.5,-189 33.5,-189 33.5,-165 87.5,-165 87.5,-189"/>
+<text text-anchor="middle" x="60.5" y="-174.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpi</text>
+</a>
+</g>
+</g>
+<!-- module~dyn_mpas_subdriver&#45;&gt;mpi -->
+<g id="proc~~init_reference_pressure~~UsesGraph_edge16" class="edge">
+<title>module~dyn_mpas_subdriver&#45;&gt;mpi</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.73,-227.89C171.56,-219.2 144.86,-207.42 121,-198 113.41,-195 105.19,-191.97 97.36,-189.18"/>
+<polygon fill="#000000" stroke="#000000" points="98.31,-185.81 87.72,-185.79 95.99,-192.41 98.31,-185.81"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+
+        <p>Initialize reference pressure for use by physics.
+(KCW, 2024-03-25)</p>
+
+
+      <h3>Arguments</h3>
+        <em>None</em>
+        <br>
+        <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Calls</h3>
+          </div>
+          <div class="card-body"><div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~init_reference_pressure~~CallsGraph Pages: 1 -->
+<svg id="procinit_reference_pressureCallsGraph" width="641pt" height="268pt"
+ viewBox="0.00 0.00 641.00 268.28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~init_reference_pressure~~CallsGraph" class="graph" transform="scale(0.46 0.46) rotate(0) translate(4 574)">
+<title>proc~~init_reference_pressure~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-574 1377,-574 1377,4 -4,4"/>
+<!-- proc~init_reference_pressure -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node1" class="node">
+<title>proc~init_reference_pressure</title>
+<polygon fill="none" stroke="black" points="136,-236 0,-236 0,-212 136,-212 136,-236"/>
+<text text-anchor="middle" x="68" y="-221.6" font-family="Helvetica,sans-Serif" font-size="10.50">init_reference_pressure</text>
+</g>
+<!-- add_vert_coord -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node2" class="node">
+<title>add_vert_coord</title>
+<polygon fill="#777777" stroke="#777777" points="359,-360 264,-360 264,-336 359,-336 359,-360"/>
+<text text-anchor="middle" x="311.5" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">add_vert_coord</text>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;add_vert_coord -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge1" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;add_vert_coord</title>
+<path fill="none" stroke="#000000" d="M77.21,-236.34C92.77,-258.6 128.89,-305.21 172,-327 197.01,-339.64 227.56,-345.15 253.59,-347.4"/>
+<polygon fill="#000000" stroke="#000000" points="253.47,-350.9 263.7,-348.13 253.98,-343.92 253.47,-350.9"/>
+</g>
+<!-- check_allocate -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node3" class="node">
+<title>check_allocate</title>
+<polygon fill="#777777" stroke="#777777" points="357.5,-318 265.5,-318 265.5,-294 357.5,-294 357.5,-318"/>
+<text text-anchor="middle" x="311.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">check_allocate</text>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;check_allocate -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge2" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;check_allocate</title>
+<path fill="none" stroke="#000000" d="M84.8,-236.01C104.22,-250.13 138.72,-273.13 172,-285 198.59,-294.48 229.55,-299.69 255.44,-302.54"/>
+<polygon fill="#000000" stroke="#000000" points="255.16,-306.03 265.46,-303.55 255.87,-299.06 255.16,-306.03"/>
+</g>
+<!-- none~get_variable_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node4" class="node">
+<title>none~get_variable_pointer</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node4"><a xlink:href="../type/mpas_dynamical_core_type.html#boundprocedure-get_variable_pointer" xlink:title="mpas_dynamical_core_type%get_variable_pointer">
+<polygon fill="#a7506f" stroke="#a7506f" points="451,-276 172,-276 172,-252 451,-252 451,-276"/>
+<text text-anchor="middle" x="311.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%get_variable_pointer</text>
+</a>
+</g>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;none~get_variable_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge3" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;none~get_variable_pointer</title>
+<path fill="none" stroke="#000000" d="M136.27,-235.14C164.61,-239.84 197.87,-245.35 227.7,-250.29"/>
+<polygon fill="#000000" stroke="#000000" points="227.23,-253.76 237.67,-251.94 228.37,-246.85 227.23,-253.76"/>
+</g>
+<!-- proc~dyn_debug_print -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node5" class="node">
+<title>proc~dyn_debug_print</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node5"><a xlink:href="../proc/dyn_debug_print.html" xlink:title="dyn_debug_print">
+<polygon fill="#d9534f" stroke="#d9534f" points="362,-68 261,-68 261,-44 362,-44 362,-68"/>
+<text text-anchor="middle" x="311.5" y="-53.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_debug_print</text>
+</a>
+</g>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;proc~dyn_debug_print -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge4" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;proc~dyn_debug_print</title>
+<path fill="none" stroke="#000000" d="M78.7,-211.84C95.78,-191.06 133.09,-148.32 172,-121 201.46,-100.32 238.54,-83.32 266.92,-71.9"/>
+<polygon fill="#000000" stroke="#000000" points="268.55,-75.02 276.57,-68.09 265.98,-68.5 268.55,-75.02"/>
+</g>
+<!-- ref_pres_init -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node6" class="node">
+<title>ref_pres_init</title>
+<polygon fill="#777777" stroke="#777777" points="349.5,-196 273.5,-196 273.5,-172 349.5,-172 349.5,-196"/>
+<text text-anchor="middle" x="311.5" y="-181.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ref_pres_init</text>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;ref_pres_init -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge5" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;ref_pres_init</title>
+<path fill="none" stroke="#000000" d="M136.27,-212.86C176.54,-206.19 226.75,-197.87 262.91,-191.88"/>
+<polygon fill="#000000" stroke="#000000" points="263.89,-195.27 273.19,-190.18 262.75,-188.36 263.89,-195.27"/>
+</g>
+<!-- std_atm_pres -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node7" class="node">
+<title>std_atm_pres</title>
+<polygon fill="#777777" stroke="#777777" points="352.5,-154 270.5,-154 270.5,-130 352.5,-130 352.5,-154"/>
+<text text-anchor="middle" x="311.5" y="-139.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">std_atm_pres</text>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;std_atm_pres -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge6" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;std_atm_pres</title>
+<path fill="none" stroke="#000000" d="M84.8,-211.99C104.22,-197.87 138.72,-174.87 172,-163 200.21,-152.94 233.33,-147.7 260.11,-144.97"/>
+<polygon fill="#000000" stroke="#000000" points="260.78,-148.42 270.41,-144.01 260.13,-141.45 260.78,-148.42"/>
+</g>
+<!-- stringify -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node8" class="node">
+<title>stringify</title>
+<polygon fill="#777777" stroke="#777777" points="692.5,-24 637.5,-24 637.5,0 692.5,0 692.5,-24"/>
+<text text-anchor="middle" x="665" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stringify</text>
+</g>
+<!-- proc~init_reference_pressure&#45;&gt;stringify -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge7" class="edge">
+<title>proc~init_reference_pressure&#45;&gt;stringify</title>
+<path fill="none" stroke="#000000" d="M136.39,-230.12C233.27,-237.37 405.31,-244.04 451,-205 510.38,-154.26 429.39,-85.74 487,-33 524.71,1.53 587.48,0.23 627.25,-5.03"/>
+<polygon fill="#000000" stroke="#000000" points="626.92,-8.52 637.33,-6.51 627.94,-1.59 626.92,-8.52"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_c0 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node9" class="node">
+<title>proc~dyn_mpas_get_variable_pointer_c0</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node9"><a xlink:href="../proc/dyn_mpas_get_variable_pointer_c0.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_c0">
+<polygon fill="#d9534f" stroke="#d9534f" points="843,-444 487,-444 487,-420 843,-420 843,-444"/>
+<text text-anchor="middle" x="665" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_c0</text>
+</a>
+</g>
+</g>
+<!-- none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_c0 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge8" class="edge">
+<title>none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_c0</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M438.66,-276.07C443.03,-278.67 447.17,-281.63 451,-285 494.73,-323.47 442.65,-373.24 487,-411 488.21,-412.03 489.45,-413.04 490.71,-414"/>
+<polygon fill="#000000" stroke="#000000" points="489.1,-417.14 499.32,-419.94 493.07,-411.38 489.1,-417.14"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_c1 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node10" class="node">
+<title>proc~dyn_mpas_get_variable_pointer_c1</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node10"><a xlink:href="../proc/dyn_mpas_get_variable_pointer_c1.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_c1">
+<polygon fill="#d9534f" stroke="#d9534f" points="843,-234 487,-234 487,-210 843,-210 843,-234"/>
+<text text-anchor="middle" x="665" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_c1</text>
+</a>
+</g>
+</g>
+<!-- none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_c1 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge9" class="edge">
+<title>none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_c1</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M412.16,-251.98C436.63,-249.03 462.76,-245.9 487,-243 508.09,-240.48 530.59,-237.8 552.23,-235.23"/>
+<polygon fill="#000000" stroke="#000000" points="552.92,-238.67 562.44,-234.02 552.1,-231.72 552.92,-238.67"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i0 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node11" class="node">
+<title>proc~dyn_mpas_get_variable_pointer_i0</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node11"><a xlink:href="../proc/dyn_mpas_get_variable_pointer_i0.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_i0">
+<polygon fill="#d9534f" stroke="#d9534f" points="841.5,-570 488.5,-570 488.5,-546 841.5,-546 841.5,-570"/>
+<text text-anchor="middle" x="665" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_i0</text>
+</a>
+</g>
+</g>
+<!-- none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_i0 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge10" class="edge">
+<title>none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_i0</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M440.16,-276.03C444.03,-278.66 447.66,-281.63 451,-285 530.66,-365.34 406.05,-457.96 487,-537 487.83,-537.81 488.67,-538.6 489.53,-539.37"/>
+<polygon fill="#000000" stroke="#000000" points="487.59,-542.3 497.58,-545.83 491.97,-536.84 487.59,-542.3"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i1 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node12" class="node">
+<title>proc~dyn_mpas_get_variable_pointer_i1</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node12"><a xlink:href="../proc/dyn_mpas_get_variable_pointer_i1.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_i1">
+<polygon fill="#d9534f" stroke="#d9534f" points="841.5,-486 488.5,-486 488.5,-462 841.5,-462 841.5,-486"/>
+<text text-anchor="middle" x="665" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_i1</text>
+</a>
+</g>
+</g>
+<!-- none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_i1 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge11" class="edge">
+<title>none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_i1</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.57,-276.14C443.62,-278.73 447.46,-281.67 451,-285 506.61,-337.33 430.55,-401.57 487,-453 488,-453.91 489.01,-454.79 490.04,-455.65"/>
+<polygon fill="#000000" stroke="#000000" points="488.15,-458.6 498.26,-461.77 492.33,-452.99 488.15,-458.6"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i2 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node13" class="node">
+<title>proc~dyn_mpas_get_variable_pointer_i2</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node13"><a xlink:href="../proc/dyn_mpas_get_variable_pointer_i2.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_i2">
+<polygon fill="#d9534f" stroke="#d9534f" points="841.5,-192 488.5,-192 488.5,-168 841.5,-168 841.5,-192"/>
+<text text-anchor="middle" x="665" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_i2</text>
+</a>
+</g>
+</g>
+<!-- none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_i2 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge12" class="edge">
+<title>none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_i2</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M415.91,-251.93C428.13,-248.39 440.11,-243.84 451,-238 471.22,-227.15 466.43,-211.16 487,-201 490.9,-199.07 494.91,-197.3 499,-195.66"/>
+<polygon fill="#000000" stroke="#000000" points="500.52,-198.83 508.68,-192.07 498.09,-192.26 500.52,-198.83"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i3 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node14" class="node">
+<title>proc~dyn_mpas_get_variable_pointer_i3</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node14"><a xlink:href="../proc/dyn_mpas_get_variable_pointer_i3.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_i3">
+<polygon fill="#d9534f" stroke="#d9534f" points="841.5,-150 488.5,-150 488.5,-126 841.5,-126 841.5,-150"/>
+<text text-anchor="middle" x="665" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_i3</text>
+</a>
+</g>
+</g>
+<!-- none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_i3 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge13" class="edge">
+<title>none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_i3</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M427.17,-251.87C435.7,-248.21 443.78,-243.66 451,-238 481.38,-214.21 455.84,-181.75 487,-159 488.69,-157.77 490.41,-156.59 492.16,-155.45"/>
+<polygon fill="#000000" stroke="#000000" points="494.3,-158.26 501.17,-150.19 490.77,-152.21 494.3,-158.26"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_l0 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node15" class="node">
+<title>proc~dyn_mpas_get_variable_pointer_l0</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node15"><a xlink:href="../proc/dyn_mpas_get_variable_pointer_l0.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_l0">
+<polygon fill="#d9534f" stroke="#d9534f" points="841.5,-528 488.5,-528 488.5,-504 841.5,-504 841.5,-528"/>
+<text text-anchor="middle" x="665" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_l0</text>
+</a>
+</g>
+</g>
+<!-- none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_l0 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge14" class="edge">
+<title>none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_l0</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M440.04,-276.15C443.94,-278.74 447.61,-281.68 451,-285 518.6,-351.31 418.33,-429.79 487,-495 487.98,-495.93 488.97,-496.83 489.99,-497.71"/>
+<polygon fill="#000000" stroke="#000000" points="488.03,-500.62 498.08,-503.97 492.31,-495.08 488.03,-500.62"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r0 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node16" class="node">
+<title>proc~dyn_mpas_get_variable_pointer_r0</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node16"><a xlink:href="../proc/dyn_mpas_get_variable_pointer_r0.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_r0">
+<polygon fill="#d9534f" stroke="#d9534f" points="842.5,-402 487.5,-402 487.5,-378 842.5,-378 842.5,-402"/>
+<text text-anchor="middle" x="665" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_r0</text>
+</a>
+</g>
+</g>
+<!-- none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_r0 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge15" class="edge">
+<title>none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_r0</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M436.85,-276.02C441.83,-278.6 446.57,-281.58 451,-285 483.13,-309.85 454.47,-344.68 487,-369 488.67,-370.25 490.38,-371.45 492.12,-372.6"/>
+<polygon fill="#000000" stroke="#000000" points="490.69,-375.82 501.07,-377.95 494.28,-369.81 490.69,-375.82"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r1 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node17" class="node">
+<title>proc~dyn_mpas_get_variable_pointer_r1</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node17"><a xlink:href="../proc/dyn_mpas_get_variable_pointer_r1.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_r1">
+<polygon fill="#d9534f" stroke="#d9534f" points="842.5,-108 487.5,-108 487.5,-84 842.5,-84 842.5,-108"/>
+<text text-anchor="middle" x="665" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_r1</text>
+</a>
+</g>
+</g>
+<!-- none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_r1 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge16" class="edge">
+<title>none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_r1</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M430.05,-251.98C437.64,-248.25 444.73,-243.65 451,-238 492.68,-200.43 444.08,-153.14 487,-117 488.22,-115.97 489.46,-114.98 490.73,-114.01"/>
+<polygon fill="#000000" stroke="#000000" points="493.08,-116.64 499.37,-108.11 489.13,-110.86 493.08,-116.64"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r2 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node18" class="node">
+<title>proc~dyn_mpas_get_variable_pointer_r2</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node18"><a xlink:href="../proc/dyn_mpas_get_variable_pointer_r2.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_r2">
+<polygon fill="#d9534f" stroke="#d9534f" points="842.5,-66 487.5,-66 487.5,-42 842.5,-42 842.5,-66"/>
+<text text-anchor="middle" x="665" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_r2</text>
+</a>
+</g>
+</g>
+<!-- none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_r2 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge17" class="edge">
+<title>none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_r2</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M431.49,-251.97C438.6,-248.22 445.2,-243.62 451,-238 504.29,-186.38 432,-124.79 487,-75 488.15,-73.96 489.32,-72.96 490.51,-71.98"/>
+<polygon fill="#000000" stroke="#000000" points="492.67,-74.74 498.67,-66 488.53,-69.09 492.67,-74.74"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r3 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node19" class="node">
+<title>proc~dyn_mpas_get_variable_pointer_r3</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node19"><a xlink:href="../proc/dyn_mpas_get_variable_pointer_r3.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_r3">
+<polygon fill="#d9534f" stroke="#d9534f" points="842.5,-360 487.5,-360 487.5,-336 842.5,-336 842.5,-360"/>
+<text text-anchor="middle" x="665" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_r3</text>
+</a>
+</g>
+</g>
+<!-- none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_r3 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge18" class="edge">
+<title>none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_r3</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M431.17,-276.06C438.06,-278.56 444.73,-281.52 451,-285 472.5,-296.92 465.31,-315.43 487,-327 490.51,-328.87 494.11,-330.61 497.79,-332.22"/>
+<polygon fill="#000000" stroke="#000000" points="496.49,-335.47 507.08,-335.97 499.11,-328.98 496.49,-335.47"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r4 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node20" class="node">
+<title>proc~dyn_mpas_get_variable_pointer_r4</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node20"><a xlink:href="../proc/dyn_mpas_get_variable_pointer_r4.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_r4">
+<polygon fill="#d9534f" stroke="#d9534f" points="842.5,-318 487.5,-318 487.5,-294 842.5,-294 842.5,-318"/>
+<text text-anchor="middle" x="665" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_r4</text>
+</a>
+</g>
+</g>
+<!-- none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_r4 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge19" class="edge">
+<title>none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_r4</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M412.16,-276.02C436.63,-278.97 462.76,-282.1 487,-285 508.09,-287.52 530.59,-290.2 552.23,-292.77"/>
+<polygon fill="#000000" stroke="#000000" points="552.1,-296.28 562.44,-293.98 552.92,-289.33 552.1,-296.28"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r5 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node21" class="node">
+<title>proc~dyn_mpas_get_variable_pointer_r5</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node21"><a xlink:href="../proc/dyn_mpas_get_variable_pointer_r5.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_r5">
+<polygon fill="#d9534f" stroke="#d9534f" points="842.5,-276 487.5,-276 487.5,-252 842.5,-252 842.5,-276"/>
+<text text-anchor="middle" x="665" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_pointer_r5</text>
+</a>
+</g>
+</g>
+<!-- none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_r5 -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge20" class="edge">
+<title>none~get_variable_pointer&#45;&gt;proc~dyn_mpas_get_variable_pointer_r5</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M451.17,-264C459.73,-264 468.41,-264 477.12,-264"/>
+<polygon fill="#000000" stroke="#000000" points="477.36,-267.5 487.36,-264 477.36,-260.5 477.36,-267.5"/>
+</g>
+<!-- proc~dyn_debug_print&#45;&gt;stringify -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge21" class="edge">
+<title>proc~dyn_debug_print&#45;&gt;stringify</title>
+<path fill="none" stroke="#000000" d="M362.12,-49.29C397.03,-44.6 444.85,-38.28 487,-33 535.49,-26.93 591.5,-20.36 627.31,-16.21"/>
+<polygon fill="#000000" stroke="#000000" points="627.77,-19.68 637.3,-15.06 626.96,-12.73 627.77,-19.68"/>
+</g>
+<!-- mpas_pool_get_array -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node22" class="node">
+<title>mpas_pool_get_array</title>
+<polygon fill="#777777" stroke="#777777" points="1101.5,-276 974.5,-276 974.5,-252 1101.5,-252 1101.5,-276"/>
+<text text-anchor="middle" x="1038" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_pool_get_array</text>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_c0&#45;&gt;mpas_pool_get_array -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge22" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_c0&#45;&gt;mpas_pool_get_array</title>
+<path fill="none" stroke="#000000" d="M830.68,-419.94C834.99,-417.28 839.11,-414.31 843,-411 887.35,-373.24 834.92,-323.07 879,-285 902.04,-265.1 934.47,-258.43 963.95,-257.29"/>
+<polygon fill="#000000" stroke="#000000" points="964.3,-260.78 974.23,-257.1 964.17,-253.78 964.3,-260.78"/>
+</g>
+<!-- mpas_pool_get_config -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node23" class="node">
+<title>mpas_pool_get_config</title>
+<polygon fill="#777777" stroke="#777777" points="1103.5,-486 972.5,-486 972.5,-462 1103.5,-462 1103.5,-486"/>
+<text text-anchor="middle" x="1038" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_pool_get_config</text>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_c0&#45;&gt;mpas_pool_get_config -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge23" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_c0&#45;&gt;mpas_pool_get_config</title>
+<path fill="none" stroke="#000000" d="M772.31,-444.04C833.09,-450.92 907.82,-459.38 962.36,-465.55"/>
+<polygon fill="#000000" stroke="#000000" points="961.97,-469.03 972.3,-466.68 962.76,-462.07 961.97,-469.03"/>
+</g>
+<!-- proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node25" class="node">
+<title>proc~dyn_mpas_get_pool_pointer</title>
+<g id="a_proc~~init_reference_pressure~~CallsGraph_node25"><a xlink:href="../proc/dyn_mpas_get_pool_pointer.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_pool_pointer">
+<polygon fill="#d9534f" stroke="#d9534f" points="1197,-318 879,-318 879,-294 1197,-294 1197,-318"/>
+<text text-anchor="middle" x="1038" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_pool_pointer</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_c0&#45;&gt;proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge24" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_c0&#45;&gt;proc~dyn_mpas_get_pool_pointer</title>
+<path fill="none" stroke="#000000" d="M808.07,-419.98C820.01,-417.52 831.79,-414.55 843,-411 907.78,-390.46 975.97,-347.94 1011.72,-323.78"/>
+<polygon fill="#000000" stroke="#000000" points="1013.8,-326.6 1020.08,-318.06 1009.85,-320.82 1013.8,-326.6"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_c1&#45;&gt;mpas_pool_get_array -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge25" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_c1&#45;&gt;mpas_pool_get_array</title>
+<path fill="none" stroke="#000000" d="M772.31,-234.04C833.89,-241.01 909.81,-249.6 964.52,-255.8"/>
+<polygon fill="#000000" stroke="#000000" points="964.15,-259.28 974.49,-256.92 964.94,-252.32 964.15,-259.28"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_c1&#45;&gt;proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge26" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_c1&#45;&gt;proc~dyn_mpas_get_pool_pointer</title>
+<path fill="none" stroke="#000000" d="M822.92,-234.03C829.85,-236.61 836.58,-239.58 843,-243 864.69,-254.57 857.39,-273.27 879,-285 882.36,-286.82 885.82,-288.51 889.35,-290.07"/>
+<polygon fill="#000000" stroke="#000000" points="888.29,-293.42 898.87,-293.92 890.91,-286.93 888.29,-293.42"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i0&#45;&gt;mpas_pool_get_array -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge27" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_i0&#45;&gt;mpas_pool_get_array</title>
+<path fill="none" stroke="#000000" d="M832.42,-545.83C836.14,-543.18 839.68,-540.24 843,-537 923.95,-457.96 798.61,-364.61 879,-285 900.99,-263.22 933.93,-256.46 964.05,-255.76"/>
+<polygon fill="#000000" stroke="#000000" points="964.14,-259.26 974.14,-255.74 964.13,-252.26 964.14,-259.26"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i0&#45;&gt;mpas_pool_get_config -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge28" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_i0&#45;&gt;mpas_pool_get_config</title>
+<path fill="none" stroke="#000000" d="M810.08,-545.97C821.34,-543.49 832.44,-540.54 843,-537 860.56,-531.12 861.9,-523.11 879,-516 906.78,-504.45 938.64,-495.27 966.44,-488.47"/>
+<polygon fill="#000000" stroke="#000000" points="967.56,-491.8 976.48,-486.07 965.94,-484.99 967.56,-491.8"/>
+</g>
+<!-- mpas_pool_get_dimension -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node24" class="node">
+<title>mpas_pool_get_dimension</title>
+<polygon fill="#777777" stroke="#777777" points="1115,-549 961,-549 961,-525 1115,-525 1115,-549"/>
+<text text-anchor="middle" x="1038" y="-534.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_pool_get_dimension</text>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i0&#45;&gt;mpas_pool_get_dimension -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge29" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_i0&#45;&gt;mpas_pool_get_dimension</title>
+<path fill="none" stroke="#000000" d="M841.72,-548.05C879.58,-545.91 917.98,-543.74 950.59,-541.89"/>
+<polygon fill="#000000" stroke="#000000" points="951.19,-545.36 960.97,-541.3 950.79,-538.37 951.19,-545.36"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i0&#45;&gt;proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge30" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_i0&#45;&gt;proc~dyn_mpas_get_pool_pointer</title>
+<path fill="none" stroke="#000000" d="M828.93,-545.95C833.83,-543.31 838.54,-540.34 843,-537 875.53,-512.68 855.63,-486.22 879,-453 917.06,-398.91 977.77,-349.51 1011.78,-324.06"/>
+<polygon fill="#000000" stroke="#000000" points="1013.86,-326.88 1019.83,-318.12 1009.7,-321.25 1013.86,-326.88"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i1&#45;&gt;mpas_pool_get_array -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge31" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_i1&#45;&gt;mpas_pool_get_array</title>
+<path fill="none" stroke="#000000" d="M831.74,-461.77C835.69,-459.15 839.45,-456.23 843,-453 899.45,-401.57 822.92,-336.82 879,-285 901.64,-264.08 934.5,-257.39 964.39,-256.51"/>
+<polygon fill="#000000" stroke="#000000" points="964.43,-260.01 974.4,-256.42 964.37,-253.01 964.43,-260.01"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i1&#45;&gt;mpas_pool_get_dimension -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge32" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_i1&#45;&gt;mpas_pool_get_dimension</title>
+<path fill="none" stroke="#000000" d="M780.96,-486.03C801.66,-488.65 823.01,-491.66 843,-495 888.55,-502.62 939.58,-513.77 977.87,-522.67"/>
+<polygon fill="#000000" stroke="#000000" points="977.28,-526.12 987.81,-525 978.87,-519.31 977.28,-526.12"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i1&#45;&gt;proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge33" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_i1&#45;&gt;proc~dyn_mpas_get_pool_pointer</title>
+<path fill="none" stroke="#000000" d="M816.15,-461.91C825.37,-459.42 834.39,-456.47 843,-453 916.65,-423.3 986.72,-357.99 1018.77,-325.35"/>
+<polygon fill="#000000" stroke="#000000" points="1021.28,-327.79 1025.73,-318.17 1016.26,-322.92 1021.28,-327.79"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i2&#45;&gt;mpas_pool_get_array -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge34" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_i2&#45;&gt;mpas_pool_get_array</title>
+<path fill="none" stroke="#000000" d="M793.16,-192.04C810.01,-194.52 826.98,-197.48 843,-201 897.37,-212.93 958.11,-233.96 996.9,-248.42"/>
+<polygon fill="#000000" stroke="#000000" points="995.68,-251.7 1006.27,-251.94 998.14,-245.15 995.68,-251.7"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i2&#45;&gt;proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge35" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_i2&#45;&gt;proc~dyn_mpas_get_pool_pointer</title>
+<path fill="none" stroke="#000000" d="M828.93,-192.05C833.83,-194.69 838.54,-197.66 843,-201 875.53,-225.32 846.64,-260.45 879,-285 880.65,-286.25 882.35,-287.45 884.07,-288.6"/>
+<polygon fill="#000000" stroke="#000000" points="882.6,-291.79 892.98,-293.89 886.17,-285.78 882.6,-291.79"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i3&#45;&gt;mpas_pool_get_array -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge36" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_i3&#45;&gt;mpas_pool_get_array</title>
+<path fill="none" stroke="#000000" d="M808.07,-150.02C820.01,-152.48 831.79,-155.45 843,-159 907.78,-179.54 975.97,-222.06 1011.72,-246.22"/>
+<polygon fill="#000000" stroke="#000000" points="1009.85,-249.18 1020.08,-251.94 1013.8,-243.4 1009.85,-249.18"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_i3&#45;&gt;proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge37" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_i3&#45;&gt;proc~dyn_mpas_get_pool_pointer</title>
+<path fill="none" stroke="#000000" d="M830.68,-150.06C834.99,-152.72 839.11,-155.69 843,-159 887.35,-196.76 834.92,-246.93 879,-285 880.33,-286.15 881.7,-287.26 883.09,-288.32"/>
+<polygon fill="#000000" stroke="#000000" points="881.12,-291.22 891.36,-293.95 885.06,-285.43 881.12,-291.22"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_l0&#45;&gt;mpas_pool_get_config -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge38" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_l0&#45;&gt;mpas_pool_get_config</title>
+<path fill="none" stroke="#000000" d="M772.31,-503.96C833.09,-497.08 907.82,-488.62 962.36,-482.45"/>
+<polygon fill="#000000" stroke="#000000" points="962.76,-485.93 972.3,-481.32 961.97,-478.97 962.76,-485.93"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_l0&#45;&gt;proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge39" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_l0&#45;&gt;proc~dyn_mpas_get_pool_pointer</title>
+<path fill="none" stroke="#000000" d="M822.92,-503.97C829.85,-501.39 836.58,-498.42 843,-495 864.69,-483.43 861.97,-470.73 879,-453 925.45,-404.62 984.19,-352.03 1015.32,-324.76"/>
+<polygon fill="#000000" stroke="#000000" points="1017.75,-327.3 1022.98,-318.08 1013.14,-322.02 1017.75,-327.3"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r0&#45;&gt;mpas_pool_get_array -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge40" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_r0&#45;&gt;mpas_pool_get_array</title>
+<path fill="none" stroke="#000000" d="M828.93,-377.95C833.83,-375.31 838.54,-372.34 843,-369 875.53,-344.68 846.64,-309.55 879,-285 902.96,-266.82 935.05,-260.29 964.06,-258.8"/>
+<polygon fill="#000000" stroke="#000000" points="964.29,-262.29 974.17,-258.47 964.06,-255.3 964.29,-262.29"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r0&#45;&gt;mpas_pool_get_config -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge41" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_r0&#45;&gt;mpas_pool_get_config</title>
+<path fill="none" stroke="#000000" d="M793.16,-402.04C810.01,-404.52 826.98,-407.48 843,-411 897.37,-422.93 958.11,-443.96 996.9,-458.42"/>
+<polygon fill="#000000" stroke="#000000" points="995.68,-461.7 1006.27,-461.94 998.14,-455.15 995.68,-461.7"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r0&#45;&gt;proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge42" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_r0&#45;&gt;proc~dyn_mpas_get_pool_pointer</title>
+<path fill="none" stroke="#000000" d="M793.16,-377.96C810.01,-375.48 826.98,-372.52 843,-369 897.37,-357.07 958.11,-336.04 996.9,-321.58"/>
+<polygon fill="#000000" stroke="#000000" points="998.14,-324.85 1006.27,-318.06 995.68,-318.3 998.14,-324.85"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r1&#45;&gt;mpas_pool_get_array -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge43" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_r1&#45;&gt;mpas_pool_get_array</title>
+<path fill="none" stroke="#000000" d="M816.15,-108.09C825.37,-110.58 834.39,-113.53 843,-117 916.65,-146.7 986.72,-212.01 1018.77,-244.65"/>
+<polygon fill="#000000" stroke="#000000" points="1016.26,-247.08 1025.73,-251.83 1021.28,-242.21 1016.26,-247.08"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r1&#45;&gt;proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge44" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_r1&#45;&gt;proc~dyn_mpas_get_pool_pointer</title>
+<path fill="none" stroke="#000000" d="M831.74,-108.23C835.69,-110.85 839.45,-113.77 843,-117 899.45,-168.43 822.92,-233.18 879,-285 880,-285.92 881.02,-286.82 882.06,-287.69"/>
+<polygon fill="#000000" stroke="#000000" points="880.25,-290.71 890.38,-293.84 884.41,-285.08 880.25,-290.71"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r2&#45;&gt;mpas_pool_get_array -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge45" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_r2&#45;&gt;mpas_pool_get_array</title>
+<path fill="none" stroke="#000000" d="M820.31,-66C828.13,-68.56 835.74,-71.54 843,-75 925.46,-114.35 994.51,-202.85 1023,-243.22"/>
+<polygon fill="#000000" stroke="#000000" points="1020.17,-245.29 1028.75,-251.51 1025.92,-241.3 1020.17,-245.29"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r2&#45;&gt;proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge46" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_r2&#45;&gt;proc~dyn_mpas_get_pool_pointer</title>
+<path fill="none" stroke="#000000" d="M831.92,-66.03C835.82,-68.72 839.52,-71.7 843,-75 911.67,-140.21 810.79,-219.31 879,-285 879.95,-285.92 880.93,-286.81 881.92,-287.67"/>
+<polygon fill="#000000" stroke="#000000" points="879.8,-290.46 889.86,-293.8 884.08,-284.92 879.8,-290.46"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r3&#45;&gt;mpas_pool_get_array -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge47" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_r3&#45;&gt;mpas_pool_get_array</title>
+<path fill="none" stroke="#000000" d="M822.92,-335.97C829.85,-333.39 836.58,-330.42 843,-327 864.69,-315.43 857.39,-296.73 879,-285 904.67,-271.07 936.03,-265.06 964.02,-262.8"/>
+<polygon fill="#000000" stroke="#000000" points="964.42,-266.28 974.17,-262.13 963.96,-259.3 964.42,-266.28"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r3&#45;&gt;proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge48" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_r3&#45;&gt;proc~dyn_mpas_get_pool_pointer</title>
+<path fill="none" stroke="#000000" d="M772.31,-335.96C818.79,-330.7 873.43,-324.52 920.96,-319.14"/>
+<polygon fill="#000000" stroke="#000000" points="921.45,-322.6 930.99,-318 920.66,-315.65 921.45,-322.6"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r4&#45;&gt;mpas_pool_get_array -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge49" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_r4&#45;&gt;mpas_pool_get_array</title>
+<path fill="none" stroke="#000000" d="M772.31,-293.96C833.89,-286.99 909.81,-278.4 964.52,-272.2"/>
+<polygon fill="#000000" stroke="#000000" points="964.94,-275.68 974.49,-271.08 964.15,-268.72 964.94,-275.68"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r4&#45;&gt;proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge50" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_r4&#45;&gt;proc~dyn_mpas_get_pool_pointer</title>
+<path fill="none" stroke="#000000" d="M842.54,-306C851.26,-306 860.02,-306 868.72,-306"/>
+<polygon fill="#000000" stroke="#000000" points="868.91,-309.5 878.91,-306 868.91,-302.5 868.91,-309.5"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r5&#45;&gt;mpas_pool_get_array -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge51" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_r5&#45;&gt;mpas_pool_get_array</title>
+<path fill="none" stroke="#000000" d="M842.54,-264C885.55,-264 929.21,-264 964.23,-264"/>
+<polygon fill="#000000" stroke="#000000" points="964.34,-267.5 974.34,-264 964.34,-260.5 964.34,-267.5"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_pointer_r5&#45;&gt;proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge52" class="edge">
+<title>proc~dyn_mpas_get_variable_pointer_r5&#45;&gt;proc~dyn_mpas_get_pool_pointer</title>
+<path fill="none" stroke="#000000" d="M772.31,-276.04C818.79,-281.3 873.43,-287.48 920.96,-292.86"/>
+<polygon fill="#000000" stroke="#000000" points="920.66,-296.35 930.99,-294 921.45,-289.4 920.66,-296.35"/>
+</g>
+<!-- mpas_pool_get_subpool -->
+<g id="proc~~init_reference_pressure~~CallsGraph_node26" class="node">
+<title>mpas_pool_get_subpool</title>
+<polygon fill="#777777" stroke="#777777" points="1373,-318 1233,-318 1233,-294 1373,-294 1373,-318"/>
+<text text-anchor="middle" x="1303" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_pool_get_subpool</text>
+</g>
+<!-- proc~dyn_mpas_get_pool_pointer&#45;&gt;mpas_pool_get_subpool -->
+<g id="proc~~init_reference_pressure~~CallsGraph_edge53" class="edge">
+<title>proc~dyn_mpas_get_pool_pointer&#45;&gt;mpas_pool_get_subpool</title>
+<path fill="none" stroke="#000000" d="M1197.3,-306C1205.94,-306 1214.43,-306 1222.59,-306"/>
+<polygon fill="#000000" stroke="#000000" points="1222.75,-309.5 1232.75,-306 1222.75,-302.5 1222.75,-309.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocinit_reference_pressureCallsGraph = svgPanZoom('#procinit_reference_pressureCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div></div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Called by</h3>
+          </div>
+          <div class="card-body"><div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~init_reference_pressure~~CalledByGraph Pages: 1 -->
+<svg id="procinit_reference_pressureCalledByGraph" width="274pt" height="32pt"
+ viewBox="0.00 0.00 274.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~init_reference_pressure~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~init_reference_pressure~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 270,-28 270,4 -4,4"/>
+<!-- proc~init_reference_pressure -->
+<g id="proc~~init_reference_pressure~~CalledByGraph_node1" class="node">
+<title>proc~init_reference_pressure</title>
+<polygon fill="none" stroke="black" points="266,-24 130,-24 130,0 266,0 266,-24"/>
+<text text-anchor="middle" x="198" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">init_reference_pressure</text>
+</g>
+<!-- proc~model_grid_init -->
+<g id="proc~~init_reference_pressure~~CalledByGraph_node2" class="node">
+<title>proc~model_grid_init</title>
+<g id="a_proc~~init_reference_pressure~~CalledByGraph_node2"><a xlink:href="../proc/model_grid_init.html" xlink:title="model_grid_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="94,-24 0,-24 0,0 94,0 94,-24"/>
+<text text-anchor="middle" x="47" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">model_grid_init</text>
+</a>
+</g>
+</g>
+<!-- proc~model_grid_init&#45;&gt;proc~init_reference_pressure -->
+<g id="proc~~init_reference_pressure~~CalledByGraph_edge1" class="edge">
+<title>proc~model_grid_init&#45;&gt;proc~init_reference_pressure</title>
+<path fill="none" stroke="#000000" d="M94.33,-12C102.43,-12 111.06,-12 119.74,-12"/>
+<polygon fill="#000000" stroke="#000000" points="119.92,-15.5 129.92,-12 119.92,-8.5 119.92,-15.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div></div>
+        </div>
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dzw"></span>
+              real(kind=kind_r8),
+            </td>
+              <td>private,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>dzw</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~28"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~2"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-num_pure_p_lev"></span>
+              integer,
+            </td>
+              <td>private,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>num_pure_p_lev</strong></td>
+<td> =</td>
+                <td>0</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p_ref_int"></span>
+              real(kind=kind_r8),
+            </td>
+              <td>private,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>p_ref_int</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p_ref_mid"></span>
+              real(kind=kind_r8),
+            </td>
+              <td>private,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>p_ref_mid</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rdzw"></span>
+              real(kind=kind_dyn_mpas),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>rdzw</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-subname~57"></span>
+              character(len=*),
+            </td>
+              <td>private,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>subname</strong></td>
+<td> =</td>
+                <td>&#39;dyn_grid::init_reference_pressure&#39;</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zu"></span>
+              real(kind=kind_r8),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>zu</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-zw"></span>
+              real(kind=kind_r8),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>zw</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+
+
+
+
+        <section>
+          <h2><span class="anchor" id="src"></span>Source Code</h2>
+          <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">init_reference_pressure</span><span class="p">()</span>
+<span class="w">        </span><span class="c">! Module(s) from CAM-SIMA.</span>
+<span class="w">        </span><span class="k">use </span><span class="n">cam_abortutils</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">check_allocate</span>
+<span class="w">        </span><span class="k">use </span><span class="n">cam_history_support</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">add_vert_coord</span>
+<span class="w">        </span><span class="k">use </span><span class="n">cam_logfile</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">debugout_verbose</span>
+<span class="w">        </span><span class="k">use </span><span class="n">dyn_comp</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">dyn_debug_print</span><span class="p">,</span><span class="w"> </span><span class="n">mpas_dynamical_core</span>
+<span class="w">        </span><span class="k">use </span><span class="n">dynconst</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">constant_p0</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">pref</span>
+<span class="w">        </span><span class="k">use </span><span class="n">ref_pres</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">ref_pres_init</span>
+<span class="w">        </span><span class="k">use </span><span class="n">std_atm_profile</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">std_atm_pres</span>
+<span class="w">        </span><span class="k">use </span><span class="n">string_utils</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">stringify</span>
+<span class="w">        </span><span class="k">use </span><span class="n">vert_coord</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">pver</span><span class="p">,</span><span class="w"> </span><span class="n">pverp</span>
+<span class="w">        </span><span class="c">! Module(s) from CESM Share.</span>
+<span class="w">        </span><span class="k">use </span><span class="n">shr_kind_mod</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">kind_r8</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">shr_kind_r8</span>
+<span class="w">        </span><span class="c">! Module(s) from MPAS.</span>
+<span class="w">        </span><span class="k">use </span><span class="n">dyn_mpas_subdriver</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">kind_dyn_mpas</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">mpas_dynamical_core_real_kind</span>
+
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dyn_grid::init_reference_pressure&#39;</span>
+<span class="w">        </span><span class="c">! Number of pure pressure levels at model top.</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">num_pure_p_lev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ierr</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">l</span>
+<span class="w">        </span><span class="c">! Reference pressure (Pa) at layer interfaces and midpoints.</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">kind_r8</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">p_ref_int</span><span class="p">(:)</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">kind_r8</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">p_ref_mid</span><span class="p">(:)</span>
+<span class="w">        </span><span class="c">! In MPAS, the vertical coordinate is denoted as lowercase &quot;zeta&quot;, a Greek alphabet.</span>
+<span class="w">        </span><span class="c">! `zu` denotes zeta at u-wind levels (i.e., at layer midpoints).</span>
+<span class="w">        </span><span class="c">! `zw` denotes zeta at w-wind levels (i.e., at layer interfaces).</span>
+<span class="w">        </span><span class="c">! `dzw` denotes the delta/difference between `zw`.</span>
+<span class="w">        </span><span class="c">! `rdzw` denotes the reciprocal of `dzw`.</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">kind_r8</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dzw</span><span class="p">(:)</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">kind_dyn_mpas</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rdzw</span><span class="p">(:)</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">kind_r8</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">zu</span><span class="p">(:)</span><span class="w"> </span><span class="c">! CANNOT be safely deallocated because `add_vert_coord`</span>
+<span class="w">                                        </span><span class="c">! just uses pointers to point at it internally.</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">kind_r8</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">zw</span><span class="p">(:)</span><span class="w"> </span><span class="c">! CANNOT be safely deallocated because `add_vert_coord`</span>
+<span class="w">                                        </span><span class="c">! just uses pointers to point at it internally.</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; entered&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">rdzw</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">zu</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">zw</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c">! Compute reference height.</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">rdzw</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mesh&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;rdzw&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">allocate</span><span class="p">(</span><span class="n">dzw</span><span class="p">(</span><span class="n">pver</span><span class="p">),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">check_allocate</span><span class="p">(</span><span class="n">ierr</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dzw(pver)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dyn_grid&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+
+<span class="w">        </span><span class="n">dzw</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0_kind_r8</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">rdzw</span><span class="p">(:),</span><span class="w"> </span><span class="n">kind_r8</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">rdzw</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">allocate</span><span class="p">(</span><span class="n">zw</span><span class="p">(</span><span class="n">pverp</span><span class="p">),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">check_allocate</span><span class="p">(</span><span class="n">ierr</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;zw(pverp)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dyn_grid&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">        </span><span class="k">allocate</span><span class="p">(</span><span class="n">zu</span><span class="p">(</span><span class="n">pver</span><span class="p">),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">check_allocate</span><span class="p">(</span><span class="n">ierr</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;zu(pver)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dyn_grid&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c">! In MPAS, zeta coordinates are stored in increasing order (i.e., bottom to top of atmosphere).</span>
+<span class="w">        </span><span class="c">! In CAM-SIMA, however, index order is reversed (i.e., top to bottom of atmosphere).</span>
+<span class="w">        </span><span class="c">! Compute in reverse below.</span>
+<span class="w">        </span><span class="n">zw</span><span class="p">(</span><span class="n">pverp</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0_kind_r8</span>
+
+<span class="w">        </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pver</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">            </span><span class="n">zw</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zw</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dzw</span><span class="p">(</span><span class="n">pver</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="n">zu</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5_kind_r8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">zw</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">zw</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+<span class="w">        </span><span class="k">end do</span>
+
+<span class="k">        deallocate</span><span class="p">(</span><span class="n">dzw</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c">! Register zeta coordinates with history.</span>
+<span class="w">        </span><span class="k">call </span><span class="n">add_vert_coord</span><span class="p">(</span><span class="s1">&#39;ilev&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">pverp</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Height (zeta) level at layer interfaces&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">zw</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="n">positive</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">add_vert_coord</span><span class="p">(</span><span class="s1">&#39;lev&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">pver</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Height (zeta) level at layer midpoints&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;m&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">zu</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="n">positive</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c">! Compute reference pressure from reference height.</span>
+<span class="w">        </span><span class="k">allocate</span><span class="p">(</span><span class="n">p_ref_int</span><span class="p">(</span><span class="n">pverp</span><span class="p">),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">check_allocate</span><span class="p">(</span><span class="n">ierr</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;p_ref_int(pverp)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dyn_grid&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">std_atm_pres</span><span class="p">(</span><span class="n">zw</span><span class="p">,</span><span class="w"> </span><span class="n">p_ref_int</span><span class="p">,</span><span class="w"> </span><span class="n">user_specified_ps</span><span class="o">=</span><span class="n">constant_p0</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">allocate</span><span class="p">(</span><span class="n">p_ref_mid</span><span class="p">(</span><span class="n">pver</span><span class="p">),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">check_allocate</span><span class="p">(</span><span class="n">ierr</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;p_ref_mid(pver)&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dyn_grid&#39;</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+
+<span class="w">        </span><span class="n">p_ref_mid</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5_kind_r8</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">p_ref_int</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">pver</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">p_ref_int</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="n">pverp</span><span class="p">))</span>
+
+<span class="w">        </span><span class="c">! Print a nice table of reference height and pressure.</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_verbose</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Reference layer information:&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_verbose</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;----- | -------------- | --------------&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_verbose</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Index |     Height (m) | Pressure (hPa)&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">pver</span>
+<span class="w">            </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_verbose</span><span class="p">,</span><span class="w"> </span><span class="nb">repeat</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; |  &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">zw</span><span class="p">(</span><span class="n">k</span><span class="p">)])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="s1">&#39; |  &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">p_ref_int</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10</span><span class="mf">0.0_kind_r8</span><span class="p">]))</span>
+
+<span class="w">            </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">stringify</span><span class="p">([</span><span class="n">k</span><span class="p">]))</span>
+
+<span class="w">            </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_verbose</span><span class="p">,</span><span class="w"> </span><span class="nb">repeat</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">l</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">k</span><span class="p">])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; |  &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">zu</span><span class="p">(</span><span class="n">k</span><span class="p">)])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="s1">&#39; |  &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">p_ref_mid</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10</span><span class="mf">0.0_kind_r8</span><span class="p">]))</span>
+<span class="w">        </span><span class="k">end do</span>
+
+<span class="k">        </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pverp</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_verbose</span><span class="p">,</span><span class="w"> </span><span class="nb">repeat</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; |  &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">zw</span><span class="p">(</span><span class="n">k</span><span class="p">)])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39; |  &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">p_ref_int</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10</span><span class="mf">0.0_kind_r8</span><span class="p">]))</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">ref_pres_init</span><span class="p">(</span><span class="n">p_ref_int</span><span class="p">,</span><span class="w"> </span><span class="n">p_ref_mid</span><span class="p">,</span><span class="w"> </span><span class="n">num_pure_p_lev</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">deallocate</span><span class="p">(</span><span class="n">p_ref_int</span><span class="p">)</span>
+<span class="w">        </span><span class="k">deallocate</span><span class="p">(</span><span class="n">p_ref_mid</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">zu</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">zw</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; completed&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">init_reference_pressure</span>
+</pre></div>
+
+        </section>
+        <br>
+    </div>
+  </div>
+      <hr>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              MPAS Dynamical Core
+was developed by CAM-SIMA & MPAS Developers<br>              © 2025 
+            </p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1014 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="MPAS dynamical core solves the fully compressible non-hydrostatic equations of atmospheric motion.">
+    <meta name="author" content="CAM-SIMA & MPAS Developers">
+    <link href="../favicon.png" rel="icon">
+
+    <title>dyn_mpas_init_phase3 – MPAS Dynamical Core</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      rel="stylesheet"
+    >
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    ></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      async
+      crossorigin="anonymous"
+      integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw="
+    ></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html"
+            >MPAS Dynamical Core </a
+          >
+          <button
+            class="navbar-toggler"
+            data-bs-target="#navbar"
+            data-bs-toggle="collapse"
+            type="button"
+            aria-controls="navbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbar">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>
+      dyn_mpas_init_phase3
+      <small
+        >Subroutine</small
+      >
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline">
+            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Michael Duda</li>
+            <li class="list-inline-item" id="meta-date"><i class="fa fa-calendar-o"></i> 19 April 2019</li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 1.2% of total for procedures.">45 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dyn_mpas_subdriver.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dyn_mpas_subdriver.f90.html'>dyn_mpas_subdriver.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/dyn_mpas_subdriver.html'>dyn_mpas_subdriver</a></li>
+            <li class="breadcrumb-item active" aria-current="page">dyn_mpas_init_phase3</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">  <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dyn_mpas_init_phase3.html#variable-mesh_filename">mesh_filename</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_init_phase3.html#variable-mesh_format">mesh_format</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_init_phase3.html#variable-mpas_pool">mpas_pool</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_init_phase3.html#variable-num_scalars">num_scalars</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_init_phase3.html#variable-subname~4">subname</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dyn_mpas_init_phase3.html#src">dyn_mpas_init_phase3</a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+    <div class="col-md-9" id="text">
+      <h2>private  subroutine dyn_mpas_init_phase3(self, number_of_constituents, pio_file)  
+</h2>
+          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item">pio</li>
+                  <li class="list-inline-item">mpas_derived_types</li>
+                  <li class="list-inline-item">mpas_pool_routines</li>
+                  <li class="list-inline-item">mpas_bootstrapping</li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dyn_mpas_init_phase3~~UsesGraph Pages: 1 -->
+<svg id="procdyn_mpas_init_phase3UsesGraph" width="454pt" height="158pt"
+ viewBox="0.00 0.00 454.00 158.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dyn_mpas_init_phase3~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 154)">
+<title>proc~~dyn_mpas_init_phase3~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-154 450,-154 450,4 -4,4"/>
+<!-- proc~dyn_mpas_init_phase3 -->
+<g id="proc~~dyn_mpas_init_phase3~~UsesGraph_node1" class="node">
+<title>proc~dyn_mpas_init_phase3</title>
+<polygon fill="none" stroke="black" points="446,-87 157,-87 157,-63 446,-63 446,-87"/>
+<text text-anchor="middle" x="301.5" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50">mpas_dynamical_core_type%dyn_mpas_init_phase3</text>
+</g>
+<!-- mpas_bootstrapping -->
+<g id="proc~~dyn_mpas_init_phase3~~UsesGraph_node2" class="node">
+<title>mpas_bootstrapping</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="121,-150 0,-150 0,-126 121,-126 121,-150"/>
+<text text-anchor="middle" x="60.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_bootstrapping</text>
+</g>
+<!-- proc~dyn_mpas_init_phase3&#45;&gt;mpas_bootstrapping -->
+<g id="proc~~dyn_mpas_init_phase3~~UsesGraph_edge1" class="edge">
+<title>proc~dyn_mpas_init_phase3&#45;&gt;mpas_bootstrapping</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M254.7,-87.07C215.43,-97.43 158.72,-112.37 116.9,-123.4"/>
+<polygon fill="#000000" stroke="#000000" points="115.92,-120.03 107.14,-125.97 117.71,-126.8 115.92,-120.03"/>
+</g>
+<!-- mpas_derived_types -->
+<g id="proc~~dyn_mpas_init_phase3~~UsesGraph_node3" class="node">
+<title>mpas_derived_types</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="121,-108 0,-108 0,-84 121,-84 121,-108"/>
+<text text-anchor="middle" x="60.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_derived_types</text>
+</g>
+<!-- proc~dyn_mpas_init_phase3&#45;&gt;mpas_derived_types -->
+<g id="proc~~dyn_mpas_init_phase3~~UsesGraph_edge2" class="edge">
+<title>proc~dyn_mpas_init_phase3&#45;&gt;mpas_derived_types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M163.9,-87C152.68,-87.99 141.67,-88.96 131.28,-89.87"/>
+<polygon fill="#000000" stroke="#000000" points="130.75,-86.4 121.1,-90.76 131.36,-93.37 130.75,-86.4"/>
+</g>
+<!-- mpas_pool_routines -->
+<g id="proc~~dyn_mpas_init_phase3~~UsesGraph_node4" class="node">
+<title>mpas_pool_routines</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="119.5,-66 1.5,-66 1.5,-42 119.5,-42 119.5,-66"/>
+<text text-anchor="middle" x="60.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_pool_routines</text>
+</g>
+<!-- proc~dyn_mpas_init_phase3&#45;&gt;mpas_pool_routines -->
+<g id="proc~~dyn_mpas_init_phase3~~UsesGraph_edge3" class="edge">
+<title>proc~dyn_mpas_init_phase3&#45;&gt;mpas_pool_routines</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M163.9,-63C152.17,-61.97 140.67,-60.96 129.85,-60.01"/>
+<polygon fill="#000000" stroke="#000000" points="129.98,-56.5 119.71,-59.11 129.37,-63.48 129.98,-56.5"/>
+</g>
+<!-- pio -->
+<g id="proc~~dyn_mpas_init_phase3~~UsesGraph_node5" class="node">
+<title>pio</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="87.5,-24 33.5,-24 33.5,0 87.5,0 87.5,-24"/>
+<text text-anchor="middle" x="60.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pio</text>
+</g>
+<!-- proc~dyn_mpas_init_phase3&#45;&gt;pio -->
+<g id="proc~~dyn_mpas_init_phase3~~UsesGraph_edge4" class="edge">
+<title>proc~dyn_mpas_init_phase3&#45;&gt;pio</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M254.7,-62.93C208.87,-50.85 139.31,-32.51 97.36,-21.45"/>
+<polygon fill="#000000" stroke="#000000" points="98.13,-18.04 87.57,-18.87 96.35,-24.81 98.13,-18.04"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+
+        <p>This subroutine follows the stand-alone MPAS subdriver after the check on
+the existence of the "streams.<core>" file up to, but not including,
+the point where <code>atm_core_init</code> is called. It completes MPAS framework
+initialization, including the allocation of all blocks and fields managed
+by MPAS. However, note that scalars are allocated, but not yet defined.
+<code>dyn_mpas_define_scalar</code> must be called afterwards. Also note that MPAS uses
+the term "scalar", but CAM-SIMA calls it "constituent".
+Ported and refactored for CAM-SIMA. (KCW, 2024-03-06)</p>
+
+        <h3>Type Bound</h3>
+        <p><a href='../type/mpas_dynamical_core_type.html'>mpas_dynamical_core_type</a></p>
+
+      <h3>Arguments</h3>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~5"></span>
+              class(<a href='../type/mpas_dynamical_core_type.html'>mpas_dynamical_core_type</a>),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-number_of_constituents~2"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>number_of_constituents</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pio_file"></span>
+              type(file_desc_t),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>pio_file</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Calls</h3>
+          </div>
+          <div class="card-body"><div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dyn_mpas_init_phase3~~CallsGraph Pages: 1 -->
+<svg id="procdyn_mpas_init_phase3CallsGraph" width="641pt" height="282pt"
+ viewBox="0.00 0.00 641.00 282.13" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph" class="graph" transform="scale(0.78 0.78) rotate(0) translate(4 360)">
+<title>proc~~dyn_mpas_init_phase3~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-360 823,-360 823,4 -4,4"/>
+<!-- proc~dyn_mpas_init_phase3 -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_node1" class="node">
+<title>proc~dyn_mpas_init_phase3</title>
+<polygon fill="none" stroke="black" points="289,-188 0,-188 0,-164 289,-164 289,-188"/>
+<text text-anchor="middle" x="144.5" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50">mpas_dynamical_core_type%dyn_mpas_init_phase3</text>
+</g>
+<!-- mpas_bootstrap_framework_phase1 -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_node2" class="node">
+<title>mpas_bootstrap_framework_phase1</title>
+<polygon fill="#777777" stroke="#777777" points="586.5,-356 381.5,-356 381.5,-332 586.5,-332 586.5,-356"/>
+<text text-anchor="middle" x="484" y="-341.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_bootstrap_framework_phase1</text>
+</g>
+<!-- proc~dyn_mpas_init_phase3&#45;&gt;mpas_bootstrap_framework_phase1 -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_edge1" class="edge">
+<title>proc~dyn_mpas_init_phase3&#45;&gt;mpas_bootstrap_framework_phase1</title>
+<path fill="none" stroke="#000000" d="M155.75,-188.11C181.07,-217.1 249.98,-290.47 325,-323 339.51,-329.29 355.41,-333.82 371.36,-337.06"/>
+<polygon fill="#000000" stroke="#000000" points="370.82,-340.52 381.29,-338.91 372.1,-333.64 370.82,-340.52"/>
+</g>
+<!-- mpas_bootstrap_framework_phase2 -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_node3" class="node">
+<title>mpas_bootstrap_framework_phase2</title>
+<polygon fill="#777777" stroke="#777777" points="586.5,-314 381.5,-314 381.5,-290 586.5,-290 586.5,-314"/>
+<text text-anchor="middle" x="484" y="-299.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_bootstrap_framework_phase2</text>
+</g>
+<!-- proc~dyn_mpas_init_phase3&#45;&gt;mpas_bootstrap_framework_phase2 -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_edge2" class="edge">
+<title>proc~dyn_mpas_init_phase3&#45;&gt;mpas_bootstrap_framework_phase2</title>
+<path fill="none" stroke="#000000" d="M161.25,-188.19C191.25,-210.68 259.44,-258.49 325,-281 339.6,-286.01 355.34,-289.84 371.03,-292.75"/>
+<polygon fill="#000000" stroke="#000000" points="370.86,-296.28 381.32,-294.54 372.06,-289.38 370.86,-296.28"/>
+</g>
+<!-- mpas_pool_add_config -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_node4" class="node">
+<title>mpas_pool_add_config</title>
+<polygon fill="#777777" stroke="#777777" points="551,-272 417,-272 417,-248 551,-248 551,-272"/>
+<text text-anchor="middle" x="484" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_pool_add_config</text>
+</g>
+<!-- proc~dyn_mpas_init_phase3&#45;&gt;mpas_pool_add_config -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_edge3" class="edge">
+<title>proc~dyn_mpas_init_phase3&#45;&gt;mpas_pool_add_config</title>
+<path fill="none" stroke="#000000" d="M173.87,-188C208.8,-202.3 270.23,-225.9 325,-239 351.25,-245.28 380.44,-249.82 406.51,-253.04"/>
+<polygon fill="#000000" stroke="#000000" points="406.38,-256.55 416.72,-254.26 407.2,-249.6 406.38,-256.55"/>
+</g>
+<!-- mpas_pool_add_dimension -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_node5" class="node">
+<title>mpas_pool_add_dimension</title>
+<polygon fill="#777777" stroke="#777777" points="562.5,-230 405.5,-230 405.5,-206 562.5,-206 562.5,-230"/>
+<text text-anchor="middle" x="484" y="-215.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_pool_add_dimension</text>
+</g>
+<!-- proc~dyn_mpas_init_phase3&#45;&gt;mpas_pool_add_dimension -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_edge4" class="edge">
+<title>proc~dyn_mpas_init_phase3&#45;&gt;mpas_pool_add_dimension</title>
+<path fill="none" stroke="#000000" d="M242.21,-188.04C290.39,-194.03 348.22,-201.23 395.13,-207.06"/>
+<polygon fill="#000000" stroke="#000000" points="394.91,-210.56 405.27,-208.33 395.78,-203.62 394.91,-210.56"/>
+</g>
+<!-- mpas_pool_get_dimension -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_node6" class="node">
+<title>mpas_pool_get_dimension</title>
+<polygon fill="#777777" stroke="#777777" points="561,-188 407,-188 407,-164 561,-164 561,-188"/>
+<text text-anchor="middle" x="484" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_pool_get_dimension</text>
+</g>
+<!-- proc~dyn_mpas_init_phase3&#45;&gt;mpas_pool_get_dimension -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_edge5" class="edge">
+<title>proc~dyn_mpas_init_phase3&#45;&gt;mpas_pool_get_dimension</title>
+<path fill="none" stroke="#000000" d="M289.12,-176C325.55,-176 363.57,-176 396.2,-176"/>
+<polygon fill="#000000" stroke="#000000" points="396.59,-179.5 406.59,-176 396.59,-172.5 396.59,-179.5"/>
+</g>
+<!-- pio_file_is_open -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_node7" class="node">
+<title>pio_file_is_open</title>
+<polygon fill="#777777" stroke="#777777" points="532.5,-146 435.5,-146 435.5,-122 532.5,-122 532.5,-146"/>
+<text text-anchor="middle" x="484" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pio_file_is_open</text>
+</g>
+<!-- proc~dyn_mpas_init_phase3&#45;&gt;pio_file_is_open -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_edge6" class="edge">
+<title>proc~dyn_mpas_init_phase3&#45;&gt;pio_file_is_open</title>
+<path fill="none" stroke="#000000" d="M242.21,-163.96C301.44,-156.59 375.24,-147.41 425.42,-141.17"/>
+<polygon fill="#000000" stroke="#000000" points="425.95,-144.63 435.44,-139.92 425.08,-137.68 425.95,-144.63"/>
+</g>
+<!-- proc~dyn_mpas_debug_print -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_node8" class="node">
+<title>proc~dyn_mpas_debug_print</title>
+<g id="a_proc~~dyn_mpas_init_phase3~~CallsGraph_node8"><a xlink:href="../proc/dyn_mpas_debug_print.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_debug_print">
+<polygon fill="#d9534f" stroke="#d9534f" points="630,-104 338,-104 338,-80 630,-80 630,-104"/>
+<text text-anchor="middle" x="484" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_debug_print</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_init_phase3&#45;&gt;proc~dyn_mpas_debug_print -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_edge7" class="edge">
+<title>proc~dyn_mpas_init_phase3&#45;&gt;proc~dyn_mpas_debug_print</title>
+<path fill="none" stroke="#000000" d="M173.87,-164C208.8,-149.7 270.23,-126.1 325,-113 336.46,-110.26 348.48,-107.85 360.55,-105.73"/>
+<polygon fill="#000000" stroke="#000000" points="361.41,-109.14 370.69,-104.03 360.25,-102.24 361.41,-109.14"/>
+</g>
+<!-- proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_node9" class="node">
+<title>proc~dyn_mpas_get_pool_pointer</title>
+<g id="a_proc~~dyn_mpas_init_phase3~~CallsGraph_node9"><a xlink:href="../proc/dyn_mpas_get_pool_pointer.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_pool_pointer">
+<polygon fill="#d9534f" stroke="#d9534f" points="643,-24 325,-24 325,0 643,0 643,-24"/>
+<text text-anchor="middle" x="484" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_pool_pointer</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_init_phase3&#45;&gt;proc~dyn_mpas_get_pool_pointer -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_edge8" class="edge">
+<title>proc~dyn_mpas_init_phase3&#45;&gt;proc~dyn_mpas_get_pool_pointer</title>
+<path fill="none" stroke="#000000" d="M156.76,-163.98C183.2,-136.58 252.52,-69.44 325,-38 335.45,-33.47 346.61,-29.72 357.98,-26.62"/>
+<polygon fill="#000000" stroke="#000000" points="359.19,-29.92 368.01,-24.06 357.46,-23.14 359.19,-29.92"/>
+</g>
+<!-- proc~stringify -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_node10" class="node">
+<title>proc~stringify</title>
+<g id="a_proc~~dyn_mpas_init_phase3~~CallsGraph_node10"><a xlink:href="../proc/stringify.html" xlink:title="stringify">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="776.5,-85 721.5,-85 721.5,-61 776.5,-61 776.5,-85"/>
+<text text-anchor="middle" x="749" y="-70.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stringify</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_init_phase3&#45;&gt;proc~stringify -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_edge9" class="edge">
+<title>proc~dyn_mpas_init_phase3&#45;&gt;proc~stringify</title>
+<path fill="none" stroke="#000000" d="M160.09,-163.73C189.17,-140.17 257.4,-89.32 325,-71 463.16,-33.56 636.15,-54.29 710.84,-66.32"/>
+<polygon fill="#000000" stroke="#000000" points="710.69,-69.84 721.13,-68.02 711.84,-62.93 710.69,-69.84"/>
+</g>
+<!-- proc~dyn_mpas_debug_print&#45;&gt;proc~stringify -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_edge10" class="edge">
+<title>proc~dyn_mpas_debug_print&#45;&gt;proc~stringify</title>
+<path fill="none" stroke="#000000" d="M630.35,-81.5C660.36,-79.33 689.4,-77.23 711.12,-75.66"/>
+<polygon fill="#000000" stroke="#000000" points="711.45,-79.15 721.17,-74.94 710.94,-72.17 711.45,-79.15"/>
+</g>
+<!-- mpas_pool_get_subpool -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_node11" class="node">
+<title>mpas_pool_get_subpool</title>
+<polygon fill="#777777" stroke="#777777" points="819,-24 679,-24 679,0 819,0 819,-24"/>
+<text text-anchor="middle" x="749" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_pool_get_subpool</text>
+</g>
+<!-- proc~dyn_mpas_get_pool_pointer&#45;&gt;mpas_pool_get_subpool -->
+<g id="proc~~dyn_mpas_init_phase3~~CallsGraph_edge11" class="edge">
+<title>proc~dyn_mpas_get_pool_pointer&#45;&gt;mpas_pool_get_subpool</title>
+<path fill="none" stroke="#000000" d="M643.3,-12C651.94,-12 660.43,-12 668.59,-12"/>
+<polygon fill="#000000" stroke="#000000" points="668.75,-15.5 678.75,-12 668.75,-8.5 668.75,-15.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocdyn_mpas_init_phase3CallsGraph = svgPanZoom('#procdyn_mpas_init_phase3CallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div></div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Called by</h3>
+          </div>
+          <div class="card-body"><div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dyn_mpas_init_phase3~~CalledByGraph Pages: 1 -->
+<svg id="procdyn_mpas_init_phase3CalledByGraph" width="427pt" height="32pt"
+ viewBox="0.00 0.00 427.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dyn_mpas_init_phase3~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~dyn_mpas_init_phase3~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 423,-28 423,4 -4,4"/>
+<!-- proc~dyn_mpas_init_phase3 -->
+<g id="proc~~dyn_mpas_init_phase3~~CalledByGraph_node1" class="node">
+<title>proc~dyn_mpas_init_phase3</title>
+<polygon fill="none" stroke="black" points="419,-24 130,-24 130,0 419,0 419,-24"/>
+<text text-anchor="middle" x="274.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">mpas_dynamical_core_type%dyn_mpas_init_phase3</text>
+</g>
+<!-- proc~model_grid_init -->
+<g id="proc~~dyn_mpas_init_phase3~~CalledByGraph_node2" class="node">
+<title>proc~model_grid_init</title>
+<g id="a_proc~~dyn_mpas_init_phase3~~CalledByGraph_node2"><a xlink:href="../proc/model_grid_init.html" xlink:title="model_grid_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="94,-24 0,-24 0,0 94,0 94,-24"/>
+<text text-anchor="middle" x="47" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">model_grid_init</text>
+</a>
+</g>
+</g>
+<!-- proc~model_grid_init&#45;&gt;proc~dyn_mpas_init_phase3 -->
+<g id="proc~~dyn_mpas_init_phase3~~CalledByGraph_edge1" class="edge">
+<title>proc~model_grid_init&#45;&gt;proc~dyn_mpas_init_phase3</title>
+<path fill="none" stroke="#000000" d="M94.18,-12C102.04,-12 110.58,-12 119.52,-12"/>
+<polygon fill="#000000" stroke="#000000" points="119.76,-15.5 129.76,-12 119.76,-8.5 119.76,-15.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div></div>
+        </div>
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mesh_filename"></span>
+              character(len=strkind),
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mesh_filename</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mesh_format"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mesh_format</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mpas_pool"></span>
+              type(mpas_pool_type),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>mpas_pool</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-num_scalars"></span>
+              integer,
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>num_scalars</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-subname~4"></span>
+              character(len=*),
+            </td>
+              <td>private,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>subname</strong></td>
+<td> =</td>
+                <td>&#39;dyn_mpas_subdriver::dyn_mpas_init_phase3&#39;</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+
+
+
+
+        <section>
+          <h2><span class="anchor" id="src"></span>Source Code</h2>
+          <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">dyn_mpas_init_phase3</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="p">,</span><span class="w"> </span><span class="n">pio_file</span><span class="p">)</span>
+<span class="w">        </span><span class="c">! Module(s) from external libraries.</span>
+<span class="w">        </span><span class="k">use </span><span class="n">pio</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">file_desc_t</span><span class="p">,</span><span class="w"> </span><span class="n">pio_file_is_open</span>
+<span class="w">        </span><span class="c">! Module(s) from MPAS.</span>
+<span class="w">        </span><span class="k">use </span><span class="n">mpas_bootstrapping</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">mpas_bootstrap_framework_phase1</span><span class="p">,</span><span class="w"> </span><span class="n">mpas_bootstrap_framework_phase2</span>
+<span class="w">        </span><span class="k">use </span><span class="n">mpas_derived_types</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">mpas_io_pnetcdf</span><span class="p">,</span><span class="w"> </span><span class="n">mpas_pool_type</span>
+<span class="w">        </span><span class="k">use </span><span class="n">mpas_pool_routines</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">mpas_pool_add_config</span><span class="p">,</span><span class="w"> </span><span class="n">mpas_pool_add_dimension</span><span class="p">,</span><span class="w"> </span><span class="n">mpas_pool_get_dimension</span>
+
+<span class="w">        </span><span class="k">class</span><span class="p">(</span><span class="n">mpas_dynamical_core_type</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">self</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">number_of_constituents</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">file_desc_t</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pio_file</span>
+
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dyn_mpas_subdriver::dyn_mpas_init_phase3&#39;</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="n">strkind</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mesh_filename</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mesh_format</span>
+<span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">num_scalars</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">mpas_pool_type</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mpas_pool</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; entered&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">num_scalars</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c">! In MPAS, there must be at least one constituent, `qv`, which denotes water vapor mixing ratio.</span>
+<span class="w">        </span><span class="c">! Because MPAS has some hard-coded array accesses through the `index_qv` index, it will crash</span>
+<span class="w">        </span><span class="c">! (i.e., segmentation fault due to invalid memory access) if `qv` is not allocated.</span>
+<span class="w">        </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Number of constituents is &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="p">]))</span>
+
+<span class="w">        </span><span class="c">! Adding a config named &quot;cam_pcnst&quot; with the number of constituents will indicate to MPAS that</span>
+<span class="w">        </span><span class="c">! it is operating as a dynamical core, and therefore it needs to allocate scalars separately</span>
+<span class="w">        </span><span class="c">! from other Registry-defined fields. The special logic is located in `atm_setup_block`.</span>
+<span class="w">        </span><span class="c">! This must be done before calling `mpas_bootstrap_framework_phase1`.</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_config</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">configs</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;cam_pcnst&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c">! Not actually used because a PIO file descriptor is directly supplied.</span>
+<span class="w">        </span><span class="n">mesh_filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;external mesh&#39;</span>
+<span class="w">        </span><span class="n">mesh_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mpas_io_pnetcdf</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Checking PIO file descriptor&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">pio_file</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Invalid PIO file descriptor&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="n">pio_file_is_open</span><span class="p">(</span><span class="n">pio_file</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Invalid PIO file descriptor&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bootstrapping MPAS framework (Phase 1/2)&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c">! Finish setting up blocks.</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_bootstrap_framework_phase1</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">mesh_filename</span><span class="p">,</span><span class="w"> </span><span class="n">mesh_format</span><span class="p">,</span><span class="w"> </span><span class="n">pio_file_desc</span><span class="o">=</span><span class="n">pio_file</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bootstrapping MPAS framework (Phase 2/2)&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c">! Finish setting up fields.</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_bootstrap_framework_phase2</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">pio_file_desc</span><span class="o">=</span><span class="n">pio_file</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c">! &quot;num_scalars&quot; is a dimension variable, but it only exists in MPAS &quot;state&quot; pool.</span>
+<span class="w">        </span><span class="c">! Fix this inconsistency by also adding it to MPAS &quot;dimension&quot; pool.</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_pool_pointer</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;state&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_get_dimension</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;num_scalars&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">num_scalars</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">num_scalars</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to find variable &quot;num_scalars&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="w">        </span><span class="c">! While we are at it, check if its value is consistent.</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">num_scalars</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate constituents&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">dimensions</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;num_scalars&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">num_scalars</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">num_scalars</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c">! At this point, what follows next depends on the specific use case. In no particular order:</span>
+<span class="w">        </span><span class="c">! * Use `dyn_mpas_define_scalar` to define the names of constituents at run-time.</span>
+<span class="w">        </span><span class="c">! * Use `dyn_mpas_read_write_stream` to read mesh variables.</span>
+<span class="w">        </span><span class="c">!   * Follow up with a call to `dyn_mpas_compute_unit_vector` immediately. This is by design.</span>
+<span class="w">        </span><span class="c">! * For setting analytic initial condition, use `get_variable_pointer` to inject data directly into MPAS memory.</span>
+<span class="w">        </span><span class="c">!   * Use `dyn_mpas_compute_edge_wind` where appropriate.</span>
+<span class="w">        </span><span class="c">!   * Use `dyn_mpas_exchange_halo` where appropriate.</span>
+<span class="w">        </span><span class="c">! * Use `dyn_mpas_read_write_stream` to read initial condition or restart.</span>
+<span class="w">        </span><span class="c">! * Finally, use `dyn_mpas_init_phase4` to conclude the initialization of MPAS dynamical core.</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; completed&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">dyn_mpas_init_phase3</span>
+</pre></div>
+
+        </section>
+        <br>
+    </div>
+  </div>
+      <hr>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              MPAS Dynamical Core
+was developed by CAM-SIMA & MPAS Developers<br>              © 2025 
+            </p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div>
+    </footer>
+  </body>
+</html>

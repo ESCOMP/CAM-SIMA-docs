@@ -1,0 +1,609 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="MPAS dynamical core solves the fully compressible non-hydrostatic equations of atmospheric motion.">
+    <meta name="author" content="CAM-SIMA & MPAS Developers">
+    <link href="../favicon.png" rel="icon">
+
+    <title>parse_stream_name_fragment – MPAS Dynamical Core</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      rel="stylesheet"
+    >
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    ></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      async
+      crossorigin="anonymous"
+      integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw="
+    ></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html"
+            >MPAS Dynamical Core </a
+          >
+          <button
+            class="navbar-toggler"
+            data-bs-target="#navbar"
+            data-bs-toggle="collapse"
+            type="button"
+            aria-controls="navbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbar">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>
+      parse_stream_name_fragment
+      <small
+        >Function</small
+      >
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 1.1% of total for procedures.">40 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dyn_mpas_subdriver.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dyn_mpas_subdriver.f90.html'>dyn_mpas_subdriver.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/dyn_mpas_subdriver.html'>dyn_mpas_subdriver</a></li>
+            <li class="breadcrumb-item active" aria-current="page">parse_stream_name_fragment</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">  <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/parse_stream_name_fragment.html#variable-var_info_list_buffer~2">var_info_list_buffer</a>
+            <a class="list-group-item" href="../proc/parse_stream_name_fragment.html#variable-var_name_list~2">var_name_list</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/parse_stream_name_fragment.html#src">parse_stream_name_fragment</a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+    <div class="col-md-9" id="text">
+      <h2>private pure function parse_stream_name_fragment(stream_name_fragment) result(var_info_list)  
+</h2>
+      
+
+        <p>Parse a stream name fragment and return the corresponding variable information as a list of <code>var_info_type</code>.
+A stream name fragment can be a predefined stream name (e.g., "invariant", "input", etc.) or a single variable name.
+(KCW, 2024-06-01)</p>
+
+
+      <h3>Arguments</h3>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-stream_name_fragment~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>stream_name_fragment</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        <h3>
+          Return Value
+          <small>
+            <span class="anchor" id="variable-var_info_list~4"></span>
+            type(<a href='../type/var_info_type.html'>var_info_type</a>), allocatable, (:)
+          </small>
+        </h3>
+        
+        <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Called by</h3>
+          </div>
+          <div class="card-body"><div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~parse_stream_name_fragment~~CalledByGraph Pages: 1 -->
+<svg id="procparse_stream_name_fragmentCalledByGraph" width="641pt" height="51pt"
+ viewBox="0.00 0.00 641.00 51.49" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph" class="graph" transform="scale(0.44 0.44) rotate(0) translate(4 112)">
+<title>proc~~parse_stream_name_fragment~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 1440,-112 1440,4 -4,4"/>
+<!-- proc~parse_stream_name_fragment -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_node1" class="node">
+<title>proc~parse_stream_name_fragment</title>
+<polygon fill="none" stroke="black" points="1436,-66 1261,-66 1261,-42 1436,-42 1436,-66"/>
+<text text-anchor="middle" x="1348.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">parse_stream_name_fragment</text>
+</g>
+<!-- proc~parse_stream_name -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_node2" class="node">
+<title>proc~parse_stream_name</title>
+<g id="a_proc~~parse_stream_name_fragment~~CalledByGraph_node2"><a xlink:href="../proc/parse_stream_name.html" xlink:title="parse_stream_name">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1225,-66 1104,-66 1104,-42 1225,-42 1225,-66"/>
+<text text-anchor="middle" x="1164.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">parse_stream_name</text>
+</a>
+</g>
+</g>
+<!-- proc~parse_stream_name&#45;&gt;proc~parse_stream_name_fragment -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_edge1" class="edge">
+<title>proc~parse_stream_name&#45;&gt;proc~parse_stream_name_fragment</title>
+<path fill="none" stroke="#000000" d="M1225.09,-54C1233.29,-54 1241.87,-54 1250.53,-54"/>
+<polygon fill="#000000" stroke="#000000" points="1250.71,-57.5 1260.71,-54 1250.71,-50.5 1250.71,-57.5"/>
+</g>
+<!-- proc~dyn_mpas_init_stream_with_pool -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_node3" class="node">
+<title>proc~dyn_mpas_init_stream_with_pool</title>
+<g id="a_proc~~parse_stream_name_fragment~~CalledByGraph_node3"><a xlink:href="../proc/dyn_mpas_init_stream_with_pool.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_init_stream_with_pool">
+<polygon fill="#d9534f" stroke="#d9534f" points="1068,-46 725,-46 725,-22 1068,-22 1068,-46"/>
+<text text-anchor="middle" x="896.5" y="-31.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_init_stream_with_pool</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_init_stream_with_pool&#45;&gt;proc~parse_stream_name -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_edge2" class="edge">
+<title>proc~dyn_mpas_init_stream_with_pool&#45;&gt;proc~parse_stream_name</title>
+<path fill="none" stroke="#000000" d="M1057.22,-46.01C1069.81,-46.96 1082.06,-47.88 1093.51,-48.74"/>
+<polygon fill="#000000" stroke="#000000" points="1093.54,-52.25 1103.78,-49.51 1094.07,-45.27 1093.54,-52.25"/>
+</g>
+<!-- proc~dyn_mpas_read_write_stream -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_node4" class="node">
+<title>proc~dyn_mpas_read_write_stream</title>
+<g id="a_proc~~parse_stream_name_fragment~~CalledByGraph_node4"><a xlink:href="../proc/dyn_mpas_read_write_stream.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_read_write_stream">
+<polygon fill="#d9534f" stroke="#d9534f" points="689,-66 363,-66 363,-42 689,-42 689,-66"/>
+<text text-anchor="middle" x="526" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_read_write_stream</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_read_write_stream&#45;&gt;proc~parse_stream_name -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_edge3" class="edge">
+<title>proc~dyn_mpas_read_write_stream&#45;&gt;proc~parse_stream_name</title>
+<path fill="none" stroke="#000000" d="M689.16,-54.9C796.63,-55.35 940.74,-55.67 1068,-55 1076.34,-54.96 1085.09,-54.89 1093.77,-54.81"/>
+<polygon fill="#000000" stroke="#000000" points="1093.93,-58.31 1103.9,-54.72 1093.86,-51.31 1093.93,-58.31"/>
+</g>
+<!-- proc~dyn_mpas_read_write_stream&#45;&gt;proc~dyn_mpas_init_stream_with_pool -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_edge4" class="edge">
+<title>proc~dyn_mpas_read_write_stream&#45;&gt;proc~dyn_mpas_init_stream_with_pool</title>
+<path fill="none" stroke="#000000" d="M689.17,-45.2C697.7,-44.74 706.3,-44.27 714.89,-43.8"/>
+<polygon fill="#000000" stroke="#000000" points="715.17,-47.29 724.96,-43.26 714.79,-40.3 715.17,-47.29"/>
+</g>
+<!-- proc~dyn_init -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_node5" class="node">
+<title>proc~dyn_init</title>
+<g id="a_proc~~parse_stream_name_fragment~~CalledByGraph_node5"><a xlink:href="../proc/dyn_init.html" xlink:title="dyn_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="295.5,-108 241.5,-108 241.5,-84 295.5,-84 295.5,-108"/>
+<text text-anchor="middle" x="268.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_init</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_init&#45;&gt;proc~dyn_mpas_read_write_stream -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_edge5" class="edge">
+<title>proc~dyn_init&#45;&gt;proc~dyn_mpas_read_write_stream</title>
+<path fill="none" stroke="#000000" d="M295.88,-91.66C330.07,-86.04 391.28,-75.98 441.84,-67.67"/>
+<polygon fill="#000000" stroke="#000000" points="442.5,-71.11 451.8,-66.03 441.36,-64.2 442.5,-71.11"/>
+</g>
+<!-- proc~dyn_variable_dump -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_node6" class="node">
+<title>proc~dyn_variable_dump</title>
+<g id="a_proc~~parse_stream_name_fragment~~CalledByGraph_node6"><a xlink:href="../proc/dyn_variable_dump.html" xlink:title="dyn_variable_dump">
+<polygon fill="#d9534f" stroke="#d9534f" points="327,-66 210,-66 210,-42 327,-42 327,-66"/>
+<text text-anchor="middle" x="268.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_variable_dump</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_variable_dump&#45;&gt;proc~dyn_mpas_read_write_stream -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_edge6" class="edge">
+<title>proc~dyn_variable_dump&#45;&gt;proc~dyn_mpas_read_write_stream</title>
+<path fill="none" stroke="#000000" d="M327.16,-54C335.18,-54 343.73,-54 352.62,-54"/>
+<polygon fill="#000000" stroke="#000000" points="352.77,-57.5 362.77,-54 352.77,-50.5 352.77,-57.5"/>
+</g>
+<!-- proc~model_grid_init -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_node7" class="node">
+<title>proc~model_grid_init</title>
+<g id="a_proc~~parse_stream_name_fragment~~CalledByGraph_node7"><a xlink:href="../proc/model_grid_init.html" xlink:title="model_grid_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="315.5,-24 221.5,-24 221.5,0 315.5,0 315.5,-24"/>
+<text text-anchor="middle" x="268.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">model_grid_init</text>
+</a>
+</g>
+</g>
+<!-- proc~model_grid_init&#45;&gt;proc~dyn_mpas_read_write_stream -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_edge7" class="edge">
+<title>proc~model_grid_init&#45;&gt;proc~dyn_mpas_read_write_stream</title>
+<path fill="none" stroke="#000000" d="M315.77,-19.61C350.78,-25.36 399.81,-33.42 441.61,-40.29"/>
+<polygon fill="#000000" stroke="#000000" points="441.07,-43.75 451.51,-41.92 442.21,-36.84 441.07,-43.75"/>
+</g>
+<!-- proc~dyn_final -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_node8" class="node">
+<title>proc~dyn_final</title>
+<g id="a_proc~~parse_stream_name_fragment~~CalledByGraph_node8"><a xlink:href="../proc/dyn_final.html" xlink:title="dyn_final">
+<polygon fill="#d9534f" stroke="#d9534f" points="174,-66 113,-66 113,-42 174,-42 174,-66"/>
+<text text-anchor="middle" x="143.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_final</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_final&#45;&gt;proc~dyn_variable_dump -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_edge8" class="edge">
+<title>proc~dyn_final&#45;&gt;proc~dyn_variable_dump</title>
+<path fill="none" stroke="#000000" d="M174.27,-54C182.02,-54 190.7,-54 199.55,-54"/>
+<polygon fill="#000000" stroke="#000000" points="199.58,-57.5 209.58,-54 199.58,-50.5 199.58,-57.5"/>
+</g>
+<!-- proc~stepon_final -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_node9" class="node">
+<title>proc~stepon_final</title>
+<g id="a_proc~~parse_stream_name_fragment~~CalledByGraph_node9"><a xlink:href="../proc/stepon_final.html" xlink:title="stepon_final">
+<polygon fill="#d9534f" stroke="#d9534f" points="77,-66 0,-66 0,-42 77,-42 77,-66"/>
+<text text-anchor="middle" x="38.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stepon_final</text>
+</a>
+</g>
+</g>
+<!-- proc~stepon_final&#45;&gt;proc~dyn_final -->
+<g id="proc~~parse_stream_name_fragment~~CalledByGraph_edge9" class="edge">
+<title>proc~stepon_final&#45;&gt;proc~dyn_final</title>
+<path fill="none" stroke="#000000" d="M77.27,-54C85.5,-54 94.24,-54 102.56,-54"/>
+<polygon fill="#000000" stroke="#000000" points="102.8,-57.5 112.8,-54 102.8,-50.5 102.8,-57.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocparse_stream_name_fragmentCalledByGraph = svgPanZoom('#procparse_stream_name_fragmentCalledByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div></div>
+        </div>
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-var_info_list_buffer~2"></span>
+              type(<a href='../type/var_info_type.html'>var_info_type</a>),
+            </td>
+              <td>private,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>var_info_list_buffer</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-var_name_list~2"></span>
+              character(len=len(invariant_var_info_list%name)),
+            </td>
+              <td>private,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>var_name_list</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+
+
+
+
+        <section>
+          <h2><span class="anchor" id="src"></span>Source Code</h2>
+          <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">pure function </span><span class="n">parse_stream_name_fragment</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">)</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">stream_name_fragment</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">var_info_type</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">var_info_list</span><span class="p">(:)</span>
+
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">invariant_var_info_list</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">)),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">var_name_list</span><span class="p">(:)</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">var_info_type</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">var_info_list_buffer</span><span class="p">(:)</span>
+
+<span class="w">        </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">)))</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;invariant&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="n">invariant_var_info_list</span><span class="p">)</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="n">input_var_info_list</span><span class="p">)</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;restart&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="n">restart_var_info_list</span><span class="p">)</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="n">output_var_info_list</span><span class="p">)</span>
+<span class="w">            </span><span class="k">case </span><span class="n">default</span>
+<span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+<span class="w">                </span><span class="n">var_name_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">invariant_var_info_list</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">var_name_list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">))))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">var_info_list_buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pack</span><span class="p">(</span><span class="n">invariant_var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">var_name_list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">)))</span>
+<span class="w">                    </span><span class="n">var_info_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">var_info_list_buffer</span><span class="p">]</span>
+<span class="w">                </span><span class="k">end if</span>
+
+<span class="k">                </span><span class="n">var_name_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">input_var_info_list</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">var_name_list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">))))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">var_info_list_buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pack</span><span class="p">(</span><span class="n">input_var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">var_name_list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">)))</span>
+<span class="w">                    </span><span class="n">var_info_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">var_info_list_buffer</span><span class="p">]</span>
+<span class="w">                </span><span class="k">end if</span>
+
+<span class="k">                </span><span class="n">var_name_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">restart_var_info_list</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">var_name_list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">))))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">var_info_list_buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pack</span><span class="p">(</span><span class="n">restart_var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">var_name_list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">)))</span>
+<span class="w">                    </span><span class="n">var_info_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">var_info_list_buffer</span><span class="p">]</span>
+<span class="w">                </span><span class="k">end if</span>
+
+<span class="k">                </span><span class="n">var_name_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">output_var_info_list</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">var_name_list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">))))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">var_info_list_buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pack</span><span class="p">(</span><span class="n">output_var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">var_name_list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">)))</span>
+<span class="w">                    </span><span class="n">var_info_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">var_info_list_buffer</span><span class="p">]</span>
+<span class="w">                </span><span class="k">end if</span>
+<span class="k">        end select</span>
+<span class="k">    end function </span><span class="n">parse_stream_name_fragment</span>
+</pre></div>
+
+        </section>
+        <br>
+    </div>
+  </div>
+      <hr>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              MPAS Dynamical Core
+was developed by CAM-SIMA & MPAS Developers<br>              © 2025 
+            </p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,1687 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="MPAS dynamical core solves the fully compressible non-hydrostatic equations of atmospheric motion.">
+    <meta name="author" content="CAM-SIMA & MPAS Developers">
+    <link href="../favicon.png" rel="icon">
+
+    <title>dyn_mpas_check_variable_status – MPAS Dynamical Core</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      rel="stylesheet"
+    >
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    ></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      async
+      crossorigin="anonymous"
+      integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw="
+    ></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html"
+            >MPAS Dynamical Core </a
+          >
+          <button
+            class="navbar-toggler"
+            data-bs-target="#navbar"
+            data-bs-toggle="collapse"
+            type="button"
+            aria-controls="navbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbar">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>
+      dyn_mpas_check_variable_status
+      <small
+        >Subroutine</small
+      >
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline">
+            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Kuan-Chih Wang</li>
+            <li class="list-inline-item" id="meta-date"><i class="fa fa-calendar-o"></i> 2024-06-04</li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 7.4% of total for procedures.">280 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dyn_mpas_subdriver.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dyn_mpas_subdriver.f90.html'>dyn_mpas_subdriver.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/dyn_mpas_subdriver.html'>dyn_mpas_subdriver</a></li>
+            <li class="breadcrumb-item active" aria-current="page">dyn_mpas_check_variable_status</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">  <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-field_0d_char~2">field_0d_char</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-field_0d_integer~2">field_0d_integer</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-field_0d_real~2">field_0d_real</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-field_1d_char~2">field_1d_char</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-field_1d_integer~2">field_1d_integer</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-field_1d_real~2">field_1d_real</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-field_2d_integer~2">field_2d_integer</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-field_2d_real~2">field_2d_real</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-field_3d_integer~2">field_3d_integer</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-field_3d_real~3">field_3d_real</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-field_4d_real~2">field_4d_real</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-field_5d_real~2">field_5d_real</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-i~7">i</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-ierr~7">ierr</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-subname~8">subname</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-var_name_list~3">var_name_list</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-varid">varid</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-varndims">varndims</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#variable-vartype">vartype</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dyn_mpas_check_variable_status.html#src">dyn_mpas_check_variable_status</a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+    <div class="col-md-9" id="text">
+      <h2>private  subroutine dyn_mpas_check_variable_status(self, var_is_present, var_is_tkr_compatible, pio_file, var_info)  
+</h2>
+          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item">pio</li>
+                  <li class="list-inline-item">mpas_derived_types</li>
+                  <li class="list-inline-item">mpas_pool_routines</li>
+                  <li class="list-inline-item">mpas_kind_types</li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dyn_mpas_check_variable_status~~UsesGraph Pages: 1 -->
+<svg id="procdyn_mpas_check_variable_statusUsesGraph" width="511pt" height="158pt"
+ viewBox="0.00 0.00 511.00 158.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dyn_mpas_check_variable_status~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 154)">
+<title>proc~~dyn_mpas_check_variable_status~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-154 507,-154 507,4 -4,4"/>
+<!-- proc~dyn_mpas_check_variable_status -->
+<g id="proc~~dyn_mpas_check_variable_status~~UsesGraph_node1" class="node">
+<title>proc~dyn_mpas_check_variable_status</title>
+<polygon fill="none" stroke="black" points="503,-87 157,-87 157,-63 503,-63 503,-87"/>
+<text text-anchor="middle" x="330" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50">mpas_dynamical_core_type%dyn_mpas_check_variable_status</text>
+</g>
+<!-- mpas_derived_types -->
+<g id="proc~~dyn_mpas_check_variable_status~~UsesGraph_node2" class="node">
+<title>mpas_derived_types</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="121,-150 0,-150 0,-126 121,-126 121,-150"/>
+<text text-anchor="middle" x="60.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_derived_types</text>
+</g>
+<!-- proc~dyn_mpas_check_variable_status&#45;&gt;mpas_derived_types -->
+<g id="proc~~dyn_mpas_check_variable_status~~UsesGraph_edge1" class="edge">
+<title>proc~dyn_mpas_check_variable_status&#45;&gt;mpas_derived_types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M277.74,-87.07C233.41,-97.51 169.24,-112.62 122.32,-123.68"/>
+<polygon fill="#000000" stroke="#000000" points="121.52,-120.27 112.59,-125.97 123.12,-127.08 121.52,-120.27"/>
+</g>
+<!-- mpas_kind_types -->
+<g id="proc~~dyn_mpas_check_variable_status~~UsesGraph_node3" class="node">
+<title>mpas_kind_types</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="112,-108 9,-108 9,-84 112,-84 112,-108"/>
+<text text-anchor="middle" x="60.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_kind_types</text>
+</g>
+<!-- proc~dyn_mpas_check_variable_status&#45;&gt;mpas_kind_types -->
+<g id="proc~~dyn_mpas_check_variable_status~~UsesGraph_edge2" class="edge">
+<title>proc~dyn_mpas_check_variable_status&#45;&gt;mpas_kind_types</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M176.11,-87C157.2,-88.49 138.8,-89.93 122.49,-91.21"/>
+<polygon fill="#000000" stroke="#000000" points="121.78,-87.76 112.08,-92.03 122.33,-94.74 121.78,-87.76"/>
+</g>
+<!-- mpas_pool_routines -->
+<g id="proc~~dyn_mpas_check_variable_status~~UsesGraph_node4" class="node">
+<title>mpas_pool_routines</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="119.5,-66 1.5,-66 1.5,-42 119.5,-42 119.5,-66"/>
+<text text-anchor="middle" x="60.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_pool_routines</text>
+</g>
+<!-- proc~dyn_mpas_check_variable_status&#45;&gt;mpas_pool_routines -->
+<g id="proc~~dyn_mpas_check_variable_status~~UsesGraph_edge3" class="edge">
+<title>proc~dyn_mpas_check_variable_status&#45;&gt;mpas_pool_routines</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M176.11,-63C160,-61.73 144.28,-60.5 129.89,-59.37"/>
+<polygon fill="#000000" stroke="#000000" points="129.91,-55.86 119.66,-58.57 129.36,-62.84 129.91,-55.86"/>
+</g>
+<!-- pio -->
+<g id="proc~~dyn_mpas_check_variable_status~~UsesGraph_node5" class="node">
+<title>pio</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="87.5,-24 33.5,-24 33.5,0 87.5,0 87.5,-24"/>
+<text text-anchor="middle" x="60.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pio</text>
+</g>
+<!-- proc~dyn_mpas_check_variable_status&#45;&gt;pio -->
+<g id="proc~~dyn_mpas_check_variable_status~~UsesGraph_edge4" class="edge">
+<title>proc~dyn_mpas_check_variable_status&#45;&gt;pio</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M277.74,-62.93C224.99,-50.5 144.16,-31.47 97.71,-20.53"/>
+<polygon fill="#000000" stroke="#000000" points="98.33,-17.08 87.79,-18.19 96.73,-23.89 98.33,-17.08"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+
+        <p>On the given file (i.e., <code>pio_file</code>), this subroutine checks whether the
+given variable (i.e., <code>var_info</code>) is present, and whether it is "TKR"
+compatible with what MPAS expects. "TKR" means type, kind, and rank.
+This subroutine can handle both ordinary variables and variable arrays.
+They are indicated by the <code>var</code> and <code>var_array</code> elements, respectively,
+in MPAS registry. For an ordinary variable, the checks are performed on
+itself. Otherwise, for a variable array, the checks are performed on its
+constituent parts instead.</p>
+
+        <h3>Type Bound</h3>
+        <p><a href='../type/mpas_dynamical_core_type.html'>mpas_dynamical_core_type</a></p>
+
+      <h3>Arguments</h3>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-self~9"></span>
+              class(<a href='../type/mpas_dynamical_core_type.html'>mpas_dynamical_core_type</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-var_is_present~2"></span>
+              logical,
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>var_is_present</strong>(:)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-var_is_tkr_compatible~2"></span>
+              logical,
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>var_is_tkr_compatible</strong>(:)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pio_file~4"></span>
+              type(file_desc_t),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>pio_file</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-var_info"></span>
+              type(<a href='../type/var_info_type.html'>var_info_type</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>var_info</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Calls</h3>
+          </div>
+          <div class="card-body"><div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dyn_mpas_check_variable_status~~CallsGraph Pages: 1 -->
+<svg id="procdyn_mpas_check_variable_statusCallsGraph" width="641pt" height="259pt"
+ viewBox="0.00 0.00 641.00 258.71" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph" class="graph" transform="scale(0.83 0.83) rotate(0) translate(4 307.99)">
+<title>proc~~dyn_mpas_check_variable_status~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-307.99 769,-307.99 769,4 -4,4"/>
+<!-- proc~dyn_mpas_check_variable_status -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_node1" class="node">
+<title>proc~dyn_mpas_check_variable_status</title>
+<polygon fill="none" stroke="black" points="346,-156.99 0,-156.99 0,-132.99 346,-132.99 346,-156.99"/>
+<text text-anchor="middle" x="173" y="-142.59" font-family="Helvetica,sans-Serif" font-size="10.50">mpas_dynamical_core_type%dyn_mpas_check_variable_status</text>
+</g>
+<!-- constituentnames -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_node2" class="node">
+<title>constituentnames</title>
+<polygon fill="#777777" stroke="#777777" points="582,-303.99 474,-303.99 474,-279.99 582,-279.99 582,-303.99"/>
+<text text-anchor="middle" x="528" y="-289.59" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">constituentnames</text>
+</g>
+<!-- proc~dyn_mpas_check_variable_status&#45;&gt;constituentnames -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_edge1" class="edge">
+<title>proc~dyn_mpas_check_variable_status&#45;&gt;constituentnames</title>
+<path fill="none" stroke="#000000" d="M189.07,-157.11C221.92,-182.83 303.31,-242.77 382,-270.99 407.89,-280.27 437.79,-285.46 463.68,-288.35"/>
+<polygon fill="#000000" stroke="#000000" points="463.45,-291.85 473.76,-289.39 464.17,-284.88 463.45,-291.85"/>
+</g>
+<!-- mpas_pool_get_field -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_node3" class="node">
+<title>mpas_pool_get_field</title>
+<polygon fill="#777777" stroke="#777777" points="588.5,-261.99 467.5,-261.99 467.5,-237.99 588.5,-237.99 588.5,-261.99"/>
+<text text-anchor="middle" x="528" y="-247.59" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_pool_get_field</text>
+</g>
+<!-- proc~dyn_mpas_check_variable_status&#45;&gt;mpas_pool_get_field -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_edge2" class="edge">
+<title>proc~dyn_mpas_check_variable_status&#45;&gt;mpas_pool_get_field</title>
+<path fill="none" stroke="#000000" d="M198.31,-157.05C236.47,-175.46 313.2,-210.4 382,-228.99 406.17,-235.51 433.19,-240.13 457.3,-243.33"/>
+<polygon fill="#000000" stroke="#000000" points="457.07,-246.83 467.44,-244.62 457.96,-239.89 457.07,-246.83"/>
+</g>
+<!-- pio_file_is_open -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_node4" class="node">
+<title>pio_file_is_open</title>
+<polygon fill="#777777" stroke="#777777" points="576.5,-219.99 479.5,-219.99 479.5,-195.99 576.5,-195.99 576.5,-219.99"/>
+<text text-anchor="middle" x="528" y="-205.59" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pio_file_is_open</text>
+</g>
+<!-- proc~dyn_mpas_check_variable_status&#45;&gt;pio_file_is_open -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_edge3" class="edge">
+<title>proc~dyn_mpas_check_variable_status&#45;&gt;pio_file_is_open</title>
+<path fill="none" stroke="#000000" d="M229.46,-157.05C271.27,-165.94 330.09,-177.99 382,-186.99 410.67,-191.95 442.67,-196.67 469.3,-200.38"/>
+<polygon fill="#000000" stroke="#000000" points="468.84,-203.85 479.22,-201.74 469.79,-196.91 468.84,-203.85"/>
+</g>
+<!-- pio_inq_varid -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_node5" class="node">
+<title>pio_inq_varid</title>
+<polygon fill="#777777" stroke="#777777" points="569.5,-177.99 486.5,-177.99 486.5,-153.99 569.5,-153.99 569.5,-177.99"/>
+<text text-anchor="middle" x="528" y="-163.59" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pio_inq_varid</text>
+</g>
+<!-- proc~dyn_mpas_check_variable_status&#45;&gt;pio_inq_varid -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_edge4" class="edge">
+<title>proc~dyn_mpas_check_variable_status&#45;&gt;pio_inq_varid</title>
+<path fill="none" stroke="#000000" d="M346.11,-155.22C393.57,-158.05 441.46,-160.9 476.04,-162.95"/>
+<polygon fill="#000000" stroke="#000000" points="476.13,-166.47 486.32,-163.57 476.55,-159.48 476.13,-166.47"/>
+</g>
+<!-- pio_inq_varndims -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_node6" class="node">
+<title>pio_inq_varndims</title>
+<polygon fill="#777777" stroke="#777777" points="581,-135.99 475,-135.99 475,-111.99 581,-111.99 581,-135.99"/>
+<text text-anchor="middle" x="528" y="-121.59" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pio_inq_varndims</text>
+</g>
+<!-- proc~dyn_mpas_check_variable_status&#45;&gt;pio_inq_varndims -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_edge5" class="edge">
+<title>proc~dyn_mpas_check_variable_status&#45;&gt;pio_inq_varndims</title>
+<path fill="none" stroke="#000000" d="M346.11,-134.75C388.65,-132.22 431.54,-129.66 464.87,-127.68"/>
+<polygon fill="#000000" stroke="#000000" points="465.12,-131.17 474.89,-127.08 464.7,-124.19 465.12,-131.17"/>
+</g>
+<!-- pio_inq_vartype -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_node7" class="node">
+<title>pio_inq_vartype</title>
+<polygon fill="#777777" stroke="#777777" points="576.5,-93.99 479.5,-93.99 479.5,-69.99 576.5,-69.99 576.5,-93.99"/>
+<text text-anchor="middle" x="528" y="-79.59" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">pio_inq_vartype</text>
+</g>
+<!-- proc~dyn_mpas_check_variable_status&#45;&gt;pio_inq_vartype -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_edge6" class="edge">
+<title>proc~dyn_mpas_check_variable_status&#45;&gt;pio_inq_vartype</title>
+<path fill="none" stroke="#000000" d="M229.46,-132.92C271.27,-124.03 330.09,-111.98 382,-102.99 410.67,-98.02 442.67,-93.3 469.3,-89.59"/>
+<polygon fill="#000000" stroke="#000000" points="469.79,-93.06 479.22,-88.23 468.84,-86.12 469.79,-93.06"/>
+</g>
+<!-- proc~dyn_mpas_debug_print -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_node8" class="node">
+<title>proc~dyn_mpas_debug_print</title>
+<g id="a_proc~~dyn_mpas_check_variable_status~~CallsGraph_node8"><a xlink:href="../proc/dyn_mpas_debug_print.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_debug_print">
+<polygon fill="#d9534f" stroke="#d9534f" points="674,-51.99 382,-51.99 382,-27.99 674,-27.99 674,-51.99"/>
+<text text-anchor="middle" x="528" y="-37.59" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_debug_print</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_check_variable_status&#45;&gt;proc~dyn_mpas_debug_print -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_edge7" class="edge">
+<title>proc~dyn_mpas_check_variable_status&#45;&gt;proc~dyn_mpas_debug_print</title>
+<path fill="none" stroke="#000000" d="M198.31,-132.92C236.47,-114.51 313.2,-79.57 382,-60.99 391.86,-58.32 402.2,-55.98 412.62,-53.92"/>
+<polygon fill="#000000" stroke="#000000" points="413.45,-57.32 422.62,-52.03 412.15,-50.44 413.45,-57.32"/>
+</g>
+<!-- proc~stringify -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_node9" class="node">
+<title>proc~stringify</title>
+<g id="a_proc~~dyn_mpas_check_variable_status~~CallsGraph_node9"><a xlink:href="../proc/stringify.html" xlink:title="stringify">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="765,-31.99 710,-31.99 710,-7.99 765,-7.99 765,-31.99"/>
+<text text-anchor="middle" x="737.5" y="-17.59" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stringify</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_check_variable_status&#45;&gt;proc~stringify -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_edge8" class="edge">
+<title>proc~dyn_mpas_check_variable_status&#45;&gt;proc~stringify</title>
+<path fill="none" stroke="#000000" d="M187.83,-132.8C219.47,-105.83 300.67,-41.7 382,-18.99 494.02,12.3 633.84,-3.15 699.36,-13.38"/>
+<polygon fill="#000000" stroke="#000000" points="699.17,-16.9 709.6,-15.03 700.29,-9.99 699.17,-16.9"/>
+</g>
+<!-- proc~dyn_mpas_debug_print&#45;&gt;proc~stringify -->
+<g id="proc~~dyn_mpas_check_variable_status~~CallsGraph_edge9" class="edge">
+<title>proc~dyn_mpas_debug_print&#45;&gt;proc~stringify</title>
+<path fill="none" stroke="#000000" d="M653.6,-27.98C670.3,-26.37 686.26,-24.83 699.63,-23.54"/>
+<polygon fill="#000000" stroke="#000000" points="700.15,-27.01 709.77,-22.56 699.48,-20.04 700.15,-27.01"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocdyn_mpas_check_variable_statusCallsGraph = svgPanZoom('#procdyn_mpas_check_variable_statusCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div></div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Called by</h3>
+          </div>
+          <div class="card-body"><div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dyn_mpas_check_variable_status~~CalledByGraph Pages: 1 -->
+<svg id="procdyn_mpas_check_variable_statusCalledByGraph" width="641pt" height="51pt"
+ viewBox="0.00 0.00 641.00 51.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph" class="graph" transform="scale(0.44 0.44) rotate(0) translate(4 112)">
+<title>proc~~dyn_mpas_check_variable_status~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 1454,-112 1454,4 -4,4"/>
+<!-- proc~dyn_mpas_check_variable_status -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_node1" class="node">
+<title>proc~dyn_mpas_check_variable_status</title>
+<polygon fill="none" stroke="black" points="1450,-66 1104,-66 1104,-42 1450,-42 1450,-66"/>
+<text text-anchor="middle" x="1277" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">mpas_dynamical_core_type%dyn_mpas_check_variable_status</text>
+</g>
+<!-- proc~dyn_mpas_init_stream_with_pool -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_node2" class="node">
+<title>proc~dyn_mpas_init_stream_with_pool</title>
+<g id="a_proc~~dyn_mpas_check_variable_status~~CalledByGraph_node2"><a xlink:href="../proc/dyn_mpas_init_stream_with_pool.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_init_stream_with_pool">
+<polygon fill="#d9534f" stroke="#d9534f" points="1068,-66 725,-66 725,-42 1068,-42 1068,-66"/>
+<text text-anchor="middle" x="896.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_init_stream_with_pool</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_init_stream_with_pool&#45;&gt;proc~dyn_mpas_check_variable_status -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_edge1" class="edge">
+<title>proc~dyn_mpas_init_stream_with_pool&#45;&gt;proc~dyn_mpas_check_variable_status</title>
+<path fill="none" stroke="#000000" d="M1068.2,-54C1076.73,-54 1085.3,-54 1093.86,-54"/>
+<polygon fill="#000000" stroke="#000000" points="1093.89,-57.5 1103.89,-54 1093.89,-50.5 1093.89,-57.5"/>
+</g>
+<!-- proc~dyn_mpas_read_write_stream -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_node3" class="node">
+<title>proc~dyn_mpas_read_write_stream</title>
+<g id="a_proc~~dyn_mpas_check_variable_status~~CalledByGraph_node3"><a xlink:href="../proc/dyn_mpas_read_write_stream.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_read_write_stream">
+<polygon fill="#d9534f" stroke="#d9534f" points="689,-66 363,-66 363,-42 689,-42 689,-66"/>
+<text text-anchor="middle" x="526" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_read_write_stream</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_read_write_stream&#45;&gt;proc~dyn_mpas_init_stream_with_pool -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_edge2" class="edge">
+<title>proc~dyn_mpas_read_write_stream&#45;&gt;proc~dyn_mpas_init_stream_with_pool</title>
+<path fill="none" stroke="#000000" d="M689.17,-54C697.7,-54 706.3,-54 714.89,-54"/>
+<polygon fill="#000000" stroke="#000000" points="714.96,-57.5 724.96,-54 714.96,-50.5 714.96,-57.5"/>
+</g>
+<!-- proc~dyn_init -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_node4" class="node">
+<title>proc~dyn_init</title>
+<g id="a_proc~~dyn_mpas_check_variable_status~~CalledByGraph_node4"><a xlink:href="../proc/dyn_init.html" xlink:title="dyn_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="295.5,-108 241.5,-108 241.5,-84 295.5,-84 295.5,-108"/>
+<text text-anchor="middle" x="268.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_init</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_init&#45;&gt;proc~dyn_mpas_read_write_stream -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_edge3" class="edge">
+<title>proc~dyn_init&#45;&gt;proc~dyn_mpas_read_write_stream</title>
+<path fill="none" stroke="#000000" d="M295.88,-91.66C330.07,-86.04 391.28,-75.98 441.84,-67.67"/>
+<polygon fill="#000000" stroke="#000000" points="442.5,-71.11 451.8,-66.03 441.36,-64.2 442.5,-71.11"/>
+</g>
+<!-- proc~dyn_variable_dump -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_node5" class="node">
+<title>proc~dyn_variable_dump</title>
+<g id="a_proc~~dyn_mpas_check_variable_status~~CalledByGraph_node5"><a xlink:href="../proc/dyn_variable_dump.html" xlink:title="dyn_variable_dump">
+<polygon fill="#d9534f" stroke="#d9534f" points="327,-66 210,-66 210,-42 327,-42 327,-66"/>
+<text text-anchor="middle" x="268.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_variable_dump</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_variable_dump&#45;&gt;proc~dyn_mpas_read_write_stream -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_edge4" class="edge">
+<title>proc~dyn_variable_dump&#45;&gt;proc~dyn_mpas_read_write_stream</title>
+<path fill="none" stroke="#000000" d="M327.16,-54C335.18,-54 343.73,-54 352.62,-54"/>
+<polygon fill="#000000" stroke="#000000" points="352.77,-57.5 362.77,-54 352.77,-50.5 352.77,-57.5"/>
+</g>
+<!-- proc~model_grid_init -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_node6" class="node">
+<title>proc~model_grid_init</title>
+<g id="a_proc~~dyn_mpas_check_variable_status~~CalledByGraph_node6"><a xlink:href="../proc/model_grid_init.html" xlink:title="model_grid_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="315.5,-24 221.5,-24 221.5,0 315.5,0 315.5,-24"/>
+<text text-anchor="middle" x="268.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">model_grid_init</text>
+</a>
+</g>
+</g>
+<!-- proc~model_grid_init&#45;&gt;proc~dyn_mpas_read_write_stream -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_edge5" class="edge">
+<title>proc~model_grid_init&#45;&gt;proc~dyn_mpas_read_write_stream</title>
+<path fill="none" stroke="#000000" d="M315.77,-19.61C350.78,-25.36 399.81,-33.42 441.61,-40.29"/>
+<polygon fill="#000000" stroke="#000000" points="441.07,-43.75 451.51,-41.92 442.21,-36.84 441.07,-43.75"/>
+</g>
+<!-- proc~dyn_final -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_node7" class="node">
+<title>proc~dyn_final</title>
+<g id="a_proc~~dyn_mpas_check_variable_status~~CalledByGraph_node7"><a xlink:href="../proc/dyn_final.html" xlink:title="dyn_final">
+<polygon fill="#d9534f" stroke="#d9534f" points="174,-66 113,-66 113,-42 174,-42 174,-66"/>
+<text text-anchor="middle" x="143.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_final</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_final&#45;&gt;proc~dyn_variable_dump -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_edge6" class="edge">
+<title>proc~dyn_final&#45;&gt;proc~dyn_variable_dump</title>
+<path fill="none" stroke="#000000" d="M174.27,-54C182.02,-54 190.7,-54 199.55,-54"/>
+<polygon fill="#000000" stroke="#000000" points="199.58,-57.5 209.58,-54 199.58,-50.5 199.58,-57.5"/>
+</g>
+<!-- proc~stepon_final -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_node8" class="node">
+<title>proc~stepon_final</title>
+<g id="a_proc~~dyn_mpas_check_variable_status~~CalledByGraph_node8"><a xlink:href="../proc/stepon_final.html" xlink:title="stepon_final">
+<polygon fill="#d9534f" stroke="#d9534f" points="77,-66 0,-66 0,-42 77,-42 77,-66"/>
+<text text-anchor="middle" x="38.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stepon_final</text>
+</a>
+</g>
+</g>
+<!-- proc~stepon_final&#45;&gt;proc~dyn_final -->
+<g id="proc~~dyn_mpas_check_variable_status~~CalledByGraph_edge7" class="edge">
+<title>proc~stepon_final&#45;&gt;proc~dyn_final</title>
+<path fill="none" stroke="#000000" d="M77.27,-54C85.5,-54 94.24,-54 102.56,-54"/>
+<polygon fill="#000000" stroke="#000000" points="102.8,-57.5 112.8,-54 102.8,-50.5 102.8,-57.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocdyn_mpas_check_variable_statusCalledByGraph = svgPanZoom('#procdyn_mpas_check_variable_statusCalledByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div></div>
+        </div>
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-field_0d_char~2"></span>
+              type(field0dchar),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>field_0d_char</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-field_0d_integer~2"></span>
+              type(field0dinteger),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>field_0d_integer</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-field_0d_real~2"></span>
+              type(field0dreal),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>field_0d_real</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-field_1d_char~2"></span>
+              type(field1dchar),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>field_1d_char</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-field_1d_integer~2"></span>
+              type(field1dinteger),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>field_1d_integer</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-field_1d_real~2"></span>
+              type(field1dreal),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>field_1d_real</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-field_2d_integer~2"></span>
+              type(field2dinteger),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>field_2d_integer</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-field_2d_real~2"></span>
+              type(field2dreal),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>field_2d_real</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-field_3d_integer~2"></span>
+              type(field3dinteger),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>field_3d_integer</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-field_3d_real~3"></span>
+              type(field3dreal),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>field_3d_real</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-field_4d_real~2"></span>
+              type(field4dreal),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>field_4d_real</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-field_5d_real~2"></span>
+              type(field5dreal),
+            </td>
+              <td>private,</td>
+            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>field_5d_real</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~7"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ierr~7"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ierr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-subname~8"></span>
+              character(len=*),
+            </td>
+              <td>private,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>subname</strong></td>
+<td> =</td>
+                <td>&#39;dyn_mpas_subdriver::dyn_mpas_check_variable_status&#39;</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-var_name_list~3"></span>
+              character(len=strkind),
+            </td>
+              <td>private,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>var_name_list</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-varid"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>varid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-varndims"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>varndims</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vartype"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>vartype</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+
+
+
+
+        <section>
+          <h2><span class="anchor" id="src"></span>Source Code</h2>
+          <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">dyn_mpas_check_variable_status</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">var_is_present</span><span class="p">,</span><span class="w"> </span><span class="n">var_is_tkr_compatible</span><span class="p">,</span><span class="w"> </span><span class="n">pio_file</span><span class="p">,</span><span class="w"> </span><span class="n">var_info</span><span class="p">)</span>
+<span class="w">        </span><span class="c">! Module(s) from external libraries.</span>
+<span class="w">        </span><span class="k">use </span><span class="n">pio</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">file_desc_t</span><span class="p">,</span><span class="w"> </span><span class="n">pio_file_is_open</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                       </span><span class="n">pio_char</span><span class="p">,</span><span class="w"> </span><span class="n">pio_int</span><span class="p">,</span><span class="w"> </span><span class="n">pio_real</span><span class="p">,</span><span class="w"> </span><span class="n">pio_double</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                       </span><span class="n">pio_inq_varid</span><span class="p">,</span><span class="w"> </span><span class="n">pio_inq_varndims</span><span class="p">,</span><span class="w"> </span><span class="n">pio_inq_vartype</span><span class="p">,</span><span class="w"> </span><span class="n">pio_noerr</span>
+<span class="w">        </span><span class="c">! Module(s) from MPAS.</span>
+<span class="w">        </span><span class="k">use </span><span class="n">mpas_derived_types</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">field0dchar</span><span class="p">,</span><span class="w"> </span><span class="n">field1dchar</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                      </span><span class="n">field0dinteger</span><span class="p">,</span><span class="w"> </span><span class="n">field1dinteger</span><span class="p">,</span><span class="w"> </span><span class="n">field2dinteger</span><span class="p">,</span><span class="w"> </span><span class="n">field3dinteger</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                      </span><span class="n">field0dreal</span><span class="p">,</span><span class="w"> </span><span class="n">field1dreal</span><span class="p">,</span><span class="w"> </span><span class="n">field2dreal</span><span class="p">,</span><span class="w"> </span><span class="n">field3dreal</span><span class="p">,</span><span class="w"> </span><span class="n">field4dreal</span><span class="p">,</span><span class="w"> </span><span class="n">field5dreal</span>
+<span class="w">        </span><span class="k">use </span><span class="n">mpas_kind_types</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">r4kind</span><span class="p">,</span><span class="w"> </span><span class="n">r8kind</span>
+<span class="w">        </span><span class="k">use </span><span class="n">mpas_pool_routines</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">mpas_pool_get_field</span>
+
+<span class="w">        </span><span class="k">class</span><span class="p">(</span><span class="n">mpas_dynamical_core_type</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">self</span>
+<span class="w">        </span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">allocatable</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">var_is_present</span><span class="p">(:)</span>
+<span class="w">        </span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">allocatable</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">var_is_tkr_compatible</span><span class="p">(:)</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">file_desc_t</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pio_file</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">var_info_type</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">var_info</span>
+
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dyn_mpas_subdriver::dyn_mpas_check_variable_status&#39;</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="n">strkind</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">var_name_list</span><span class="p">(:)</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="p">,</span><span class="w"> </span><span class="n">varid</span><span class="p">,</span><span class="w"> </span><span class="n">varndims</span><span class="p">,</span><span class="w"> </span><span class="n">vartype</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">field0dchar</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field_0d_char</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">field1dchar</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field_1d_char</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">field0dinteger</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field_0d_integer</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">field1dinteger</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field_1d_integer</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">field2dinteger</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field_2d_integer</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">field3dinteger</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field_3d_integer</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">field0dreal</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field_0d_real</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">field1dreal</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field_1d_real</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">field2dreal</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field_2d_real</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">field3dreal</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field_3d_real</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">field4dreal</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field_4d_real</span>
+<span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">field5dreal</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field_5d_real</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; entered&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_0d_char</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_1d_char</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_0d_integer</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_1d_integer</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_2d_integer</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_3d_integer</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_0d_real</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_1d_real</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_2d_real</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_3d_real</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_4d_real</span><span class="p">)</span>
+<span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_5d_real</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c">! Extract a list of variable names to check on the file.</span>
+<span class="w">        </span><span class="c">! For an ordinary variable, this list just contains its name.</span>
+<span class="w">        </span><span class="c">! For a variable array, this list contains the names of its constituent parts.</span>
+<span class="w">        </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="k">type</span><span class="p">)))</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;character&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">rank</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">)),</span><span class="w"> </span><span class="n">field_0d_char</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_0d_char</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to find variable &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="n">field_0d_char</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">isvararray</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_0d_char</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            allocate</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">field_0d_char</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_name_list&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                            </span><span class="k">end if</span>
+
+<span class="k">                            </span><span class="n">var_name_list</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field_0d_char</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">(:)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        nullify</span><span class="p">(</span><span class="n">field_0d_char</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">)),</span><span class="w"> </span><span class="n">field_1d_char</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_1d_char</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to find variable &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="n">field_1d_char</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">isvararray</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_1d_char</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            allocate</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">field_1d_char</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_name_list&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                            </span><span class="k">end if</span>
+
+<span class="k">                            </span><span class="n">var_name_list</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field_1d_char</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">(:)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        nullify</span><span class="p">(</span><span class="n">field_1d_char</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case </span><span class="n">default</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Unsupported variable rank &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">rank</span><span class="p">])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="s1">&#39; for &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                </span><span class="k">end select</span>
+<span class="k">            case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;integer&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">rank</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">)),</span><span class="w"> </span><span class="n">field_0d_integer</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_0d_integer</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to find variable &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="n">field_0d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">isvararray</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_0d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            allocate</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">field_0d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_name_list&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                            </span><span class="k">end if</span>
+
+<span class="k">                            </span><span class="n">var_name_list</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field_0d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">(:)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        nullify</span><span class="p">(</span><span class="n">field_0d_integer</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">)),</span><span class="w"> </span><span class="n">field_1d_integer</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_1d_integer</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to find variable &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="n">field_1d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">isvararray</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_1d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            allocate</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">field_1d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_name_list&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                            </span><span class="k">end if</span>
+
+<span class="k">                            </span><span class="n">var_name_list</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field_1d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">(:)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        nullify</span><span class="p">(</span><span class="n">field_1d_integer</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">)),</span><span class="w"> </span><span class="n">field_2d_integer</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_2d_integer</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to find variable &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="n">field_2d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">isvararray</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_2d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            allocate</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">field_2d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_name_list&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                            </span><span class="k">end if</span>
+
+<span class="k">                            </span><span class="n">var_name_list</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field_2d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">(:)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        nullify</span><span class="p">(</span><span class="n">field_2d_integer</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">)),</span><span class="w"> </span><span class="n">field_3d_integer</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_3d_integer</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to find variable &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="n">field_3d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">isvararray</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_3d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            allocate</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">field_3d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_name_list&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                            </span><span class="k">end if</span>
+
+<span class="k">                            </span><span class="n">var_name_list</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field_3d_integer</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">(:)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        nullify</span><span class="p">(</span><span class="n">field_3d_integer</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case </span><span class="n">default</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Unsupported variable rank &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">rank</span><span class="p">])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="s1">&#39; for &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                </span><span class="k">end select</span>
+<span class="k">            case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;real&#39;</span><span class="p">)</span>
+<span class="w">                </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">rank</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">)),</span><span class="w"> </span><span class="n">field_0d_real</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_0d_real</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to find variable &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="n">field_0d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">isvararray</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_0d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            allocate</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">field_0d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_name_list&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                            </span><span class="k">end if</span>
+
+<span class="k">                            </span><span class="n">var_name_list</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field_0d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">(:)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        nullify</span><span class="p">(</span><span class="n">field_0d_real</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">)),</span><span class="w"> </span><span class="n">field_1d_real</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_1d_real</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to find variable &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="n">field_1d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">isvararray</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_1d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            allocate</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">field_1d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_name_list&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                            </span><span class="k">end if</span>
+
+<span class="k">                            </span><span class="n">var_name_list</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field_1d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">(:)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        nullify</span><span class="p">(</span><span class="n">field_1d_real</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">)),</span><span class="w"> </span><span class="n">field_2d_real</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_2d_real</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to find variable &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="n">field_2d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">isvararray</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_2d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            allocate</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">field_2d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_name_list&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                            </span><span class="k">end if</span>
+
+<span class="k">                            </span><span class="n">var_name_list</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field_2d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">(:)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        nullify</span><span class="p">(</span><span class="n">field_2d_real</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">)),</span><span class="w"> </span><span class="n">field_3d_real</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_3d_real</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to find variable &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="n">field_3d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">isvararray</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_3d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            allocate</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">field_3d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_name_list&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                            </span><span class="k">end if</span>
+
+<span class="k">                            </span><span class="n">var_name_list</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field_3d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">(:)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        nullify</span><span class="p">(</span><span class="n">field_3d_real</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">)),</span><span class="w"> </span><span class="n">field_4d_real</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_4d_real</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to find variable &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="n">field_4d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">isvararray</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_4d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            allocate</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">field_4d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_name_list&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                            </span><span class="k">end if</span>
+
+<span class="k">                            </span><span class="n">var_name_list</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field_4d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">(:)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        nullify</span><span class="p">(</span><span class="n">field_4d_real</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">)),</span><span class="w"> </span><span class="n">field_5d_real</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_5d_real</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to find variable &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="n">field_5d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">isvararray</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">field_5d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                            allocate</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">field_5d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_name_list&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                            </span><span class="k">end if</span>
+
+<span class="k">                            </span><span class="n">var_name_list</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">field_5d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">(:)</span>
+<span class="w">                        </span><span class="k">end if</span>
+
+<span class="k">                        nullify</span><span class="p">(</span><span class="n">field_5d_real</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">case </span><span class="n">default</span>
+<span class="w">                        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Unsupported variable rank &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">rank</span><span class="p">])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                            </span><span class="s1">&#39; for &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                </span><span class="k">end select</span>
+<span class="k">            case </span><span class="n">default</span>
+<span class="w">                </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Unsupported variable type &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="k">type</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="s1">&#39;&quot; for &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end select</span>
+
+<span class="k">        if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">allocated</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            allocate</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_name_list&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">            </span><span class="k">end if</span>
+
+<span class="k">            </span><span class="n">var_name_list</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        allocate</span><span class="p">(</span><span class="n">var_is_present</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_is_present&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        </span><span class="n">var_is_present</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+
+<span class="w">        </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_is_tkr_compatible</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">)),</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate var_is_tkr_compatible&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        </span><span class="n">var_is_tkr_compatible</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">associated</span><span class="p">(</span><span class="n">pio_file</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            return</span>
+<span class="k">        end if</span>
+
+<span class="k">        if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="n">pio_file_is_open</span><span class="p">(</span><span class="n">pio_file</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            return</span>
+<span class="k">        end if</span>
+
+<span class="k">        call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_verbose</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Checking variable &quot;&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span><span class="p">))</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39;&quot; for presence and TKR compatibility&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">)</span>
+<span class="w">            </span><span class="c">! Check if the variable is present on the file.</span>
+<span class="w">            </span><span class="n">ierr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pio_inq_varid</span><span class="p">(</span><span class="n">pio_file</span><span class="p">,</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">(</span><span class="n">i</span><span class="p">))),</span><span class="w"> </span><span class="n">varid</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">pio_noerr</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                cycle</span>
+<span class="k">            end if</span>
+
+<span class="k">            </span><span class="n">var_is_present</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+
+<span class="w">            </span><span class="c">! Check if the variable is &quot;TK&quot;R compatible between MPAS and the file.</span>
+<span class="w">            </span><span class="n">ierr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pio_inq_vartype</span><span class="p">(</span><span class="n">pio_file</span><span class="p">,</span><span class="w"> </span><span class="n">varid</span><span class="p">,</span><span class="w"> </span><span class="n">vartype</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">pio_noerr</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                cycle</span>
+<span class="k">            end if</span>
+
+<span class="k">            select case</span><span class="w"> </span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="k">type</span><span class="p">)))</span>
+<span class="w">                </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;character&#39;</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vartype</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">pio_char</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        cycle</span>
+<span class="k">                    end if</span>
+<span class="k">                case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;integer&#39;</span><span class="p">)</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">vartype</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">pio_int</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        cycle</span>
+<span class="k">                    end if</span>
+<span class="k">                case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;real&#39;</span><span class="p">)</span>
+<span class="w">                    </span><span class="c">! When MPAS dynamical core is compiled at single precision, pairing it with double precision input data</span>
+<span class="w">                    </span><span class="c">! is not allowed to prevent loss of precision.</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rkind</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">r4kind</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">vartype</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">pio_real</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        cycle</span>
+<span class="k">                    end if</span>
+
+<span class="w">                    </span><span class="c">! When MPAS dynamical core is compiled at double precision, pairing it with single and double precision</span>
+<span class="w">                    </span><span class="c">! input data is allowed.</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rkind</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">r8kind</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">vartype</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">pio_real</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">vartype</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">pio_double</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        cycle</span>
+<span class="k">                    end if</span>
+<span class="k">                case </span><span class="n">default</span>
+<span class="w">                    </span><span class="k">cycle</span>
+<span class="k">            end select</span>
+
+<span class="w">            </span><span class="c">! Check if the variable is TK&quot;R&quot; compatible between MPAS and the file.</span>
+<span class="w">            </span><span class="n">ierr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pio_inq_varndims</span><span class="p">(</span><span class="n">pio_file</span><span class="p">,</span><span class="w"> </span><span class="n">varid</span><span class="p">,</span><span class="w"> </span><span class="n">varndims</span><span class="p">)</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">pio_noerr</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                cycle</span>
+<span class="k">            end if</span>
+
+<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="n">varndims</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">var_info</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">rank</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                cycle</span>
+<span class="k">            end if</span>
+
+<span class="k">            </span><span class="n">var_is_tkr_compatible</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">        </span><span class="k">end do</span>
+
+<span class="k">        call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;var_name_list = &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">(</span><span class="n">var_name_list</span><span class="p">))</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;var_is_present = &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">(</span><span class="n">var_is_present</span><span class="p">))</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;var_is_tkr_compatible = &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">(</span><span class="n">var_is_tkr_compatible</span><span class="p">))</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; completed&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">dyn_mpas_check_variable_status</span>
+</pre></div>
+
+        </section>
+        <br>
+    </div>
+  </div>
+      <hr>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              MPAS Dynamical Core
+was developed by CAM-SIMA & MPAS Developers<br>              © 2025 
+            </p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div>
+    </footer>
+  </body>
+</html>
