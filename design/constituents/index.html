@@ -1692,15 +1692,15 @@
 <li>A constituent can be <strong>advected</strong>, which means it is moved through the atmosphere by some sort of dynamical method<ul>
 <li>The <strong>dynamical core</strong> (dycore) is the part of an atmosphere model (like CAM-SIMA) that advects the quantities over the underlying grid. Dynamical cores include:<ul>
 <li><em>null/none</em> - the null dycore does nothing and is used in CAM-SIMA to validate physics schemes</li>
-<li><em>spectral element (SE)</em>: the only dycore currently implemented in CAM-SIMA</li>
-<li><em>finite-volume cubed-sphere (FV3)</em>: not currently implemented in CAM-SIMA</li>
-<li><em>model for prediction across scales (MPAS)</em>: in progress</li>
+<li><em>spectral element (SE)</em>: a dycore that is currently implemented in CAM-SIMA</li>
+<li><em>finite-volume cubed-sphere (FV3)</em>: not yet implemented in CAM-SIMA</li>
+<li><em>model for prediction across scales (MPAS)</em>: another dycore that is currently implemented in CAM-SIMA</li>
 </ul>
 </li>
 </ul>
 </li>
 <li>A constituent had additional properties, such as:<ul>
-<li><strong>water type</strong>: can be "dry", "wet", or "moist" (we can convert between any of these quantities - "dry" means that it's the "amount" of that constituent with respect to dry air</li>
+<li><strong>water type</strong>: can be "dry", "wet", or "moist" (we can convert between any of these quantities - "dry" means that it's the "amount" of that constituent with respect to dry air)</li>
 <li><strong>mixing ratio type</strong>: can be "volume" or "mass"<ul>
 <li>volume mixing ratio: constituent values are a ratio of how much of the constituent exists per mole of air (units = mol mol-1)</li>
 <li>mass mixing ratio: constituent values are the mass of the constituent per unit volume (kg m-3)</li>
@@ -1915,7 +1915,7 @@ end subroutine &lt;scheme&gt;_register
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 14, 2025 21:01:48 UTC">January 14, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="June 18, 2025 20:32:06 UTC">June 18, 2025</span>
   </span>
 
     
@@ -1942,6 +1942,11 @@ end subroutine &lt;scheme&gt;_register
 
     
     <nav>
+      
+        <a href="https://github.com/kuanchihwang" class="md-author" title="@kuanchihwang">
+          
+          <img src="https://avatars.githubusercontent.com/u/122860950?v=4&size=72" alt="kuanchihwang">
+        </a>
       
         <a href="https://github.com/peverwhee" class="md-author" title="@peverwhee">
           
