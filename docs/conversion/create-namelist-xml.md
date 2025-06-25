@@ -59,7 +59,7 @@ The CCPP Framework will autogenerate the namelist reader based on the elements i
 
 ## For physics schemes split into multiple CCPP schemes, have a dedicated namelist read scheme
 
-For physics parameterizations that are split into multiple CCPP schemes (within a single or several modules), create a dedicated namelist options scheme to centralize namelist variable reading. This approach makes dependencies on namelist variables explicit, including in the case where another physics scheme depends on the namelist variables of another physics scheme (e.g., Hack shallow convection on ZM deep convection options.) and facilitates future centralized modifications of namelist parameters for a physical scheme by scientists.
+For physics parameterizations that are split into multiple CCPP schemes (within a single or several modules), create a dedicated namelist options scheme to centralize namelist variable reading. This approach makes dependencies on namelist variables explicit, including in the case where a physics scheme depends on the namelist variables of another, different physics scheme (e.g., Hack shallow convection using ZM deep convection namelist options.) and facilitates future centralized modifications of namelist parameters for a physical scheme by scientists.
 
 The namelist options scheme can follow the pattern of the [zm_conv_options](https://github.com/ESCOMP/atmospheric_physics/blob/main/schemes/zhang_mcfarlane/zm_conv_options.F90) scheme used for reading Zhang-McFarlane deep convective namelist options:
 * The namelist options scheme **has to be in a separate module file**, e.g., `zm_conv_options.F90` and `zm_conv_options.meta`. No other CCPP schemes can be in the same module;
