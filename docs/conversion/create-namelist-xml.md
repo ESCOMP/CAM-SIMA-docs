@@ -63,7 +63,7 @@ For physics parameterizations that are split into multiple CCPP schemes (within 
 
 The namelist options scheme can follow the pattern of the [zm_conv_options](https://github.com/ESCOMP/atmospheric_physics/blob/main/schemes/zhang_mcfarlane/zm_conv_options.F90) scheme used for reading Zhang-McFarlane deep convective namelist options:
 * The namelist options scheme **has to be in a separate module file**, e.g., `zm_conv_options.F90` and `zm_conv_options.meta`. No other CCPP schemes can be in the same module;
-* Only a `init` phase is needed, e.g., `zm_conv_options_init`. Only having an `init` phase dedicated for namelist parameters, and no other compute, allows for these namelist variables to be read without having to run any logic for a particular scheme;
+* Only an `init` phase is needed, e.g., `zm_conv_options_init`. Only having an `init` phase dedicated for namelist parameters, and no other compute, allows for these namelist variables to be read without having to run any logic for a particular scheme;
 * The namelist XML file is attached to this module, e.g., `zm_conv_options_namelist.xml`.
 
 Once this scheme is added to the SDF, namelist quantities defined in the associated `<scheme>_namelist.xml` file are just regular CCPP quantities, i.e., they can be retrieved directly via their standard name as inputs to other physics schemes. There is no need to `use` variables from this namelist read module.
