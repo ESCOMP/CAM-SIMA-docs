@@ -66,6 +66,6 @@ The namelist options scheme can follow the pattern of the [zm_conv_options](http
 * Only a `init` phase is needed, e.g., `zm_conv_options_init`. Only having an `init` phase dedicated for namelist parameters, and no other compute, allows for these namelist variables to be read without having to run any logic for a particular scheme;
 * The namelist XML file is attached to this module, e.g., `zm_conv_options_namelist.xml`.
 
-Once this scheme is added to the SDF, namelist quantities defined in this namelist.xml are just regular CCPP quantities, i.e., they can be retrieved directly via their standard name as inputs to other physics schemes. There is no need to `use` variables from this namelist read module.
+Once this scheme is added to the SDF, namelist quantities defined in the associated `<scheme>_namelist.xml` file are just regular CCPP quantities, i.e., they can be retrieved directly via their standard name as inputs to other physics schemes. There is no need to `use` variables from this namelist read module.
 
 Once you have made your namelist file, proceed to [4 - Interstitials](interstitials.md)
