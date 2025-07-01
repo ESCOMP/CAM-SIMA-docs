@@ -57,5 +57,15 @@ The CCPP Framework will autogenerate the namelist reader based on the elements i
 !!!Note "namelist values"
     When porting namelist values from CAM namelist defaults, the attributes supported in CAM-SIMA can be retrieved by printing out `cam_nml_dict` (or `cam_nml_dict.keys()`) in `cime_config/buildnml` [at the end of the function call](https://github.com/ESCOMP/CAM-SIMA/blob/3699359ebfe81b00273a9815d128cae903a26208/cime_config/buildnml#L355). An example of supported attributes that may be commonly used are: `phys_suite`, `ic_ymd`, `dyn`, `hgrid`, `analytic_ic`, `ocn`.
 
+## For physics schemes split into multiple CCPP schemes, have a dedicated namelist read scheme
+
+For physics parameterizations that are split into multiple CCPP schemes (within a single or several modules), create a dedicated namelist options scheme to centralize namelist variable reading. This approach makes dependencies on namelist variables explicit, including in the case where a physics scheme depends on the namelist variables of another, different physics scheme (e.g., Hack shallow convection using ZM deep convection namelist options.) and facilitates future centralized modifications of namelist parameters for a physical scheme by scientists.
+
+The namelist options scheme can follow the pattern of the [zm_conv_options](https://github.com/ESCOMP/atmospheric_physics/blob/main/schemes/zhang_mcfarlane/zm_conv_options.F90) scheme used for reading Zhang-McFarlane deep convective namelist options:
+* The namelist options scheme **has to be in a separate module file**, e.g., `zm_conv_options.F90` and `zm_conv_options.meta`. No other CCPP schemes can be in the same module;
+* Only an `init` phase is needed, e.g., `zm_conv_options_init`. Only having an `init` phase dedicated for namelist parameters, and no other compute, allows for these namelist variables to be read without having to run any logic for a particular scheme;
+* The namelist XML file is attached to this module, e.g., `zm_conv_options_namelist.xml`.
+
+Once this scheme is added to the SDF, namelist quantities defined in the associated `<scheme>_namelist.xml` file are just regular CCPP quantities, i.e., they can be retrieved directly via their standard name as inputs to other physics schemes. There is no need to `use` variables from this namelist read module.
 
 Once you have made your namelist file, proceed to [4 - Interstitials](interstitials.md)
