@@ -108,7 +108,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 4.3% of total for procedures.">162 statements</a>
+                 title=" 4.2% of total for procedures.">162 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -154,7 +154,7 @@
             <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-date_time">date_time</a>
             <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-field_0d_real~3">field_0d_real</a>
             <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-field_2d_real~4">field_2d_real</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-ierr~17">ierr</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-ierr~25">ierr</a>
             <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-initial_time_1">initial_time_1</a>
             <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-initial_time_2">initial_time_2</a>
             <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-maxedges">maxedges</a>
@@ -162,8 +162,8 @@
             <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-mpas_pool~6">mpas_pool</a>
             <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-mpas_time">mpas_time</a>
             <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-num_scalars~2">num_scalars</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-nvertlevels~2">nvertlevels</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-subname~29">subname</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-nvertlevels~3">nvertlevels</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-subname~46">subname</a>
             <a class="list-group-item" href="../proc/dyn_mpas_init_phase4.html#variable-xtime">xtime</a>
         </div>
       </div>
@@ -219,17 +219,17 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item">atm_core</li>
-                  <li class="list-inline-item">mpas_atm_halos</li>
-                  <li class="list-inline-item">mpas_derived_types</li>
-                  <li class="list-inline-item">mpas_atm_dimensions</li>
-                  <li class="list-inline-item">mpas_pool_routines</li>
-                  <li class="list-inline-item">mpas_string_utils</li>
-                  <li class="list-inline-item">mpas_constants</li>
-                  <li class="list-inline-item">mpas_timekeeping</li>
-                  <li class="list-inline-item">mpas_attlist</li>
                   <li class="list-inline-item">mpas_atm_threading</li>
+                  <li class="list-inline-item">mpas_timekeeping</li>
+                  <li class="list-inline-item">mpas_string_utils</li>
+                  <li class="list-inline-item">mpas_derived_types</li>
+                  <li class="list-inline-item">mpas_constants</li>
+                  <li class="list-inline-item">mpas_atm_halos</li>
                   <li class="list-inline-item">atm_time_integration</li>
+                  <li class="list-inline-item">mpas_attlist</li>
+                  <li class="list-inline-item">mpas_pool_routines</li>
+                  <li class="list-inline-item">atm_core</li>
+                  <li class="list-inline-item">mpas_atm_dimensions</li>
                   <li class="list-inline-item">mpas_field_routines</li>
               </ul>
             </li>
@@ -495,7 +495,7 @@ Ported and refactored for CAM-SIMA. (KCW, 2024-05-25)</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-self~13"></span>
+              <span class="anchor" id="variable-self~14"></span>
               class(<a href='../type/mpas_dynamical_core_type.html'>mpas_dynamical_core_type</a>),
             </td>
 <td>intent(inout)</td>
@@ -1538,7 +1538,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~17"></span>
+              <span class="anchor" id="variable-ierr~25"></span>
               integer,
             </td>
               <td>private</td>
@@ -1674,7 +1674,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nvertlevels~2"></span>
+              <span class="anchor" id="variable-nvertlevels~3"></span>
               integer,
             </td>
               <td>private,</td>
@@ -1691,7 +1691,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-subname~29"></span>
+              <span class="anchor" id="variable-subname~46"></span>
               character(len=*),
             </td>
               <td>private,</td>
