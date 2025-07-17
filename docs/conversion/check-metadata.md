@@ -70,6 +70,7 @@ cd <casedir>
     <td markdown>`Unknown DDT type`</td>
     <td markdown>The framework does not know about a derived data type.</td>
     <td markdown>Create a metadata file for the DDT (if it does not already exist). Add the path to the metadata file that defines the DDT to the top of the registry</td>
+</tr>
 <tr markdown>
    <td markdown>Some other misc error</td>
    <td markdown>You've run into either a bug or just a weird scenario</td>
