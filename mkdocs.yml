@@ -41,6 +41,7 @@ nav:
     - atmospheric_physics/directory-structure.md
     - atmospheric_physics/development_workflow.md
     - atmospheric_physics/Tagging-Instructions.md
+    - atmospheric_physics/physics-file-io.md
   - Dynamical Core:
     - MPAS: dycore/mpas
 
