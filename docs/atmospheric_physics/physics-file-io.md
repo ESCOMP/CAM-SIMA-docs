@@ -24,21 +24,21 @@ An example of the submodule approach connecting the abstract interface with a "c
 
 The following methods are provided either for or by the NetCDF reader class (`abstract_netcdf_reader_t`).  Additional methods, or changes to the existing methods, may be added as new functionality is introduced.  In the list below, the variable `reader` represents a variable declared as `class(abstract_netcdf_reader_t), pointer` in the physics scheme.
 
-### reader => create_netcdf_reader_t()
+### *reader => create_netcdf_reader_t()*
 
 The constructor function for the `abstract_netcdf_reader_t` class.  This must be used to actually allocate/associate the object.  It has no input arguments.
 
-### reader%open_file(file_path, errmsg, errcode)
+### *reader%open_file(file_path, errmsg, errcode)*
 
 Opens the NetCDF file and stores the associated (meta)data within the object.  The only input is `file_path`, which is a string containing the path to the file, while `errmsg` and `errcode` are standard CCPP outputs, with `errcode` being a non-zero integer, and `errmsg` being a non-empty string, if an error occurs.
 
 Please note that all of the remaining methods below also have `errcode` and `errmsg`, which behave in the exact same way.
 
-### reader%close_file(errmsg, errcode)
+### *reader%close_file(errmsg, errcode)*
 
 Closes the NetCDF file that was opened by an `open_file` call.  It has no inputs.
 
-### reader%get_var(varname, var, errmsg, errcode, start, count)
+### *reader%get_var(varname, var, errmsg, errcode, start, count)*
 
 Reads in a variable from the NetCDF file that was opened with `open_file`.  The method has two required inputs:
 
