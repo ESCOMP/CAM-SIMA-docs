@@ -1583,7 +1583,7 @@
 <p>This page describes the <code>ccpp_io_reader</code> class in <code>atmospheric_physics/utils</code>, including it's purpose, design, and usage in CCPP physics schemes.</p>
 <h2 id="why-a-special-file-reader-class">Why a special file reader class?</h2>
 <p>Many physics schemes have a need to read specialized data from input files, especially those in the NetCDF file format.  While one could just read all of the files on the host side before calling the CCPP, this would require a physics developer to modify the host model whenever they wanted to use the physics scheme, which arguably hurts portability.</p>
-<p>Alternatively, one could just use the NetCDF library directly in the physics scheme, but this is oftentimes adds a lot of additional lines of code to the physics scheme, and may prevent the physics scheme from taking advantage of specialized I/O libraries contained within the host model that may improve performance, error handling, etc.</p>
+<p>Alternatively, one could just use the NetCDF library directly in the physics scheme, but this oftentimes adds a lot of additional lines of code to the physics scheme, and may prevent the physics scheme from taking advantage of specialized I/O libraries contained within the host model that may improve performance, error handling, etc.</p>
 <p>To try and find an optimal solution to this problem, it was decided to create an abstract class that describes general interfaces for reading variables from a file, which allows a physics scheme developer to read data from a file without having to modify the host model or use the NetCDF library directly.  At the same time, the actual implementation of the class can be done in the host model, which then allows for the use of host-specific I/O libraries, while still maintaining the portability of the physics scheme itself.</p>
 <h2 id="design-and-implementation-of-ccpp_io_reader-in-cam-sima">Design and implementation of <code>ccpp_io_reader</code> in CAM-SIMA</h2>
 <p>The file <code>ccpp_io_reader.F90</code> file itself contains the declaration of an abstract NetCDF reader type (<code>abstract_netcdf_reader_t</code>), including its various procedures, and an associated constructor function (<code>create_netcdf_reader_t</code>).  This abstract interface is assumed to be the same for all host models and physics schemes, which allows CCPP physics schemes to remain portable, at least amongst the supporting host models.</p>
@@ -1633,7 +1633,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 31, 2025 22:20:23 UTC">July 31, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 3, 2025 21:07:04 UTC">August 3, 2025</span>
   </span>
 
     
@@ -1664,6 +1664,11 @@
         <a href="https://github.com/nusbaume" class="md-author" title="@nusbaume">
           
           <img src="https://avatars.githubusercontent.com/u/30849041?v=4&size=72" alt="nusbaume">
+        </a>
+      
+        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
+          
+          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
         </a>
       
       
