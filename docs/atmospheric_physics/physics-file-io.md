@@ -6,7 +6,7 @@ This page describes the `ccpp_io_reader` class in `atmospheric_physics/utils`, i
 
 Many physics schemes have a need to read specialized data from input files, especially those in the NetCDF file format.  While one could just read all of the files on the host side before calling the CCPP, this would require a physics developer to modify the host model whenever they wanted to use the physics scheme, which arguably hurts portability.
 
-Alternatively, one could just use the NetCDF library directly in the physics scheme, but this is oftentimes adds a lot of additional lines of code to the physics scheme, and may prevent the physics scheme from taking advantage of specialized I/O libraries contained within the host model that may improve performance, error handling, etc.
+Alternatively, one could just use the NetCDF library directly in the physics scheme, but this oftentimes adds a lot of additional lines of code to the physics scheme, and may prevent the physics scheme from taking advantage of specialized I/O libraries contained within the host model that may improve performance, error handling, etc.
 
 To try and find an optimal solution to this problem, it was decided to create an abstract class that describes general interfaces for reading variables from a file, which allows a physics scheme developer to read data from a file without having to modify the host model or use the NetCDF library directly.  At the same time, the actual implementation of the class can be done in the host model, which then allows for the use of host-specific I/O libraries, while still maintaining the portability of the physics scheme itself.
 
