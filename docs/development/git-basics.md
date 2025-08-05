@@ -122,7 +122,7 @@ GitHub will soon be requiring that you use a GitHub generated token (basically a
         ```
         git config --global credential.helper cache --timeout <seconds>
         ```
-    
+
         where `<seconds>` is the number of seconds git 'remembers' your token. For example, to only have to enter your token once per day:
 
         ```
@@ -169,7 +169,7 @@ cd <clone_dir_name>
 
 ### Checking out a tag or switching to a new tag
 
-- To check out a tag: 
+- To check out a tag:
 ```
 git checkout <tag>
 ```
@@ -270,7 +270,7 @@ To see the latest tag: [https://github.com/ESCOMP/CAM-SIMA/tags](https://github.
 
 ### Creating a new tag
 
-1. Clone [https://github.com/ESCOMP/CAM](https://github.com/ESCOMP/CAM) or update an existing clone with `git fetch <escomp_remote> development`
+1. Clone [https://github.com/ESCOMP/CAM-SIMA](https://github.com/ESCOMP/CAM-SIMA) or update an existing clone with `git fetch <escomp_remote> development`
 1. Find the PR merge commit (`<merge_commit>`) for the tag
     - In your up-to-date CAM clone, find the merge commit with `git log --oneline -1 <escomp_remote>/development` where the merge commit is the first field in the output.
 1. Tag the `<merge_commit>` with `git tag -a <tag> <merge_commit> -m '<commit_message>` where `<commit_message>` is the same as the message for the `<merge_commit>`
@@ -327,7 +327,7 @@ There is a tool called `diffmerge` which enables both side-by-side comparison of
 
 To use the differencing tool type: `git difftool`
 
-If after a `git merge` the git command says there are conflicts, then you may type `git mergetool` to allow you to resolve the conflicts and complete the merge. The mergetool with diffmerge properly installed will display three panes. From left to right these panes are: 
+If after a `git merge` the git command says there are conflicts, then you may type `git mergetool` to allow you to resolve the conflicts and complete the merge. The mergetool with diffmerge properly installed will display three panes. From left to right these panes are:
 
     Code being merged in          Merged code               Your code
 
@@ -363,5 +363,5 @@ If you have problems, check out the tips at the bottom of this page
 
 - On derecho, if you get an error message about diffmerge not being loaded, make sure you are using `ncarenv/23.09` or newer (to check say "module list")
 - If you do not get a response when clicking on the "git mergetool" window, make sure you find the "conflict" popup and hit "exit" on it
-- If your git mergetool gives blank windows and says: "Files are identical or equivalent under the current RuleSet", hit OK and then go to the File dropdown menu and select "Reload". This filled in the blank windows for the user with this error. 
+- If your git mergetool gives blank windows and says: "Files are identical or equivalent under the current RuleSet", hit OK and then go to the File dropdown menu and select "Reload". This filled in the blank windows for the user with this error.
     - **CAUTION**: Check your file carefully if you do this, as a second user who did this discovered that all of the changes which were automatically merged did not reside in the final saved version.
