@@ -2056,7 +2056,7 @@ cd &lt;clone_dir_name&gt;
 </code></pre>
 <h3 id="checking-out-a-tag-or-switching-to-a-new-tag">Checking out a tag or switching to a new tag</h3>
 <ul>
-<li>To check out a tag: </li>
+<li>To check out a tag:</li>
 </ul>
 <pre><code>git checkout &lt;tag&gt;
 </code></pre>
@@ -2134,7 +2134,7 @@ git merge ESCOMP/development
 <p>To see the latest tag: <a href="https://github.com/ESCOMP/CAM-SIMA/tags">https://github.com/ESCOMP/CAM-SIMA/tags</a>.</p>
 <h3 id="creating-a-new-tag">Creating a new tag</h3>
 <ol>
-<li>Clone <a href="https://github.com/ESCOMP/CAM">https://github.com/ESCOMP/CAM</a> or update an existing clone with <code>git fetch &lt;escomp_remote&gt; development</code></li>
+<li>Clone <a href="https://github.com/ESCOMP/CAM-SIMA">https://github.com/ESCOMP/CAM-SIMA</a> or update an existing clone with <code>git fetch &lt;escomp_remote&gt; development</code></li>
 <li>Find the PR merge commit (<code>&lt;merge_commit&gt;</code>) for the tag<ul>
 <li>In your up-to-date CAM clone, find the merge commit with <code>git log --oneline -1 &lt;escomp_remote&gt;/development</code> where the merge commit is the first field in the output.</li>
 </ul>
@@ -2195,7 +2195,7 @@ git merge ESCOMP/development
 <p>This section contains the complete modifications needed for using the graphical tool diffmerge for "git difftool" and "git mergetool"</p>
 <p>There is a tool called <code>diffmerge</code> which enables both side-by-side comparison of edited files in git as well as providing a three way-pane for editing merge conflicts. This tool is available for download at: <a href="https://sourcegear.com/diffmerge/">https://sourcegear.com/diffmerge/</a>. It has been installed on izumi and derecho by the system administrators in public areas, so you don't need to download it for those machines.</p>
 <p>To use the differencing tool type: <code>git difftool</code></p>
-<p>If after a <code>git merge</code> the git command says there are conflicts, then you may type <code>git mergetool</code> to allow you to resolve the conflicts and complete the merge. The mergetool with diffmerge properly installed will display three panes. From left to right these panes are: </p>
+<p>If after a <code>git merge</code> the git command says there are conflicts, then you may type <code>git mergetool</code> to allow you to resolve the conflicts and complete the merge. The mergetool with diffmerge properly installed will display three panes. From left to right these panes are:</p>
 <pre><code>Code being merged in          Merged code               Your code
 </code></pre>
 <p>The panes are opened in a visual editor, and any changes you make in the middle pane, may be saved by selecting the save icon at the top of the screen and then exiting the window. This will finalize the merge for that particular file.</p>
@@ -2225,7 +2225,7 @@ git merge ESCOMP/development
 <ul>
 <li>On derecho, if you get an error message about diffmerge not being loaded, make sure you are using <code>ncarenv/23.09</code> or newer (to check say "module list")</li>
 <li>If you do not get a response when clicking on the "git mergetool" window, make sure you find the "conflict" popup and hit "exit" on it</li>
-<li>If your git mergetool gives blank windows and says: "Files are identical or equivalent under the current RuleSet", hit OK and then go to the File dropdown menu and select "Reload". This filled in the blank windows for the user with this error. <ul>
+<li>If your git mergetool gives blank windows and says: "Files are identical or equivalent under the current RuleSet", hit OK and then go to the File dropdown menu and select "Reload". This filled in the blank windows for the user with this error.<ul>
 <li><strong>CAUTION</strong>: Check your file carefully if you do this, as a second user who did this discovered that all of the changes which were automatically merged did not reside in the final saved version.</li>
 </ul>
 </li>
@@ -2252,7 +2252,7 @@ git merge ESCOMP/development
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="December 16, 2024 16:18:02 UTC">December 16, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 5, 2025 21:16:11 UTC">August 5, 2025</span>
   </span>
 
     
@@ -2279,6 +2279,11 @@ git merge ESCOMP/development
 
     
     <nav>
+      
+        <a href="https://github.com/nusbaume" class="md-author" title="@nusbaume">
+          
+          <img src="https://avatars.githubusercontent.com/u/30849041?v=4&size=72" alt="nusbaume">
+        </a>
       
         <a href="https://github.com/jimmielin" class="md-author" title="@jimmielin">
           
