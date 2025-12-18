@@ -4,6 +4,9 @@ If your scheme has a `readnl` scheme, create an .xml file with the same name as 
 - The filename should be `<scheme>_namelist.xml`
 - If you have metadata entries for these namelist entries from your previous conversion steps, it may be useful to copy the metadata entry and edit it to be xml.  If you do this, you will delete the dimensions and intent lines and add category, group, desc and values/value.
 
+!!!Note "Changing namelists in CAM-SIMA"
+    Sometimes, a decision is made to change a namelist entry (type, name, etc) or split it up into multiple namelist entries. If you change a namelist in any way that will affect users, please add the change to the [namelist tracking spreadsheet](https://docs.google.com/spreadsheets/d/15UxxeJct6N5VGHALej5AdceGvpmfIUnJiSEq4Zxs6XY/edit?gid=0#gid=0).
+
 The CCPP Framework will autogenerate the namelist reader based on the elements in the namelist XML file associated with the parameterization.  Each namelist element (`<entry_id>`) will have the following fields: `<id>` `<type>`, `<category>`, `<group>`, `<standard_name>`, `<units>`, `<desc>` and `<values>`.  Note that all variables in the namelist should appear in the parameterization’s `_init` subroutine interface. The description of each field is as follows:
 
 - *id*: The namelist variable's name. The name must be lower case. The module converts all namelist variable names to lower case since Fortran is case insensitive.
