@@ -1,0 +1,608 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="MPAS dynamical core solves the fully compressible non-hydrostatic equations of atmospheric motion.">
+    <meta name="author" content="CAM-SIMA & MPAS Developers">
+    <link href="../favicon.png" rel="icon">
+
+    <title>rho_by_equation_of_state – MPAS Dynamical Core</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      rel="stylesheet"
+    >
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    ></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      async
+      crossorigin="anonymous"
+      integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw="
+    ></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html"
+            >MPAS Dynamical Core </a
+          >
+          <button
+            class="navbar-toggler"
+            data-bs-target="#navbar"
+            data-bs-toggle="collapse"
+            type="button"
+            aria-controls="navbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbar">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>
+      rho_by_equation_of_state
+      <small
+        >          Function
+</small
+      >
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.2% of total for procedures.">6 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dyn_procedures.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dyn_procedures.f90.html'>dyn_procedures.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/dyn_procedures.html'>dyn_procedures</a></li>
+            <li class="breadcrumb-item active" aria-current="page">rho_by_equation_of_state</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">  <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/rho_by_equation_of_state.html#src">rho_by_equation_of_state</a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+    <div class="col-md-9" id="text">
+      <h2>public pure elemental function rho_by_equation_of_state(constant_r, p, t) result(rho)  
+</h2>
+          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='https://www.intel.com/content/www/us/en/docs/fortran-compiler/developer-guide-reference/2024-2/iso-fortran-env-module.html'>iso_fortran_env</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~rho_by_equation_of_state~~UsesGraph Pages: 1 -->
+<svg id="procrho_by_equation_of_stateUsesGraph" width="286pt" height="32pt"
+ viewBox="0.00 0.00 286.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~rho_by_equation_of_state~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~rho_by_equation_of_state~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 282,-28 282,4 -4,4"/>
+<!-- proc~rho_by_equation_of_state -->
+<g id="proc~~rho_by_equation_of_state~~UsesGraph_node1" class="node">
+<title>proc~rho_by_equation_of_state</title>
+<polygon fill="none" stroke="black" points="278,-24 130,-24 130,0 278,0 278,-24"/>
+<text text-anchor="middle" x="204" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">rho_by_equation_of_state</text>
+</g>
+<!-- iso_fortran_env -->
+<g id="proc~~rho_by_equation_of_state~~UsesGraph_node2" class="node">
+<title>iso_fortran_env</title>
+<g id="a_proc~~rho_by_equation_of_state~~UsesGraph_node2"><a xlink:href="https://www.intel.com/content/www/us/en/docs/fortran-compiler/developer-guide-reference/2024-2/iso-fortran-env-module.html" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-24 0,-24 0,0 94,0 94,-24"/>
+<text text-anchor="middle" x="47" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- proc~rho_by_equation_of_state&#45;&gt;iso_fortran_env -->
+<g id="proc~~rho_by_equation_of_state~~UsesGraph_edge1" class="edge">
+<title>proc~rho_by_equation_of_state&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M129.59,-12C121.11,-12 112.57,-12 104.38,-12"/>
+<polygon fill="#000000" stroke="#000000" points="104.21,-8.5 94.21,-12 104.21,-15.5 104.21,-8.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+
+        <p>Compute the density <code>rho</code> from the pressure <code>p</code> and the temperature <code>t</code> by equation of state. Essentially,
+<script type="math/tex"> \rho = \frac{P}{R T} </script>. Equation of state may take other forms, such as <script type="math/tex"> P_d = \rho_d R_d T </script>, <script type="math/tex"> P = \rho R_d T_v </script>,
+<script type="math/tex"> P = \rho_d R_d T_m </script>. Choose wisely which form to use.
+(KCW, 2025-07-10)</p>
+
+
+      <h3>Arguments</h3>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-constant_r~2"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>constant_r</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-p~2"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>p</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t~2"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        <h3>
+          Return Value
+          <small>
+            <span class="anchor" id="variable-rho~3"></span>
+            real(kind=real64)
+          </small>
+        </h3>
+        
+        <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Called by</h3>
+          </div>
+          <div class="card-body"><div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~rho_by_equation_of_state~~CalledByGraph Pages: 1 -->
+<svg id="procrho_by_equation_of_stateCalledByGraph" width="641pt" height="60pt"
+ viewBox="0.00 0.00 641.00 60.43" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~rho_by_equation_of_state~~CalledByGraph" class="graph" transform="scale(0.82 0.82) rotate(0) translate(4 70)">
+<title>proc~~rho_by_equation_of_state~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 781,-70 781,4 -4,4"/>
+<!-- proc~rho_by_equation_of_state -->
+<g id="proc~~rho_by_equation_of_state~~CalledByGraph_node1" class="node">
+<title>proc~rho_by_equation_of_state</title>
+<polygon fill="none" stroke="black" points="777,-45 629,-45 629,-21 777,-21 777,-45"/>
+<text text-anchor="middle" x="703" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">rho_by_equation_of_state</text>
+</g>
+<!-- none~set_mpas_state_rho_base_theta_base -->
+<g id="proc~~rho_by_equation_of_state~~CalledByGraph_node2" class="node">
+<title>none~set_mpas_state_rho_base_theta_base</title>
+<g id="a_proc~~rho_by_equation_of_state~~CalledByGraph_node2"><a xlink:href="../proc/set_analytic_initial_condition.html#proc-set_mpas_state_rho_base_theta_base" xlink:title="set_mpas_state_rho_base_theta_base">
+<polygon fill="#d9534f" stroke="#d9534f" points="593,-66 381,-66 381,-42 593,-42 593,-66"/>
+<text text-anchor="middle" x="487" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_mpas_state_rho_base_theta_base</text>
+</a>
+</g>
+</g>
+<!-- none~set_mpas_state_rho_base_theta_base&#45;&gt;proc~rho_by_equation_of_state -->
+<g id="proc~~rho_by_equation_of_state~~CalledByGraph_edge1" class="edge">
+<title>none~set_mpas_state_rho_base_theta_base&#45;&gt;proc~rho_by_equation_of_state</title>
+<path fill="none" stroke="#000000" d="M593.12,-43.68C601.69,-42.84 610.27,-42 618.65,-41.18"/>
+<polygon fill="#000000" stroke="#000000" points="619.14,-44.65 628.75,-40.19 618.46,-37.68 619.14,-44.65"/>
+</g>
+<!-- none~set_mpas_state_rho_theta -->
+<g id="proc~~rho_by_equation_of_state~~CalledByGraph_node3" class="node">
+<title>none~set_mpas_state_rho_theta</title>
+<g id="a_proc~~rho_by_equation_of_state~~CalledByGraph_node3"><a xlink:href="../proc/set_analytic_initial_condition.html#proc-set_mpas_state_rho_theta" xlink:title="set_mpas_state_rho_theta">
+<polygon fill="#d9534f" stroke="#d9534f" points="562.5,-24 411.5,-24 411.5,0 562.5,0 562.5,-24"/>
+<text text-anchor="middle" x="487" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_mpas_state_rho_theta</text>
+</a>
+</g>
+</g>
+<!-- none~set_mpas_state_rho_theta&#45;&gt;proc~rho_by_equation_of_state -->
+<g id="proc~~rho_by_equation_of_state~~CalledByGraph_edge2" class="edge">
+<title>none~set_mpas_state_rho_theta&#45;&gt;proc~rho_by_equation_of_state</title>
+<path fill="none" stroke="#000000" d="M562.55,-19.32C580.66,-21.09 600.15,-23.01 618.65,-24.82"/>
+<polygon fill="#000000" stroke="#000000" points="618.51,-28.32 628.8,-25.82 619.19,-21.36 618.51,-28.32"/>
+</g>
+<!-- proc~set_analytic_initial_condition -->
+<g id="proc~~rho_by_equation_of_state~~CalledByGraph_node4" class="node">
+<title>proc~set_analytic_initial_condition</title>
+<g id="a_proc~~rho_by_equation_of_state~~CalledByGraph_node4"><a xlink:href="../proc/set_analytic_initial_condition.html" xlink:title="set_analytic_initial_condition">
+<polygon fill="#d9534f" stroke="#d9534f" points="345,-45 180,-45 180,-21 345,-21 345,-45"/>
+<text text-anchor="middle" x="262.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_analytic_initial_condition</text>
+</a>
+</g>
+</g>
+<!-- proc~set_analytic_initial_condition&#45;&gt;none~set_mpas_state_rho_base_theta_base -->
+<g id="proc~~rho_by_equation_of_state~~CalledByGraph_edge3" class="edge">
+<title>proc~set_analytic_initial_condition&#45;&gt;none~set_mpas_state_rho_base_theta_base</title>
+<path fill="none" stroke="#000000" d="M345.09,-40.7C353.47,-41.49 362.09,-42.3 370.74,-43.12"/>
+<polygon fill="#000000" stroke="#000000" points="370.62,-46.63 380.9,-44.08 371.28,-39.66 370.62,-46.63"/>
+</g>
+<!-- proc~set_analytic_initial_condition&#45;&gt;none~set_mpas_state_rho_theta -->
+<g id="proc~~rho_by_equation_of_state~~CalledByGraph_edge4" class="edge">
+<title>proc~set_analytic_initial_condition&#45;&gt;none~set_mpas_state_rho_theta</title>
+<path fill="none" stroke="#000000" d="M345.09,-25.3C363.4,-23.57 382.87,-21.73 401.31,-19.99"/>
+<polygon fill="#000000" stroke="#000000" points="401.8,-23.46 411.43,-19.04 401.15,-16.49 401.8,-23.46"/>
+</g>
+<!-- proc~dyn_init -->
+<g id="proc~~rho_by_equation_of_state~~CalledByGraph_node5" class="node">
+<title>proc~dyn_init</title>
+<g id="a_proc~~rho_by_equation_of_state~~CalledByGraph_node5"><a xlink:href="../proc/dyn_init.html" xlink:title="dyn_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-45 90,-45 90,-21 144,-21 144,-45"/>
+<text text-anchor="middle" x="117" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_init</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_init&#45;&gt;proc~set_analytic_initial_condition -->
+<g id="proc~~rho_by_equation_of_state~~CalledByGraph_edge5" class="edge">
+<title>proc~dyn_init&#45;&gt;proc~set_analytic_initial_condition</title>
+<path fill="none" stroke="#000000" d="M144.32,-33C151.87,-33 160.55,-33 169.71,-33"/>
+<polygon fill="#000000" stroke="#000000" points="169.8,-36.5 179.8,-33 169.8,-29.5 169.8,-36.5"/>
+</g>
+<!-- interface~dyn_init -->
+<g id="proc~~rho_by_equation_of_state~~CalledByGraph_node6" class="node">
+<title>interface~dyn_init</title>
+<g id="a_proc~~rho_by_equation_of_state~~CalledByGraph_node6"><a xlink:href="../interface/dyn_init.html" xlink:title="dyn_init">
+<polygon fill="#a7506f" stroke="#a7506f" points="54,-45 0,-45 0,-21 54,-21 54,-45"/>
+<text text-anchor="middle" x="27" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_init</text>
+</a>
+</g>
+</g>
+<!-- interface~dyn_init&#45;&gt;proc~dyn_init -->
+<g id="proc~~rho_by_equation_of_state~~CalledByGraph_edge6" class="edge">
+<title>interface~dyn_init&#45;&gt;proc~dyn_init</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.4,-33C62.39,-33 71.31,-33 79.82,-33"/>
+<polygon fill="#000000" stroke="#000000" points="79.92,-36.5 89.92,-33 79.92,-29.5 79.92,-36.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocrho_by_equation_of_stateCalledByGraph = svgPanZoom('#procrho_by_equation_of_stateCalledByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div></div>
+        </div>
+      <br>
+
+
+
+
+
+
+
+
+
+
+        <section>
+          <h2><span class="anchor" id="src"></span>Source Code</h2>
+          <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">pure elemental function </span><span class="n">rho_by_equation_of_state</span><span class="p">(</span><span class="n">constant_r</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+<span class="w">        </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">real64</span>
+
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">real64</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">constant_r</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">t</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">real64</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rho</span>
+
+<span class="w">        </span><span class="n">rho</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">constant_r</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">t</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end function </span><span class="n">rho_by_equation_of_state</span>
+</pre></div>
+
+        </section>
+        <br>
+    </div>
+  </div>
+      <hr>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              MPAS Dynamical Core
+was developed by CAM-SIMA & MPAS Developers<br>              © 2025 
+            </p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div>
+    </footer>
+  </body>
+</html>

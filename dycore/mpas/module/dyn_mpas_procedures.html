@@ -1,0 +1,2135 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="MPAS dynamical core solves the fully compressible non-hydrostatic equations of atmospheric motion.">
+    <meta name="author" content="CAM-SIMA & MPAS Developers">
+    <link href="../favicon.png" rel="icon">
+
+    <title>dyn_mpas_procedures – MPAS Dynamical Core</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      rel="stylesheet"
+    >
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    ></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      async
+      crossorigin="anonymous"
+      integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw="
+    ></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html"
+            >MPAS Dynamical Core </a
+          >
+          <button
+            class="navbar-toggler"
+            data-bs-target="#navbar"
+            data-bs-toggle="collapse"
+            type="button"
+            aria-controls="navbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbar">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>
+      dyn_mpas_procedures
+      <small>Module</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 5.9% of total for modules and submodules.">261 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dyn_mpas_procedures.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dyn_mpas_procedures.f90.html'>dyn_mpas_procedures.F90</a></li>
+            <li class="breadcrumb-item active" aria-current="page">dyn_mpas_procedures</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">  <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#inters-0"
+         aria-expanded="false" aria-controls="inters-0">
+         <h4 class="card-header bg-primary text-white">Interfaces</h4>
+      </a>
+      <div id="inters-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#interface-almost_divisible">almost_divisible</a>
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#interface-almost_equal">almost_equal</a>
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#interface-clamp">clamp</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#funcs-0"
+         aria-expanded="false" aria-controls="funcs-0">
+         <h4 class="card-header bg-primary text-white">Functions</h4>
+      </a>
+      <div id="funcs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#proc-almost_divisible_real32">almost_divisible_real32</a>
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#proc-almost_divisible_real64">almost_divisible_real64</a>
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#proc-almost_equal_real32">almost_equal_real32</a>
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#proc-almost_equal_real64">almost_equal_real64</a>
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#proc-clamp_int32">clamp_int32</a>
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#proc-clamp_int64">clamp_int64</a>
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#proc-clamp_real32">clamp_real32</a>
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#proc-clamp_real64">clamp_real64</a>
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#proc-index_unique">index_unique</a>
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#proc-stringify">stringify</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
+</div>
+
+    <div class="col-md-9" id="text">
+      <p>This module provides standardized procedures (i.e., functions and subroutines) that serve as
+reusable building blocks for larger and more complex functionalities elsewhere. Specifically,
+procedures in this module are intended to be used by the MPAS subdriver and therefore are
+compiled into the MPAS library ahead of CAM-SIMA.</p>
+<p>Computational procedures implement formulas that are universal in atmospheric sciences. They
+should be designated as <code>elemental</code> where possible to aid compiler optimizations, such as
+vectorization.
+Utility procedures implement simple and well-defined operations that can be easily tested.</p>
+<br>      
+          <div class="card">
+      <h3 class="card-header card-title bg-light">Used by</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: module~~dyn_mpas_procedures~~UsedByGraph Pages: 1 -->
+<svg id="moduledyn_mpas_proceduresUsedByGraph" width="568pt" height="1125pt"
+ viewBox="0.00 0.00 568.00 1124.63" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~dyn_mpas_procedures~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 1120.63)">
+<title>module~~dyn_mpas_procedures~~UsedByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-1120.63 564,-1120.63 564,4 -4,4"/>
+<!-- module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node1" class="node">
+<title>module~dyn_mpas_procedures</title>
+<polygon fill="none" stroke="black" points="131,-570.29 0,-570.29 0,-546.29 131,-546.29 131,-570.29"/>
+<text text-anchor="middle" x="65.5" y="-555.89" font-family="Helvetica,sans-Serif" font-size="10.50">dyn_mpas_procedures</text>
+</g>
+<!-- none~update_shared_variables -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node2" class="node">
+<title>none~update_shared_variables</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node2"><a xlink:href="../proc/dynamics_to_physics_coupling.html#proc-update_shared_variables" xlink:title="update_shared_variables">
+<polygon fill="#d9534f" stroke="#d9534f" points="436,-1116.29 291,-1116.29 291,-1092.29 436,-1092.29 436,-1116.29"/>
+<text text-anchor="middle" x="363.5" y="-1101.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">update_shared_variables</text>
+</a>
+</g>
+</g>
+<!-- none~update_shared_variables&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge1" class="edge">
+<title>none~update_shared_variables&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M290.76,-1115.88C249.55,-1118.3 199.64,-1113.35 167,-1083.29 91.48,-1013.73 71.43,-672.19 67.38,-580.81"/>
+<polygon fill="#000000" stroke="#000000" points="70.87,-580.56 66.95,-570.72 63.88,-580.86 70.87,-580.56"/>
+</g>
+<!-- proc~check_topography_data -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node3" class="node">
+<title>proc~check_topography_data</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node3"><a xlink:href="../proc/check_topography_data.html" xlink:title="check_topography_data">
+<polygon fill="#d9534f" stroke="#d9534f" points="433.5,-1074.29 293.5,-1074.29 293.5,-1050.29 433.5,-1050.29 433.5,-1074.29"/>
+<text text-anchor="middle" x="363.5" y="-1059.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">check_topography_data</text>
+</a>
+</g>
+</g>
+<!-- proc~check_topography_data&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge2" class="edge">
+<title>proc~check_topography_data&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M293.3,-1073.55C251.71,-1076.22 200.51,-1071.66 167,-1041.29 97.24,-978.05 73.17,-667.17 67.77,-580.66"/>
+<polygon fill="#000000" stroke="#000000" points="71.26,-580.39 67.17,-570.62 64.27,-580.81 71.26,-580.39"/>
+</g>
+<!-- proc~dyn_mpas_check_variable_status -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node4" class="node">
+<title>proc~dyn_mpas_check_variable_status</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node4"><a xlink:href="../proc/dyn_mpas_check_variable_status.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_check_variable_status">
+<polygon fill="#d9534f" stroke="#d9534f" points="536.5,-1032.29 190.5,-1032.29 190.5,-1008.29 536.5,-1008.29 536.5,-1032.29"/>
+<text text-anchor="middle" x="363.5" y="-1017.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_check_variable_status</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_check_variable_status&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge3" class="edge">
+<title>proc~dyn_mpas_check_variable_status&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.05,-1014.87C181.78,-1010.66 174.01,-1005.52 167,-999.29 102.97,-942.35 75.07,-662 68.24,-580.53"/>
+<polygon fill="#000000" stroke="#000000" points="71.71,-580.08 67.41,-570.4 64.73,-580.65 71.71,-580.08"/>
+</g>
+<!-- proc~dyn_mpas_compute_cell_relative_vorticity -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node5" class="node">
+<title>proc~dyn_mpas_compute_cell_relative_vorticity</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node5"><a xlink:href="../proc/dyn_mpas_compute_cell_relative_vorticity.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_compute_cell_relative_vorticity">
+<polygon fill="#d9534f" stroke="#d9534f" points="560,-990.29 167,-990.29 167,-966.29 560,-966.29 560,-990.29"/>
+<text text-anchor="middle" x="363.5" y="-975.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_compute_cell_relative_vorticity</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_compute_cell_relative_vorticity&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge4" class="edge">
+<title>proc~dyn_mpas_compute_cell_relative_vorticity&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M178.78,-966.15C174.68,-963.48 170.74,-960.53 167,-957.29 108.79,-906.69 77.28,-657.61 68.84,-580.85"/>
+<polygon fill="#000000" stroke="#000000" points="72.27,-580.01 67.72,-570.44 65.31,-580.76 72.27,-580.01"/>
+</g>
+<!-- proc~dyn_mpas_debug_print -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node6" class="node">
+<title>proc~dyn_mpas_debug_print</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node6"><a xlink:href="../proc/dyn_mpas_debug_print.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_debug_print">
+<polygon fill="#d9534f" stroke="#d9534f" points="509.5,-948.29 217.5,-948.29 217.5,-924.29 509.5,-924.29 509.5,-948.29"/>
+<text text-anchor="middle" x="363.5" y="-933.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_debug_print</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_debug_print&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge5" class="edge">
+<title>proc~dyn_mpas_debug_print&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M217.21,-940.32C198.85,-935.43 181.47,-927.52 167,-915.29 114.49,-870.9 79.64,-652.1 69.54,-580.79"/>
+<polygon fill="#000000" stroke="#000000" points="72.97,-580.09 68.13,-570.67 66.04,-581.05 72.97,-580.09"/>
+</g>
+<!-- proc~dyn_mpas_define_scalar -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node7" class="node">
+<title>proc~dyn_mpas_define_scalar</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node7"><a xlink:href="../proc/dyn_mpas_define_scalar.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_define_scalar">
+<polygon fill="#d9534f" stroke="#d9534f" points="513.5,-906.29 213.5,-906.29 213.5,-882.29 513.5,-882.29 513.5,-906.29"/>
+<text text-anchor="middle" x="363.5" y="-891.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_define_scalar</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_define_scalar&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge6" class="edge">
+<title>proc~dyn_mpas_define_scalar&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M213.13,-896.63C196.36,-891.75 180.49,-884.29 167,-873.29 75.08,-798.27 66.08,-639.06 66.02,-580.5"/>
+<polygon fill="#000000" stroke="#000000" points="69.52,-580.51 66.1,-570.48 62.52,-580.46 69.52,-580.51"/>
+</g>
+<!-- proc~dyn_mpas_exchange_halo -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node8" class="node">
+<title>proc~dyn_mpas_exchange_halo</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node8"><a xlink:href="../proc/dyn_mpas_exchange_halo.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_exchange_halo">
+<polygon fill="#d9534f" stroke="#d9534f" points="518,-864.29 209,-864.29 209,-840.29 518,-840.29 518,-864.29"/>
+<text text-anchor="middle" x="363.5" y="-849.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_exchange_halo</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_exchange_halo&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge7" class="edge">
+<title>proc~dyn_mpas_exchange_halo&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M208.66,-852.58C193.62,-847.81 179.38,-840.94 167,-831.29 86.14,-768.2 70.33,-633.44 67.24,-580.39"/>
+<polygon fill="#000000" stroke="#000000" points="70.74,-580.19 66.76,-570.37 63.74,-580.52 70.74,-580.19"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_c0 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node9" class="node">
+<title>proc~dyn_mpas_get_variable_value_c0</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node9"><a xlink:href="../proc/dyn_mpas_get_variable_value_c0.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_value_c0">
+<polygon fill="#d9534f" stroke="#d9534f" points="537,-822.29 190,-822.29 190,-798.29 537,-798.29 537,-822.29"/>
+<text text-anchor="middle" x="363.5" y="-807.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_value_c0</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_c0&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge8" class="edge">
+<title>proc~dyn_mpas_get_variable_value_c0&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.96,-802.62C181.87,-798.95 174.15,-794.54 167,-789.29 97.18,-737.98 75.23,-627.73 68.88,-580.5"/>
+<polygon fill="#000000" stroke="#000000" points="72.34,-579.92 67.64,-570.42 65.39,-580.78 72.34,-579.92"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_c1 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node10" class="node">
+<title>proc~dyn_mpas_get_variable_value_c1</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node10"><a xlink:href="../proc/dyn_mpas_get_variable_value_c1.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_value_c1">
+<polygon fill="#d9534f" stroke="#d9534f" points="537,-780.29 190,-780.29 190,-756.29 537,-756.29 537,-780.29"/>
+<text text-anchor="middle" x="363.5" y="-765.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_value_c1</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_c1&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge9" class="edge">
+<title>proc~dyn_mpas_get_variable_value_c1&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M189.97,-759.73C181.93,-756.27 174.21,-752.16 167,-747.29 107.94,-707.35 80.95,-621.12 71.14,-580.42"/>
+<polygon fill="#000000" stroke="#000000" points="74.55,-579.63 68.91,-570.66 67.73,-581.19 74.55,-579.63"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_i0 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node11" class="node">
+<title>proc~dyn_mpas_get_variable_value_i0</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node11"><a xlink:href="../proc/dyn_mpas_get_variable_value_i0.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_value_i0">
+<polygon fill="#d9534f" stroke="#d9534f" points="535.5,-738.29 191.5,-738.29 191.5,-714.29 535.5,-714.29 535.5,-738.29"/>
+<text text-anchor="middle" x="363.5" y="-723.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_value_i0</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_i0&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge10" class="edge">
+<title>proc~dyn_mpas_get_variable_value_i0&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M191.08,-716.92C182.7,-713.69 174.62,-709.84 167,-705.29 118.4,-676.22 87.9,-613.49 74.47,-580.15"/>
+<polygon fill="#000000" stroke="#000000" points="77.59,-578.5 70.71,-570.44 71.06,-581.03 77.59,-578.5"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_i1 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node12" class="node">
+<title>proc~dyn_mpas_get_variable_value_i1</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node12"><a xlink:href="../proc/dyn_mpas_get_variable_value_i1.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_value_i1">
+<polygon fill="#d9534f" stroke="#d9534f" points="535.5,-696.29 191.5,-696.29 191.5,-672.29 535.5,-672.29 535.5,-696.29"/>
+<text text-anchor="middle" x="363.5" y="-681.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_value_i1</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_i1&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge11" class="edge">
+<title>proc~dyn_mpas_get_variable_value_i1&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M191.43,-673.21C183.01,-670.41 174.81,-667.13 167,-663.29 128.25,-644.22 96.4,-603.72 79.54,-578.97"/>
+<polygon fill="#000000" stroke="#000000" points="82.26,-576.74 73.82,-570.33 76.42,-580.6 82.26,-576.74"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_i2 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node13" class="node">
+<title>proc~dyn_mpas_get_variable_value_i2</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node13"><a xlink:href="../proc/dyn_mpas_get_variable_value_i2.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_value_i2">
+<polygon fill="#d9534f" stroke="#d9534f" points="535.5,-654.29 191.5,-654.29 191.5,-630.29 535.5,-630.29 535.5,-654.29"/>
+<text text-anchor="middle" x="363.5" y="-639.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_value_i2</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_i2&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge12" class="edge">
+<title>proc~dyn_mpas_get_variable_value_i2&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M198.59,-630.28C187.78,-627.78 177.16,-624.81 167,-621.29 137.85,-611.19 108.39,-591.33 88.98,-576.59"/>
+<polygon fill="#000000" stroke="#000000" points="91.09,-573.81 81.05,-570.44 86.8,-579.34 91.09,-573.81"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_i3 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node14" class="node">
+<title>proc~dyn_mpas_get_variable_value_i3</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node14"><a xlink:href="../proc/dyn_mpas_get_variable_value_i3.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_value_i3">
+<polygon fill="#d9534f" stroke="#d9534f" points="535.5,-612.29 191.5,-612.29 191.5,-588.29 535.5,-588.29 535.5,-612.29"/>
+<text text-anchor="middle" x="363.5" y="-597.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_value_i3</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_i3&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge13" class="edge">
+<title>proc~dyn_mpas_get_variable_value_i3&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M233.7,-588.28C211.41,-585.68 188.5,-582.68 167,-579.29 154.7,-577.35 141.64,-574.9 129.14,-572.37"/>
+<polygon fill="#000000" stroke="#000000" points="129.76,-568.93 119.26,-570.33 128.35,-575.78 129.76,-568.93"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_l0 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node15" class="node">
+<title>proc~dyn_mpas_get_variable_value_l0</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node15"><a xlink:href="../proc/dyn_mpas_get_variable_value_l0.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_value_l0">
+<polygon fill="#d9534f" stroke="#d9534f" points="535.5,-570.29 191.5,-570.29 191.5,-546.29 535.5,-546.29 535.5,-570.29"/>
+<text text-anchor="middle" x="363.5" y="-555.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_value_l0</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_l0&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge14" class="edge">
+<title>proc~dyn_mpas_get_variable_value_l0&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M191.17,-558.29C173.93,-558.29 157.12,-558.29 141.71,-558.29"/>
+<polygon fill="#000000" stroke="#000000" points="141.28,-554.79 131.28,-558.29 141.28,-561.79 141.28,-554.79"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_r0 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node16" class="node">
+<title>proc~dyn_mpas_get_variable_value_r0</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node16"><a xlink:href="../proc/dyn_mpas_get_variable_value_r0.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_value_r0">
+<polygon fill="#d9534f" stroke="#d9534f" points="536.5,-528.29 190.5,-528.29 190.5,-504.29 536.5,-504.29 536.5,-528.29"/>
+<text text-anchor="middle" x="363.5" y="-513.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_value_r0</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_r0&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge15" class="edge">
+<title>proc~dyn_mpas_get_variable_value_r0&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M233.7,-528.29C211.41,-530.89 188.5,-533.89 167,-537.29 154.7,-539.23 141.64,-541.67 129.14,-544.2"/>
+<polygon fill="#000000" stroke="#000000" points="128.35,-540.79 119.26,-546.24 129.76,-547.64 128.35,-540.79"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_r1 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node17" class="node">
+<title>proc~dyn_mpas_get_variable_value_r1</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node17"><a xlink:href="../proc/dyn_mpas_get_variable_value_r1.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_value_r1">
+<polygon fill="#d9534f" stroke="#d9534f" points="536.5,-486.29 190.5,-486.29 190.5,-462.29 536.5,-462.29 536.5,-486.29"/>
+<text text-anchor="middle" x="363.5" y="-471.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_value_r1</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_r1&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge16" class="edge">
+<title>proc~dyn_mpas_get_variable_value_r1&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M198.59,-486.29C187.78,-488.79 177.16,-491.77 167,-495.29 137.85,-505.38 108.39,-525.24 88.98,-539.98"/>
+<polygon fill="#000000" stroke="#000000" points="86.8,-537.23 81.05,-546.13 91.09,-542.76 86.8,-537.23"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_r2 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node18" class="node">
+<title>proc~dyn_mpas_get_variable_value_r2</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node18"><a xlink:href="../proc/dyn_mpas_get_variable_value_r2.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_value_r2">
+<polygon fill="#d9534f" stroke="#d9534f" points="536.5,-444.29 190.5,-444.29 190.5,-420.29 536.5,-420.29 536.5,-444.29"/>
+<text text-anchor="middle" x="363.5" y="-429.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_value_r2</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_r2&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge17" class="edge">
+<title>proc~dyn_mpas_get_variable_value_r2&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.44,-443.69C182.36,-446.42 174.5,-449.59 167,-453.29 128.25,-472.35 96.4,-512.85 79.54,-537.6"/>
+<polygon fill="#000000" stroke="#000000" points="76.42,-535.97 73.82,-546.24 82.26,-539.83 76.42,-535.97"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_r3 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node19" class="node">
+<title>proc~dyn_mpas_get_variable_value_r3</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node19"><a xlink:href="../proc/dyn_mpas_get_variable_value_r3.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_value_r3">
+<polygon fill="#d9534f" stroke="#d9534f" points="536.5,-402.29 190.5,-402.29 190.5,-378.29 536.5,-378.29 536.5,-402.29"/>
+<text text-anchor="middle" x="363.5" y="-387.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_value_r3</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_r3&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge18" class="edge">
+<title>proc~dyn_mpas_get_variable_value_r3&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.12,-400.02C182.08,-403.18 174.32,-406.9 167,-411.29 118.4,-440.35 87.9,-503.09 74.47,-536.42"/>
+<polygon fill="#000000" stroke="#000000" points="71.06,-535.55 70.71,-546.13 77.59,-538.07 71.06,-535.55"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_r4 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node20" class="node">
+<title>proc~dyn_mpas_get_variable_value_r4</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node20"><a xlink:href="../proc/dyn_mpas_get_variable_value_r4.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_value_r4">
+<polygon fill="#d9534f" stroke="#d9534f" points="536.5,-360.29 190.5,-360.29 190.5,-336.29 536.5,-336.29 536.5,-360.29"/>
+<text text-anchor="middle" x="363.5" y="-345.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_value_r4</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_r4&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge19" class="edge">
+<title>proc~dyn_mpas_get_variable_value_r4&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.44,-356.64C182.23,-360.14 174.35,-364.31 167,-369.29 107.94,-409.22 80.95,-495.45 71.14,-536.16"/>
+<polygon fill="#000000" stroke="#000000" points="67.73,-535.38 68.91,-545.91 74.55,-536.94 67.73,-535.38"/>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_r5 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node21" class="node">
+<title>proc~dyn_mpas_get_variable_value_r5</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node21"><a xlink:href="../proc/dyn_mpas_get_variable_value_r5.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_get_variable_value_r5">
+<polygon fill="#d9534f" stroke="#d9534f" points="536.5,-318.29 190.5,-318.29 190.5,-294.29 536.5,-294.29 536.5,-318.29"/>
+<text text-anchor="middle" x="363.5" y="-303.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_get_variable_value_r5</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_get_variable_value_r5&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge20" class="edge">
+<title>proc~dyn_mpas_get_variable_value_r5&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.43,-313.74C182.16,-317.46 174.29,-321.93 167,-327.29 97.18,-378.59 75.23,-488.84 68.88,-536.07"/>
+<polygon fill="#000000" stroke="#000000" points="65.39,-535.79 67.64,-546.15 72.34,-536.65 65.39,-535.79"/>
+</g>
+<!-- proc~dyn_mpas_init_phase1 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node22" class="node">
+<title>proc~dyn_mpas_init_phase1</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node22"><a xlink:href="../proc/dyn_mpas_init_phase1.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_init_phase1">
+<polygon fill="#d9534f" stroke="#d9534f" points="508,-276.29 219,-276.29 219,-252.29 508,-252.29 508,-276.29"/>
+<text text-anchor="middle" x="363.5" y="-261.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_init_phase1</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_init_phase1&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge21" class="edge">
+<title>proc~dyn_mpas_init_phase1&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M218.82,-261.12C200.06,-265.84 182.14,-273.47 167,-285.29 86.14,-348.37 70.33,-483.14 67.24,-536.18"/>
+<polygon fill="#000000" stroke="#000000" points="63.74,-536.05 66.76,-546.2 70.74,-536.38 63.74,-536.05"/>
+</g>
+<!-- proc~dyn_mpas_init_phase3 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node23" class="node">
+<title>proc~dyn_mpas_init_phase3</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node23"><a xlink:href="../proc/dyn_mpas_init_phase3.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_init_phase3">
+<polygon fill="#d9534f" stroke="#d9534f" points="508,-234.29 219,-234.29 219,-210.29 508,-210.29 508,-234.29"/>
+<text text-anchor="middle" x="363.5" y="-219.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_init_phase3</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_init_phase3&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge22" class="edge">
+<title>proc~dyn_mpas_init_phase3&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M218.59,-218.45C199.81,-223.26 181.94,-231.09 167,-243.29 75.08,-318.3 66.08,-477.51 66.02,-536.07"/>
+<polygon fill="#000000" stroke="#000000" points="62.52,-536.12 66.1,-546.09 69.52,-536.06 62.52,-536.12"/>
+</g>
+<!-- proc~dyn_mpas_init_phase4 -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node24" class="node">
+<title>proc~dyn_mpas_init_phase4</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node24"><a xlink:href="../proc/dyn_mpas_init_phase4.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_init_phase4">
+<polygon fill="#d9534f" stroke="#d9534f" points="508,-192.29 219,-192.29 219,-168.29 508,-168.29 508,-192.29"/>
+<text text-anchor="middle" x="363.5" y="-177.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_init_phase4</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_init_phase4&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge23" class="edge">
+<title>proc~dyn_mpas_init_phase4&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M218.7,-175.86C199.8,-180.72 181.86,-188.73 167,-201.29 114.49,-245.67 79.64,-464.47 69.54,-535.78"/>
+<polygon fill="#000000" stroke="#000000" points="66.04,-535.52 68.13,-545.91 72.97,-536.48 66.04,-535.52"/>
+</g>
+<!-- proc~dyn_mpas_init_stream_with_pool -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node25" class="node">
+<title>proc~dyn_mpas_init_stream_with_pool</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node25"><a xlink:href="../proc/dyn_mpas_init_stream_with_pool.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_init_stream_with_pool">
+<polygon fill="#d9534f" stroke="#d9534f" points="535,-150.29 192,-150.29 192,-126.29 535,-126.29 535,-150.29"/>
+<text text-anchor="middle" x="363.5" y="-135.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_init_stream_with_pool</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_init_stream_with_pool&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge24" class="edge">
+<title>proc~dyn_mpas_init_stream_with_pool&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M191.58,-143.22C182.76,-147.5 174.47,-152.79 167,-159.29 108.79,-209.88 77.28,-458.96 68.84,-535.72"/>
+<polygon fill="#000000" stroke="#000000" points="65.31,-535.82 67.72,-546.13 72.27,-536.56 65.31,-535.82"/>
+</g>
+<!-- proc~dyn_mpas_read_namelist -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node26" class="node">
+<title>proc~dyn_mpas_read_namelist</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node26"><a xlink:href="../proc/dyn_mpas_read_namelist.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_read_namelist">
+<polygon fill="#d9534f" stroke="#d9534f" points="515.5,-108.29 211.5,-108.29 211.5,-84.29 515.5,-84.29 515.5,-108.29"/>
+<text text-anchor="middle" x="363.5" y="-93.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_read_namelist</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_read_namelist&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge25" class="edge">
+<title>proc~dyn_mpas_read_namelist&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M211.24,-93.16C194.98,-98.23 179.75,-105.94 167,-117.29 102.97,-174.23 75.07,-454.57 68.24,-536.04"/>
+<polygon fill="#000000" stroke="#000000" points="64.73,-535.92 67.41,-546.18 71.71,-536.49 64.73,-535.92"/>
+</g>
+<!-- proc~dyn_mpas_run -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node27" class="node">
+<title>proc~dyn_mpas_run</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node27"><a xlink:href="../proc/dyn_mpas_run.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_run">
+<polygon fill="#d9534f" stroke="#d9534f" points="487,-66.29 240,-66.29 240,-42.29 487,-42.29 487,-66.29"/>
+<text text-anchor="middle" x="363.5" y="-51.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_run</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_mpas_run&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge26" class="edge">
+<title>proc~dyn_mpas_run&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M239.76,-44.58C213.08,-48.3 186.92,-57.23 167,-75.29 97.24,-138.52 73.17,-449.4 67.77,-535.91"/>
+<polygon fill="#000000" stroke="#000000" points="64.27,-535.76 67.17,-545.95 71.26,-536.18 64.27,-535.76"/>
+</g>
+<!-- proc~parse_stream_name -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_node28" class="node">
+<title>proc~parse_stream_name</title>
+<g id="a_module~~dyn_mpas_procedures~~UsedByGraph_node28"><a xlink:href="../proc/parse_stream_name.html" xlink:title="parse_stream_name">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="424,-24.29 303,-24.29 303,-0.29 424,-0.29 424,-24.29"/>
+<text text-anchor="middle" x="363.5" y="-9.89" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">parse_stream_name</text>
+</a>
+</g>
+</g>
+<!-- proc~parse_stream_name&#45;&gt;module~dyn_mpas_procedures -->
+<g id="module~~dyn_mpas_procedures~~UsedByGraph_edge27" class="edge">
+<title>proc~parse_stream_name&#45;&gt;module~dyn_mpas_procedures</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M302.84,-1.62C259.7,2.46 202.91,-0.21 167,-33.29 91.48,-102.84 71.43,-444.38 67.38,-535.76"/>
+<polygon fill="#000000" stroke="#000000" points="63.88,-535.71 66.95,-545.85 70.87,-536.01 63.88,-535.71"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+      <br>
+
+
+
+
+        <section>
+          <h2>Interfaces</h2>
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-almost_divisible"></span>
+      <h3>public        interface <a href='../interface/almost_divisible.html'>almost_divisible</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private pure elemental function <a href='../proc/almost_divisible_real32.html'>almost_divisible_real32</a>(a, b) result(almost_divisible)  
+
+    </h3>
+    
+  <p>Test if <code>a</code> is divisible by <code>b</code>, where <code>a</code> and <code>b</code> are both reals.
+(KCW, 2024-05-25)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>b</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure elemental function <a href='../proc/almost_divisible_real64.html'>almost_divisible_real64</a>(a, b) result(almost_divisible)  
+
+    </h3>
+    
+  <p>Test if <code>a</code> is divisible by <code>b</code>, where <code>a</code> and <code>b</code> are both reals.
+(KCW, 2024-05-25)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~2"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~2"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>b</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-almost_equal"></span>
+      <h3>public        interface <a href='../interface/almost_equal.html'>almost_equal</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private pure elemental function <a href='../proc/almost_equal_real32.html'>almost_equal_real32</a>(a, b, absolute_tolerance, relative_tolerance) result(almost_equal)  
+
+    </h3>
+    
+  <p>Test <code>a</code> and <code>b</code> for approximate equality, where <code>a</code> and <code>b</code> are both reals.
+(KCW, 2024-05-25)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~3"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~3"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>b</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-absolute_tolerance"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>absolute_tolerance</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-relative_tolerance"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>relative_tolerance</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure elemental function <a href='../proc/almost_equal_real64.html'>almost_equal_real64</a>(a, b, absolute_tolerance, relative_tolerance) result(almost_equal)  
+
+    </h3>
+    
+  <p>Test <code>a</code> and <code>b</code> for approximate equality, where <code>a</code> and <code>b</code> are both reals.
+(KCW, 2024-05-25)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~4"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~4"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>b</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-absolute_tolerance~2"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>absolute_tolerance</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-relative_tolerance~2"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>relative_tolerance</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-clamp"></span>
+      <h3>public        interface <a href='../interface/clamp.html'>clamp</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private pure elemental function <a href='../proc/clamp_int32.html'>clamp_int32</a>(x, xmin, xmax) result(clamp)  
+
+    </h3>
+    
+  <p>Clamp/Limit the value of <code>x</code> to the range of [<code>xmin</code>, <code>xmax</code>], where <code>x</code>, <code>xmin</code>, and <code>xmax</code> are all integers.
+No check is performed to ensure <code>xmin</code> &lt; <code>xmax</code>.
+(KCW, 2025-07-16)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmin"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmin</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmax"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmax</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=int32)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure elemental function <a href='../proc/clamp_int64.html'>clamp_int64</a>(x, xmin, xmax) result(clamp)  
+
+    </h3>
+    
+  <p>Clamp/Limit the value of <code>x</code> to the range of [<code>xmin</code>, <code>xmax</code>], where <code>x</code>, <code>xmin</code>, and <code>xmax</code> are all integers.
+No check is performed to ensure <code>xmin</code> &lt; <code>xmax</code>.
+(KCW, 2025-07-16)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~2"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmin~2"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmin</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmax~2"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmax</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=int64)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure elemental function <a href='../proc/clamp_real32.html'>clamp_real32</a>(x, xmin, xmax) result(clamp)  
+
+    </h3>
+    
+  <p>Clamp/Limit the value of <code>x</code> to the range of [<code>xmin</code>, <code>xmax</code>], where <code>x</code>, <code>xmin</code>, and <code>xmax</code> are all reals.
+No check is performed to ensure <code>xmin</code> &lt; <code>xmax</code>.
+(KCW, 2025-07-16)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~3"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmin~3"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmin</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmax~3"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmax</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=real32)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure elemental function <a href='../proc/clamp_real64.html'>clamp_real64</a>(x, xmin, xmax) result(clamp)  
+
+    </h3>
+    
+  <p>Clamp/Limit the value of <code>x</code> to the range of [<code>xmin</code>, <code>xmax</code>], where <code>x</code>, <code>xmin</code>, and <code>xmax</code> are all reals.
+No check is performed to ensure <code>xmin</code> &lt; <code>xmax</code>.
+(KCW, 2025-07-16)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~4"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmin~4"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmin</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmax~4"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmax</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=real64)</small>
+    </h4>
+    
+
+          </li>
+    </ul>
+  </div>
+
+        </section>
+        <br>
+
+
+
+        <section>
+          <h2>Functions</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-almost_divisible_real32"></span> <h3>private pure elemental function <a href='../proc/almost_divisible_real32.html'>almost_divisible_real32</a>(a, b) result(almost_divisible)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Test if <code>a</code> is divisible by <code>b</code>, where <code>a</code> and <code>b</code> are both reals.
+(KCW, 2024-05-25)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>b</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-almost_divisible_real64"></span> <h3>private pure elemental function <a href='../proc/almost_divisible_real64.html'>almost_divisible_real64</a>(a, b) result(almost_divisible)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Test if <code>a</code> is divisible by <code>b</code>, where <code>a</code> and <code>b</code> are both reals.
+(KCW, 2024-05-25)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~2"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~2"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>b</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-almost_equal_real32"></span> <h3>private pure elemental function <a href='../proc/almost_equal_real32.html'>almost_equal_real32</a>(a, b, absolute_tolerance, relative_tolerance) result(almost_equal)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Test <code>a</code> and <code>b</code> for approximate equality, where <code>a</code> and <code>b</code> are both reals.
+(KCW, 2024-05-25)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~3"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~3"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>b</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-absolute_tolerance"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>absolute_tolerance</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-relative_tolerance"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>relative_tolerance</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-almost_equal_real64"></span> <h3>private pure elemental function <a href='../proc/almost_equal_real64.html'>almost_equal_real64</a>(a, b, absolute_tolerance, relative_tolerance) result(almost_equal)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Test <code>a</code> and <code>b</code> for approximate equality, where <code>a</code> and <code>b</code> are both reals.
+(KCW, 2024-05-25)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~4"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>a</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~4"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>b</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-absolute_tolerance~2"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>absolute_tolerance</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-relative_tolerance~2"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>relative_tolerance</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>logical</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-clamp_int32"></span> <h3>private pure elemental function <a href='../proc/clamp_int32.html'>clamp_int32</a>(x, xmin, xmax) result(clamp)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Clamp/Limit the value of <code>x</code> to the range of [<code>xmin</code>, <code>xmax</code>], where <code>x</code>, <code>xmin</code>, and <code>xmax</code> are all integers.
+No check is performed to ensure <code>xmin</code> &lt; <code>xmax</code>.
+(KCW, 2025-07-16)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmin"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmin</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmax"></span>
+              integer(kind=int32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmax</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=int32)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-clamp_int64"></span> <h3>private pure elemental function <a href='../proc/clamp_int64.html'>clamp_int64</a>(x, xmin, xmax) result(clamp)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Clamp/Limit the value of <code>x</code> to the range of [<code>xmin</code>, <code>xmax</code>], where <code>x</code>, <code>xmin</code>, and <code>xmax</code> are all integers.
+No check is performed to ensure <code>xmin</code> &lt; <code>xmax</code>.
+(KCW, 2025-07-16)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~2"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmin~2"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmin</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmax~2"></span>
+              integer(kind=int64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmax</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer(kind=int64)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-clamp_real32"></span> <h3>private pure elemental function <a href='../proc/clamp_real32.html'>clamp_real32</a>(x, xmin, xmax) result(clamp)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Clamp/Limit the value of <code>x</code> to the range of [<code>xmin</code>, <code>xmax</code>], where <code>x</code>, <code>xmin</code>, and <code>xmax</code> are all reals.
+No check is performed to ensure <code>xmin</code> &lt; <code>xmax</code>.
+(KCW, 2025-07-16)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~3"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmin~3"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmin</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmax~3"></span>
+              real(kind=real32),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmax</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=real32)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-clamp_real64"></span> <h3>private pure elemental function <a href='../proc/clamp_real64.html'>clamp_real64</a>(x, xmin, xmax) result(clamp)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Clamp/Limit the value of <code>x</code> to the range of [<code>xmin</code>, <code>xmax</code>], where <code>x</code>, <code>xmin</code>, and <code>xmax</code> are all reals.
+No check is performed to ensure <code>xmin</code> &lt; <code>xmax</code>.
+(KCW, 2025-07-16)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~4"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>x</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmin~4"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmin</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-xmax~4"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>xmax</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=real64)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-index_unique"></span> <h3>public pure function <a href='../proc/index_unique.html'>index_unique</a>(array)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Return the index of unique elements in <code>array</code>, which can be any intrinsic data types, as an integer array.
+Please note that <code>array</code> must only have one dimension, and the unique elements are returned by their first occurrences
+in <code>array</code>.
+If <code>array</code> contains zero element or is of unsupported data types, an empty integer array is produced.
+For example, <code>index_unique([1, 2, 3, 1, 2, 3, 4, 5])</code> returns <code>[1, 2, 3, 7, 8]</code>.
+(KCW, 2024-03-22)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-array"></span>
+              class(*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>array</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>integer, allocatable, (:)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-stringify"></span> <h3>public pure function <a href='../proc/stringify.html'>stringify</a>(value, separator)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Convert one or more values of any intrinsic data types to a character string for pretty printing.
+If <code>value</code> contains more than one element, the elements will be stringified, delimited by <code>separator</code>, then concatenated.
+If <code>value</code> contains exactly one element, the element will be stringified without using <code>separator</code>.
+If <code>value</code> contains zero element or is of unsupported data types, an empty character string is produced.
+If <code>separator</code> is not supplied, it defaults to ", " (i.e., a comma and a space).
+(KCW, 2024-02-04)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-value"></span>
+              class(*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>value</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-separator"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>separator</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=:), allocatable</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+        </section>
+        <br>
+
+
+
+
+    </div>
+  </div>
+      <hr>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              MPAS Dynamical Core
+was developed by CAM-SIMA & MPAS Developers<br>              © 2025 
+            </p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div>
+    </footer>
+  </body>
+</html>

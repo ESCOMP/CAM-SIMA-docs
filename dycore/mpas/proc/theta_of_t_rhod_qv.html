@@ -1,0 +1,718 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="MPAS dynamical core solves the fully compressible non-hydrostatic equations of atmospheric motion.">
+    <meta name="author" content="CAM-SIMA & MPAS Developers">
+    <link href="../favicon.png" rel="icon">
+
+    <title>theta_of_t_rhod_qv – MPAS Dynamical Core</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      rel="stylesheet"
+    >
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    ></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      async
+      crossorigin="anonymous"
+      integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw="
+    ></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html"
+            >MPAS Dynamical Core </a
+          >
+          <button
+            class="navbar-toggler"
+            data-bs-target="#navbar"
+            data-bs-toggle="collapse"
+            type="button"
+            aria-controls="navbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbar">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>
+      theta_of_t_rhod_qv
+      <small
+        >          Function
+</small
+      >
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.2% of total for procedures.">8 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dyn_procedures.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dyn_procedures.f90.html'>dyn_procedures.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/dyn_procedures.html'>dyn_procedures</a></li>
+            <li class="breadcrumb-item active" aria-current="page">theta_of_t_rhod_qv</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">  <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/theta_of_t_rhod_qv.html#variable-constant_cvd~2">constant_cvd</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/theta_of_t_rhod_qv.html#src">theta_of_t_rhod_qv</a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+    <div class="col-md-9" id="text">
+      <h2>public pure elemental function theta_of_t_rhod_qv(constant_cpd, constant_p0, constant_rd, constant_rv, t, rhod, qv) result(theta)  
+</h2>
+          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='https://www.intel.com/content/www/us/en/docs/fortran-compiler/developer-guide-reference/2024-2/iso-fortran-env-module.html'>iso_fortran_env</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~theta_of_t_rhod_qv~~UsesGraph Pages: 1 -->
+<svg id="proctheta_of_t_rhod_qvUsesGraph" width="251pt" height="32pt"
+ viewBox="0.00 0.00 251.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~theta_of_t_rhod_qv~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~theta_of_t_rhod_qv~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 247,-28 247,4 -4,4"/>
+<!-- proc~theta_of_t_rhod_qv -->
+<g id="proc~~theta_of_t_rhod_qv~~UsesGraph_node1" class="node">
+<title>proc~theta_of_t_rhod_qv</title>
+<polygon fill="none" stroke="black" points="243,-24 130,-24 130,0 243,0 243,-24"/>
+<text text-anchor="middle" x="186.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">theta_of_t_rhod_qv</text>
+</g>
+<!-- iso_fortran_env -->
+<g id="proc~~theta_of_t_rhod_qv~~UsesGraph_node2" class="node">
+<title>iso_fortran_env</title>
+<g id="a_proc~~theta_of_t_rhod_qv~~UsesGraph_node2"><a xlink:href="https://www.intel.com/content/www/us/en/docs/fortran-compiler/developer-guide-reference/2024-2/iso-fortran-env-module.html" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-24 0,-24 0,0 94,0 94,-24"/>
+<text text-anchor="middle" x="47" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- proc~theta_of_t_rhod_qv&#45;&gt;iso_fortran_env -->
+<g id="proc~~theta_of_t_rhod_qv~~UsesGraph_edge1" class="edge">
+<title>proc~theta_of_t_rhod_qv&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M129.97,-12C121.49,-12 112.73,-12 104.24,-12"/>
+<polygon fill="#000000" stroke="#000000" points="104.05,-8.5 94.05,-12 104.05,-15.5 104.05,-8.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+
+        <p>Compute the potential temperature <code>theta</code> as a function of the temperature <code>t</code>, the dry air density <code>rhod</code>, and
+the water vapor mixing ratio <code>qv</code>. Essentially,
+<script type="math/tex"> \theta = T^{\frac{C_{vd}}{C_{pd}}} [\frac{P_0}{\rho_d R_d (1 + \frac{R_v}{R_d} q_v)}]^{\frac{R_d}{C_{pd}}} </script>.
+The formulation comes from Poisson equation with equation of state plugged in and arranging
+for potential temperature. This function is the exact inverse of <code>t_of_theta_rhod_qv</code>, which means that:
+<code>theta == theta_of_t_rhod_qv(..., t_of_theta_rhod_qv(..., theta, rhod, qv), rhod, qv)</code>.
+(KCW, 2024-09-13)</p>
+
+
+      <h3>Arguments</h3>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-constant_cpd~5"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>constant_cpd</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-constant_p0~6"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>constant_p0</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-constant_rd~6"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>constant_rd</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-constant_rv~2"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>constant_rv</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t~7"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhod~2"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhod</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-qv~4"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>qv</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        <h3>
+          Return Value
+          <small>
+            <span class="anchor" id="variable-theta~5"></span>
+            real(kind=real64)
+          </small>
+        </h3>
+        
+        <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Called by</h3>
+          </div>
+          <div class="card-body"><div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~theta_of_t_rhod_qv~~CalledByGraph Pages: 1 -->
+<svg id="proctheta_of_t_rhod_qvCalledByGraph" width="641pt" height="23pt"
+ viewBox="0.00 0.00 641.00 22.97" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~theta_of_t_rhod_qv~~CalledByGraph" class="graph" transform="scale(0.72 0.72) rotate(0) translate(4 28)">
+<title>proc~~theta_of_t_rhod_qv~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 889,-28 889,4 -4,4"/>
+<!-- proc~theta_of_t_rhod_qv -->
+<g id="proc~~theta_of_t_rhod_qv~~CalledByGraph_node1" class="node">
+<title>proc~theta_of_t_rhod_qv</title>
+<polygon fill="none" stroke="black" points="885,-24 772,-24 772,0 885,0 885,-24"/>
+<text text-anchor="middle" x="828.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">theta_of_t_rhod_qv</text>
+</g>
+<!-- none~set_mpas_physics_tendency_rtheta -->
+<g id="proc~~theta_of_t_rhod_qv~~CalledByGraph_node2" class="node">
+<title>none~set_mpas_physics_tendency_rtheta</title>
+<g id="a_proc~~theta_of_t_rhod_qv~~CalledByGraph_node2"><a xlink:href="../proc/physics_to_dynamics_coupling.html#proc-set_mpas_physics_tendency_rtheta" xlink:title="set_mpas_physics_tendency_rtheta">
+<polygon fill="#d9534f" stroke="#d9534f" points="736,-24 537,-24 537,0 736,0 736,-24"/>
+<text text-anchor="middle" x="636.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_mpas_physics_tendency_rtheta</text>
+</a>
+</g>
+</g>
+<!-- none~set_mpas_physics_tendency_rtheta&#45;&gt;proc~theta_of_t_rhod_qv -->
+<g id="proc~~theta_of_t_rhod_qv~~CalledByGraph_edge1" class="edge">
+<title>none~set_mpas_physics_tendency_rtheta&#45;&gt;proc~theta_of_t_rhod_qv</title>
+<path fill="none" stroke="#000000" d="M736.12,-12C744.85,-12 753.55,-12 761.91,-12"/>
+<polygon fill="#000000" stroke="#000000" points="761.92,-15.5 771.92,-12 761.92,-8.5 761.92,-15.5"/>
+</g>
+<!-- proc~physics_to_dynamics_coupling -->
+<g id="proc~~theta_of_t_rhod_qv~~CalledByGraph_node3" class="node">
+<title>proc~physics_to_dynamics_coupling</title>
+<g id="a_proc~~theta_of_t_rhod_qv~~CalledByGraph_node3"><a xlink:href="../proc/physics_to_dynamics_coupling.html" xlink:title="physics_to_dynamics_coupling">
+<polygon fill="#d9534f" stroke="#d9534f" points="501,-24 326,-24 326,0 501,0 501,-24"/>
+<text text-anchor="middle" x="413.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">physics_to_dynamics_coupling</text>
+</a>
+</g>
+</g>
+<!-- proc~physics_to_dynamics_coupling&#45;&gt;none~set_mpas_physics_tendency_rtheta -->
+<g id="proc~~theta_of_t_rhod_qv~~CalledByGraph_edge2" class="edge">
+<title>proc~physics_to_dynamics_coupling&#45;&gt;none~set_mpas_physics_tendency_rtheta</title>
+<path fill="none" stroke="#000000" d="M501.21,-12C509.64,-12 518.27,-12 526.88,-12"/>
+<polygon fill="#000000" stroke="#000000" points="526.96,-15.5 536.96,-12 526.96,-8.5 526.96,-15.5"/>
+</g>
+<!-- interface~physics_to_dynamics_coupling -->
+<g id="proc~~theta_of_t_rhod_qv~~CalledByGraph_node4" class="node">
+<title>interface~physics_to_dynamics_coupling</title>
+<g id="a_proc~~theta_of_t_rhod_qv~~CalledByGraph_node4"><a xlink:href="../interface/physics_to_dynamics_coupling.html" xlink:title="physics_to_dynamics_coupling">
+<polygon fill="#a7506f" stroke="#a7506f" points="290,-24 115,-24 115,0 290,0 290,-24"/>
+<text text-anchor="middle" x="202.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">physics_to_dynamics_coupling</text>
+</a>
+</g>
+</g>
+<!-- interface~physics_to_dynamics_coupling&#45;&gt;proc~physics_to_dynamics_coupling -->
+<g id="proc~~theta_of_t_rhod_qv~~CalledByGraph_edge3" class="edge">
+<title>interface~physics_to_dynamics_coupling&#45;&gt;proc~physics_to_dynamics_coupling</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M290.02,-12C298.49,-12 307.13,-12 315.7,-12"/>
+<polygon fill="#000000" stroke="#000000" points="315.71,-15.5 325.71,-12 315.71,-8.5 315.71,-15.5"/>
+</g>
+<!-- proc~stepon_run2 -->
+<g id="proc~~theta_of_t_rhod_qv~~CalledByGraph_node5" class="node">
+<title>proc~stepon_run2</title>
+<g id="a_proc~~theta_of_t_rhod_qv~~CalledByGraph_node5"><a xlink:href="../proc/stepon_run2.html" xlink:title="stepon_run2">
+<polygon fill="#d9534f" stroke="#d9534f" points="79,-24 0,-24 0,0 79,0 79,-24"/>
+<text text-anchor="middle" x="39.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stepon_run2</text>
+</a>
+</g>
+</g>
+<!-- proc~stepon_run2&#45;&gt;interface~physics_to_dynamics_coupling -->
+<g id="proc~~theta_of_t_rhod_qv~~CalledByGraph_edge4" class="edge">
+<title>proc~stepon_run2&#45;&gt;interface~physics_to_dynamics_coupling</title>
+<path fill="none" stroke="#000000" d="M79.06,-12C86.97,-12 95.63,-12 104.57,-12"/>
+<polygon fill="#000000" stroke="#000000" points="104.76,-15.5 114.76,-12 104.76,-8.5 104.76,-15.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panproctheta_of_t_rhod_qvCalledByGraph = svgPanZoom('#proctheta_of_t_rhod_qvCalledByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div></div>
+        </div>
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-constant_cvd~2"></span>
+              real(kind=real64),
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>constant_cvd</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+
+
+
+
+        <section>
+          <h2><span class="anchor" id="src"></span>Source Code</h2>
+          <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">pure elemental function </span><span class="n">theta_of_t_rhod_qv</span><span class="p">(</span><span class="n">constant_cpd</span><span class="p">,</span><span class="w"> </span><span class="n">constant_p0</span><span class="p">,</span><span class="w"> </span><span class="n">constant_rd</span><span class="p">,</span><span class="w"> </span><span class="n">constant_rv</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">rhod</span><span class="p">,</span><span class="w"> </span><span class="n">qv</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+<span class="w">        </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">real64</span>
+
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">real64</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">constant_cpd</span><span class="p">,</span><span class="w"> </span><span class="n">constant_p0</span><span class="p">,</span><span class="w"> </span><span class="n">constant_rd</span><span class="p">,</span><span class="w"> </span><span class="n">constant_rv</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">rhod</span><span class="p">,</span><span class="w"> </span><span class="n">qv</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">real64</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">theta</span>
+
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">real64</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">constant_cvd</span><span class="w"> </span><span class="c">! Specific heat of dry air at constant volume.</span>
+
+<span class="w">        </span><span class="c">! Mayer&#39;s relation.</span>
+<span class="w">        </span><span class="n">constant_cvd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">constant_cpd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">constant_rd</span>
+
+<span class="w">        </span><span class="c">! Poisson equation with equation of state plugged in and arranging for potential temperature. For equation of state,</span>
+<span class="w">        </span><span class="c">! it can be shown that the effect of water vapor can be passed on to the temperature term entirely such that</span>
+<span class="w">        </span><span class="c">! dry air density and dry air gas constant can be used at all times. This modified &quot;moist&quot; temperature is</span>
+<span class="w">        </span><span class="c">! described herein:</span>
+<span class="w">        </span><span class="c">! The paragraph below equation 2.7 in doi:10.5065/1DFH-6P97.</span>
+<span class="w">        </span><span class="c">! The paragraph below equation 2 in doi:10.1175/MWR-D-11-00215.1.</span>
+<span class="w">        </span><span class="c">!</span>
+<span class="w">        </span><span class="c">! In all, solve the below equation set for $\theta$ in terms of $T$, $\rho_d$ and $q_v$:</span>
+<span class="w">        </span><span class="c">! \begin{equation*}</span>
+<span class="w">        </span><span class="c">!     \begin{cases}</span>
+<span class="w">        </span><span class="c">!         \theta &amp;= T (\frac{P_0}{P})^{\frac{R_d}{C_{pd}}} \\[0pt]</span>
+<span class="w">        </span><span class="c">!         P &amp;= \rho_d R_d T_m \\[0pt]</span>
+<span class="w">        </span><span class="c">!         T_m &amp;= T (1 + \frac{R_v}{R_d} q_v)</span>
+<span class="w">        </span><span class="c">!     \end{cases}</span>
+<span class="w">        </span><span class="c">! \end{equation*}</span>
+<span class="w">        </span><span class="n">theta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="p">(</span><span class="n">constant_cvd</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">constant_cpd</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="p">((</span><span class="n">constant_p0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">rhod</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">constant_rd</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0_real64</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">constant_rv</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">constant_rd</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">qv</span><span class="p">)))</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="p">(</span><span class="n">constant_rd</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">constant_cpd</span><span class="p">))</span>
+<span class="w">    </span><span class="k">end function </span><span class="n">theta_of_t_rhod_qv</span>
+</pre></div>
+
+        </section>
+        <br>
+    </div>
+  </div>
+      <hr>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              MPAS Dynamical Core
+was developed by CAM-SIMA & MPAS Developers<br>              © 2025 
+            </p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div>
+    </footer>
+  </body>
+</html>

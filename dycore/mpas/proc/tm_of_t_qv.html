@@ -1,0 +1,664 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="MPAS dynamical core solves the fully compressible non-hydrostatic equations of atmospheric motion.">
+    <meta name="author" content="CAM-SIMA & MPAS Developers">
+    <link href="../favicon.png" rel="icon">
+
+    <title>tm_of_t_qv – MPAS Dynamical Core</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      rel="stylesheet"
+    >
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    ></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      async
+      crossorigin="anonymous"
+      integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw="
+    ></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html"
+            >MPAS Dynamical Core </a
+          >
+          <button
+            class="navbar-toggler"
+            data-bs-target="#navbar"
+            data-bs-toggle="collapse"
+            type="button"
+            aria-controls="navbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbar">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>
+      tm_of_t_qv
+      <small
+        >          Function
+</small
+      >
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.2% of total for procedures.">6 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dyn_procedures.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dyn_procedures.f90.html'>dyn_procedures.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/dyn_procedures.html'>dyn_procedures</a></li>
+            <li class="breadcrumb-item active" aria-current="page">tm_of_t_qv</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">  <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/tm_of_t_qv.html#src">tm_of_t_qv</a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+    <div class="col-md-9" id="text">
+      <h2>public pure elemental function tm_of_t_qv(constant_rd, constant_rv, t, qv) result(tm)  
+</h2>
+          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item"><a href='https://www.intel.com/content/www/us/en/docs/fortran-compiler/developer-guide-reference/2024-2/iso-fortran-env-module.html'>iso_fortran_env</a></li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~tm_of_t_qv~~UsesGraph Pages: 1 -->
+<svg id="proctm_of_t_qvUsesGraph" width="208pt" height="32pt"
+ viewBox="0.00 0.00 208.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~tm_of_t_qv~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~tm_of_t_qv~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 204,-28 204,4 -4,4"/>
+<!-- proc~tm_of_t_qv -->
+<g id="proc~~tm_of_t_qv~~UsesGraph_node1" class="node">
+<title>proc~tm_of_t_qv</title>
+<polygon fill="none" stroke="black" points="200,-24 130,-24 130,0 200,0 200,-24"/>
+<text text-anchor="middle" x="165" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">tm_of_t_qv</text>
+</g>
+<!-- iso_fortran_env -->
+<g id="proc~~tm_of_t_qv~~UsesGraph_node2" class="node">
+<title>iso_fortran_env</title>
+<g id="a_proc~~tm_of_t_qv~~UsesGraph_node2"><a xlink:href="https://www.intel.com/content/www/us/en/docs/fortran-compiler/developer-guide-reference/2024-2/iso-fortran-env-module.html" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="94,-24 0,-24 0,0 94,0 94,-24"/>
+<text text-anchor="middle" x="47" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- proc~tm_of_t_qv&#45;&gt;iso_fortran_env -->
+<g id="proc~~tm_of_t_qv~~UsesGraph_edge1" class="edge">
+<title>proc~tm_of_t_qv&#45;&gt;iso_fortran_env</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M129.82,-12C121.85,-12 113.15,-12 104.49,-12"/>
+<polygon fill="#000000" stroke="#000000" points="104.4,-8.5 94.4,-12 104.4,-15.5 104.4,-8.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+
+        <p>Compute the modified moist temperature <code>tm</code> as a function of the temperature <code>t</code> and the water vapor mixing ratio <code>qv</code>.
+Essentially, <script type="math/tex"> T_m = T (1 + \frac{R_v}{R_d} q_v) </script>. This modified "moist" temperature is described herein:
+The paragraph below equation 2.7 in doi:10.5065/1DFH-6P97.
+The paragraph below equation 2 in doi:10.1175/MWR-D-11-00215.1.
+Similarly, it can be shown that the relation, <script type="math/tex"> \theta_m = \theta (1 + \frac{R_v}{R_d} q_v) </script>, also holds.
+(KCW, 2025-07-10)</p>
+
+
+      <h3>Arguments</h3>
+          <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-constant_rd~8"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>constant_rd</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-constant_rv~4"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>constant_rv</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t~9"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-qv~6"></span>
+              real(kind=real64),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>qv</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        <h3>
+          Return Value
+          <small>
+            <span class="anchor" id="variable-tm~2"></span>
+            real(kind=real64)
+          </small>
+        </h3>
+        
+        <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Called by</h3>
+          </div>
+          <div class="card-body"><div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~tm_of_t_qv~~CalledByGraph Pages: 1 -->
+<svg id="proctm_of_t_qvCalledByGraph" width="641pt" height="56pt"
+ viewBox="0.00 0.00 641.00 55.80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~tm_of_t_qv~~CalledByGraph" class="graph" transform="scale(0.75 0.75) rotate(0) translate(4 70)">
+<title>proc~~tm_of_t_qv~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 846,-70 846,4 -4,4"/>
+<!-- proc~tm_of_t_qv -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_node1" class="node">
+<title>proc~tm_of_t_qv</title>
+<polygon fill="none" stroke="black" points="842,-45 772,-45 772,-21 842,-21 842,-45"/>
+<text text-anchor="middle" x="807" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">tm_of_t_qv</text>
+</g>
+<!-- none~set_mpas_physics_tendency_rtheta -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_node2" class="node">
+<title>none~set_mpas_physics_tendency_rtheta</title>
+<g id="a_proc~~tm_of_t_qv~~CalledByGraph_node2"><a xlink:href="../proc/physics_to_dynamics_coupling.html#proc-set_mpas_physics_tendency_rtheta" xlink:title="set_mpas_physics_tendency_rtheta">
+<polygon fill="#d9534f" stroke="#d9534f" points="736,-66 537,-66 537,-42 736,-42 736,-66"/>
+<text text-anchor="middle" x="636.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_mpas_physics_tendency_rtheta</text>
+</a>
+</g>
+</g>
+<!-- none~set_mpas_physics_tendency_rtheta&#45;&gt;proc~tm_of_t_qv -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_edge1" class="edge">
+<title>none~set_mpas_physics_tendency_rtheta&#45;&gt;proc~tm_of_t_qv</title>
+<path fill="none" stroke="#000000" d="M734.05,-41.97C743.67,-40.77 753.07,-39.6 761.74,-38.52"/>
+<polygon fill="#000000" stroke="#000000" points="762.42,-41.96 771.91,-37.25 761.55,-35.01 762.42,-41.96"/>
+</g>
+<!-- none~set_mpas_state_rho_theta -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_node3" class="node">
+<title>none~set_mpas_state_rho_theta</title>
+<g id="a_proc~~tm_of_t_qv~~CalledByGraph_node3"><a xlink:href="../proc/set_analytic_initial_condition.html#proc-set_mpas_state_rho_theta" xlink:title="set_mpas_state_rho_theta">
+<polygon fill="#d9534f" stroke="#d9534f" points="712,-24 561,-24 561,0 712,0 712,-24"/>
+<text text-anchor="middle" x="636.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_mpas_state_rho_theta</text>
+</a>
+</g>
+</g>
+<!-- none~set_mpas_state_rho_theta&#45;&gt;proc~tm_of_t_qv -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_edge2" class="edge">
+<title>none~set_mpas_state_rho_theta&#45;&gt;proc~tm_of_t_qv</title>
+<path fill="none" stroke="#000000" d="M712.39,-21.33C729.24,-23.43 746.6,-25.6 761.72,-27.48"/>
+<polygon fill="#000000" stroke="#000000" points="761.45,-30.97 771.8,-28.74 762.31,-24.03 761.45,-30.97"/>
+</g>
+<!-- proc~physics_to_dynamics_coupling -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_node4" class="node">
+<title>proc~physics_to_dynamics_coupling</title>
+<g id="a_proc~~tm_of_t_qv~~CalledByGraph_node4"><a xlink:href="../proc/physics_to_dynamics_coupling.html" xlink:title="physics_to_dynamics_coupling">
+<polygon fill="#d9534f" stroke="#d9534f" points="501,-66 326,-66 326,-42 501,-42 501,-66"/>
+<text text-anchor="middle" x="413.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">physics_to_dynamics_coupling</text>
+</a>
+</g>
+</g>
+<!-- proc~physics_to_dynamics_coupling&#45;&gt;none~set_mpas_physics_tendency_rtheta -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_edge3" class="edge">
+<title>proc~physics_to_dynamics_coupling&#45;&gt;none~set_mpas_physics_tendency_rtheta</title>
+<path fill="none" stroke="#000000" d="M501.21,-54C509.64,-54 518.27,-54 526.88,-54"/>
+<polygon fill="#000000" stroke="#000000" points="526.96,-57.5 536.96,-54 526.96,-50.5 526.96,-57.5"/>
+</g>
+<!-- proc~set_analytic_initial_condition -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_node5" class="node">
+<title>proc~set_analytic_initial_condition</title>
+<g id="a_proc~~tm_of_t_qv~~CalledByGraph_node5"><a xlink:href="../proc/set_analytic_initial_condition.html" xlink:title="set_analytic_initial_condition">
+<polygon fill="#d9534f" stroke="#d9534f" points="496,-24 331,-24 331,0 496,0 496,-24"/>
+<text text-anchor="middle" x="413.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_analytic_initial_condition</text>
+</a>
+</g>
+</g>
+<!-- proc~set_analytic_initial_condition&#45;&gt;none~set_mpas_state_rho_theta -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_edge4" class="edge">
+<title>proc~set_analytic_initial_condition&#45;&gt;none~set_mpas_state_rho_theta</title>
+<path fill="none" stroke="#000000" d="M496.16,-12C513.84,-12 532.58,-12 550.39,-12"/>
+<polygon fill="#000000" stroke="#000000" points="550.75,-15.5 560.75,-12 550.75,-8.5 550.75,-15.5"/>
+</g>
+<!-- interface~physics_to_dynamics_coupling -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_node6" class="node">
+<title>interface~physics_to_dynamics_coupling</title>
+<g id="a_proc~~tm_of_t_qv~~CalledByGraph_node6"><a xlink:href="../interface/physics_to_dynamics_coupling.html" xlink:title="physics_to_dynamics_coupling">
+<polygon fill="#a7506f" stroke="#a7506f" points="290,-66 115,-66 115,-42 290,-42 290,-66"/>
+<text text-anchor="middle" x="202.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">physics_to_dynamics_coupling</text>
+</a>
+</g>
+</g>
+<!-- interface~physics_to_dynamics_coupling&#45;&gt;proc~physics_to_dynamics_coupling -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_edge5" class="edge">
+<title>interface~physics_to_dynamics_coupling&#45;&gt;proc~physics_to_dynamics_coupling</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M290.02,-54C298.49,-54 307.13,-54 315.7,-54"/>
+<polygon fill="#000000" stroke="#000000" points="315.71,-57.5 325.71,-54 315.71,-50.5 315.71,-57.5"/>
+</g>
+<!-- proc~dyn_init -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_node7" class="node">
+<title>proc~dyn_init</title>
+<g id="a_proc~~tm_of_t_qv~~CalledByGraph_node7"><a xlink:href="../proc/dyn_init.html" xlink:title="dyn_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="229.5,-24 175.5,-24 175.5,0 229.5,0 229.5,-24"/>
+<text text-anchor="middle" x="202.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_init</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_init&#45;&gt;proc~set_analytic_initial_condition -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_edge6" class="edge">
+<title>proc~dyn_init&#45;&gt;proc~set_analytic_initial_condition</title>
+<path fill="none" stroke="#000000" d="M229.55,-12C252.55,-12 287.52,-12 320.74,-12"/>
+<polygon fill="#000000" stroke="#000000" points="320.98,-15.5 330.98,-12 320.98,-8.5 320.98,-15.5"/>
+</g>
+<!-- interface~dyn_init -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_node8" class="node">
+<title>interface~dyn_init</title>
+<g id="a_proc~~tm_of_t_qv~~CalledByGraph_node8"><a xlink:href="../interface/dyn_init.html" xlink:title="dyn_init">
+<polygon fill="#a7506f" stroke="#a7506f" points="66.5,-24 12.5,-24 12.5,0 66.5,0 66.5,-24"/>
+<text text-anchor="middle" x="39.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_init</text>
+</a>
+</g>
+</g>
+<!-- interface~dyn_init&#45;&gt;proc~dyn_init -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_edge8" class="edge">
+<title>interface~dyn_init&#45;&gt;proc~dyn_init</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M66.73,-12C93.51,-12 135.29,-12 165.23,-12"/>
+<polygon fill="#000000" stroke="#000000" points="165.29,-15.5 175.29,-12 165.29,-8.5 165.29,-15.5"/>
+</g>
+<!-- proc~stepon_run2 -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_node9" class="node">
+<title>proc~stepon_run2</title>
+<g id="a_proc~~tm_of_t_qv~~CalledByGraph_node9"><a xlink:href="../proc/stepon_run2.html" xlink:title="stepon_run2">
+<polygon fill="#d9534f" stroke="#d9534f" points="79,-66 0,-66 0,-42 79,-42 79,-66"/>
+<text text-anchor="middle" x="39.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stepon_run2</text>
+</a>
+</g>
+</g>
+<!-- proc~stepon_run2&#45;&gt;interface~physics_to_dynamics_coupling -->
+<g id="proc~~tm_of_t_qv~~CalledByGraph_edge7" class="edge">
+<title>proc~stepon_run2&#45;&gt;interface~physics_to_dynamics_coupling</title>
+<path fill="none" stroke="#000000" d="M79.06,-54C86.97,-54 95.63,-54 104.57,-54"/>
+<polygon fill="#000000" stroke="#000000" points="104.76,-57.5 114.76,-54 104.76,-50.5 104.76,-57.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panproctm_of_t_qvCalledByGraph = svgPanZoom('#proctm_of_t_qvCalledByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div></div>
+        </div>
+      <br>
+
+
+
+
+
+
+
+
+
+
+        <section>
+          <h2><span class="anchor" id="src"></span>Source Code</h2>
+          <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">pure elemental function </span><span class="n">tm_of_t_qv</span><span class="p">(</span><span class="n">constant_rd</span><span class="p">,</span><span class="w"> </span><span class="n">constant_rv</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">qv</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">tm</span><span class="p">)</span>
+<span class="w">        </span><span class="k">use</span><span class="p">,</span><span class="w"> </span><span class="k">intrinsic</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iso_fortran_env</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">real64</span>
+
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">real64</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">constant_rd</span><span class="p">,</span><span class="w"> </span><span class="n">constant_rv</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">qv</span>
+<span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">real64</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">tm</span>
+
+<span class="w">        </span><span class="n">tm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0_real64</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">constant_rv</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">constant_rd</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">qv</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end function </span><span class="n">tm_of_t_qv</span>
+</pre></div>
+
+        </section>
+        <br>
+    </div>
+  </div>
+      <hr>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              MPAS Dynamical Core
+was developed by CAM-SIMA & MPAS Developers<br>              © 2025 
+            </p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div>
+    </footer>
+  </body>
+</html>

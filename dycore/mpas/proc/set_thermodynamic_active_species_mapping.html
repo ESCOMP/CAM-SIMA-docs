@@ -1,0 +1,852 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="MPAS dynamical core solves the fully compressible non-hydrostatic equations of atmospheric motion.">
+    <meta name="author" content="CAM-SIMA & MPAS Developers">
+    <link href="../favicon.png" rel="icon">
+
+    <title>set_thermodynamic_active_species_mapping – MPAS Dynamical Core</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      crossorigin="anonymous"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      rel="stylesheet"
+    >
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    ></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+      async
+      crossorigin="anonymous"
+      integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw="
+    ></script>
+    <!-- Other scripts and stylesheets -->
+    <link href="../css/local.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html"
+            >MPAS Dynamical Core </a
+          >
+          <button
+            class="navbar-toggler"
+            data-bs-target="#navbar"
+            data-bs-toggle="collapse"
+            type="button"
+            aria-controls="navbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbar">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/absint.html">Abstract Interfaces</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/types.html">Derived Types</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>
+      set_thermodynamic_active_species_mapping
+      <small
+        >          Subroutine
+</small
+      >
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
+                 title=" 0.7% of total for procedures.">24 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dyn_comp_impl.F90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dyn_comp_impl.f90.html'>dyn_comp_impl.F90</a></li>
+                <li class="breadcrumb-item"><a href='../module/dyn_comp_impl.html'>dyn_comp_impl</a></li>
+            <li class="breadcrumb-item active" aria-current="page">set_thermodynamic_active_species_mapping</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
+  </script>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">  <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/set_thermodynamic_active_species_mapping.html#variable-i~2">i</a>
+            <a class="list-group-item" href="../proc/set_thermodynamic_active_species_mapping.html#variable-subname~3">subname</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/set_thermodynamic_active_species_mapping.html#src">set_thermodynamic_active_species_mapping</a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+    <div class="col-md-9" id="text">
+      <h2> subroutine set_thermodynamic_active_species_mapping()  
+</h2>
+          <div class="card mb-4">
+      <h3 class="card-header card-title bg-light">Uses</h3>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <ul class="list-inline">
+                  <li class="list-inline-item">cam_logfile</li>
+                  <li class="list-inline-item">string_utils</li>
+                  <li class="list-inline-item">air_composition</li>
+              </ul>
+            </li>
+            <li class="list-group-item">
+              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~set_thermodynamic_active_species_mapping~~UsesGraph Pages: 1 -->
+<svg id="procset_thermodynamic_active_species_mappingUsesGraph" width="394pt" height="116pt"
+ viewBox="0.00 0.00 394.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~set_thermodynamic_active_species_mapping~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
+<title>proc~~set_thermodynamic_active_species_mapping~~UsesGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 390,-112 390,4 -4,4"/>
+<!-- proc~set_thermodynamic_active_species_mapping -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~UsesGraph_node1" class="node">
+<title>proc~set_thermodynamic_active_species_mapping</title>
+<polygon fill="none" stroke="black" points="386,-66 133,-66 133,-42 386,-42 386,-66"/>
+<text text-anchor="middle" x="259.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">set_thermodynamic_active_species_mapping</text>
+</g>
+<!-- air_composition -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~UsesGraph_node2" class="node">
+<title>air_composition</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="97,-108 0,-108 0,-84 97,-84 97,-108"/>
+<text text-anchor="middle" x="48.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">air_composition</text>
+</g>
+<!-- proc~set_thermodynamic_active_species_mapping&#45;&gt;air_composition -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~UsesGraph_edge1" class="edge">
+<title>proc~set_thermodynamic_active_species_mapping&#45;&gt;air_composition</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M198.61,-66.04C169.8,-71.83 135.42,-78.73 106.94,-84.46"/>
+<polygon fill="#000000" stroke="#000000" points="106.24,-81.03 97.13,-86.43 107.62,-87.89 106.24,-81.03"/>
+</g>
+<!-- cam_logfile -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~UsesGraph_node3" class="node">
+<title>cam_logfile</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="85.5,-66 11.5,-66 11.5,-42 85.5,-42 85.5,-66"/>
+<text text-anchor="middle" x="48.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cam_logfile</text>
+</g>
+<!-- proc~set_thermodynamic_active_species_mapping&#45;&gt;cam_logfile -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~UsesGraph_edge2" class="edge">
+<title>proc~set_thermodynamic_active_species_mapping&#45;&gt;cam_logfile</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M132.7,-54C119.73,-54 107.22,-54 96.01,-54"/>
+<polygon fill="#000000" stroke="#000000" points="95.68,-50.5 85.68,-54 95.68,-57.5 95.68,-50.5"/>
+</g>
+<!-- string_utils -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~UsesGraph_node4" class="node">
+<title>string_utils</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="83.5,-24 13.5,-24 13.5,0 83.5,0 83.5,-24"/>
+<text text-anchor="middle" x="48.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">string_utils</text>
+</g>
+<!-- proc~set_thermodynamic_active_species_mapping&#45;&gt;string_utils -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~UsesGraph_edge3" class="edge">
+<title>proc~set_thermodynamic_active_species_mapping&#45;&gt;string_utils</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M198.61,-41.96C165.12,-35.24 124.11,-26.99 93.58,-20.86"/>
+<polygon fill="#000000" stroke="#000000" points="94.15,-17.4 83.65,-18.86 92.77,-24.27 94.15,-17.4"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="518pt" height="32pt"
+ viewBox="0.00 0.00 517.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 513.5,-28 513.5,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="145.5,-24 72.5,-24 72.5,0 145.5,0 145.5,-24"/>
+<text text-anchor="middle" x="109" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 164,-24 164,0 234,0 234,-24"/>
+<text text-anchor="middle" x="199" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="310,-24 252,-24 252,0 310,0 310,-24"/>
+<text text-anchor="middle" x="281" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="386,-24 328,-24 328,0 386,0 386,-24"/>
+<text text-anchor="middle" x="357" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="509.5,-24 404.5,-24 404.5,0 509.5,0 509.5,-24"/>
+<text text-anchor="middle" x="457" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+            </li>
+        </ul>
+      </div>
+    </div>
+
+
+        <p>Inform CAM-SIMA about the index mapping between MPAS scalars and CAM-SIMA constituents.
+(KCW, 2025-07-17)</p>
+
+
+      <h3>Arguments</h3>
+        <em>None</em>
+        <br>
+        <br>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Calls</h3>
+          </div>
+          <div class="card-body"><div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~set_thermodynamic_active_species_mapping~~CallsGraph Pages: 1 -->
+<svg id="procset_thermodynamic_active_species_mappingCallsGraph" width="641pt" height="264pt"
+ viewBox="0.00 0.00 641.00 264.24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph" class="graph" transform="scale(0.73 0.73) rotate(0) translate(4 360)">
+<title>proc~~set_thermodynamic_active_species_mapping~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-360 879,-360 879,4 -4,4"/>
+<!-- proc~set_thermodynamic_active_species_mapping -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_node1" class="node">
+<title>proc~set_thermodynamic_active_species_mapping</title>
+<polygon fill="none" stroke="black" points="253,-192 0,-192 0,-168 253,-168 253,-192"/>
+<text text-anchor="middle" x="126.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50">set_thermodynamic_active_species_mapping</text>
+</g>
+<!-- interface~dyn_debug_print -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_node2" class="node">
+<title>interface~dyn_debug_print</title>
+<g id="a_proc~~set_thermodynamic_active_species_mapping~~CallsGraph_node2"><a xlink:href="../interface/dyn_debug_print.html" xlink:title="dyn_debug_print">
+<polygon fill="#a7506f" stroke="#a7506f" points="518.5,-356 417.5,-356 417.5,-332 518.5,-332 518.5,-356"/>
+<text text-anchor="middle" x="468" y="-341.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_debug_print</text>
+</a>
+</g>
+</g>
+<!-- proc~set_thermodynamic_active_species_mapping&#45;&gt;interface~dyn_debug_print -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_edge1" class="edge">
+<title>proc~set_thermodynamic_active_species_mapping&#45;&gt;interface~dyn_debug_print</title>
+<path fill="none" stroke="#000000" d="M136.81,-192.28C159.32,-220.92 219.96,-292.08 289,-323 325.96,-339.55 371.35,-344.7 407.04,-345.77"/>
+<polygon fill="#000000" stroke="#000000" points="407.24,-349.27 417.31,-345.97 407.38,-342.27 407.24,-349.27"/>
+</g>
+<!-- proc~dyn_mpas_map_mpas_scalar_index -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_node3" class="node">
+<title>proc~dyn_mpas_map_mpas_scalar_index</title>
+<g id="a_proc~~set_thermodynamic_active_species_mapping~~CallsGraph_node3"><a xlink:href="../proc/dyn_mpas_map_mpas_scalar_index.html" xlink:title="mpas_dynamical_core_type%dyn_mpas_map_mpas_scalar_index">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="647,-314 289,-314 289,-290 647,-290 647,-314"/>
+<text text-anchor="middle" x="468" y="-299.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mpas_dynamical_core_type%dyn_mpas_map_mpas_scalar_index</text>
+</a>
+</g>
+</g>
+<!-- proc~set_thermodynamic_active_species_mapping&#45;&gt;proc~dyn_mpas_map_mpas_scalar_index -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_edge2" class="edge">
+<title>proc~set_thermodynamic_active_species_mapping&#45;&gt;proc~dyn_mpas_map_mpas_scalar_index</title>
+<path fill="none" stroke="#000000" d="M142.96,-192.05C170.56,-212.89 230.9,-255.4 289,-276 302.51,-280.79 316.9,-284.7 331.42,-287.89"/>
+<polygon fill="#000000" stroke="#000000" points="330.98,-291.37 341.48,-289.98 332.41,-284.52 330.98,-291.37"/>
+</g>
+<!-- stringify -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_node4" class="node">
+<title>stringify</title>
+<polygon fill="#777777" stroke="#777777" points="875,-294 820,-294 820,-270 875,-270 875,-294"/>
+<text text-anchor="middle" x="847.5" y="-279.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">stringify</text>
+</g>
+<!-- proc~set_thermodynamic_active_species_mapping&#45;&gt;stringify -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_edge3" class="edge">
+<title>proc~set_thermodynamic_active_species_mapping&#45;&gt;stringify</title>
+<path fill="none" stroke="#000000" d="M151.67,-192.1C182.63,-206.98 238.35,-231.63 289,-243 388.75,-265.4 702.05,-277.35 809.73,-280.87"/>
+<polygon fill="#000000" stroke="#000000" points="809.68,-284.37 819.78,-281.2 809.9,-277.38 809.68,-284.37"/>
+</g>
+<!-- thermodynamic_active_species_ice_idx -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_node5" class="node">
+<title>thermodynamic_active_species_ice_idx</title>
+<polygon fill="#777777" stroke="#777777" points="579,-234 357,-234 357,-210 579,-210 579,-234"/>
+<text text-anchor="middle" x="468" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">thermodynamic_active_species_ice_idx</text>
+</g>
+<!-- proc~set_thermodynamic_active_species_mapping&#45;&gt;thermodynamic_active_species_ice_idx -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_edge4" class="edge">
+<title>proc~set_thermodynamic_active_species_mapping&#45;&gt;thermodynamic_active_species_ice_idx</title>
+<path fill="none" stroke="#000000" d="M218.44,-192.02C241.46,-195.01 266.13,-198.16 289,-201 309.79,-203.58 331.96,-206.25 353.35,-208.8"/>
+<polygon fill="#000000" stroke="#000000" points="353.1,-212.29 363.44,-209.99 353.92,-205.34 353.1,-212.29"/>
+</g>
+<!-- thermodynamic_active_species_ice_idx_dycore -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_node6" class="node">
+<title>thermodynamic_active_species_ice_idx_dycore</title>
+<polygon fill="#777777" stroke="#777777" points="599.5,-192 336.5,-192 336.5,-168 599.5,-168 599.5,-192"/>
+<text text-anchor="middle" x="468" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">thermodynamic_active_species_ice_idx_dycore</text>
+</g>
+<!-- proc~set_thermodynamic_active_species_mapping&#45;&gt;thermodynamic_active_species_ice_idx_dycore -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_edge5" class="edge">
+<title>proc~set_thermodynamic_active_species_mapping&#45;&gt;thermodynamic_active_species_ice_idx_dycore</title>
+<path fill="none" stroke="#000000" d="M253.43,-180C277.13,-180 302.05,-180 326.16,-180"/>
+<polygon fill="#000000" stroke="#000000" points="326.44,-183.5 336.44,-180 326.44,-176.5 326.44,-183.5"/>
+</g>
+<!-- thermodynamic_active_species_idx -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_node7" class="node">
+<title>thermodynamic_active_species_idx</title>
+<polygon fill="#777777" stroke="#777777" points="568.5,-150 367.5,-150 367.5,-126 568.5,-126 568.5,-150"/>
+<text text-anchor="middle" x="468" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">thermodynamic_active_species_idx</text>
+</g>
+<!-- proc~set_thermodynamic_active_species_mapping&#45;&gt;thermodynamic_active_species_idx -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_edge6" class="edge">
+<title>proc~set_thermodynamic_active_species_mapping&#45;&gt;thermodynamic_active_species_idx</title>
+<path fill="none" stroke="#000000" d="M218.44,-167.98C241.46,-164.99 266.13,-161.84 289,-159 311.06,-156.26 334.66,-153.42 357.24,-150.74"/>
+<polygon fill="#000000" stroke="#000000" points="357.66,-154.22 367.18,-149.56 356.84,-147.26 357.66,-154.22"/>
+</g>
+<!-- thermodynamic_active_species_idx_dycore -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_node8" class="node">
+<title>thermodynamic_active_species_idx_dycore</title>
+<polygon fill="#777777" stroke="#777777" points="589,-108 347,-108 347,-84 589,-84 589,-108"/>
+<text text-anchor="middle" x="468" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">thermodynamic_active_species_idx_dycore</text>
+</g>
+<!-- proc~set_thermodynamic_active_species_mapping&#45;&gt;thermodynamic_active_species_idx_dycore -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_edge7" class="edge">
+<title>proc~set_thermodynamic_active_species_mapping&#45;&gt;thermodynamic_active_species_idx_dycore</title>
+<path fill="none" stroke="#000000" d="M152.58,-167.9C183.78,-153.39 239.07,-129.47 289,-117 304.25,-113.19 320.41,-110.07 336.54,-107.51"/>
+<polygon fill="#000000" stroke="#000000" points="337.2,-110.95 346.56,-105.99 336.15,-104.03 337.2,-110.95"/>
+</g>
+<!-- thermodynamic_active_species_liq_idx -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_node9" class="node">
+<title>thermodynamic_active_species_liq_idx</title>
+<polygon fill="#777777" stroke="#777777" points="577.5,-66 358.5,-66 358.5,-42 577.5,-42 577.5,-66"/>
+<text text-anchor="middle" x="468" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">thermodynamic_active_species_liq_idx</text>
+</g>
+<!-- proc~set_thermodynamic_active_species_mapping&#45;&gt;thermodynamic_active_species_liq_idx -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_edge8" class="edge">
+<title>proc~set_thermodynamic_active_species_mapping&#45;&gt;thermodynamic_active_species_liq_idx</title>
+<path fill="none" stroke="#000000" d="M141.41,-167.69C167.96,-144.98 228.62,-96.83 289,-75 307.65,-68.26 328.05,-63.57 348.16,-60.33"/>
+<polygon fill="#000000" stroke="#000000" points="348.95,-63.75 358.33,-58.81 347.92,-56.83 348.95,-63.75"/>
+</g>
+<!-- thermodynamic_active_species_liq_idx_dycore -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_node10" class="node">
+<title>thermodynamic_active_species_liq_idx_dycore</title>
+<polygon fill="#777777" stroke="#777777" points="598,-24 338,-24 338,0 598,0 598,-24"/>
+<text text-anchor="middle" x="468" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">thermodynamic_active_species_liq_idx_dycore</text>
+</g>
+<!-- proc~set_thermodynamic_active_species_mapping&#45;&gt;thermodynamic_active_species_liq_idx_dycore -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_edge9" class="edge">
+<title>proc~set_thermodynamic_active_species_mapping&#45;&gt;thermodynamic_active_species_liq_idx_dycore</title>
+<path fill="none" stroke="#000000" d="M136.4,-167.81C158.45,-138.66 218.98,-64.94 289,-33 301.3,-27.39 314.56,-23.08 328.08,-19.79"/>
+<polygon fill="#000000" stroke="#000000" points="328.98,-23.17 337.97,-17.57 327.45,-16.34 328.98,-23.17"/>
+</g>
+<!-- proc~dyn_debug_print -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_node11" class="node">
+<title>proc~dyn_debug_print</title>
+<g id="a_proc~~set_thermodynamic_active_species_mapping~~CallsGraph_node11"><a xlink:href="../proc/dyn_debug_print.html" xlink:title="dyn_debug_print">
+<polygon fill="#d9534f" stroke="#d9534f" points="784,-335 683,-335 683,-311 784,-311 784,-335"/>
+<text text-anchor="middle" x="733.5" y="-320.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_debug_print</text>
+</a>
+</g>
+</g>
+<!-- interface~dyn_debug_print&#45;&gt;proc~dyn_debug_print -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_edge10" class="edge">
+<title>interface~dyn_debug_print&#45;&gt;proc~dyn_debug_print</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M518.56,-340.05C562.22,-336.57 625.93,-331.49 672.46,-327.78"/>
+<polygon fill="#000000" stroke="#000000" points="673.02,-331.25 682.71,-326.97 672.47,-324.27 673.02,-331.25"/>
+</g>
+<!-- proc~dyn_debug_print&#45;&gt;stringify -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CallsGraph_edge11" class="edge">
+<title>proc~dyn_debug_print&#45;&gt;stringify</title>
+<path fill="none" stroke="#000000" d="M767.5,-310.92C780.89,-306.02 796.42,-300.33 810.14,-295.31"/>
+<polygon fill="#000000" stroke="#000000" points="811.57,-298.52 819.75,-291.79 809.16,-291.94 811.57,-298.52"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocset_thermodynamic_active_species_mappingCallsGraph = svgPanZoom('#procset_thermodynamic_active_species_mappingCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div></div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Called by</h3>
+          </div>
+          <div class="card-body"><div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~set_thermodynamic_active_species_mapping~~CalledByGraph Pages: 1 -->
+<svg id="procset_thermodynamic_active_species_mappingCalledByGraph" width="441pt" height="32pt"
+ viewBox="0.00 0.00 441.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~set_thermodynamic_active_species_mapping~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~set_thermodynamic_active_species_mapping~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 437,-28 437,4 -4,4"/>
+<!-- proc~set_thermodynamic_active_species_mapping -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CalledByGraph_node1" class="node">
+<title>proc~set_thermodynamic_active_species_mapping</title>
+<polygon fill="none" stroke="black" points="433,-24 180,-24 180,0 433,0 433,-24"/>
+<text text-anchor="middle" x="306.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">set_thermodynamic_active_species_mapping</text>
+</g>
+<!-- proc~dyn_init -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CalledByGraph_node2" class="node">
+<title>proc~dyn_init</title>
+<g id="a_proc~~set_thermodynamic_active_species_mapping~~CalledByGraph_node2"><a xlink:href="../proc/dyn_init.html" xlink:title="dyn_init">
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-24 90,-24 90,0 144,0 144,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_init</text>
+</a>
+</g>
+</g>
+<!-- proc~dyn_init&#45;&gt;proc~set_thermodynamic_active_species_mapping -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CalledByGraph_edge1" class="edge">
+<title>proc~dyn_init&#45;&gt;proc~set_thermodynamic_active_species_mapping</title>
+<path fill="none" stroke="#000000" d="M144.07,-12C151.54,-12 160.23,-12 169.64,-12"/>
+<polygon fill="#000000" stroke="#000000" points="169.69,-15.5 179.69,-12 169.69,-8.5 169.69,-15.5"/>
+</g>
+<!-- interface~dyn_init -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CalledByGraph_node3" class="node">
+<title>interface~dyn_init</title>
+<g id="a_proc~~set_thermodynamic_active_species_mapping~~CalledByGraph_node3"><a xlink:href="../interface/dyn_init.html" xlink:title="dyn_init">
+<polygon fill="#a7506f" stroke="#a7506f" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dyn_init</text>
+</a>
+</g>
+</g>
+<!-- interface~dyn_init&#45;&gt;proc~dyn_init -->
+<g id="proc~~set_thermodynamic_active_species_mapping~~CalledByGraph_edge2" class="edge">
+<title>interface~dyn_init&#45;&gt;proc~dyn_init</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.4,-12C62.39,-12 71.31,-12 79.82,-12"/>
+<polygon fill="#000000" stroke="#000000" points="79.92,-15.5 89.92,-12 79.92,-8.5 79.92,-15.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div></div>
+        </div>
+      <br>
+
+
+        <section>
+          <h2>Variables</h2>
+            <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~2"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-subname~3"></span>
+              character(len=*),
+            </td>
+              <td>private,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>subname</strong></td>
+<td> =</td>
+                <td>&#39;dyn_comp::set_thermodynamic_active_species_mapping&#39;</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+        </section>
+        <br>
+
+
+
+
+
+
+
+
+        <section>
+          <h2><span class="anchor" id="src"></span>Source Code</h2>
+          <div class="hl codehilite"><pre><span></span><span class="w">    </span><span class="k">subroutine </span><span class="n">set_thermodynamic_active_species_mapping</span><span class="p">()</span>
+<span class="w">        </span><span class="c">! Module(s) from CAM-SIMA.</span>
+<span class="w">        </span><span class="k">use </span><span class="n">air_composition</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">thermodynamic_active_species_num</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                   </span><span class="n">thermodynamic_active_species_liq_num</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                   </span><span class="n">thermodynamic_active_species_ice_num</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                   </span><span class="n">thermodynamic_active_species_idx</span><span class="p">,</span><span class="w"> </span><span class="n">thermodynamic_active_species_idx_dycore</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                   </span><span class="n">thermodynamic_active_species_liq_idx</span><span class="p">,</span><span class="w"> </span><span class="n">thermodynamic_active_species_liq_idx_dycore</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                                   </span><span class="n">thermodynamic_active_species_ice_idx</span><span class="p">,</span><span class="w"> </span><span class="n">thermodynamic_active_species_ice_idx_dycore</span>
+<span class="w">        </span><span class="k">use </span><span class="n">cam_logfile</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">debugout_debug</span>
+<span class="w">        </span><span class="k">use </span><span class="n">string_utils</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">stringify</span>
+
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dyn_comp::set_thermodynamic_active_species_mapping&#39;</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; entered&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">thermodynamic_active_species_num</span>
+<span class="w">            </span><span class="n">thermodynamic_active_species_idx_dycore</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">map_mpas_scalar_index</span><span class="p">(</span><span class="n">thermodynamic_active_species_idx</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">        </span><span class="k">end do</span>
+
+<span class="k">        do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">thermodynamic_active_species_liq_num</span>
+<span class="w">            </span><span class="n">thermodynamic_active_species_liq_idx_dycore</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">map_mpas_scalar_index</span><span class="p">(</span><span class="n">thermodynamic_active_species_liq_idx</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">        </span><span class="k">end do</span>
+
+<span class="k">        do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">thermodynamic_active_species_ice_num</span>
+<span class="w">            </span><span class="n">thermodynamic_active_species_ice_idx_dycore</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">map_mpas_scalar_index</span><span class="p">(</span><span class="n">thermodynamic_active_species_ice_idx</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">        </span><span class="k">end do</span>
+
+<span class="k">        call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;thermodynamic_active_species_num = &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="n">stringify</span><span class="p">([</span><span class="n">thermodynamic_active_species_num</span><span class="p">]))</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;thermodynamic_active_species_liq_num = &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="n">stringify</span><span class="p">([</span><span class="n">thermodynamic_active_species_liq_num</span><span class="p">]))</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;thermodynamic_active_species_ice_num = &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="n">stringify</span><span class="p">([</span><span class="n">thermodynamic_active_species_ice_num</span><span class="p">]))</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;thermodynamic_active_species_idx_dycore = [&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="n">stringify</span><span class="p">(</span><span class="n">thermodynamic_active_species_idx_dycore</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;]&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;thermodynamic_active_species_liq_idx_dycore = [&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="n">stringify</span><span class="p">(</span><span class="n">thermodynamic_active_species_liq_idx_dycore</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;]&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;thermodynamic_active_species_ice_idx_dycore = [&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="n">stringify</span><span class="p">(</span><span class="n">thermodynamic_active_species_ice_idx_dycore</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;]&#39;</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; completed&#39;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">end subroutine </span><span class="n">set_thermodynamic_active_species_mapping</span>
+</pre></div>
+
+        </section>
+        <br>
+    </div>
+  </div>
+      <hr>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>
+              MPAS Dynamical Core
+was developed by CAM-SIMA & MPAS Developers<br>              © 2025 
+            </p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+            </p>
+          </div>
+        </div>
+        <br>
+      </div>
+    </footer>
+  </body>
+</html>
