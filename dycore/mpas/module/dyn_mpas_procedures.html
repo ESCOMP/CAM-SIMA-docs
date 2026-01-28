@@ -104,7 +104,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 5.9% of total for modules and submodules.">261 statements</a>
+                 title=" 7.3% of total for modules and submodules.">324 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -154,6 +154,7 @@
             <a class="list-group-item" href="../module/dyn_mpas_procedures.html#interface-almost_divisible">almost_divisible</a>
             <a class="list-group-item" href="../module/dyn_mpas_procedures.html#interface-almost_equal">almost_equal</a>
             <a class="list-group-item" href="../module/dyn_mpas_procedures.html#interface-clamp">clamp</a>
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#interface-tokenize">tokenize</a>
         </div>
       </div>
     </div>
@@ -181,7 +182,20 @@
       </div>
     </div>
 
-  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#proc-split">split</a>
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#proc-tokenize_into_first_last">tokenize_into_first_last</a>
+            <a class="list-group-item" href="../module/dyn_mpas_procedures.html#proc-tokenize_into_tokens_separator">tokenize_into_tokens_separator</a>
+        </div>
+      </div>
+    </div>
+
   
   
   
@@ -1357,6 +1371,200 @@ No check is performed to ensure <code>xmin</code> &lt; <code>xmax</code>.
     </ul>
   </div>
 
+              <div class="card">
+    <div class="card-header bg-light codesum">
+      <span class="anchor" id="interface-tokenize"></span>
+      <h3>public        interface <a href='../interface/tokenize.html'>tokenize</a> 
+      </h3>
+    </div>
+    <ul class="list-group">
+          <li class="list-group-item">
+                <h3>
+    private pure subroutine <a href='../proc/tokenize_into_first_last.html'>tokenize_into_first_last</a>(string, set, first, last)  
+
+    </h3>
+    
+  <p>Parse a string into tokens. Each character in <code>set</code> is a token delimiter.
+<code>first</code> is allocated with the lower bound equal to one and the upper bound equal to the number of tokens in <code>string</code>.
+Each element is assigned, in array element order, the starting position of each token in <code>string</code>, in the order found.
+<code>last</code> is allocated with the lower bound equal to one and the upper bound equal to the number of tokens in <code>string</code>.
+Each element is assigned, in array element order, the ending position of each token in <code>string</code>, in the order found.
+This subroutine implements the <code>tokenize</code> intrinsic procedure as defined in the Fortran 2023 language standard
+(Section 16.9.210). We implement it ourselves because the compiler support may take years to become widespread.
+(KCW, 2025-10-29)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-string~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>string</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-set~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>set</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-first"></span>
+              integer,
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>first</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-last"></span>
+              integer,
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>last</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure subroutine <a href='../proc/tokenize_into_tokens_separator.html'>tokenize_into_tokens_separator</a>(string, set, tokens, separator)  
+
+    </h3>
+    
+  <p>Parse a string into tokens. Each character in <code>set</code> is a token delimiter.
+<code>tokens</code> is allocated with the lower bound equal to one and the upper bound equal to the number of tokens in <code>string</code>,
+and with character length equal to the length of the longest token. It contains the tokens in <code>string</code>.
+<code>separator</code> is allocated with the lower bound equal to one and the upper bound equal to one less than the number of
+tokens in <code>string</code>, and with character length equal to one. It contains the token delimiters in <code>string</code>.
+This subroutine implements the <code>tokenize</code> intrinsic procedure as defined in the Fortran 2023 language standard
+(Section 16.9.210). We implement it ourselves because the compiler support may take years to become widespread.
+(KCW, 2025-10-29)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-string~3"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>string</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-set~3"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>set</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tokens"></span>
+              character(len=:),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>tokens</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-separator~2"></span>
+              character(len=:),
+            </td>
+<td>intent(out),</td>
+              <td>optional,</td>            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>separator</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+    </ul>
+  </div>
+
         </section>
         <br>
 
@@ -2104,6 +2312,294 @@ If <code>separator</code> is not supplied, it defaults to ", " (i.e., a comma an
         </section>
         <br>
 
+        <section>
+          <h2>Subroutines</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-split"></span> <h3>public pure subroutine <a href='../proc/split.html'>split</a>(string, set, pos, back)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Parse a string into tokens, one at a time. Each character in <code>set</code> is a token delimiter.
+If <code>back</code> is absent or is present with the value <code>.false.</code>, <code>pos</code> is assigned the position of the leftmost
+token delimiter in <code>string</code> whose position is greater than <code>pos</code>, or if there is no such character, it
+is assigned a value one greater than the length of <code>string</code>. This identifies a token with starting
+position one greater than the value of <code>pos</code> on invocation, and ending position one less than the
+value of <code>pos</code> on return.
+If <code>back</code> is present with the value <code>.true.</code>, <code>pos</code> is assigned the position of the rightmost token delimiter
+in <code>string</code> whose position is less than <code>pos</code>, or if there is no such character, it is assigned the value
+zero. This identifies a token with ending position one less than the value of <code>pos</code> on invocation, and
+starting position one greater than the value of <code>pos</code> on return.
+This subroutine implements the <code>split</code> intrinsic procedure as defined in the Fortran 2023 language standard
+(Section 16.9.196). We implement it ourselves because the compiler support may take years to become widespread.
+(KCW, 2025-10-29)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-string"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>string</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-set"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>set</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pos"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>pos</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-back"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>back</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-tokenize_into_first_last"></span> <h3>private pure subroutine <a href='../proc/tokenize_into_first_last.html'>tokenize_into_first_last</a>(string, set, first, last)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Parse a string into tokens. Each character in <code>set</code> is a token delimiter.
+<code>first</code> is allocated with the lower bound equal to one and the upper bound equal to the number of tokens in <code>string</code>.
+Each element is assigned, in array element order, the starting position of each token in <code>string</code>, in the order found.
+<code>last</code> is allocated with the lower bound equal to one and the upper bound equal to the number of tokens in <code>string</code>.
+Each element is assigned, in array element order, the ending position of each token in <code>string</code>, in the order found.
+This subroutine implements the <code>tokenize</code> intrinsic procedure as defined in the Fortran 2023 language standard
+(Section 16.9.210). We implement it ourselves because the compiler support may take years to become widespread.
+(KCW, 2025-10-29)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-string~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>string</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-set~2"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>set</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-first"></span>
+              integer,
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>first</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-last"></span>
+              integer,
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>last</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-tokenize_into_tokens_separator"></span> <h3>private pure subroutine <a href='../proc/tokenize_into_tokens_separator.html'>tokenize_into_tokens_separator</a>(string, set, tokens, separator)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Parse a string into tokens. Each character in <code>set</code> is a token delimiter.
+<code>tokens</code> is allocated with the lower bound equal to one and the upper bound equal to the number of tokens in <code>string</code>,
+and with character length equal to the length of the longest token. It contains the tokens in <code>string</code>.
+<code>separator</code> is allocated with the lower bound equal to one and the upper bound equal to one less than the number of
+tokens in <code>string</code>, and with character length equal to one. It contains the token delimiters in <code>string</code>.
+This subroutine implements the <code>tokenize</code> intrinsic procedure as defined in the Fortran 2023 language standard
+(Section 16.9.210). We implement it ourselves because the compiler support may take years to become widespread.
+(KCW, 2025-10-29)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-string~3"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>string</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-set~3"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>set</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tokens"></span>
+              character(len=:),
+            </td>
+<td>intent(out),</td>
+              <td></td>            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>tokens</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-separator~2"></span>
+              character(len=:),
+            </td>
+<td>intent(out),</td>
+              <td>optional,</td>            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>separator</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+        </section>
+        <br>
 
 
 
@@ -2118,7 +2614,7 @@ If <code>separator</code> is not supplied, it defaults to ", " (i.e., a comma an
           <div class="col">
             <p>
               MPAS Dynamical Core
-was developed by CAM-SIMA & MPAS Developers<br>              © 2025 
+was developed by CAM-SIMA & MPAS Developers<br>              © 2026 
             </p>
           </div>
           <div class="col">

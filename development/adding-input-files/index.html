@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../../design/sima-design-goals/">
-      
-      
-        <link rel="next" href="../cam-coding-standards/">
       
       
         
@@ -23,7 +19,7 @@
     
     
       
-        <title>Development workflow for CAM-SIMA - CAM-SIMA</title>
+        <title>Adding input files - CAM-SIMA</title>
       
     
     
@@ -86,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#development-workflow-for-cam-sima" class="md-skip">
+        <a href="#adding-input-files" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Development workflow for CAM-SIMA
+              Adding input files
             
           </span>
         </div>
@@ -942,20 +938,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -976,7 +970,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -991,37 +985,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Development workflow for CAM-SIMA
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../cam-sima-workflow/" class="md-nav__link">
         
   
   
@@ -1037,98 +1004,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#workflow-summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workflow summary
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#workflow-details" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Workflow details
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Workflow details">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#open-an-issue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Open an issue
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add-your-code-modifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Add your code modifications
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#open-a-pr" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Open a PR
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fix-failing-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fix failing tests
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1722,10 +1597,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-summary" class="md-nav__link">
+  <a href="#1-add-required-attributes-to-data-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Workflow summary
+        1. Add required attributes to data file.
       
     </span>
   </a>
@@ -1733,63 +1608,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow-details" class="md-nav__link">
+  <a href="#2-set-the-correct-file-permissions-and-add-datestamp-to-file-name" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Workflow details
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Workflow details">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#open-an-issue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Open an issue
+        2. Set the correct file permissions and add datestamp to file name
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#add-your-code-modifications" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#3-move-file-to-inputdata-directory" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Add your code modifications
+        3. Move file to inputdata directory
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#open-a-pr" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#4-import-the-file-to-the-geoscience-data-exchange-gdex" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Open a PR
+        4. Import the file to the Geoscience Data Exchange (GDEX)
       
     </span>
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#fix-failing-tests" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Fix failing tests
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1810,7 +1657,7 @@
 
 
   
-    <a href="https://github.com/ESCOMP/CAM-SIMA-docs/edit/main/docs/development/cam-sima-workflow.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/ESCOMP/CAM-SIMA-docs/edit/main/docs/development/adding-input-files.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
     </a>
@@ -1819,112 +1666,31 @@
     
       
     
-    <a href="https://github.com/ESCOMP/CAM-SIMA-docs/raw/main/docs/development/cam-sima-workflow.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/ESCOMP/CAM-SIMA-docs/raw/main/docs/development/adding-input-files.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
     </a>
   
 
 
-<h1 id="development-workflow-for-cam-sima">Development workflow for CAM-SIMA</h1>
-<p>This page describes the general workflow for adding new development to the <a href="https://github.com/ESCOMP/CAM-SIMA">CAM-SIMA repository</a>.</p>
-<h2 id="workflow-summary">Workflow summary</h2>
-<p>The general workflow for adding a feature, bug-fix, or modification to CAM-SIMA is as follows:</p>
-<ol>
-<li><a href="#open-an-issue"><strong>Open an issue</strong></a></li>
-<li><a href="#add-your-code-modifications"><strong>Add your code modifications</strong></a></li>
-<li><a href="#open-a-pr"><strong>Open a PR</strong></a><ul>
-<li>If you know that this PR will need an official tag, then also add the <a href="../git-basics/#tagging-a-commit">tag name</a> to the PR description.</li>
-</ul>
-</li>
-<li><strong>Respond to any reviewer requests.</strong></li>
-<li><a href="#fix-failing-tests"><strong>Fix any failing tests</strong></a></li>
-<li><a href="../cam-testing/#regression-testing"><strong>Run the manual regression tests</strong></a><ul>
-<li>Update <code>$CAM-SIMA/test/existing-test-failures.txt</code> if there are new tests failing or if existing test failures have been fixed.</li>
-</ul>
-</li>
-<li><strong>Confirm with the CAM-SIMA gatekeeper that you are OK to merge. Then squash the commits and merge the PR</strong> (e.g. the "squash and merge" option).</li>
-<li><a href="../git-basics/#tagging-a-commit"><strong>Make a tag (if regression test answers have changed)</strong></a></li>
-<li><a href="../cam-testing/#archiving-baselines"><strong>Archive baselines (if tag has been made)</strong></a></li>
-<li><a href="../adding-input-files/"><strong>Add input data files to GDEX (if applicable)</strong></a></li>
-</ol>
-<h2 id="workflow-details">Workflow details</h2>
-<p>The following sections describe various workflow actions in more detail.</p>
-<h3 id="open-an-issue">Open an issue</h3>
-<p>It is generally recommended to <a href="https://github.com/ESCOMP/CAM-SIMA/issues/new">open an issue</a> for any new features that will be added or bug that has been found that will need to be fixed. There is currently no offiical requirement on what should be contained within the issue text, so generally just put any information you think might be relevant.</p>
-<h3 id="add-your-code-modifications">Add your code modifications</h3>
-<ol>
-<li>If you haven't already, create a fork. Specific instructions can be found <a href="../git-basics/#one-time-github-setup">here</a>.</li>
-<li>Create a branch on your fork off of the head of the ESCOMP remote's <code>development</code> branch. Specific commands can be found <a href="../git-basics/#working-with-branches">here</a></li>
-<li>Apply your code modifications and/or script additions, and perform at least one test making sure your modifications work as expected. See below for Git commands for committing to your branch.</li>
-</ol>
-<p>There are multiple ways to do commit your changes, but one of the safer ways is to first check your status:</p>
-<pre><code>git status
-</code></pre>
-<p>This will provide a list of all modified files. For each one of those files whose modifications you want to add to the main package, you will do the following:</p>
-<pre><code>git add updated_fortran_file.F90
-</code></pre>
-<p>Where <code>updated_fortran_file.F90</code> should be replaced with whatever your file name is. Do this for each file you want to include. If you are confident that every file listed by <code>git status</code> needs to be added, then you can do it all at once by doing:</p>
-<pre><code>git add -A
-</code></pre>
-<p>You can then type <code>git status</code> again, at which point all of the files you added should be "staged" for commit (green).</p>
-<p>To commit your changes to your local branch:</p>
-<pre><code>git commit -m &quot;&lt;message&gt;&quot;
-</code></pre>
-<p>where <code>&lt;message&gt;</code> is a short description on sentence stating what the commits are for, e.g. "fixed color bar bug" or "added significance hatching".</p>
-<p>To push your changes to your fork:</p>
-<pre><code>git push
-</code></pre>
-<p>or, if you want to be more explicit,</p>
-<pre><code>git push origin &lt;branch name&gt;
-</code></pre>
-<h3 id="open-a-pr">Open a PR</h3>
-<ol>
-<li>Go to the <a href="https://github.com/ESCOMP/CAM-SIMA">ESCOMP CAM-SIMA repo</a>, and click on the "Pull requests" tab.
- <img alt="text" src="../figures/pr-workflow-1.png" title="PR tab" /></li>
-<li>There, you should see a "New pull request" button, which you should click.
- <img alt="text" src="../figures/pr-workflow-2.png" title="New PR button" /></li>
-<li>On the new "Compare changes" page, you should see a "compare across forks" link, which you should click.
- <img alt="text" src="../figures/pr-workflow-3.png" title="Compare across forks" /></li>
-<li>You should now see two new pull-down boxes (to the right of an arrow). Using these pull-down boxes, select the "development" branch of the ESCOMP repo and select your fork (which should be <code>&lt;username&gt;/CAM-SIMA</code>)</li>
-<li>Then select the branch which contains the commits.
- <img alt="text" src="../figures/pr-workflow-4.png" title="pull-down boxes" /></li>
-<li>You should then see a list of all the different modifications. If they generally look correct, click the "Create pull request" button</li>
-<li>A new page should appear. In the first text box, add the title of your pull request. The second text box will contain additional fields that you should fill out to the best of your ability.</li>
-<li>If your code changes cause answer changes, you will need a new tag. Enter the expected tag name in the PR description. More on tag conventions <a href="../git-basics/#tagging-a-commit">here</a>.</li>
-<li>Add any relevant labels to the PR, add yourself as the assignee, and add any reviewers you would like to have. Otherwise, the core SE team will add reviewers for you.</li>
-<li>Click "Create pull request"</li>
-</ol>
-<h3 id="fix-failing-tests">Fix failing tests</h3>
-<p>Failing unit tests will appear at the bottom of the PR page (as shown below). You will also get an email if any tests fail.
- <img alt="text" src="../figures/pr-workflow-5.png" title="unit testing" /></p>
-<p>Click through (via <code>Details</code> link) to see the test output of the failing tests. Refer to the table below for debugging failing tests.</p>
-<table>
-<thead>
-<tr>
-<th>Failing test</th>
-<th>Description</th>
-<th>Resources</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>.github/workflows/fleximod_test.yaml / fleximod-test (&lt;python version&gt;) (pull_request)</code></td>
-<td>git-fleximod test failure. Likely an invalid external</td>
-<td><a href="../cam-testing/#git-fleximod-tests">git-fleximod testing</a></td>
-</tr>
-<tr>
-<td><code>Python unit tests / python_unit_tests (&lt;python version&gt;) (pull_request)</code></td>
-<td>Python unit test failure. Likely need to update sample files</td>
-<td><a href="../cam-testing/#python-unit-testing">Python unit testing</a></td>
-</tr>
-<tr>
-<td><code>Source Code Linting / source_code_tests (pull_request)</code></td>
-<td>Python linting failure. Need to fix modified python code.</td>
-<td><a href="../cam-testing/#python">Python source code linting</a></td>
-</tr>
-</tbody>
-</table>
+<h1 id="adding-input-files">Adding input files</h1>
+<p>Instructions for how to add a new file to the CESM inputdata repository can be found here.  Doing so will allow the file to be accessible by all users of CAM-SIMA and/or CESM.</p>
+<p><strong>Please note that these instructions can only be followed if one has access to the NCAR file systems (i.e. access to the NCAR clusters)</strong></p>
+<h2 id="1-add-required-attributes-to-data-file">1. Add required attributes to data file.</h2>
+<p>All input files should have metadata describing relevant data and file information.  With NetCDF files this metadata should be added as global file attributes. The list of required and suggested metadata fields can be found online here:</p>
+<p><a href="https://www.cesm.ucar.edu/models/cam/metadata">CESM required dataset metadata</a></p>
+<h2 id="2-set-the-correct-file-permissions-and-add-datestamp-to-file-name">2. Set the correct file permissions and add datestamp to file name</h2>
+<p>Make sure the file is globally readable, but only user writeable.  This can be done on the command line like so:</p>
+<p><code>chmod 644 &lt;file&gt;</code></p>
+<p>Where <code>&lt;file&gt;</code> is the name (or path) of the file.</p>
+<p>Also, it is generally recommended to add a datestamp to the filename indicating when the file was created.  This is done by adding a <code>_cYYMMDD</code> suffix to the filename.  For example, if a file named <code>input.nc</code> was created on July 28, 2023, the filename should be updated to <code>input_c230728.nc</code>.</p>
+<h2 id="3-move-file-to-inputdata-directory">3. Move file to inputdata directory</h2>
+<p>Once permissions and metadata have been properly set, move the file to the respective location under <code>/glade/campaign/cesm/cesmdata/inputdata</code>. In general you'll want to move the file to the same subdirectory as previous versions of that dataset.  Of course if you are unsure where the new input data file should go then please reach out to an NCAR scientist or SE and they will help determine where the file should go.</p>
+<h2 id="4-import-the-file-to-the-geoscience-data-exchange-gdex">4. Import the file to the Geoscience Data Exchange (GDEX)</h2>
+<p>Finally, you'll want to add the file to GDEX (which ensures the file is backed-up and accesible to the wider community) by using the <code>rimport</code> command located in <code>/glade/campaign/cesm/cesmdata</code>.  To add a file to GDEX, simply run</p>
+<p><code>rimport -file &lt;file&gt;</code></p>
+<p>Where <code>&lt;file&gt;</code> is the file path/name.</p>
+<p>Once that command is done then congrats!  You have successfully added a file to the CESM inputdata repository.</p>
 
 
 
@@ -1957,7 +1723,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 5, 2025 01:54:59 UTC">January 5, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 28, 2026 16:39:46 UTC">January 28, 2026</span>
   </span>
 
     
@@ -1978,11 +1744,6 @@
         <a href="https://github.com/nusbaume" class="md-author" title="@nusbaume">
           
           <img src="https://avatars.githubusercontent.com/u/30849041?v=4&size=72" alt="nusbaume">
-        </a>
-      
-        <a href="https://github.com/peverwhee" class="md-author" title="@peverwhee">
-          
-          <img src="https://avatars.githubusercontent.com/u/26393487?v=4&size=72" alt="peverwhee">
         </a>
       
       
