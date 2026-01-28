@@ -30,6 +30,7 @@ nav:
     - development/cam-coding-standards.md
     - development/cam-testing.md
     - development/debugging.md
+    - development/adding-input-files.md
     - development/git-basics.md
     - development/git-faq.md
     - development/git-fleximod.md
