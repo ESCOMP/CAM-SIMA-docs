@@ -17,6 +17,7 @@ The general workflow for adding a feature, bug-fix, or modification to CAM-SIMA 
 1. **Confirm with the CAM-SIMA gatekeeper that you are OK to merge. Then squash the commits and merge the PR** (e.g. the "squash and merge" option).
 1. [**Make a tag (if regression test answers have changed)**](git-basics.md/#tagging-a-commit)
 1. [**Archive baselines (if tag has been made)**](cam-testing.md/#archiving-baselines)
+1. [**Add input data files to GDEX (if applicable)**](adding-input-files.md)
 
 ## Workflow details
 
@@ -95,4 +96,3 @@ Click through (via `Details` link) to see the test output of the failing tests. 
 | `.github/workflows/fleximod_test.yaml / fleximod-test (<python version>) (pull_request)` | git-fleximod test failure. Likely an invalid external | [git-fleximod testing](cam-testing.md#git-fleximod-tests) |
 | `Python unit tests / python_unit_tests (<python version>) (pull_request)` | Python unit test failure. Likely need to update sample files | [Python unit testing](cam-testing.md/#python-unit-testing) |
 | `Source Code Linting / source_code_tests (pull_request)` | Python linting failure. Need to fix modified python code. | [Python source code linting](cam-testing.md/#python) |
-
