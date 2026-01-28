@@ -49,7 +49,7 @@ If you have familiarity with CAM cases, the setup and directory structure will b
 - Refer to the procedures for [checking metadata](../conversion/check-metadata.md) and [running CAM-SIMA](../conversion/run-cam-sima.md) for additional debugging help
 
 #### Additional test info
-The tests themselves are listed in `<CAM-SIMA>/cime_config/testdefs/testlist_cam.xml`. Any files that need to be included in order for the tests to run properly are located in `<CAM-SIMA/cime_config/testdefs/testmods_dirs/cam/outfrq_XXX`, where `XXX` is the name of the test.  Additional information on the CIME testing system, which is what this testing infrastructure is built on, can be found [online here](https://esmci.github.io/cime/versions/master/html/users_guide/testing.html). 
+The tests themselves are listed in `<CAM-SIMA>/cime_config/testdefs/testlist_cam.xml`. Any files that need to be included in order for the tests to run properly are located in `<CAM-SIMA/cime_config/testdefs/testmods_dirs/cam/outfrq_XXX`, where `XXX` is the name of the test.  Additional information on the CIME testing system, which is what this testing infrastructure is built on, can be found [online here](https://esmci.github.io/cime/versions/master/html/users_guide/testing.html).
 
 ### Archiving baselines
 **If your PR changes answers**, then after you have run the tests, merged your PR, and created a tag (see [tag workflow](git-basics.md#tagging-a-commit)), you will need to archive your baselines for the next person.
@@ -95,7 +95,7 @@ The test list can be found here: `$CAM-SIMA/cime_config/testdefs/testlist_cam.xm
     - testmods directories can be found in `$CAM-SIMA/cime_config/testdefs/testmods_dirs/cam/`
 !!! Note "standard snapshot test mods"
     All new test mod directories will likely include a mod to CAM_CONFIG_OPTS in `shell_commands` as well as the following mods to `user_nl_cam`:
-    
+
       - `ncdata` (initial data file - the "before" snapshot)
       - `ncdata_check` (check file - the "after" snapshot)
       - `ncdata_check_err=.true.` (will cause the test to fail if the ncdata check process fails)
@@ -107,7 +107,7 @@ The test list can be found here: `$CAM-SIMA/cime_config/testdefs/testlist_cam.xm
 - `<TEST_CATEGORY>`: group of tests that this test belongs to - the default run by `test_driver.sh` is `aux_sima` (which is run for each PR to CAM-SIMA)
 - `WALLCLOCK_TIME`: maximum amount of time that the job will be allowed to run
 
-Here is an example test entry for a 2-timestep smoke test of kessler physics on a coarse MPAS grid, run with both intel and gnu 
+Here is an example test entry for a 2-timestep smoke test of kessler physics on a coarse MPAS grid, run with both intel and gnu
 ```
   <test compset="FKESSLER" grid="mpasa480_mpasa480" name="SMS_Ln2" testmods="cam/outfrq_kessler_mpas_derecho_nooutput/">
     <machines>
@@ -125,7 +125,7 @@ Here is an example test entry for a 2-timestep smoke test of kessler physics on 
 The following tests/linters are run automatically on pull requests to `develop` in github. You can see previous runs of the CI tests [here](https://github.com/ESCOMP/CAM-SIMA/actions)
 
 ### Python unit testing
-CAM-SIMA supports two kinds of python unit tests, `doctest` and `unittest` tests, both of which are part of the standard python library.  
+CAM-SIMA supports two kinds of python unit tests, `doctest` and `unittest` tests, both of which are part of the standard python library.
 
 All `unittest` tests should  be in:
 
@@ -135,7 +135,7 @@ while all files used by the tests should be in:
 
 `CAM-SIMA/test/unit/python/sample_files`
 
-All `unittest` tests are automatically run via Github Actions whenever a Pull Request (PR) is opened, modified, or merged.  
+All `unittest` tests are automatically run via Github Actions whenever a Pull Request (PR) is opened, modified, or merged.
 
 All `doctest` tests are also run automatically as long as the scripts they are located in are under `CAM-SIMA/cime_config` or `CAM-SIMA/src/data`.
 
@@ -157,6 +157,21 @@ If you modified any python files in your code modifications (those in `cime_conf
 
 1. Copy over the changed files from the `tmp` directory to the `sample_files` directory
 1. Rerun the tests to confirm they all pass now.
+
+### Fortran unit testing
+CAM-SIMA supports Fortran unit testing via the pFUnit framework, which can be [found here](https://github.com/Goddard-Fortran-Ecosystem/pFUnit).  All of the actual tests are written in `*.pf` files, and can be found in the following locations in CAM-SIMA:
+
+`test/unit/fortran/src/core_utils` (tests for core string utilities)
+`test/unit/fortran/src/pio-reader` (tests for PIO NetCDF reader object)
+`dynamics/mpas/tests/unit` (tests for procedures used in the MPAS <-> SIMA coupling layer)
+
+There is no official method yet for running the unit tests locally, but you can find the general steps for running the tests in their respective Github Action workflow files:
+
+[core string utility and PIO reader tests](https://github.com/ESCOMP/CAM-SIMA/blob/development/.github/workflows/fortran_unit_tests.yml)
+
+[MPAS/SIMA coupling layer procedure tests](https://github.com/ESCOMP/CAM-SIMA/blob/development/.github/workflows/mpas_dynamical_core_ci.yml#L235)
+
+If you would like to add your own tests to the automatic testing workflow then please reach out to a CAM-SIMA SE so we can help ensure that it is included in the official CMake testing build.
 
 ### Static Source Code Analysis
 
@@ -185,7 +200,7 @@ If a test fails:
 
 - View the run on github (either on the PR itself or in the [actions](https://github.com/ESCOMP/CAM-SIMA/actions) tab)
 - View the output under `Run $GITHUB_WORKSPACE/bin/git-fleximod update`
-    - Errors will be reported in course of the test execution 
+    - Errors will be reported in course of the test execution
         - Compare with the last time the test succeeded to see what has changed
     - Errors may also be reported at the end of the execution
 - Update the `.gitmodules` file to fix any errors and push up your changes to the branch, at which time the tests will be rerun
@@ -194,7 +209,7 @@ If a test fails:
     You can (somewhat) reproduce the git-fleximod test locally by running the following
 
     ```
-    bin/git-fleximod update && 
+    bin/git-fleximod update &&
     bin/git-fleximod test
     ```
 
