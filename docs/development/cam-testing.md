@@ -22,6 +22,11 @@ For running Intel tests*:
 env CAM_FC=intel ./test_driver.sh -f
 ```
 
+For running NVHPC tests*:
+```
+env CAM_FC=nvhpc ./test_driver.sh -f
+```
+
 *Note: you may also have to include the environment variable `CAM_ACCOUNT` on derecho, which is your account key
 
 !!! Note "test_driver.sh default"
@@ -57,10 +62,13 @@ The tests themselves are listed in `<CAM-SIMA>/cime_config/testdefs/testlist_cam
 To do this, navigate to `$CAM-SIMA/test/system` on derecho and run:
 
 ```
-env CESM_TESTDIR=/glade/derecho/scratch/YourName/aux_sima_yyyymmddsssss CAM_FC=INTEL ./archive_baseline.sh <sima tag>
+env CESM_TESTDIR=/glade/derecho/scratch/YourName/aux_sima_intel_yyyymmddsssss CAM_FC=INTEL ./archive_baseline.sh <sima tag>
 ```
 ```
-env CESM_TESTDIR=/glade/derecho/scratch/YourName/aux_sima_yyyymmddsssss CAM_FC=GNU ./archive_baseline.sh <sima tag>
+env CESM_TESTDIR=/glade/derecho/scratch/YourName/aux_sima_gnu_yyyymmddsssss CAM_FC=GNU ./archive_baseline.sh <sima tag>
+```
+```
+env CESM_TESTDIR=/glade/derecho/scratch/YourName/aux_sima_nvhpc_yyyymmddsssss CAM_FC=NVHPC ./archive_baseline.sh <sima tag>
 ```
 
 !!! Note "Baseline 'latest' symlink"
