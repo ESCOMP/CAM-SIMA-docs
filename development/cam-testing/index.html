@@ -2072,6 +2072,9 @@
 <p>For running Intel tests*:</p>
 <pre><code>env CAM_FC=intel ./test_driver.sh -f
 </code></pre>
+<p>For running NVHPC tests*:</p>
+<pre><code>env CAM_FC=nvhpc ./test_driver.sh -f
+</code></pre>
 <p>*Note: you may also have to include the environment variable <code>CAM_ACCOUNT</code> on derecho, which is your account key</p>
 <div class="admonition note">
 <p class="admonition-title">test_driver.sh default</p>
@@ -2099,9 +2102,11 @@
 <h3 id="archiving-baselines">Archiving baselines</h3>
 <p><strong>If your PR changes answers</strong>, then after you have run the tests, merged your PR, and created a tag (see <a href="../git-basics/#tagging-a-commit">tag workflow</a>), you will need to archive your baselines for the next person.</p>
 <p>To do this, navigate to <code>$CAM-SIMA/test/system</code> on derecho and run:</p>
-<pre><code>env CESM_TESTDIR=/glade/derecho/scratch/YourName/aux_sima_yyyymmddsssss CAM_FC=INTEL ./archive_baseline.sh &lt;sima tag&gt;
+<pre><code>env CESM_TESTDIR=/glade/derecho/scratch/YourName/aux_sima_intel_yyyymmddsssss CAM_FC=INTEL ./archive_baseline.sh &lt;sima tag&gt;
 </code></pre>
-<pre><code>env CESM_TESTDIR=/glade/derecho/scratch/YourName/aux_sima_yyyymmddsssss CAM_FC=GNU ./archive_baseline.sh &lt;sima tag&gt;
+<pre><code>env CESM_TESTDIR=/glade/derecho/scratch/YourName/aux_sima_gnu_yyyymmddsssss CAM_FC=GNU ./archive_baseline.sh &lt;sima tag&gt;
+</code></pre>
+<pre><code>env CESM_TESTDIR=/glade/derecho/scratch/YourName/aux_sima_nvhpc_yyyymmddsssss CAM_FC=NVHPC ./archive_baseline.sh &lt;sima tag&gt;
 </code></pre>
 <div class="admonition note">
 <p class="admonition-title">Baseline 'latest' symlink</p>
@@ -2274,7 +2279,7 @@ bin/git-fleximod test</code></p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="January 28, 2026 20:42:39 UTC">January 28, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="February 4, 2026 04:45:57 UTC">February 4, 2026</span>
   </span>
 
     
@@ -2302,16 +2307,6 @@ bin/git-fleximod test</code></p>
     
     <nav>
       
-        <a href="https://github.com/nusbaume" class="md-author" title="@nusbaume">
-          
-          <img src="https://avatars.githubusercontent.com/u/30849041?v=4&size=72" alt="nusbaume">
-        </a>
-      
-        <a href="https://github.com/mwaxmonsky" class="md-author" title="@mwaxmonsky">
-          
-          <img src="https://avatars.githubusercontent.com/u/137746677?v=4&size=72" alt="mwaxmonsky">
-        </a>
-      
         <a href="https://github.com/peverwhee" class="md-author" title="@peverwhee">
           
           <img src="https://avatars.githubusercontent.com/u/26393487?v=4&size=72" alt="peverwhee">
@@ -2320,6 +2315,16 @@ bin/git-fleximod test</code></p>
         <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
           
           <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
+        </a>
+      
+        <a href="https://github.com/nusbaume" class="md-author" title="@nusbaume">
+          
+          <img src="https://avatars.githubusercontent.com/u/30849041?v=4&size=72" alt="nusbaume">
+        </a>
+      
+        <a href="https://github.com/mwaxmonsky" class="md-author" title="@mwaxmonsky">
+          
+          <img src="https://avatars.githubusercontent.com/u/137746677?v=4&size=72" alt="mwaxmonsky">
         </a>
       
       
