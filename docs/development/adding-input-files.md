@@ -28,7 +28,7 @@ Once permissions and metadata have been properly set, move the file to the respe
 
 Finally, you'll want to add the file to GDEX (which ensures the file is backed-up and accesible to the wider community) by using the `rimport` command located in `/glade/campaign/cesm/cesmdata`.  To add a file to GDEX, simply run
 
-`rimport -file <file>`
+`rimport <file>`
 
 Where `<file>` is the file path/name.
 
