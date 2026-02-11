@@ -2,7 +2,7 @@
 
 Instructions for how to add a new file to the CESM inputdata repository can be found here.  Doing so will allow the file to be accessible by all users of CAM-SIMA and/or CESM.
 
-**Please note that these instructions can only be followed if one has access to the NCAR file systems (i.e. access to the NCAR clusters)**
+**Please note that these steps should only be done for files that will be needed for official release versison of the model, and can only be followed if one has access to the NCAR file systems (i.e. access to the NCAR clusters)**
 
 ## 1. Add required attributes to data file.
 
