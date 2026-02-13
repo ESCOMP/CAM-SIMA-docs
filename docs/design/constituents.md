@@ -90,6 +90,7 @@ subroutine <scheme>_register(constituent_props, filename, errmsg, errcode)
              advected = .true., &
              water_species = .true., &
              mixing_ratio_type = 'wet', &
+             diag_name = const_names(const_idx), &
              errcode = errcode, &
              errmsg = errmsg)
      if (errcode /= 0) then
