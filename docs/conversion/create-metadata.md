@@ -5,6 +5,8 @@ To create a template metadata file based on the parameterization, run the follow
 ```
 python $CAM-SIMA/ccpp_framework/scripts/ccpp_fortran_to_metadata.py <parameterization>.F90 
 ```
+!!! Warning "DDTs 'not a valid Fortran type'"
+    If you have DDTs in your argument list(s), you may get errors like `[DDT type] is not a valid derived Fortran type`. If so, pass in those types in a comma-separated list to the call above with the `ddt-names` flag. Ex: `python $CAM-SIMA/ccpp_framework/scripts/ccpp_fortran_to_metadata.py --ddt-names ddt_type1,ddt_type2,etc <parameterization>.F90`.
 
 If you get errors:
 
