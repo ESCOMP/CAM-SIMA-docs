@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
@@ -2142,7 +2142,7 @@
 <p>To run the tests, you will need to build pFUnit manually (see either the github workflow for atmospheric_physics or the <a href="https://github.com/Goddard-Fortran-Ecosystem/pFUnit?tab=readme-ov-file#building-and-installing-pfunit">pFUnit documentation</a> on how to build) and then use that to build the tests:</p>
 <pre><code class="language-bash">$ cmake -DCMAKE_PREFIX_PATH=&lt;path_to_pfunit&gt;/build/installed \
         -DATMOSPHERIC_PHYSICS_ENABLE_TESTS=ON \
-        -S./test/unit-test \
+        -S./test/unit/fortran \
         -B./build
 $ cd build &amp;&amp; make
 $ ctest -V --output-on-failure
@@ -2155,13 +2155,13 @@ $ ctest -V --output-on-failure
 <p><strong>For modules that are currently being built with CMake, are independent of any external library modules, and/or are dependent only on other modules that are already unit tested, it is recommended to add relevant tests that cover those new lines of code. If this doesn't apply to your module(s), skip this section.</strong></p>
 <p>As unit test development is just as much an art form as source code development, we will defer a discussion on what constitutes as "good tests" to other sources such as <a href="https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices">MS.net</a>, <a href="https://abseil.io/resources/swe-book/html/ch12.html">abseil</a>, <a href="https://github.com/google/googletest/blob/main/docs/primer.md">googletest</a>, <a href="https://martinfowler.com/testing/">Martin Fowler</a>, etc.  Just like with source code, philosophical/technical conventions will evolve with the code over time as well.</p>
 <h5 id="adding-a-new-pfunit-test">Adding a new pFUnit test</h5>
-<p>If you are adding a new file, add it to the list of files being built by the <code>test/unit-test/CMakeLists.txt</code>, and if it builds successfully, add a corresponding unit test.  The current workflow is to take your new file in <code>schemes/{path_to_file}/new_file.F90</code> and add a corresponding test file in <code>test/unit-test/tests/{path_to_file}/test_{new_file}.pf</code>.</p>
+<p>If you are adding a new file, add it to the list of files being built by the <code>test/unit/fortran/CMakeLists.txt</code>, and if it builds successfully, add a corresponding unit test.  The current workflow is to take your new file in <code>schemes/{path_to_file}/new_file.F90</code> and add a corresponding test file in <code>test/unit/fortran/tests/{path_to_file}/test_{new_file}.pf</code>.</p>
 <p>To add a test:</p>
 <ol>
 <li>Ensure the existing CMakeLists hierarchy covers the code you want to test (e.g. does the current directory have a CMakeList.txt file? If not, add one. Do you need other dependencies, and if so, are they CMake-ified and can be pulled in via a <code>find_package()</code> call? If you're unsure about the CMake requirements, please contact an AMP SE.</li>
-<li>Add the code being tested added to a library via <code>add_library(LIBNAME ...)</code> in the <code>test/unit-test/CMakeLists.txt</code> file.</li>
-<li>Create a new pFUnit test file to a corresponding directory matching the source file path into the unit-test directory.  For example, if your update added the file <code>schemes/utilities/new_file.F90</code>, create a new test file called <code>test/unit-test/tests/utilities/test_new_file.pf</code>.</li>
-<li>Add <code>add_pfunit_ctest(TESTNAME TEST_SOURCES test_new_file.pf LINK_LIBRARIES LIBNAME)</code> in the <code>CMakeLists.txt</code> file in the test directory corresponding to the new test file (ex. <code>test/unit-testing/tests/utilities/CMakeLists.txt</code> in this example).</li>
+<li>Add the code being tested added to a library via <code>add_library(LIBNAME ...)</code> in the <code>test/unit/fortran/CMakeLists.txt</code> file.</li>
+<li>Create a new pFUnit test file to a corresponding directory matching the source file path into the <code>fortran</code> directory.  For example, if your update added the file <code>schemes/utilities/new_file.F90</code>, create a new test file called <code>test/unit/fortran/tests/src/utilities/test_new_file.pf</code>.</li>
+<li>Add <code>add_pfunit_ctest(TESTNAME TEST_SOURCES test_new_file.pf LINK_LIBRARIES LIBNAME)</code> in the <code>CMakeLists.txt</code> file in the test directory corresponding to the new test file (ex. <code>test/unit/fortran/src/utilities/CMakeLists.txt</code> in this example).</li>
 <li>Add subroutines to the <code>test_new_file.pf</code> file of the form:</li>
 </ol>
 <pre><code class="language-fortran">@test
@@ -2172,7 +2172,7 @@ subroutine test_added_element_equals_get_element()
    @assertEqual(expectedValue, atualValue)
 </code></pre>
 <p>Additional CMake integration details as well as the different assertion methods can be found in pFUnit's <a href="https://github.com/Goddard-Fortran-Ecosystem/pFUnit">github</a> documentation and the <a href="https://github.com/Goddard-Fortran-Ecosystem/pFUnit_demos">pFUnit demo</a> repository as well.</p>
-<p>Currently, only certain <code>utilities</code> modules are being tested but this will expand to the rest of atmospheric_physics so check the files being built by the <code>test/unit-test/CMakeLists.txt</code> file regularly to see if you are modifying a file currently being tested.</p>
+<p>Currently, only certain <code>utilities</code> modules are being tested but this will expand to the rest of atmospheric_physics so check the files being built by the <code>test/unit/fortran/CMakeLists.txt</code> file regularly to see if you are modifying a file currently being tested.</p>
 <p>At a minimum, unit tests for ESCOMP source code should:</p>
 <ol>
 <li>Keep the setup code to the absolute minimum needed to effectively assert object/state data (ie, each line before calling <code>assert</code> statements should be modifying or preparing state data/objects to be modified exactly as a client or user would do).</li>
@@ -2252,7 +2252,7 @@ subroutine test_added_element_equals_get_element()
 
 end subroutine apply_tendency_of_air_pressure_run
 </code></pre>
-<p>Then you would need to check that the file you've modified is being built by the tests.  You can check this in <code>test/unit-test/CMakeLists.txt</code> and see that we have:</p>
+<p>Then you would need to check that the file you've modified is being built by the tests.  You can check this in <code>test/unit/fortran/CMakeLists.txt</code> and see that we have:</p>
 <pre><code class="language-cmake">set(UTILITIES_SRC
     ../../schemes/utilities/state_converters.F90
     ../../schemes/utilities/static_energy.F90
@@ -2261,18 +2261,18 @@ end subroutine apply_tendency_of_air_pressure_run
 )
 </code></pre>
 <p>Since the file is being built, we don't have to add to this list.</p>
-<p>Next we look for <code>test/unit-test/tests/utilities/CMakeLists.txt</code> to see if there is a matching test file:</p>
-<pre><code class="language-bash">$ ls test/unit-test/tests/utilities/
+<p>Next we look for <code>test/unit/fortran/tests/utilities/CMakeLists.txt</code> to see if there is a matching test file:</p>
+<pre><code class="language-bash">$ ls test/unit/fortran/src/utilities/
 CMakeLists.txt
 test_state_converters.pf
-$ cat test/unit-test/tests/utilities/CMakeLists.txt
+$ cat test/unit/fortran/src/utilities/CMakeLists.txt
 add_pfunit_ctest(utilities_tests
   TEST_SOURCES test_state_converters.pf
   LINK_LIBRARIES utilities
 )
 </code></pre>
 <p>Because there is no matching file or test, we need to create it:</p>
-<pre><code class="language-bash">$ cat &gt; test/unit-test/tests/utilities/test_physics_tendency_updaters.pf &lt;&lt; EOF
+<pre><code class="language-bash">$ cat &gt; test/unit/fortran/src/utilities/test_physics_tendency_updaters.pf &lt;&lt; EOF
 @test
 subroutine test_pressure_tendency_update()
   use funit
@@ -2281,7 +2281,7 @@ subroutine test_pressure_tendency_update()
 end subroutine test_pressure_tendency_update
 EOF
 </code></pre>
-<p>And add the ability to build/run it from the test harness by updating <code>test/unit-test/tests/utilities/CMakeLists.txt</code>:</p>
+<p>And add the ability to build/run it from the test harness by updating <code>test/unit/fortran/src/utilities/CMakeLists.txt</code>:</p>
 <pre><code class="language-cmake">add_pfunit_ctest(utilities_tests
   TEST_SOURCES test_state_converters.pf test_physics_tendency_updaters.pf
   LINK_LIBRARIES utilities
@@ -2328,7 +2328,7 @@ end subroutine test_pressure_tendency_update
   -DCMAKE_PREFIX_PATH=&lt;PATH_TO_PFUNIT&gt;/build/installed \
   -DATMOSPHERIC_PHYSICS_ENABLE_CODE_COVERAGE=ON \
   -B./build \
-  -S./test/unit-test
+  -S./test/unit/fortran
 $ cd build
 $ make
 $ ctest -V --output-on-failure
@@ -2376,7 +2376,7 @@ $ ctest -V --output-on-failure
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 30, 2025 22:29:32 UTC">April 30, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 6, 2026 16:23:16 UTC">March 6, 2026</span>
   </span>
 
     
@@ -2409,6 +2409,11 @@ $ ctest -V --output-on-failure
           <img src="https://avatars.githubusercontent.com/u/26393487?v=4&size=72" alt="peverwhee">
         </a>
       
+        <a href="https://github.com/web-flow" class="md-author" title="@web-flow">
+          
+          <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
+        </a>
+      
         <a href="https://github.com/jimmielin" class="md-author" title="@jimmielin">
           
           <img src="https://avatars.githubusercontent.com/u/123603?v=4&size=72" alt="jimmielin">
@@ -2419,12 +2424,13 @@ $ ctest -V --output-on-failure
           <img src="https://avatars.githubusercontent.com/u/137746677?v=4&size=72" alt="mwaxmonsky">
         </a>
       
-        <a href="https://github.com/nusbaume" class="md-author" title="@nusbaume">
-          
-          <img src="https://avatars.githubusercontent.com/u/30849041?v=4&size=72" alt="nusbaume">
-        </a>
       
       
+        
+          <a href="https://github.com/ESCOMP/CAM-SIMA-docs/blob/main/docs/atmospheric_physics/development_workflow.md" class="md-author md-author--more">
+            +1
+          </a>
+        
       
     </nav>
   </span>
