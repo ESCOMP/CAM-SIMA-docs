@@ -141,7 +141,7 @@ To run the tests, you will need to build pFUnit manually (see either the github 
 ```bash
 $ cmake -DCMAKE_PREFIX_PATH=<path_to_pfunit>/build/installed \
         -DATMOSPHERIC_PHYSICS_ENABLE_TESTS=ON \
-        -S./test/unit-test \
+        -S./test/unit/fortran \
         -B./build
 $ cd build && make
 $ ctest -V --output-on-failure
@@ -161,14 +161,14 @@ As unit test development is just as much an art form as source code development,
 
 ##### Adding a new pFUnit test
 
-If you are adding a new file, add it to the list of files being built by the `test/unit-test/CMakeLists.txt`, and if it builds successfully, add a corresponding unit test.  The current workflow is to take your new file in `schemes/{path_to_file}/new_file.F90` and add a corresponding test file in `test/unit-test/tests/{path_to_file}/test_{new_file}.pf`.
+If you are adding a new file, add it to the list of files being built by the `test/unit/fortran/CMakeLists.txt`, and if it builds successfully, add a corresponding unit test.  The current workflow is to take your new file in `schemes/{path_to_file}/new_file.F90` and add a corresponding test file in `test/unit/fortran/tests/{path_to_file}/test_{new_file}.pf`.
 
 To add a test:
 
   1.  Ensure the existing CMakeLists hierarchy covers the code you want to test (e.g. does the current directory have a CMakeList.txt file? If not, add one. Do you need other dependencies, and if so, are they CMake-ified and can be pulled in via a `find_package()` call? If you're unsure about the CMake requirements, please contact an AMP SE.
-  2.  Add the code being tested added to a library via `add_library(LIBNAME ...)` in the `test/unit-test/CMakeLists.txt` file.
-  3.  Create a new pFUnit test file to a corresponding directory matching the source file path into the unit-test directory.  For example, if your update added the file `schemes/utilities/new_file.F90`, create a new test file called `test/unit-test/tests/utilities/test_new_file.pf`.
-  3.  Add `add_pfunit_ctest(TESTNAME TEST_SOURCES test_new_file.pf LINK_LIBRARIES LIBNAME)` in the `CMakeLists.txt` file in the test directory corresponding to the new test file (ex. `test/unit-testing/tests/utilities/CMakeLists.txt` in this example).
+  2.  Add the code being tested added to a library via `add_library(LIBNAME ...)` in the `test/unit/fortran/CMakeLists.txt` file.
+  3.  Create a new pFUnit test file to a corresponding directory matching the source file path into the `fortran` directory.  For example, if your update added the file `schemes/utilities/new_file.F90`, create a new test file called `test/unit/fortran/tests/src/utilities/test_new_file.pf`.
+  3.  Add `add_pfunit_ctest(TESTNAME TEST_SOURCES test_new_file.pf LINK_LIBRARIES LIBNAME)` in the `CMakeLists.txt` file in the test directory corresponding to the new test file (ex. `test/unit/fortran/src/utilities/CMakeLists.txt` in this example).
   4.  Add subroutines to the `test_new_file.pf` file of the form:
 ```fortran
 @test
@@ -180,7 +180,7 @@ subroutine test_added_element_equals_get_element()
 ```
 Additional CMake integration details as well as the different assertion methods can be found in pFUnit's [github](https://github.com/Goddard-Fortran-Ecosystem/pFUnit) documentation and the [pFUnit demo](https://github.com/Goddard-Fortran-Ecosystem/pFUnit_demos) repository as well.
 
-Currently, only certain `utilities` modules are being tested but this will expand to the rest of atmospheric_physics so check the files being built by the `test/unit-test/CMakeLists.txt` file regularly to see if you are modifying a file currently being tested.
+Currently, only certain `utilities` modules are being tested but this will expand to the rest of atmospheric_physics so check the files being built by the `test/unit/fortran/CMakeLists.txt` file regularly to see if you are modifying a file currently being tested.
 
 At a minimum, unit tests for ESCOMP source code should:
 
@@ -301,7 +301,7 @@ subroutine apply_tendency_of_air_pressure_run(nz, p_tend, pressure, dPdt_total, 
 end subroutine apply_tendency_of_air_pressure_run
 ```
 
-Then you would need to check that the file you've modified is being built by the tests.  You can check this in `test/unit-test/CMakeLists.txt` and see that we have:
+Then you would need to check that the file you've modified is being built by the tests.  You can check this in `test/unit/fortran/CMakeLists.txt` and see that we have:
 
 ```cmake
 set(UTILITIES_SRC
@@ -314,13 +314,13 @@ set(UTILITIES_SRC
 
 Since the file is being built, we don't have to add to this list.
 
-Next we look for `test/unit-test/tests/utilities/CMakeLists.txt` to see if there is a matching test file:
+Next we look for `test/unit/fortran/tests/utilities/CMakeLists.txt` to see if there is a matching test file:
 
 ```bash
-$ ls test/unit-test/tests/utilities/
+$ ls test/unit/fortran/src/utilities/
 CMakeLists.txt
 test_state_converters.pf
-$ cat test/unit-test/tests/utilities/CMakeLists.txt
+$ cat test/unit/fortran/src/utilities/CMakeLists.txt
 add_pfunit_ctest(utilities_tests
   TEST_SOURCES test_state_converters.pf
   LINK_LIBRARIES utilities
@@ -330,7 +330,7 @@ add_pfunit_ctest(utilities_tests
 Because there is no matching file or test, we need to create it:
 
 ```bash
-$ cat > test/unit-test/tests/utilities/test_physics_tendency_updaters.pf << EOF
+$ cat > test/unit/fortran/src/utilities/test_physics_tendency_updaters.pf << EOF
 @test
 subroutine test_pressure_tendency_update()
   use funit
@@ -340,7 +340,7 @@ end subroutine test_pressure_tendency_update
 EOF
 ```
 
-And add the ability to build/run it from the test harness by updating `test/unit-test/tests/utilities/CMakeLists.txt`:
+And add the ability to build/run it from the test harness by updating `test/unit/fortran/src/utilities/CMakeLists.txt`:
 
 ```cmake
 add_pfunit_ctest(utilities_tests
@@ -397,7 +397,7 @@ $ cmake \
   -DCMAKE_PREFIX_PATH=<PATH_TO_PFUNIT>/build/installed \
   -DATMOSPHERIC_PHYSICS_ENABLE_CODE_COVERAGE=ON \
   -B./build \
-  -S./test/unit-test
+  -S./test/unit/fortran
 $ cd build
 $ make
 $ ctest -V --output-on-failure
