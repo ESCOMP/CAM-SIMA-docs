@@ -27,6 +27,10 @@ The following sections describe various workflow actions in more detail.
 
 It is generally recommended to [open an issue](https://github.com/ESCOMP/CAM-SIMA/issues/new) for any new features that will be added or bug that has been found that will need to be fixed. There is currently no offiical requirement on what should be contained within the issue text, so generally just put any information you think might be relevant.
 
+!!! note "When to open the issue in atmospheric_physics"
+
+    Your issue should be opened in atmospheric_physics if it is explicitly related to a core, theoretically-portable physics routine. Otherwise, it should be opened in the CAM-SIMA repository.
+
 ### Add your code modifications
 
 1. If you haven't already, create a fork. Specific instructions can be found [here](git-basics.md/#one-time-github-setup).
