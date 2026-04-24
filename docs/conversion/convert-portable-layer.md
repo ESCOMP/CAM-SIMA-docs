@@ -60,7 +60,7 @@ Add two lines before each of the up to 5 phases of subroutines (skip `readnl`)
 ```
 
 ## 1c - Clean up dummy argument dimensions
-Make sure no input/output variables have named dimensions in their declaration inside the routines.  
+Make sure no input/output variables have named dimensions in their declaration inside the routines.
 
 1. Replace named dimensions with “:”
     - for example: `real(r8), intent(in) :: zm(pcols, pver)` will become `real(r8), intent(in) :: zm(:,:)`
@@ -70,7 +70,7 @@ Make sure no input/output variables have named dimensions in their declaration i
     - Put `!REMOVECAM/!REMOVECAM_END` labels around these initializations as any which remain after CAM is retired no longer need this precautionary step.
 1. Repeat #1-4 with any routines which are called internally
 1. Search through the code and make sure that all locations which call these updated routines have been modified correctly
-    - Use the subsetted 1:ncol arrays when calling the updated routine 
+    - Use the subsetted 1:ncol arrays when calling the updated routine
     - Initialize all intent(out) arrays to zero before making the call
 
 !!! note
@@ -98,12 +98,12 @@ Remove all “use” statements and have the data appear in the calling list (th
     - Also comment out the `addfld` and `outfld` calls within the module(s)
 
 ## 1f - Add error variables
-Add `errmsg, errflg` to the end of your calling list.  Set `errflg` to non-zero if an error is encountered in your routine and set `errmsg` with an appropriate text indicating the error. 
+Add `errmsg, errflg` to the end of your calling list.  Set `errflg` to non-zero if an error is encountered in your routine and set `errmsg` with an appropriate text indicating the error.
 
 The declarations for these variables are:
 ```
-   character(len=512), intent(out) :: errmsg
-   integer,            intent(out) :: errflg
+   character(len=*), intent(out) :: errmsg
+   integer,          intent(out) :: errflg
 ```
 
 At the top of your routine initialize the variables as follows:
@@ -161,9 +161,9 @@ call mark_as_initialized('<standard name>')
 ## 1j - Initial standard name check
 Do a preliminary look at the variables on the calling lists and make sure that CCPP standard names and units exist for all of them, by checking for them in [CAM Standard Names Spreadsheet](https://docs.google.com/spreadsheets/d/1vpQ_xDZk00Z-_3SpW5N2EF3_FY6K7opNN4cqtSMlbwU/edit?gid=0#gid=0).
 
-- If variables are not filled out in the list, highlight the entire line with yellow.  
+- If variables are not filled out in the list, highlight the entire line with yellow.
 - If they don't exist at all in the spreadsheet, enter them into the bottom of the sheet and highlight them with yellow.  Note that physconst and diagnostic-only variables *may* not reside in the spreadsheet.
-- Let Jesse, Courtney or Cheryl know if you've encountered missing CCPP standardnames and/or units and added them to the list, so they can be discussed at an upcoming meeting.  
+- Let Jesse, Courtney or Cheryl know if you've encountered missing CCPP standardnames and/or units and added them to the list, so they can be discussed at an upcoming meeting.
 - If you create your own name, add `_TBD` to the end of the name to signify that it has not been discussed yet.
 
 !!! note
@@ -172,8 +172,8 @@ Do a preliminary look at the variables on the calling lists and make sure that C
 ## 1k - OPTIONAL: Make a CAM tag
 Make ESCOMP/atmospheric_physics and ESCOMP/CAM tags if substantial changes have been made up to this point.  This is also a good step to take if there is potential for others to be making modifications to the same physics module.  This will allow them to make changes which can be merged via git commands. More on bringing your changes back to CAM [here](back-to-cam.md).
 
-- Do at the very least a sanity compilation and run using the ESCOMP/CAM code base 
-    - Delete the original module from src/physics/cam 
+- Do at the very least a sanity compilation and run using the ESCOMP/CAM code base
+    - Delete the original module from src/physics/cam
     - Use  your pulled apart modules in `atmos_phys/schemes/<parameterization_name>`.
     - In bld/configure in the ESCOMP/CAM source code, find the section "Add the CCPP'ized subdirectories".  Add following line:
 ```
