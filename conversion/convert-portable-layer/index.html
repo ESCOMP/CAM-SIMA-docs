@@ -2063,7 +2063,7 @@ Once you locate the core code that you will be converting, copy it into the new 
 !! \htmlinclude &lt;parameterization&gt;_&lt;phase&gt;.html
 </code></pre>
 <h2 id="1c-clean-up-dummy-argument-dimensions">1c - Clean up dummy argument dimensions</h2>
-<p>Make sure no input/output variables have named dimensions in their declaration inside the routines.  </p>
+<p>Make sure no input/output variables have named dimensions in their declaration inside the routines.</p>
 <ol>
 <li>Replace named dimensions with “:”<ul>
 <li>for example: <code>real(r8), intent(in) :: zm(pcols, pver)</code> will become <code>real(r8), intent(in) :: zm(:,:)</code></li>
@@ -2077,7 +2077,7 @@ Once you locate the core code that you will be converting, copy it into the new 
 </li>
 <li>Repeat #1-4 with any routines which are called internally</li>
 <li>Search through the code and make sure that all locations which call these updated routines have been modified correctly<ul>
-<li>Use the subsetted 1:ncol arrays when calling the updated routine </li>
+<li>Use the subsetted 1:ncol arrays when calling the updated routine</li>
 <li>Initialize all intent(out) arrays to zero before making the call</li>
 </ul>
 </li>
@@ -2118,10 +2118,10 @@ Once you locate the core code that you will be converting, copy it into the new 
 </li>
 </ul>
 <h2 id="1f-add-error-variables">1f - Add error variables</h2>
-<p>Add <code>errmsg, errflg</code> to the end of your calling list.  Set <code>errflg</code> to non-zero if an error is encountered in your routine and set <code>errmsg</code> with an appropriate text indicating the error. </p>
+<p>Add <code>errmsg, errflg</code> to the end of your calling list.  Set <code>errflg</code> to non-zero if an error is encountered in your routine and set <code>errmsg</code> with an appropriate text indicating the error.</p>
 <p>The declarations for these variables are:</p>
-<pre><code>   character(len=512), intent(out) :: errmsg
-   integer,            intent(out) :: errflg
+<pre><code>   character(len=*), intent(out) :: errmsg
+   integer,          intent(out) :: errflg
 </code></pre>
 <p>At the top of your routine initialize the variables as follows:</p>
 <pre><code> errmsg = ‘ ‘
@@ -2172,9 +2172,9 @@ Once you locate the core code that you will be converting, copy it into the new 
 <h2 id="1j-initial-standard-name-check">1j - Initial standard name check</h2>
 <p>Do a preliminary look at the variables on the calling lists and make sure that CCPP standard names and units exist for all of them, by checking for them in <a href="https://docs.google.com/spreadsheets/d/1vpQ_xDZk00Z-_3SpW5N2EF3_FY6K7opNN4cqtSMlbwU/edit?gid=0#gid=0">CAM Standard Names Spreadsheet</a>.</p>
 <ul>
-<li>If variables are not filled out in the list, highlight the entire line with yellow.  </li>
+<li>If variables are not filled out in the list, highlight the entire line with yellow.</li>
 <li>If they don't exist at all in the spreadsheet, enter them into the bottom of the sheet and highlight them with yellow.  Note that physconst and diagnostic-only variables <em>may</em> not reside in the spreadsheet.</li>
-<li>Let Jesse, Courtney or Cheryl know if you've encountered missing CCPP standardnames and/or units and added them to the list, so they can be discussed at an upcoming meeting.  </li>
+<li>Let Jesse, Courtney or Cheryl know if you've encountered missing CCPP standardnames and/or units and added them to the list, so they can be discussed at an upcoming meeting.</li>
 <li>If you create your own name, add <code>_TBD</code> to the end of the name to signify that it has not been discussed yet.</li>
 </ul>
 <div class="admonition note">
@@ -2184,8 +2184,8 @@ Once you locate the core code that you will be converting, copy it into the new 
 <h2 id="1k-optional-make-a-cam-tag">1k - OPTIONAL: Make a CAM tag</h2>
 <p>Make ESCOMP/atmospheric_physics and ESCOMP/CAM tags if substantial changes have been made up to this point.  This is also a good step to take if there is potential for others to be making modifications to the same physics module.  This will allow them to make changes which can be merged via git commands. More on bringing your changes back to CAM <a href="../back-to-cam/">here</a>.</p>
 <ul>
-<li>Do at the very least a sanity compilation and run using the ESCOMP/CAM code base <ul>
-<li>Delete the original module from src/physics/cam </li>
+<li>Do at the very least a sanity compilation and run using the ESCOMP/CAM code base<ul>
+<li>Delete the original module from src/physics/cam</li>
 <li>Use  your pulled apart modules in <code>atmos_phys/schemes/&lt;parameterization_name&gt;</code>.</li>
 <li>In bld/configure in the ESCOMP/CAM source code, find the section "Add the CCPP'ized subdirectories".  Add following line:</li>
 </ul>
@@ -2220,7 +2220,7 @@ Once you locate the core code that you will be converting, copy it into the new 
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 9, 2025 19:51:45 UTC">April 9, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="April 24, 2026 21:02:59 UTC">April 24, 2026</span>
   </span>
 
     
@@ -2247,6 +2247,11 @@ Once you locate the core code that you will be converting, copy it into the new 
 
     
     <nav>
+      
+        <a href="https://github.com/nusbaume" class="md-author" title="@nusbaume">
+          
+          <img src="https://avatars.githubusercontent.com/u/30849041?v=4&size=72" alt="nusbaume">
+        </a>
       
         <a href="https://github.com/jimmielin" class="md-author" title="@jimmielin">
           

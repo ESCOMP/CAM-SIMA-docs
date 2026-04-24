@@ -104,7 +104,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="14.1% of total for modules and submodules.">631 statements</a>
+                 title="13.8% of total for modules and submodules.">633 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -156,6 +156,7 @@
       <div id="subs-0" class="collapse">
         <div class="list-group list-group-flush">
             <a class="list-group-item" href="../module/dyn_comp_impl.html#proc-check_topography_data">check_topography_data</a>
+            <a class="list-group-item" href="../module/dyn_comp_impl.html#proc-dyn_inquire_advected_constituent_index">dyn_inquire_advected_constituent_index</a>
             <a class="list-group-item" href="../module/dyn_comp_impl.html#proc-dyn_variable_dump">dyn_variable_dump</a>
             <a class="list-group-item" href="../module/dyn_comp_impl.html#proc-mark_variables_as_initialized">mark_variables_as_initialized</a>
             <a class="list-group-item" href="../module/dyn_comp_impl.html#proc-set_analytic_initial_condition">set_analytic_initial_condition</a>
@@ -424,7 +425,7 @@ Otherwise, if topography file is not used, check that the surface geometric heig
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-pio_file"></span>
+              <span class="anchor" id="variable-pio_file~6"></span>
               type(file_desc_t),
             </td>
 <td>intent(in),</td>
@@ -440,6 +441,23 @@ Otherwise, if topography file is not used, check that the surface geometric heig
     </tbody>
   </table>
 
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dyn_inquire_advected_constituent_index"></span> <h3> subroutine <a href='../proc/dyn_inquire_advected_constituent_index.html'>dyn_inquire_advected_constituent_index</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  <p>CAM-SIMA holds information about all constituents. However, MPAS dynamical core only knows about the advected ones.
+Inquire the index mapping for constituents advected by MPAS dynamical core. Save it as the <code>advected_constituent_index</code>
+lookup table, which serves as the authoritative source for mapping an index within the set of advected constituents to
+an index within the set of all constituents.
+(KCW, 2026-03-25)</p>
+
+  <h4>Arguments</h4>
+    <em>None</em>
 
     </div>
   </div>
@@ -545,7 +563,7 @@ If <code>printer</code> is not supplied, the MPI root rank will print. Otherwise
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-level"></span>
+              <span class="anchor" id="variable-level~3"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -560,7 +578,7 @@ If <code>printer</code> is not supplied, the MPI root rank will print. Otherwise
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-message"></span>
+              <span class="anchor" id="variable-message~4"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -575,7 +593,7 @@ If <code>printer</code> is not supplied, the MPI root rank will print. Otherwise
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-printer"></span>
+              <span class="anchor" id="variable-printer~3"></span>
               integer,
             </td>
 <td>intent(in),</td>
@@ -636,7 +654,7 @@ If <code>printer</code> is not supplied, the MPI root rank will print. Otherwise
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-cam_runtime_opts~6"></span>
+              <span class="anchor" id="variable-cam_runtime_opts~7"></span>
               type(runtime_options),
             </td>
 <td>intent(inout)</td>
@@ -651,7 +669,7 @@ If <code>printer</code> is not supplied, the MPI root rank will print. Otherwise
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-dyn_in~6"></span>
+              <span class="anchor" id="variable-dyn_in~7"></span>
               type(<a href='../type/dyn_import_t.html'>dyn_import_t</a>),
             </td>
 <td>intent(in)</td>
@@ -666,7 +684,7 @@ If <code>printer</code> is not supplied, the MPI root rank will print. Otherwise
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-dyn_out~6"></span>
+              <span class="anchor" id="variable-dyn_out~7"></span>
               type(<a href='../type/dyn_export_t.html'>dyn_export_t</a>),
             </td>
 <td>intent(in)</td>
@@ -710,7 +728,7 @@ Additionally, perform early initialization of MPAS dynamical core.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-namelist_path"></span>
+              <span class="anchor" id="variable-namelist_path~3"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>

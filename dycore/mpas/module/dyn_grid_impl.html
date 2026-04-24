@@ -104,7 +104,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 7.2% of total for modules and submodules.">321 statements</a>
+                 title=" 7.0% of total for modules and submodules.">320 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -156,6 +156,7 @@
       <div id="subs-0" class="collapse">
         <div class="list-group list-group-flush">
             <a class="list-group-item" href="../module/dyn_grid_impl.html#proc-define_cam_grid">define_cam_grid</a>
+            <a class="list-group-item" href="../module/dyn_grid_impl.html#proc-dyn_inquire_mesh_dimensions">dyn_inquire_mesh_dimensions</a>
             <a class="list-group-item" href="../module/dyn_grid_impl.html#proc-init_physics_grid">init_physics_grid</a>
             <a class="list-group-item" href="../module/dyn_grid_impl.html#proc-init_reference_pressure">init_reference_pressure</a>
         </div>
@@ -181,7 +182,6 @@
       </a>
       <div id="modsubs-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../module/dyn_grid_impl.html#proc-dyn_inquire_mesh_dimensions">dyn_inquire_mesh_dimensions</a>
             <a class="list-group-item" href="../module/dyn_grid_impl.html#proc-model_grid_init">model_grid_init</a>
         </div>
       </div>
@@ -454,6 +454,20 @@ Their names are listed in <code>dyn_grid_name</code> and their corresponding ids
   </div>
 
               <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dyn_inquire_mesh_dimensions"></span> <h3> subroutine <a href='../proc/dyn_inquire_mesh_dimensions.html'>dyn_inquire_mesh_dimensions</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Inquire local and global mesh dimensions. Save them as protected module variables.
+(KCW, 2024-11-21)</p>
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
+  </div>
+
+              <div class="card">
     <div class="card-header codesum"><span class="anchor" id="proc-init_physics_grid"></span> <h3> subroutine <a href='../proc/init_physics_grid.html'>init_physics_grid</a>()  
 </h3></div>
     <div class="card-body">
@@ -510,7 +524,7 @@ Provide grid and mapping information between global and local indexes to physics
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-name~2"></span>
+              <span class="anchor" id="variable-name"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -540,21 +554,6 @@ Provide grid and mapping information between global and local indexes to physics
 
         <section>
           <h2>Module Subroutines</h2>
-              <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-dyn_inquire_mesh_dimensions"></span> <h3>module subroutine <a href='../proc/dyn_inquire_mesh_dimensions.html'>dyn_inquire_mesh_dimensions</a>()  
-    <a href="../interface/dyn_inquire_mesh_dimensions.html"><button type="button" class="btn btn-info depwarn">Interface →</button></a>
-</h3></div>
-    <div class="card-body">
-          
-  <p>Inquire local and global mesh dimensions. Save them as protected module variables.
-(KCW, 2024-11-21)</p>
-
-  <h4>Arguments</h4>
-    <em>None</em>
-
-    </div>
-  </div>
-
               <div class="card">
     <div class="card-header codesum"><span class="anchor" id="proc-model_grid_init"></span> <h3>module subroutine <a href='../proc/model_grid_init.html'>model_grid_init</a>()  
     <a href="../interface/model_grid_init.html"><button type="button" class="btn btn-info depwarn">Interface →</button></a>
