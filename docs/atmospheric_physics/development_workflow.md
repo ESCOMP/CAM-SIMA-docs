@@ -9,7 +9,7 @@ The general workflow for adding a feature, bug-fix, or modification to atmospher
   1.  [**Open an issue.**](#1-open-an-issue)
   1.  **[Add your code modifications](#3-update-your-code-with-changes-from-the-official-repo) to a branch on your [fork](#2-create-a-fork-if-you-havent-already).**
   1.  **[Add/amend unit tests](#5-unit-testing)**
-  1.  **[Open a PR](#6-creating-a-pull-request-pr) from your branch to the `development` branch.**
+  1.  **[Open a PR](#6-creating-a-pull-request-pr) from your branch to the `main` branch.**
   1.  **Respond to any reviewer requests.**
   1.  **Fix any failing automated Github tests.**
   1.  **If moving code from CAM to atmospheric_physics, diff CAM between the latest tag and the tag where work was branched off from to verify that the moved code did not have any changes while work was being done.** For example, `git diff --name-status cam6_4_xxx...cam6_4_yyy` and check if any files related to the atmospheric_physics PR have (unexpectedly) changed.
@@ -20,12 +20,11 @@ The general workflow for adding a feature, bug-fix, or modification to atmospher
       - If there are associated changes to CAM-SIMA, it is also good practice to get those changes approved before merging the atmospheric_physics PR.
   1.  **Once you're ready to merge, squash the commits and merge the PR (e.g. the "squash and merge" option).**
 
-If you need an official tag for your new additions, then once your `development` PR has been merged you will need to do the following:
+If you need an official tag for your new additions, then you will need to do the following:
 
-  1.  **Open a PR that merges the atmospheric_physics `development` branch into `main`.  Ensure that the PR description lists the title and number of every PR that went into `development` since the last update to `main`.**
-  2.  **Fix any failing tests.  This includes tests on the target host models that will be using the new tag.**
-  3.  **Merge (do not squash!) the PR.**
-  4.  **[Tag](Tagging-Instructions.md) the new merge commit.**
+  1.  **Fix any failing tests.  This includes tests on the target host models that will be using the new tag.**
+  2.  **Merge the PR into `main`.**
+  3.  **[Tag](Tagging-Instructions.md) the new commit on `main`.**
 
 ## Workflow details
 
@@ -63,10 +62,10 @@ We recommend creating a fork of the atmospheric_physics repo, and doing all of t
 
 ```
    git checkout feature
-   git rebase upstream/development
+   git rebase upstream/main
 ```
 
-Please note that you may also do a `git merge upstream/development` if you feel more comfortable with that method.
+Please note that you may also do a `git merge upstream/main` if you feel more comfortable with that method.
 
 If you then want to update the `feature` branch on your Github fork, then push your changes like so:
 
@@ -84,10 +83,10 @@ Of course, if you run into any problems with either method then please create a 
 
 ### 4. Committing code
 
-**1. Create a new branch off of the ESCOMP development branch:**
+**1. Create a new branch off of the ESCOMP main branch:**
 
 ```
-   git checkout -b cool_new_feature upstream/development
+   git checkout -b cool_new_feature upstream/main
 ```
 
 where `cool_new_feature` is an example branch name (you can use any name you want).  Next, push that new branch to your fork on Github:
@@ -209,7 +208,7 @@ You can find a unit testing example at the [bottom of this page](#unit-testing-e
 
  ![text](figures/compare_forks_link.png "Compare forks")
 
-**4.  You should now see two new pull down boxes (to the right of an arrow).  Using those pull down boxes, select the "development" branch of the ESCOMP repo and select your fork (which should be `<username>/atmospheric_physics`):**
+**4.  You should now see two new pull down boxes (to the right of an arrow).  Using those pull down boxes, select the "main" branch of the ESCOMP repo and select your fork (which should be `<username>/atmospheric_physics`):**
 
  ![text](figures/fork_repo_dropdown.png "fork select list")
 
@@ -223,7 +222,7 @@ You can find a unit testing example at the [bottom of this page](#unit-testing-e
 
 **6. A new page should appear.  In the first text box add the title of your Pull request.  The second text box should contain additional fields that you should fill out to the best of your ability.**
 
-**7.  If you are contributing something into development that needs to go into the `main` branch quickly then please make it known in the PR description.  Also add the eventual tag name to the PR description.**
+**7.  If you are contributing something that needs a new official tag quickly then please make it known in the PR description.  Also add the eventual tag name to the PR description.**
 
 **8.  Add any relevant labels to the Pull request, add yourself as the assignee, and add any reviewers you would like to have.  Otherwise the core SE team will add reviewers for you.**
 
@@ -235,8 +234,7 @@ You can find a unit testing example at the [bottom of this page](#unit-testing-e
 
 **12.  Once all reviewers sign off on your modifications, then the PR can be merged.  Congratulations!  Your code is now in atmospheric_physics!**
 
-- If the PR is to `develop`, you should select "Squash and Merge"
-- If the PR is to `main`, DO NOT squash and instead select "Merge Commit"
+- You should select "Squash and Merge" when merging your PR into `main`
 
 ### Updating NamesNotInDictionary.txt file
 

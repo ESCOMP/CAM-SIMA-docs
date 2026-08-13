@@ -51,4 +51,4 @@ It also has two optional inputs:
 2.  `count` - a 1-D integer array with the same number of elements as there are dimensions for the variable that indicate the number of elements, starting from `start` that will be read in when subsetting the data.  CURRENTLY NOT USED.
 
 
-Finally, an actual example of using the NetCDF reader object in a CCPP physics scheme can be [found here](https://github.com/ESCOMP/atmospheric_physics/blob/development/test/test_schemes/file_io_test.F90).
+Finally, an actual example of using the NetCDF reader object in a CCPP physics scheme can be [found here](https://github.com/ESCOMP/atmospheric_physics/blob/main/test/test_schemes/file_io_test.F90).

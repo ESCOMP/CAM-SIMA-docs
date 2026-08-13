@@ -690,7 +690,7 @@ Bug gets extremely lucky (or maybe he's just really skilled) and there are no di
 Bug commits his changes to his fork/branch of the three repos: CAM, CAM-SIMA, atmospheric_physics.
 
 ## 10 - Final steps
-- He opens a PR into atmospheric_physics (target: `development` branch), goes through the review process, updates the NamesNotInDictionary.txt file, and then commits the PR when approvals are received. He then opens a PR from `development` to `main` and makes a tag (incrementing the minor version) when that is merged.
+- He opens a PR into atmospheric_physics (target: `main` branch), goes through the review process, updates the NamesNotInDictionary.txt file, and then commits the PR when approvals are received. He then makes a tag (incrementing the minor version) on the resulting `main` commit.
 - Once he has a tag, he opens PRs into CAM (target: `cam_development` branch) and CAM-SIMA (target: `development` branch) with the updated tag in `.gitmodules` (and code changes needed, including adding a new snapshot regression test in CAM-SIMA). When approvals are in and he gets the go-ahead to make a tag, he follows the procedures to make a CAM or CAM-SIMA tag.
 - Once all tags are made, he checks off "lunar tides" as completed in the [spreadsheet](https://docs.google.com/spreadsheets/d/1_1TTpnejam5jfrDqAORCCZtfkNhMRcu7cul37YTr_WM/edit#gid=0).
 
