@@ -109,7 +109,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 4.2% of total for procedures.">160 statements</a>
+                 title=" 5.1% of total for procedures.">199 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -150,17 +150,20 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-cerr~5">cerr</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-cerr~19">cerr</a>
             <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-field_3d_real">field_3d_real</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-i~7">i</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-ierr~7">ierr</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-index_qv">index_qv</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-i~23">i</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-ierr~21">ierr</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-index_qc">index_qc</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-index_qv~5">index_qv</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-index_tke">index_tke</a>
             <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-index_water_end">index_water_end</a>
             <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-index_water_start">index_water_start</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-j">j</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-j~4">j</a>
             <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-mpas_pool~2">mpas_pool</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-mpas_scalar_qc_standard_name">mpas_scalar_qc_standard_name</a>
             <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-mpas_scalar_qv_standard_name">mpas_scalar_qv_standard_name</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-subname~10">subname</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-subname~41">subname</a>
             <a class="list-group-item" href="../proc/dyn_mpas_define_scalar.html#variable-time_level">time_level</a>
         </div>
       </div>
@@ -204,9 +207,9 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item">mpas_pool_routines</li>
-                  <li class="list-inline-item"><a href='../module/dyn_mpas_procedures.html'>dyn_mpas_procedures</a></li>
                   <li class="list-inline-item">mpas_derived_types</li>
+                  <li class="list-inline-item"><a href='../module/dyn_mpas_procedures.html'>dyn_mpas_procedures</a></li>
+                  <li class="list-inline-item">mpas_pool_routines</li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -387,7 +390,7 @@ Ported and refactored for CAM-SIMA. (KCW, 2024-05-19)</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-constituent_name~2"></span>
+              <span class="anchor" id="variable-constituent_name~3"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -402,7 +405,7 @@ Ported and refactored for CAM-SIMA. (KCW, 2024-05-19)</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-is_water_species~2"></span>
+              <span class="anchor" id="variable-is_water_species~5"></span>
               logical,
             </td>
 <td>intent(in)</td>
@@ -787,7 +790,7 @@ implementation in a submodule of an interface in a parent module.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-cerr~5"></span>
+              <span class="anchor" id="variable-cerr~19"></span>
               character(len=strkind),
             </td>
               <td>private</td>
@@ -821,7 +824,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~7"></span>
+              <span class="anchor" id="variable-i~23"></span>
               integer,
             </td>
               <td>private</td>
@@ -838,7 +841,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~7"></span>
+              <span class="anchor" id="variable-ierr~21"></span>
               integer,
             </td>
               <td>private</td>
@@ -855,7 +858,24 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-index_qv"></span>
+              <span class="anchor" id="variable-index_qc"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>index_qc</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-index_qv~5"></span>
               integer,
             </td>
               <td>private</td>
@@ -864,6 +884,23 @@ implementation in a submodule of an interface in a parent module.
             </td>
             <td>::</td>
             <td><strong>index_qv</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-index_tke"></span>
+              integer,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>index_tke</strong></td>
                 <td></td>
                 <td></td>
             <td>
@@ -906,7 +943,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j"></span>
+              <span class="anchor" id="variable-j~4"></span>
               integer,
             </td>
               <td>private</td>
@@ -940,6 +977,25 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
+              <span class="anchor" id="variable-mpas_scalar_qc_standard_name"></span>
+              character(len=*),
+            </td>
+              <td>private,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>mpas_scalar_qc_standard_name</strong>(*)</td>
+<td> =</td>
+                <td>[character(strkind)::&#39;cloud_liquid_water_mixing_ratio_wrt_dry_air&#39;, &#39;cloud_liquid_water_mixing_ratio_wrt_moist_air&#39;, &#39;cloud_liquid_water_mixing_ratio_wrt_moist_air_and_condensed_water&#39;]</td>
+            <td>
+                <p>Possible CCPP standard names of <code>qc</code>, which denotes cloud liquid water mixing ratio.
+They are hard-coded here because MPAS needs to know where <code>qc</code> is.
+Index 1 is exactly what MPAS wants. Others also work, but need to be converted.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
               <span class="anchor" id="variable-mpas_scalar_qv_standard_name"></span>
               character(len=*),
             </td>
@@ -959,7 +1015,7 @@ Index 1 is exactly what MPAS wants. Others also work, but need to be converted.<
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-subname~10"></span>
+              <span class="anchor" id="variable-subname~41"></span>
               character(len=*),
             </td>
               <td>private,</td>
@@ -1025,11 +1081,20 @@ parameter
 <span class="w">            </span><span class="s1">&#39;water_vapor_mixing_ratio_wrt_moist_air_and_condensed_water&#39;</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="w">        </span><span class="p">]</span>
 
+<span class="w">        </span><span class="c">!&gt; Possible CCPP standard names of `qc`, which denotes cloud liquid water mixing ratio.</span>
+<span class="w">        </span><span class="c">!&gt; They are hard-coded here because MPAS needs to know where `qc` is.</span>
+<span class="w">        </span><span class="c">!&gt; Index 1 is exactly what MPAS wants. Others also work, but need to be converted.</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mpas_scalar_qc_standard_name</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="kt">character</span><span class="p">(</span><span class="n">strkind</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39;cloud_liquid_water_mixing_ratio_wrt_dry_air&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39;cloud_liquid_water_mixing_ratio_wrt_moist_air&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="s1">&#39;cloud_liquid_water_mixing_ratio_wrt_moist_air_and_condensed_water&#39;</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">        </span><span class="p">]</span>
+
 <span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dyn_mpas_subdriver::dyn_mpas_define_scalar&#39;</span>
 <span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="n">strkind</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">cerr</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ierr</span>
-<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">index_qv</span><span class="p">,</span><span class="w"> </span><span class="n">index_water_start</span><span class="p">,</span><span class="w"> </span><span class="n">index_water_end</span>
+<span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">index_qv</span><span class="p">,</span><span class="w"> </span><span class="n">index_qc</span><span class="p">,</span><span class="w"> </span><span class="n">index_tke</span><span class="p">,</span><span class="w"> </span><span class="n">index_water_start</span><span class="p">,</span><span class="w"> </span><span class="n">index_water_end</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">time_level</span>
 <span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">field3dreal</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field_3d_real</span>
 <span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">mpas_pool_type</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mpas_pool</span>
@@ -1039,8 +1104,25 @@ parameter
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_3d_real</span><span class="p">)</span>
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">)</span>
 
+<span class="w">        </span><span class="c">! `dyn_mpas_init_phase3` must be called before this subroutine.</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Constituents must be allocated before being defined&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        allocate</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituent_name</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="p">),</span><span class="w"> </span><span class="n">errmsg</span><span class="o">=</span><span class="n">cerr</span><span class="p">,</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate constituent_name&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="s1">&#39;Allocation returned with &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">ierr</span><span class="p">])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;: &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">cerr</span><span class="p">)),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        allocate</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="p">),</span><span class="w"> </span><span class="n">errmsg</span><span class="o">=</span><span class="n">cerr</span><span class="p">,</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate is_water_species&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="s1">&#39;Allocation returned with &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">ierr</span><span class="p">])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;: &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">cerr</span><span class="p">)),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end if</span>
 
 <span class="w">        </span><span class="c">! Input sanitization.</span>
@@ -1049,28 +1131,35 @@ parameter
 <span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Mismatch between numbers of constituent names and their waterness&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end if</span>
 
-<span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">constituent_name</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span><span class="c">! If constituent definitions are empty, `qv` is the only constituent per MPAS requirements.</span>
-<span class="w">            </span><span class="c">! See `dyn_mpas_init_phase3` for details.</span>
-<span class="w">            </span><span class="k">allocate</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituent_name</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">errmsg</span><span class="o">=</span><span class="n">cerr</span><span class="p">,</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
+<span class="k">        if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">constituent_name</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">les_model</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                </span><span class="c">! If constituent definitions are empty and LES is disabled, `qv` is the only</span>
+<span class="w">                </span><span class="c">! one constituent as per MPAS requirements.</span>
+<span class="w">                </span><span class="c">! See `dyn_mpas_init_phase3` for details.</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                        </span><span class="s1">&#39;Number of constituents must be 1 if no definitions are provided&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                </span><span class="k">end if</span>
 
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate constituent_name&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">                    </span><span class="s1">&#39;Allocation returned with &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">ierr</span><span class="p">])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;: &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">cerr</span><span class="p">)),</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">                    </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="k">                </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituent_name</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mpas_scalar_qv_standard_name</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">                </span><span class="c">! If constituent definitions are empty and LES is enabled, `qv`, `qc`, and `tke` are the only</span>
+<span class="w">                </span><span class="c">! three constituents as per MPAS requirements. However, `tke` is excepted because it is</span>
+<span class="w">                </span><span class="c">! internal to MPAS only.</span>
+<span class="w">                </span><span class="c">! See `dyn_mpas_init_phase3` for details.</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                        </span><span class="s1">&#39;Number of constituents must be 2 if no definitions are provided&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">                </span><span class="k">end if</span>
+
+<span class="k">                </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituent_name</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mpas_scalar_qv_standard_name</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
+
+<span class="w">                </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituent_name</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mpas_scalar_qc_standard_name</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">                </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
 <span class="w">            </span><span class="k">end if</span>
-
-<span class="k">            allocate</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">errmsg</span><span class="o">=</span><span class="n">cerr</span><span class="p">,</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
-
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate is_water_species&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">                    </span><span class="s1">&#39;Allocation returned with &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">ierr</span><span class="p">])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;: &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">cerr</span><span class="p">)),</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">                    </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
-<span class="w">            </span><span class="k">end if</span>
-
-<span class="k">            </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituent_name</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mpas_scalar_qv_standard_name</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">            </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
-<span class="w">        </span><span class="k">else</span>
+<span class="k">        else</span>
 <span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">constituent_name</span><span class="p">)</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="k">                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Mismatch between numbers of constituents and their names&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">            </span><span class="k">end if</span>
@@ -1079,51 +1168,63 @@ parameter
 <span class="k">                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Constituent names are too long&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">            </span><span class="k">end if</span>
 
-<span class="k">            allocate</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituent_name</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="p">),</span><span class="w"> </span><span class="n">errmsg</span><span class="o">=</span><span class="n">cerr</span><span class="p">,</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
-
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate constituent_name&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">                    </span><span class="s1">&#39;Allocation returned with &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">ierr</span><span class="p">])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;: &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">cerr</span><span class="p">)),</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">                    </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
-<span class="w">            </span><span class="k">end if</span>
-
 <span class="k">            </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituent_name</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">adjustl</span><span class="p">(</span><span class="n">constituent_name</span><span class="p">)</span>
-
-<span class="w">            </span><span class="k">allocate</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="p">),</span><span class="w"> </span><span class="n">errmsg</span><span class="o">=</span><span class="n">cerr</span><span class="p">,</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
-
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to allocate is_water_species&#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">new_line</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">                    </span><span class="s1">&#39;Allocation returned with &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">ierr</span><span class="p">])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;: &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">cerr</span><span class="p">)),</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">                    </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
-<span class="w">            </span><span class="k">end if</span>
-
-<span class="k">            </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(:)</span>
+<span class="w">            </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(:)</span>
 
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituent_name</span><span class="p">)</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">index_unique</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituent_name</span><span class="p">)))</span><span class="w"> </span><span class="k">then</span>
 <span class="k">                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Constituent names must be unique&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">            </span><span class="k">end if</span>
-
-<span class="w">            </span><span class="c">! `qv` must be present in constituents per MPAS requirements. It is a water species by definition.</span>
-<span class="w">            </span><span class="c">! See `dyn_mpas_init_phase3` for details.</span>
-<span class="w">            </span><span class="n">index_qv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-
-<span class="w">            </span><span class="c">! Lower index in `mpas_scalar_qv_standard_name` has higher precedence, with index 1 being exactly what MPAS wants.</span>
-<span class="w">            </span><span class="n">set_index_qv</span><span class="p">:</span><span class="w"> </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">mpas_scalar_qv_standard_name</span><span class="p">)</span>
-<span class="w">                </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span>
-<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituent_name</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">mpas_scalar_qv_standard_name</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                        </span><span class="n">index_qv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span>
-
-<span class="w">                        </span><span class="c">! The best candidate of `qv` has been found. Exit prematurely.</span>
-<span class="w">                        </span><span class="k">exit </span><span class="n">set_index_qv</span>
-<span class="w">                    </span><span class="k">end if</span>
-<span class="k">                end do</span>
-<span class="k">            end do </span><span class="n">set_index_qv</span>
-
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index_qv</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Constituent names must contain one of: &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">                    </span><span class="n">stringify</span><span class="p">(</span><span class="n">mpas_scalar_qv_standard_name</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;, and it must be a water species&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
-<span class="w">            </span><span class="k">end if</span>
 <span class="k">        end if</span>
+
+<span class="k">        </span><span class="n">index_qv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">        </span><span class="c">! Lower index in `mpas_scalar_qv_standard_name` has higher precedence, with index 1 being exactly what MPAS wants.</span>
+<span class="w">        </span><span class="n">set_index_qv</span><span class="p">:</span><span class="w"> </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">mpas_scalar_qv_standard_name</span><span class="p">)</span>
+<span class="w">            </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituent_name</span><span class="p">(</span><span class="n">j</span><span class="p">)))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">mpas_scalar_qv_standard_name</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">index_qv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span>
+
+<span class="w">                    </span><span class="c">! The best candidate of `qv` has been found. Exit prematurely.</span>
+<span class="w">                    </span><span class="k">exit </span><span class="n">set_index_qv</span>
+<span class="w">                </span><span class="k">end if</span>
+<span class="k">            end do</span>
+<span class="k">        end do </span><span class="n">set_index_qv</span>
+
+<span class="w">        </span><span class="c">! `qv` must be present in constituents as per MPAS requirements. It is a water species by definition.</span>
+<span class="w">        </span><span class="c">! See `dyn_mpas_init_phase3` for details.</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index_qv</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Constituent names must contain one of: &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                </span><span class="n">stringify</span><span class="p">(</span><span class="n">mpas_scalar_qv_standard_name</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;, and it must be a water species&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        </span><span class="n">index_qc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="n">index_tke</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">        </span><span class="c">! Lower index in `mpas_scalar_qc_standard_name` has higher precedence, with index 1 being exactly what MPAS wants.</span>
+<span class="w">        </span><span class="n">set_index_qc</span><span class="p">:</span><span class="w"> </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">mpas_scalar_qc_standard_name</span><span class="p">)</span>
+<span class="w">            </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituent_name</span><span class="p">(</span><span class="n">j</span><span class="p">)))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">mpas_scalar_qc_standard_name</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">index_qc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span>
+
+<span class="w">                    </span><span class="c">! The best candidate of `qc` has been found. Exit prematurely.</span>
+<span class="w">                    </span><span class="k">exit </span><span class="n">set_index_qc</span>
+<span class="w">                </span><span class="k">end if</span>
+<span class="k">            end do</span>
+<span class="k">        end do </span><span class="n">set_index_qc</span>
+
+<span class="w">        </span><span class="c">! If LES is enabled, `qc` and `tke` must be present in constituents as per MPAS requirements.</span>
+<span class="w">        </span><span class="c">! Otherwise, it is fine to not have them.</span>
+<span class="w">        </span><span class="c">! See `dyn_mpas_init_phase3` for details.</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">les_model</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="n">index_qc</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Constituent names must contain one of: &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">                    </span><span class="n">stringify</span><span class="p">(</span><span class="n">mpas_scalar_qc_standard_name</span><span class="p">)</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39;, and it must be a water species&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">            </span><span class="k">end if</span>
+
+<span class="k">            </span><span class="n">index_tke</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="k">end if</span>
 
 <span class="w">        </span><span class="c">! Create index mapping between MPAS scalars and constituent names. For example,</span>
 <span class="w">        </span><span class="c">! MPAS scalar index `i` corresponds to constituent index `index_mpas_scalar_to_constituent(i)`.</span>
@@ -1141,7 +1242,7 @@ parameter
 <span class="k">        </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">index_mpas_scalar_to_constituent</span><span class="p">(:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">        </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 
-<span class="w">        </span><span class="c">! Place water species first per MPAS requirements.</span>
+<span class="w">        </span><span class="c">! Place water species first as per MPAS requirements.</span>
 <span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
 <span class="k">                </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">index_mpas_scalar_to_constituent</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
@@ -1152,7 +1253,7 @@ parameter
 <span class="k">        </span><span class="n">index_water_start</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">        </span><span class="n">index_water_end</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">count</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">)</span>
 
-<span class="w">        </span><span class="c">! Place non-water species second per MPAS requirements.</span>
+<span class="w">        </span><span class="c">! Place non-water species second as per MPAS requirements.</span>
 <span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
 <span class="k">                </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">index_mpas_scalar_to_constituent</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
@@ -1182,6 +1283,11 @@ parameter
 <span class="w">        </span><span class="c">! Set the index of `qv` in terms of MPAS scalars.</span>
 <span class="w">        </span><span class="n">index_qv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">index_constituent_to_mpas_scalar</span><span class="p">(</span><span class="n">index_qv</span><span class="p">)</span>
 
+<span class="w">        </span><span class="c">! Set the index of `qc`, if present, in terms of MPAS scalars.</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index_qc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            </span><span class="n">index_qc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">index_constituent_to_mpas_scalar</span><span class="p">(</span><span class="n">index_qc</span><span class="p">)</span>
+<span class="w">        </span><span class="k">end if</span>
+
 <span class="w">        </span><span class="c">! Print information about constituents.</span>
 <span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span>
 <span class="w">            </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_verbose</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Constituent index &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">i</span><span class="p">]))</span>
@@ -1200,6 +1306,8 @@ parameter
 <span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_pool_pointer</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;state&#39;</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;index_qv&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_qv</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;index_qc&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_qc</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;index_tke&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_tke</span><span class="p">)</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;moist_start&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_water_start</span><span class="p">)</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;moist_end&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_water_end</span><span class="p">)</span>
 
@@ -1229,6 +1337,10 @@ parameter
 <span class="w">                </span><span class="k">end if</span>
 <span class="k">            end do</span>
 
+<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="n">index_tke</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                </span><span class="n">field_3d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">(</span><span class="n">index_tke</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;tke_for_les&#39;</span>
+<span class="w">            </span><span class="k">end if</span>
+
 <span class="k">            nullify</span><span class="p">(</span><span class="n">field_3d_real</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end do</span>
 
@@ -1241,6 +1353,8 @@ parameter
 <span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_pool_pointer</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;tend&#39;</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;index_qv&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_qv</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;index_qc&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_qc</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;index_tke&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_tke</span><span class="p">)</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;moist_start&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_water_start</span><span class="p">)</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;moist_end&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_water_end</span><span class="p">)</span>
 
@@ -1270,6 +1384,10 @@ parameter
 <span class="w">                </span><span class="k">end if</span>
 <span class="k">            end do</span>
 
+<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="n">index_tke</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                </span><span class="n">field_3d_real</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">constituentnames</span><span class="p">(</span><span class="n">index_tke</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;tendency_of_tke_for_les&#39;</span>
+<span class="w">            </span><span class="k">end if</span>
+
 <span class="k">            nullify</span><span class="p">(</span><span class="n">field_3d_real</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end do</span>
 
@@ -1278,10 +1396,14 @@ parameter
 <span class="w">        </span><span class="c">! For consistency, also add dimension variables to MPAS &quot;dimension&quot; pool.</span>
 
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">dimensions</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;index_qv&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_qv</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">dimensions</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;index_qc&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_qc</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">dimensions</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;index_tke&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_tke</span><span class="p">)</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">dimensions</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;moist_start&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_water_start</span><span class="p">)</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">dimensions</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;moist_end&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">index_water_end</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;index_qv = &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">index_qv</span><span class="p">]))</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;index_qc = &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">index_qc</span><span class="p">]))</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;index_tke = &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">index_tke</span><span class="p">]))</span>
 <span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;moist_start = &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">index_water_start</span><span class="p">]))</span>
 <span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;moist_end = &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">index_water_end</span><span class="p">]))</span>
 

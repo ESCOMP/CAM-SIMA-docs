@@ -104,7 +104,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="&lt;p&gt;87.7% of total for derived types.&lt;/p&gt;Including implementation: 2283 statements, 99.6% of total for derived types.">71 statements</a>
+                 title="&lt;p&gt;87.8% of total for derived types.&lt;/p&gt;Including implementation: 2342 statements, 99.6% of total for derived types.">72 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -145,15 +145,16 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-constituent_name">constituent_name</a>
+            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-constituent_name~2">constituent_name</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-corelist">corelist</a>
-            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-coupling_time_interval">coupling_time_interval</a>
+            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-coupling_time_interval~2">coupling_time_interval</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-domain_ptr">domain_ptr</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-index_constituent_to_mpas_scalar">index_constituent_to_mpas_scalar</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-index_mpas_scalar_to_constituent">index_mpas_scalar_to_constituent</a>
-            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-is_water_species">is_water_species</a>
+            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-is_water_species~4">is_water_species</a>
+            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-les_model">les_model</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-log_level">log_level</a>
-            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-log_unit">log_unit</a>
+            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-log_unit~2">log_unit</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-model_error">model_error</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-mpi_comm">mpi_comm</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-mpi_rank">mpi_rank</a>
@@ -376,7 +377,7 @@ said component(s).
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-constituent_name"></span>
+              <span class="anchor" id="variable-constituent_name~2"></span>
               character(len=strkind),
             </td>
               <td>private,</td>
@@ -410,7 +411,7 @@ said component(s).
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-coupling_time_interval"></span>
+              <span class="anchor" id="variable-coupling_time_interval~2"></span>
               integer,
             </td>
               <td>private</td>
@@ -478,7 +479,7 @@ said component(s).
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-is_water_species"></span>
+              <span class="anchor" id="variable-is_water_species~4"></span>
               logical,
             </td>
               <td>private,</td>
@@ -489,6 +490,23 @@ said component(s).
             <td><strong>is_water_species</strong>(:)</td>
                 <td></td>
                 <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-les_model"></span>
+              logical,
+            </td>
+              <td>private</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>les_model</strong></td>
+<td> =</td>
+                <td>.false.</td>
             <td>
                 
             </td>
@@ -512,7 +530,7 @@ said component(s).
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-log_unit"></span>
+              <span class="anchor" id="variable-log_unit~2"></span>
               integer,
             </td>
               <td>private</td>
@@ -8400,6 +8418,7 @@ said component(s).
 <span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">domain_type</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="nb">null</span><span class="p">()</span>
 
 <span class="w">        </span><span class="c">! Initialized by `dyn_mpas_init_phase3`.</span>
+<span class="w">        </span><span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">les_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 
 <span class="w">        </span><span class="c">! Initialized by `dyn_mpas_define_scalar`.</span>

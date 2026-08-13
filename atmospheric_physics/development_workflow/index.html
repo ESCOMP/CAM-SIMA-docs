@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -2062,7 +2062,7 @@
 <li><a href="#1-open-an-issue"><strong>Open an issue.</strong></a></li>
 <li><strong><a href="#3-update-your-code-with-changes-from-the-official-repo">Add your code modifications</a> to a branch on your <a href="#2-create-a-fork-if-you-havent-already">fork</a>.</strong></li>
 <li><strong><a href="#5-unit-testing">Add/amend unit tests</a></strong></li>
-<li><strong><a href="#6-creating-a-pull-request-pr">Open a PR</a> from your branch to the <code>development</code> branch.</strong></li>
+<li><strong><a href="#6-creating-a-pull-request-pr">Open a PR</a> from your branch to the <code>main</code> branch.</strong></li>
 <li><strong>Respond to any reviewer requests.</strong></li>
 <li><strong>Fix any failing automated Github tests.</strong></li>
 <li><strong>If moving code from CAM to atmospheric_physics, diff CAM between the latest tag and the tag where work was branched off from to verify that the moved code did not have any changes while work was being done.</strong> For example, <code>git diff --name-status cam6_4_xxx...cam6_4_yyy</code> and check if any files related to the atmospheric_physics PR have (unexpectedly) changed.</li>
@@ -2075,12 +2075,11 @@
 </li>
 <li><strong>Once you're ready to merge, squash the commits and merge the PR (e.g. the "squash and merge" option).</strong></li>
 </ol>
-<p>If you need an official tag for your new additions, then once your <code>development</code> PR has been merged you will need to do the following:</p>
+<p>If you need an official tag for your new additions, then you will need to do the following:</p>
 <ol>
-<li><strong>Open a PR that merges the atmospheric_physics <code>development</code> branch into <code>main</code>.  Ensure that the PR description lists the title and number of every PR that went into <code>development</code> since the last update to <code>main</code>.</strong></li>
 <li><strong>Fix any failing tests.  This includes tests on the target host models that will be using the new tag.</strong></li>
-<li><strong>Merge (do not squash!) the PR.</strong></li>
-<li><strong><a href="../Tagging-Instructions/">Tag</a> the new merge commit.</strong></li>
+<li><strong>Merge the PR into <code>main</code>.</strong></li>
+<li><strong><a href="../Tagging-Instructions/">Tag</a> the new commit on <code>main</code>.</strong></li>
 </ol>
 <h2 id="workflow-details">Workflow details</h2>
 <p>The following sections describe various workflow actions in more detail.</p>
@@ -2103,9 +2102,9 @@
 </code></pre>
 <p><strong>3.  Rebase your local forked branch to the ESCOMP version.  For example, assuming you are working on a local branch called <code>feature</code>:</strong></p>
 <pre><code>   git checkout feature
-   git rebase upstream/development
+   git rebase upstream/main
 </code></pre>
-<p>Please note that you may also do a <code>git merge upstream/development</code> if you feel more comfortable with that method.</p>
+<p>Please note that you may also do a <code>git merge upstream/main</code> if you feel more comfortable with that method.</p>
 <p>If you then want to update the <code>feature</code> branch on your Github fork, then push your changes like so:</p>
 <p>rebase:</p>
 <pre><code>   git push -f
@@ -2115,8 +2114,8 @@
 </code></pre>
 <p>Of course, if you run into any problems with either method then please create a discussion post that contains your message and someone will try and assist you.</p>
 <h3 id="4-committing-code">4. Committing code</h3>
-<p><strong>1. Create a new branch off of the ESCOMP development branch:</strong></p>
-<pre><code>   git checkout -b cool_new_feature upstream/development
+<p><strong>1. Create a new branch off of the ESCOMP main branch:</strong></p>
+<pre><code>   git checkout -b cool_new_feature upstream/main
 </code></pre>
 <p>where <code>cool_new_feature</code> is an example branch name (you can use any name you want).  Next, push that new branch to your fork on Github:</p>
 <pre><code>   git push -u origin cool_new_feature
@@ -2192,22 +2191,21 @@ subroutine test_added_element_equals_get_element()
 <p><img alt="text" src="../figures/new_PR_button.png" title="New PR button" /></p>
 <p><strong>3.  On the new "Compare changes" page, you should see a "compare across forks" link, which you should click.</strong></p>
 <p><img alt="text" src="../figures/compare_forks_link.png" title="Compare forks" /></p>
-<p><strong>4.  You should now see two new pull down boxes (to the right of an arrow).  Using those pull down boxes, select the "development" branch of the ESCOMP repo and select your fork (which should be <code>&lt;username&gt;/atmospheric_physics</code>):</strong></p>
+<p><strong>4.  You should now see two new pull down boxes (to the right of an arrow).  Using those pull down boxes, select the "main" branch of the ESCOMP repo and select your fork (which should be <code>&lt;username&gt;/atmospheric_physics</code>):</strong></p>
 <p><img alt="text" src="../figures/fork_repo_dropdown.png" title="fork select list" /></p>
 <p><strong>Then select the branch which contains the new commits:</strong></p>
 <p><img alt="text" src="../figures/fork_branch_dropdown.png" title="branch select list" /></p>
 <p><strong>5. You should then see a list of all the different modifications.  If they generally look correct to you, then click the "Create pull request" button.</strong></p>
 <p><img alt="text" src="../figures/create_PR_button.png" title="Create PR button" /></p>
 <p><strong>6. A new page should appear.  In the first text box add the title of your Pull request.  The second text box should contain additional fields that you should fill out to the best of your ability.</strong></p>
-<p><strong>7.  If you are contributing something into development that needs to go into the <code>main</code> branch quickly then please make it known in the PR description.  Also add the eventual tag name to the PR description.</strong></p>
+<p><strong>7.  If you are contributing something that needs a new official tag quickly then please make it known in the PR description.  Also add the eventual tag name to the PR description.</strong></p>
 <p><strong>8.  Add any relevant labels to the Pull request, add yourself as the assignee, and add any reviewers you would like to have.  Otherwise the core SE team will add reviewers for you.</strong></p>
 <p><strong>9.  Fix any failing tests that show up on Github.</strong></p>
 <p><strong>10.  If you get any change requests during code review, then simply apply those changes in the same way you applied your original modifications.  Please note that once you <code>push</code> your changes then the PR will automatically be updated and the GitHub tests will be automatically run.</strong></p>
 <p><strong>11.  Update the <code>NamesNotInDictionary.txt</code> file using the instructions <a href="#updating-namesnotindictionarytxt-file">below</a>.</strong></p>
 <p><strong>12.  Once all reviewers sign off on your modifications, then the PR can be merged.  Congratulations!  Your code is now in atmospheric_physics!</strong></p>
 <ul>
-<li>If the PR is to <code>develop</code>, you should select "Squash and Merge"</li>
-<li>If the PR is to <code>main</code>, DO NOT squash and instead select "Merge Commit"</li>
+<li>You should select "Squash and Merge" when merging your PR into <code>main</code></li>
 </ul>
 <h3 id="updating-namesnotindictionarytxt-file">Updating NamesNotInDictionary.txt file</h3>
 <p><strong>1.  Clone the CCPP standard names dictionary.</strong></p>
@@ -2380,7 +2378,7 @@ $ ctest -V --output-on-failure
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 23, 2026 21:07:54 UTC">March 23, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 13, 2026 16:53:27 UTC">August 13, 2026</span>
   </span>
 
     
@@ -2408,6 +2406,11 @@ $ ctest -V --output-on-failure
     
     <nav>
       
+        <a href="https://github.com/nusbaume" class="md-author" title="@nusbaume">
+          
+          <img src="https://avatars.githubusercontent.com/u/30849041?v=4&size=72" alt="nusbaume">
+        </a>
+      
         <a href="https://github.com/peverwhee" class="md-author" title="@peverwhee">
           
           <img src="https://avatars.githubusercontent.com/u/26393487?v=4&size=72" alt="peverwhee">
@@ -2418,14 +2421,9 @@ $ ctest -V --output-on-failure
           <img src="https://avatars.githubusercontent.com/u/19864447?v=4&size=72" alt="web-flow">
         </a>
       
-        <a href="https://github.com/jimmielin" class="md-author" title="@jimmielin">
+        <a href="https://github.com/hplin-ucar" class="md-author" title="@hplin-ucar">
           
-          <img src="https://avatars.githubusercontent.com/u/123603?v=4&size=72" alt="jimmielin">
-        </a>
-      
-        <a href="https://github.com/mwaxmonsky" class="md-author" title="@mwaxmonsky">
-          
-          <img src="https://avatars.githubusercontent.com/u/137746677?v=4&size=72" alt="mwaxmonsky">
+          <img src="https://avatars.githubusercontent.com/u/297972158?v=4&size=72" alt="hplin-ucar">
         </a>
       
       
@@ -2486,7 +2484,7 @@ $ ctest -V --output-on-failure
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
