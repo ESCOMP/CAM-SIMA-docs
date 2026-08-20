@@ -9,14 +9,10 @@ The syntax for updating a the configuration for a history file is:
 Possible namelist options for your `user_nl_cam` (fields in <span style="color:lightgrey">grey</span> have not been fully implemented):
 
 - `hist_add_inst_fields`: add instantaneous fields to a specified history file
-
-<ul style="color:lightgrey">
-<li>hist_add_avg_fields: add average fields to a specified history file</li>
-<li>hist_add_min_fields: add minimum fields to a specified history file</li>
-<li>hist_add_max_fields: add maximum fields to a specified history file</li>
-<li>hist_add_var_fields: add standard deviation fields to a specified history file</li>
-</ul>
-
+- `hist_add_avg_fields`: add average fields to a specified history file
+- `hist_add_min_fields`: add minimum fields to a specified history file
+- `hist_add_max_fields`: add maximum fields to a specified history file
+- `hist_add_var_fields`: add standard deviation fields to a specified history file
 - `hist_remove_fields`: remove a given field from a specified history file
 - `hist_file_type`: type of file (options are "history", <span style="color:lightgrey">"satellite"</span>, and <span style="color:lightgrey">"initial_value"</span>) - defaults to "history"
 - `hist_max_frames`: maximum number of samples written to a specified history file (after which a new one will be created)
@@ -29,10 +25,17 @@ Possible namelist options for your `user_nl_cam` (fields in <span style="color:l
 **Example**
 Take the following sample `user_nl_cam`:
 ```
+hist_output_frequency;h0: 1*month
+hist_max_frames;h0: 1
+hist_add_avg_fields;h0: T, Q
+hist_precision;h0: REAL32
+hist_filename_spec;h0: %c.cam.%u.%y-%m-%d-%s.nc
+hist_write_nstep0;h0: .false.
+
 hist_output_frequency;h1: 5*ndays
 hist_max_frames;h1: 3
-hist_add_inst_fields;h1: U
-hist_add_inst_fields;h1: V, Q
+hist_add_inst_fields;h1: U, V
+hist_add_inst_fields;h1: Q
 hist_precision;h1: REAL64
 hist_filename_spec;h1: my-history-file%m-%d
 hist_write_nstep0;h1: .false.
