@@ -151,8 +151,8 @@
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
             <a class="list-group-item" href="../proc/dyn_mpas_final.html#variable-field_2d_real~5">field_2d_real</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_final.html#variable-ierr~28">ierr</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_final.html#variable-subname~51">subname</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_final.html#variable-ierr~11">ierr</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_final.html#variable-subname~15">subname</a>
         </div>
       </div>
     </div>
@@ -196,16 +196,16 @@
             <li class="list-group-item">
               <ul class="list-inline">
                   <li class="list-inline-item">mpas_derived_types</li>
-                  <li class="list-inline-item">mpas_field_routines</li>
-                  <li class="list-inline-item">atm_time_integration</li>
-                  <li class="list-inline-item">mpas_timer</li>
-                  <li class="list-inline-item">mpas_atm_threading</li>
-                  <li class="list-inline-item">mpas_log</li>
                   <li class="list-inline-item">mpas_pool_routines</li>
                   <li class="list-inline-item">mpas_decomp</li>
+                  <li class="list-inline-item">mpas_field_routines</li>
+                  <li class="list-inline-item">mpas_atm_threading</li>
+                  <li class="list-inline-item">atm_time_integration</li>
+                  <li class="list-inline-item">mpas_log</li>
                   <li class="list-inline-item">mpas_timekeeping</li>
                   <li class="list-inline-item">mpas_atm_halos</li>
                   <li class="list-inline-item">mpas_framework</li>
+                  <li class="list-inline-item">mpas_timer</li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -792,7 +792,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~28"></span>
+              <span class="anchor" id="variable-ierr~11"></span>
               integer,
             </td>
               <td>private</td>
@@ -809,7 +809,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-subname~51"></span>
+              <span class="anchor" id="variable-subname~15"></span>
               character(len=*),
             </td>
               <td>private,</td>
@@ -855,27 +855,27 @@ parameter
 
 <span class="w">        </span><span class="k">class</span><span class="p">(</span><span class="n">mpas_dynamical_core_type</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">self</span>
 
-<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dyn_mpas_subdriver::dyn_mpas_final&#39;</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'dyn_mpas_subdriver::dyn_mpas_final'</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ierr</span>
 <span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">field2dreal</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">field_2d_real</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; entered&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">' entered'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_2d_real</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! First, wind down MPAS dynamical core by calling its own finalization procedures.</span>
 
-<span class="w">        </span><span class="c">! Some additional &quot;scratch&quot; fields are needed for interoperability with CAM-SIMA, but they are not finalized by</span>
+<span class="w">        </span><span class="c">! Some additional "scratch" fields are needed for interoperability with CAM-SIMA, but they are not finalized by</span>
 <span class="w">        </span><span class="c">! `mpas_atm_dynamics_finalize`. Finalize them below.</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;tend_uzonal&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">field_2d_real</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="s1">'tend_uzonal'</span><span class="p">,</span><span class="w"> </span><span class="n">field_2d_real</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_deallocate_scratch_field</span><span class="p">(</span><span class="n">field_2d_real</span><span class="p">)</span>
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_2d_real</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;tend_umerid&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">field_2d_real</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_get_field</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">allfields</span><span class="p">,</span><span class="w"> </span><span class="s1">'tend_umerid'</span><span class="p">,</span><span class="w"> </span><span class="n">field_2d_real</span><span class="p">,</span><span class="w"> </span><span class="n">timelevel</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_deallocate_scratch_field</span><span class="p">(</span><span class="n">field_2d_real</span><span class="p">)</span>
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">field_2d_real</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Finalizing dynamics&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Finalizing dynamics'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Opposite to `mpas_atm_dynamics_init`.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_atm_dynamics_finalize</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="p">)</span>
@@ -884,30 +884,30 @@ parameter
 <span class="w">        </span><span class="k">call </span><span class="n">atm_destroy_halo_groups</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to destroy halo exchange groups&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">'Failed to destroy halo exchange groups'</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end if</span>
 
 <span class="k">        nullify</span><span class="p">(</span><span class="n">exchange_halo_group</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Cleaning up OpenMP threading&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Cleaning up OpenMP threading'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Opposite to `mpas_atm_threading_init`.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_atm_threading_finalize</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to clean up OpenMP threading&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">'Failed to clean up OpenMP threading'</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end if</span>
 
-<span class="k">        call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Cleaning up clock&#39;</span><span class="p">)</span>
+<span class="k">        call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Cleaning up clock'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Opposite to `mpas_create_clock`, which was called by `atm_simulation_clock_init`, then `atm_setup_clock`.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_destroy_clock</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">clock</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to clean up clock&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">'Failed to clean up clock'</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end if</span>
 
-<span class="k">        call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Cleaning up decompositions&#39;</span><span class="p">)</span>
+<span class="k">        call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Cleaning up decompositions'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Opposite to `mpas_decomp_create_decomp_list`, which was called by `atm_setup_decompositions`.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_decomp_destroy_decomp_list</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">decompositions</span><span class="p">)</span>
@@ -921,23 +921,23 @@ parameter
 <span class="w">        </span><span class="c">! Opposite to `mpas_timer_init`, which was called by `mpas_framework_init_phase2`.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_timer_finalize</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Cleaning up log&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Cleaning up log'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Opposite to `mpas_log_init`, which was called by `atm_setup_log`.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_log_finalize</span><span class="p">(</span><span class="n">ierr</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to clean up log&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">'Failed to clean up log'</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end if</span>
 
-<span class="k">        call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Finalizing MPAS framework&#39;</span><span class="p">)</span>
+<span class="k">        call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Finalizing MPAS framework'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Opposite to `mpas_framework_init_phase1` and `mpas_framework_init_phase2`.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_framework_finalize</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">dminfo</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; completed&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">' completed'</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Successful finalization of MPAS dynamical core&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Successful finalization of MPAS dynamical core'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Second, clean up this MPAS dynamical core instance.</span>
 

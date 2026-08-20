@@ -522,12 +522,12 @@ can be.
 <a id="ln-224" name="ln-224" href="#ln-224"></a>
 <a id="ln-225" name="ln-225" href="#ln-225"></a><span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">real64</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">constant_cvd</span><span class="w"> </span><span class="c">! Specific heat of dry air at constant volume.</span>
 <a id="ln-226" name="ln-226" href="#ln-226"></a>
-<a id="ln-227" name="ln-227" href="#ln-227"></a><span class="w">        </span><span class="c">! Mayer&#39;s relation.</span>
+<a id="ln-227" name="ln-227" href="#ln-227"></a><span class="w">        </span><span class="c">! Mayer's relation.</span>
 <a id="ln-228" name="ln-228" href="#ln-228"></a><span class="w">        </span><span class="n">constant_cvd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">constant_cpd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">constant_rd</span>
 <a id="ln-229" name="ln-229" href="#ln-229"></a>
 <a id="ln-230" name="ln-230" href="#ln-230"></a><span class="w">        </span><span class="c">! Poisson equation with equation of state plugged in and arranging for temperature. For equation of state,</span>
 <a id="ln-231" name="ln-231" href="#ln-231"></a><span class="w">        </span><span class="c">! it can be shown that the effect of water vapor can be passed on to the temperature term entirely such that</span>
-<a id="ln-232" name="ln-232" href="#ln-232"></a><span class="w">        </span><span class="c">! dry air density and dry air gas constant can be used at all times. This modified &quot;moist&quot; temperature is</span>
+<a id="ln-232" name="ln-232" href="#ln-232"></a><span class="w">        </span><span class="c">! dry air density and dry air gas constant can be used at all times. This modified "moist" temperature is</span>
 <a id="ln-233" name="ln-233" href="#ln-233"></a><span class="w">        </span><span class="c">! described herein:</span>
 <a id="ln-234" name="ln-234" href="#ln-234"></a><span class="w">        </span><span class="c">! The paragraph below equation 2.7 in doi:10.5065/1DFH-6P97.</span>
 <a id="ln-235" name="ln-235" href="#ln-235"></a><span class="w">        </span><span class="c">! The paragraph below equation 2 in doi:10.1175/MWR-D-11-00215.1.</span>
@@ -560,12 +560,12 @@ can be.
 <a id="ln-262" name="ln-262" href="#ln-262"></a>
 <a id="ln-263" name="ln-263" href="#ln-263"></a><span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">real64</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">constant_cvd</span><span class="w"> </span><span class="c">! Specific heat of dry air at constant volume.</span>
 <a id="ln-264" name="ln-264" href="#ln-264"></a>
-<a id="ln-265" name="ln-265" href="#ln-265"></a><span class="w">        </span><span class="c">! Mayer&#39;s relation.</span>
+<a id="ln-265" name="ln-265" href="#ln-265"></a><span class="w">        </span><span class="c">! Mayer's relation.</span>
 <a id="ln-266" name="ln-266" href="#ln-266"></a><span class="w">        </span><span class="n">constant_cvd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">constant_cpd</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">constant_rd</span>
 <a id="ln-267" name="ln-267" href="#ln-267"></a>
 <a id="ln-268" name="ln-268" href="#ln-268"></a><span class="w">        </span><span class="c">! Poisson equation with equation of state plugged in and arranging for potential temperature. For equation of state,</span>
 <a id="ln-269" name="ln-269" href="#ln-269"></a><span class="w">        </span><span class="c">! it can be shown that the effect of water vapor can be passed on to the temperature term entirely such that</span>
-<a id="ln-270" name="ln-270" href="#ln-270"></a><span class="w">        </span><span class="c">! dry air density and dry air gas constant can be used at all times. This modified &quot;moist&quot; temperature is</span>
+<a id="ln-270" name="ln-270" href="#ln-270"></a><span class="w">        </span><span class="c">! dry air density and dry air gas constant can be used at all times. This modified "moist" temperature is</span>
 <a id="ln-271" name="ln-271" href="#ln-271"></a><span class="w">        </span><span class="c">! described herein:</span>
 <a id="ln-272" name="ln-272" href="#ln-272"></a><span class="w">        </span><span class="c">! The paragraph below equation 2.7 in doi:10.5065/1DFH-6P97.</span>
 <a id="ln-273" name="ln-273" href="#ln-273"></a><span class="w">        </span><span class="c">! The paragraph below equation 2 in doi:10.1175/MWR-D-11-00215.1.</span>
@@ -584,7 +584,7 @@ can be.
 <a id="ln-286" name="ln-286" href="#ln-286"></a><span class="w">    </span><span class="k">end function </span><span class="n">theta_of_t_rhod_qv</span>
 <a id="ln-287" name="ln-287" href="#ln-287"></a>
 <a id="ln-288" name="ln-288" href="#ln-288"></a><span class="w">    </span><span class="c">!&gt; Compute the temperature `t` as a function of the modified moist temperature `tm` and the water vapor mixing ratio `qv`.</span>
-<a id="ln-289" name="ln-289" href="#ln-289"></a><span class="w">    </span><span class="c">!&gt; Essentially, \( T = \frac{T_m}{1 + \frac{R_v}{R_d} q_v} \). This modified &quot;moist&quot; temperature is described herein:</span>
+<a id="ln-289" name="ln-289" href="#ln-289"></a><span class="w">    </span><span class="c">!&gt; Essentially, \( T = \frac{T_m}{1 + \frac{R_v}{R_d} q_v} \). This modified "moist" temperature is described herein:</span>
 <a id="ln-290" name="ln-290" href="#ln-290"></a><span class="w">    </span><span class="c">!&gt; The paragraph below equation 2.7 in doi:10.5065/1DFH-6P97.</span>
 <a id="ln-291" name="ln-291" href="#ln-291"></a><span class="w">    </span><span class="c">!&gt; The paragraph below equation 2 in doi:10.1175/MWR-D-11-00215.1.</span>
 <a id="ln-292" name="ln-292" href="#ln-292"></a><span class="w">    </span><span class="c">!&gt; Similarly, it can be shown that the relation, \( \theta = \frac{\theta_m}{1 + \frac{R_v}{R_d} q_v} \), also holds.</span>
@@ -599,7 +599,7 @@ can be.
 <a id="ln-301" name="ln-301" href="#ln-301"></a><span class="w">    </span><span class="k">end function </span><span class="n">t_of_tm_qv</span>
 <a id="ln-302" name="ln-302" href="#ln-302"></a>
 <a id="ln-303" name="ln-303" href="#ln-303"></a><span class="w">    </span><span class="c">!&gt; Compute the modified moist temperature `tm` as a function of the temperature `t` and the water vapor mixing ratio `qv`.</span>
-<a id="ln-304" name="ln-304" href="#ln-304"></a><span class="w">    </span><span class="c">!&gt; Essentially, \( T_m = T (1 + \frac{R_v}{R_d} q_v) \). This modified &quot;moist&quot; temperature is described herein:</span>
+<a id="ln-304" name="ln-304" href="#ln-304"></a><span class="w">    </span><span class="c">!&gt; Essentially, \( T_m = T (1 + \frac{R_v}{R_d} q_v) \). This modified "moist" temperature is described herein:</span>
 <a id="ln-305" name="ln-305" href="#ln-305"></a><span class="w">    </span><span class="c">!&gt; The paragraph below equation 2.7 in doi:10.5065/1DFH-6P97.</span>
 <a id="ln-306" name="ln-306" href="#ln-306"></a><span class="w">    </span><span class="c">!&gt; The paragraph below equation 2 in doi:10.1175/MWR-D-11-00215.1.</span>
 <a id="ln-307" name="ln-307" href="#ln-307"></a><span class="w">    </span><span class="c">!&gt; Similarly, it can be shown that the relation, \( \theta_m = \theta (1 + \frac{R_v}{R_d} q_v) \), also holds.</span>
@@ -615,7 +615,7 @@ can be.
 <a id="ln-317" name="ln-317" href="#ln-317"></a>
 <a id="ln-318" name="ln-318" href="#ln-318"></a><span class="w">    </span><span class="c">!&gt; Compute the modified moist temperature `tm` as a function of the virtual temperature `tv` and</span>
 <a id="ln-319" name="ln-319" href="#ln-319"></a><span class="w">    </span><span class="c">!&gt; the water vapor mixing ratio `qv`.</span>
-<a id="ln-320" name="ln-320" href="#ln-320"></a><span class="w">    </span><span class="c">!&gt; Essentially, \( T_m = T_v (1 + q_v) \). This modified &quot;moist&quot; temperature is described herein:</span>
+<a id="ln-320" name="ln-320" href="#ln-320"></a><span class="w">    </span><span class="c">!&gt; Essentially, \( T_m = T_v (1 + q_v) \). This modified "moist" temperature is described herein:</span>
 <a id="ln-321" name="ln-321" href="#ln-321"></a><span class="w">    </span><span class="c">!&gt; The paragraph below equation 2.7 in doi:10.5065/1DFH-6P97.</span>
 <a id="ln-322" name="ln-322" href="#ln-322"></a><span class="w">    </span><span class="c">!&gt; The paragraph below equation 2 in doi:10.1175/MWR-D-11-00215.1.</span>
 <a id="ln-323" name="ln-323" href="#ln-323"></a><span class="w">    </span><span class="c">!&gt; Similarly, it can be shown that the relation, \( \theta_m = \theta_v (1 + q_v) \), also holds.</span>
@@ -631,7 +631,7 @@ can be.
 <a id="ln-333" name="ln-333" href="#ln-333"></a>
 <a id="ln-334" name="ln-334" href="#ln-334"></a><span class="w">    </span><span class="c">!&gt; Compute the virtual temperature `tv` as a function of the modified moist temperature `tm` and</span>
 <a id="ln-335" name="ln-335" href="#ln-335"></a><span class="w">    </span><span class="c">!&gt; the water vapor mixing ratio `qv`.</span>
-<a id="ln-336" name="ln-336" href="#ln-336"></a><span class="w">    </span><span class="c">!&gt; Essentially, \( T_v = \frac{T_m}{1 + q_v} \). This modified &quot;moist&quot; temperature is described herein:</span>
+<a id="ln-336" name="ln-336" href="#ln-336"></a><span class="w">    </span><span class="c">!&gt; Essentially, \( T_v = \frac{T_m}{1 + q_v} \). This modified "moist" temperature is described herein:</span>
 <a id="ln-337" name="ln-337" href="#ln-337"></a><span class="w">    </span><span class="c">!&gt; The paragraph below equation 2.7 in doi:10.5065/1DFH-6P97.</span>
 <a id="ln-338" name="ln-338" href="#ln-338"></a><span class="w">    </span><span class="c">!&gt; The paragraph below equation 2 in doi:10.1175/MWR-D-11-00215.1.</span>
 <a id="ln-339" name="ln-339" href="#ln-339"></a><span class="w">    </span><span class="c">!&gt; Similarly, it can be shown that the relation, \( \theta_v = \frac{\theta_m}{1 + q_v} \), also holds.</span>

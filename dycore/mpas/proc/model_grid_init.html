@@ -149,8 +149,8 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../proc/model_grid_init.html#variable-pio_file">pio_file</a>
-            <a class="list-group-item" href="../proc/model_grid_init.html#variable-subname">subname</a>
+            <a class="list-group-item" href="../proc/model_grid_init.html#variable-pio_file~5">pio_file</a>
+            <a class="list-group-item" href="../proc/model_grid_init.html#variable-subname~45">subname</a>
         </div>
       </div>
     </div>
@@ -194,15 +194,15 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item">cam_logfile</li>
-                  <li class="list-inline-item"><a href='../module/dyn_comp.html'>dyn_comp</a></li>
-                  <li class="list-inline-item">string_utils</li>
-                  <li class="list-inline-item">cam_initfiles</li>
                   <li class="list-inline-item">cam_abortutils</li>
-                  <li class="list-inline-item">cam_constituents</li>
-                  <li class="list-inline-item">pio</li>
-                  <li class="list-inline-item">dynconst</li>
                   <li class="list-inline-item">vert_coord</li>
+                  <li class="list-inline-item">cam_constituents</li>
+                  <li class="list-inline-item">string_utils</li>
+                  <li class="list-inline-item">cam_logfile</li>
+                  <li class="list-inline-item">cam_initfiles</li>
+                  <li class="list-inline-item">dynconst</li>
+                  <li class="list-inline-item">pio</li>
+                  <li class="list-inline-item"><a href='../module/dyn_comp.html'>dyn_comp</a></li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -2587,7 +2587,7 @@ implementation in a submodule of an interface in a parent module.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-pio_file"></span>
+              <span class="anchor" id="variable-pio_file~5"></span>
               type(file_desc_t),
             </td>
               <td>private,</td>
@@ -2604,7 +2604,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-subname"></span>
+              <span class="anchor" id="variable-subname~45"></span>
               character(len=*),
             </td>
               <td>private,</td>
@@ -2647,17 +2647,17 @@ parameter
 <span class="w">        </span><span class="c">! Module(s) from external libraries.</span>
 <span class="w">        </span><span class="k">use </span><span class="n">pio</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">file_desc_t</span>
 
-<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dyn_grid::model_grid_init&#39;</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'dyn_grid::model_grid_init'</span>
 <span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">file_desc_t</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pio_file</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; entered&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">' entered'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">pio_file</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Initialize mathematical and physical constants for dynamics.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">dynconst_init</span><span class="p">()</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Initializing vertical coordinate indexes&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Initializing vertical coordinate indexes'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Initialize vertical coordinate indexes.</span>
 <span class="w">        </span><span class="c">! `pver` comes from CAM-SIMA namelist.</span>
@@ -2667,53 +2667,53 @@ parameter
 <span class="w">        </span><span class="c">! Get PIO file descriptor for initial file.</span>
 <span class="w">        </span><span class="n">pio_file</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">initial_file_get_id</span><span class="p">()</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Initializing MPAS dynamical core (Phase 3/4)&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Initializing MPAS dynamical core (Phase 3/4)'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Finish MPAS framework initialization, including</span>
 <span class="w">        </span><span class="c">! the allocation of all blocks and fields managed by MPAS.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">init_phase3</span><span class="p">(</span><span class="n">num_advected</span><span class="p">,</span><span class="w"> </span><span class="n">pio_file</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Initializing MPAS mesh variables&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Initializing MPAS mesh variables'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Read time-invariant (e.g., grid/mesh) variables.</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">read_write_stream</span><span class="p">(</span><span class="n">pio_file</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;invariant&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">read_write_stream</span><span class="p">(</span><span class="n">pio_file</span><span class="p">,</span><span class="w"> </span><span class="s1">'r'</span><span class="p">,</span><span class="w"> </span><span class="s1">'invariant'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">pio_file</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Compute local east, north and edge-normal unit vectors whenever time-invariant (e.g., grid/mesh) variables are read.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">compute_unit_vector</span><span class="p">()</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Inquiring local and global mesh dimensions&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Inquiring local and global mesh dimensions'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Inquire local and global mesh dimensions.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">dyn_inquire_mesh_dimensions</span><span class="p">()</span>
 
 <span class="w">        </span><span class="c">! Check for consistency in numbers of vertical layers.</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nvertlevels</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">pver</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_verbose</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Number of vertical layers in CAM-SIMA namelist, pver = &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="k">            call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_verbose</span><span class="p">,</span><span class="w"> </span><span class="s1">'Number of vertical layers in CAM-SIMA namelist, pver = '</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="w">                </span><span class="n">stringify</span><span class="p">([</span><span class="n">pver</span><span class="p">]))</span>
-<span class="w">            </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_verbose</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Number of vertical layers in initial file, nvertlevels = &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_verbose</span><span class="p">,</span><span class="w"> </span><span class="s1">'Number of vertical layers in initial file, nvertlevels = '</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="w">                </span><span class="n">stringify</span><span class="p">([</span><span class="n">nvertlevels</span><span class="p">]))</span>
 
-<span class="w">            </span><span class="k">call </span><span class="n">endrun</span><span class="p">(</span><span class="s1">&#39;Numbers of vertical layers mismatch&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="w">            </span><span class="k">call </span><span class="n">endrun</span><span class="p">(</span><span class="s1">'Numbers of vertical layers mismatch'</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end if</span>
 
-<span class="k">        call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Initializing reference pressure&#39;</span><span class="p">)</span>
+<span class="k">        call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Initializing reference pressure'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Initialize reference pressure for use by physics.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">init_reference_pressure</span><span class="p">()</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Initializing physics grid&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Initializing physics grid'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Initialize physics grid.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">init_physics_grid</span><span class="p">()</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Registering dynamics grid with CAM-SIMA&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Registering dynamics grid with CAM-SIMA'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Register dynamics grid with CAM-SIMA.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">define_cam_grid</span><span class="p">()</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; completed&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">' completed'</span><span class="p">)</span>
 <span class="w">    </span><span class="k">end subroutine </span><span class="n">model_grid_init</span>
 </pre></div>
 

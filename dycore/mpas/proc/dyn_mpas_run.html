@@ -152,14 +152,14 @@
         <div class="list-group list-group-flush">
             <a class="list-group-item" href="../proc/dyn_mpas_run.html#variable-config_dt~2">config_dt</a>
             <a class="list-group-item" href="../proc/dyn_mpas_run.html#variable-date_time~2">date_time</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_run.html#variable-ierr~27">ierr</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_run.html#variable-ierr~10">ierr</a>
             <a class="list-group-item" href="../proc/dyn_mpas_run.html#variable-mpas_pool_diag">mpas_pool_diag</a>
             <a class="list-group-item" href="../proc/dyn_mpas_run.html#variable-mpas_pool_mesh">mpas_pool_mesh</a>
             <a class="list-group-item" href="../proc/dyn_mpas_run.html#variable-mpas_pool_state">mpas_pool_state</a>
             <a class="list-group-item" href="../proc/dyn_mpas_run.html#variable-mpas_time_end">mpas_time_end</a>
             <a class="list-group-item" href="../proc/dyn_mpas_run.html#variable-mpas_time_interval">mpas_time_interval</a>
             <a class="list-group-item" href="../proc/dyn_mpas_run.html#variable-mpas_time_now">mpas_time_now</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_run.html#variable-subname~50">subname</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_run.html#variable-subname~14">subname</a>
         </div>
       </div>
     </div>
@@ -203,10 +203,10 @@
             <li class="list-group-item">
               <ul class="list-inline">
                   <li class="list-inline-item">mpas_derived_types</li>
-                  <li class="list-inline-item">atm_core</li>
-                  <li class="list-inline-item"><a href='../module/dyn_mpas_procedures.html'>dyn_mpas_procedures</a></li>
                   <li class="list-inline-item">mpas_pool_routines</li>
                   <li class="list-inline-item">mpas_timekeeping</li>
+                  <li class="list-inline-item"><a href='../module/dyn_mpas_procedures.html'>dyn_mpas_procedures</a></li>
+                  <li class="list-inline-item">atm_core</li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -1273,7 +1273,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~27"></span>
+              <span class="anchor" id="variable-ierr~10"></span>
               integer,
             </td>
               <td>private</td>
@@ -1392,7 +1392,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-subname~50"></span>
+              <span class="anchor" id="variable-subname~14"></span>
               character(len=*),
             </td>
               <td>private,</td>
@@ -1435,7 +1435,7 @@ parameter
 
 <span class="w">        </span><span class="k">class</span><span class="p">(</span><span class="n">mpas_dynamical_core_type</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">self</span>
 
-<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dyn_mpas_subdriver::dyn_mpas_run&#39;</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'dyn_mpas_subdriver::dyn_mpas_run'</span>
 <span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="n">strkind</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">date_time</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ierr</span>
 <span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">rkind</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">config_dt</span>
@@ -1443,34 +1443,34 @@ parameter
 <span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">mpas_time_type</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mpas_time_end</span><span class="p">,</span><span class="w"> </span><span class="n">mpas_time_now</span><span class="w"> </span><span class="c">! This derived type is analogous to `ESMF_Time`.</span>
 <span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">mpas_timeinterval_type</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mpas_time_interval</span><span class="w">   </span><span class="c">! This derived type is analogous to `ESMF_TimeInterval`.</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; entered&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">' entered'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">config_dt</span><span class="p">)</span>
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">mpas_pool_diag</span><span class="p">,</span><span class="w"> </span><span class="n">mpas_pool_mesh</span><span class="p">,</span><span class="w"> </span><span class="n">mpas_pool_state</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">config_dt</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;cfg&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;config_dt&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_pool_pointer</span><span class="p">(</span><span class="n">mpas_pool_diag</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;diag&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_pool_pointer</span><span class="p">(</span><span class="n">mpas_pool_mesh</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mesh&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_pool_pointer</span><span class="p">(</span><span class="n">mpas_pool_state</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;state&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">config_dt</span><span class="p">,</span><span class="w"> </span><span class="s1">'cfg'</span><span class="p">,</span><span class="w"> </span><span class="s1">'config_dt'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_pool_pointer</span><span class="p">(</span><span class="n">mpas_pool_diag</span><span class="p">,</span><span class="w"> </span><span class="s1">'diag'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_pool_pointer</span><span class="p">(</span><span class="n">mpas_pool_mesh</span><span class="p">,</span><span class="w"> </span><span class="s1">'mesh'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_pool_pointer</span><span class="p">(</span><span class="n">mpas_pool_state</span><span class="p">,</span><span class="w"> </span><span class="s1">'state'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="n">mpas_time_now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mpas_get_clock_time</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">clock</span><span class="p">,</span><span class="w"> </span><span class="n">mpas_now</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to get time for &quot;mpas_now&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">'Failed to get time for "mpas_now"'</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end if</span>
 
 <span class="k">        call </span><span class="n">mpas_get_time</span><span class="p">(</span><span class="n">mpas_time_now</span><span class="p">,</span><span class="w"> </span><span class="n">datetimestring</span><span class="o">=</span><span class="n">date_time</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to get time for &quot;mpas_now&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">'Failed to get time for "mpas_now"'</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end if</span>
 
-<span class="k">        call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Time integration of MPAS dynamical core begins at &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">date_time</span><span class="p">)))</span>
+<span class="k">        call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Time integration of MPAS dynamical core begins at '</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">date_time</span><span class="p">)))</span>
 
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_set_timeinterval</span><span class="p">(</span><span class="n">mpas_time_interval</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="o">=</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">coupling_time_interval</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to set coupling time interval&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">'Failed to set coupling time interval'</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end if</span>
 
 <span class="w">        </span><span class="c">! The `+` operator is overloaded here.</span>
@@ -1486,41 +1486,41 @@ parameter
 <span class="w">            </span><span class="c">! Current states are in time level 1. Upon exit, time level 2 will contain updated states.</span>
 <span class="w">            </span><span class="k">call </span><span class="n">atm_do_timestep</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">config_dt</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_time_steps</span><span class="p">)</span>
 
-<span class="w">            </span><span class="c">! MPAS &quot;state&quot; pool has two time levels.</span>
+<span class="w">            </span><span class="c">! MPAS "state" pool has two time levels.</span>
 <span class="w">            </span><span class="c">! Swap them after advancing a time step.</span>
 <span class="w">            </span><span class="k">call </span><span class="n">mpas_pool_shift_time_levels</span><span class="p">(</span><span class="n">mpas_pool_state</span><span class="p">)</span>
 
 <span class="w">            </span><span class="k">call </span><span class="n">mpas_advance_clock</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">clock</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
 
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to advance clock&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="k">                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">'Failed to advance clock'</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">            </span><span class="k">end if</span>
 
 <span class="k">            </span><span class="n">mpas_time_now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mpas_get_clock_time</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">clock</span><span class="p">,</span><span class="w"> </span><span class="n">mpas_now</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
 
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to get time for &quot;mpas_now&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="k">                call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">'Failed to get time for "mpas_now"'</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">            </span><span class="k">end if</span>
 
-<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Time step &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_time_steps</span><span class="p">])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; completed&#39;</span><span class="p">)</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Time step '</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">stringify</span><span class="p">([</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_time_steps</span><span class="p">])</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">' completed'</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end do</span>
 
 <span class="k">        call </span><span class="n">mpas_get_time</span><span class="p">(</span><span class="n">mpas_time_now</span><span class="p">,</span><span class="w"> </span><span class="n">datetimestring</span><span class="o">=</span><span class="n">date_time</span><span class="p">,</span><span class="w"> </span><span class="n">ierr</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">&#39;Failed to get time for &quot;mpas_now&quot;&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="k">            call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">model_error</span><span class="p">(</span><span class="s1">'Failed to get time for "mpas_now"'</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end if</span>
 
-<span class="k">        call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Time integration of MPAS dynamical core ends at &#39;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">date_time</span><span class="p">)))</span>
+<span class="k">        call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Time integration of MPAS dynamical core ends at '</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">date_time</span><span class="p">)))</span>
 
-<span class="w">        </span><span class="c">! Compute diagnostic variables like &quot;pressure&quot;, &quot;rho&quot;, and &quot;theta&quot; from time level 1 of MPAS &quot;state&quot; pool</span>
+<span class="w">        </span><span class="c">! Compute diagnostic variables like "pressure", "rho", and "theta" from time level 1 of MPAS "state" pool</span>
 <span class="w">        </span><span class="c">! by calling upstream MPAS functionality.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">atm_compute_output_diagnostics</span><span class="p">(</span><span class="n">mpas_pool_state</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">mpas_pool_diag</span><span class="p">,</span><span class="w"> </span><span class="n">mpas_pool_mesh</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">config_dt</span><span class="p">)</span>
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">mpas_pool_diag</span><span class="p">,</span><span class="w"> </span><span class="n">mpas_pool_mesh</span><span class="p">,</span><span class="w"> </span><span class="n">mpas_pool_state</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; completed&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">' completed'</span><span class="p">)</span>
 <span class="w">    </span><span class="k">end subroutine </span><span class="n">dyn_mpas_run</span>
 </pre></div>
 

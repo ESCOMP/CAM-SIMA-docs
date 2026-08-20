@@ -151,14 +151,14 @@
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
             <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-east">east</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-i~28">i</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-latcell~3">latcell</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-loncell~3">loncell</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-i~9">i</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-latcell">latcell</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-loncell">loncell</a>
             <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-mpas_pool~5">mpas_pool</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-ncells~2">ncells</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-ncells">ncells</a>
             <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-north">north</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-pi~3">pi</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-subname~46">subname</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-pi">pi</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_compute_unit_vector.html#variable-subname~10">subname</a>
         </div>
       </div>
     </div>
@@ -1126,7 +1126,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~28"></span>
+              <span class="anchor" id="variable-i~9"></span>
               integer,
             </td>
               <td>private</td>
@@ -1143,7 +1143,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-latcell~3"></span>
+              <span class="anchor" id="variable-latcell"></span>
               real(kind=rkind),
             </td>
               <td>private,</td>
@@ -1160,7 +1160,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-loncell~3"></span>
+              <span class="anchor" id="variable-loncell"></span>
               real(kind=rkind),
             </td>
               <td>private,</td>
@@ -1194,7 +1194,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ncells~2"></span>
+              <span class="anchor" id="variable-ncells"></span>
               integer,
             </td>
               <td>private,</td>
@@ -1228,7 +1228,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-pi~3"></span>
+              <span class="anchor" id="variable-pi"></span>
               real(kind=rkind),
             </td>
               <td>private,</td>
@@ -1245,7 +1245,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-subname~46"></span>
+              <span class="anchor" id="variable-subname~10"></span>
               character(len=*),
             </td>
               <td>private,</td>
@@ -1282,7 +1282,7 @@ parameter
 
 <span class="w">        </span><span class="k">class</span><span class="p">(</span><span class="n">mpas_dynamical_core_type</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">self</span>
 
-<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dyn_mpas_subdriver::dyn_mpas_compute_unit_vector&#39;</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'dyn_mpas_subdriver::dyn_mpas_compute_unit_vector'</span>
 <span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">rkind</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">acos</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0_rkind</span><span class="p">)</span><span class="w"> </span><span class="c">! Pi in native precision.</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ncells</span>
@@ -1290,7 +1290,7 @@ parameter
 <span class="w">        </span><span class="kt">real</span><span class="p">(</span><span class="n">rkind</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">east</span><span class="p">(:,</span><span class="w"> </span><span class="p">:),</span><span class="w"> </span><span class="n">north</span><span class="p">(:,</span><span class="w"> </span><span class="p">:)</span>
 <span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">mpas_pool_type</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mpas_pool</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; entered&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">' entered'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">ncells</span><span class="p">)</span>
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">latcell</span><span class="p">,</span><span class="w"> </span><span class="n">loncell</span><span class="p">)</span>
@@ -1300,15 +1300,15 @@ parameter
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Input.</span>
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">ncells</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dim&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;nCells&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">latcell</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mesh&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;latCell&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">loncell</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mesh&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;lonCell&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">ncells</span><span class="p">,</span><span class="w"> </span><span class="s1">'dim'</span><span class="p">,</span><span class="w"> </span><span class="s1">'nCells'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">latcell</span><span class="p">,</span><span class="w"> </span><span class="s1">'mesh'</span><span class="p">,</span><span class="w"> </span><span class="s1">'latCell'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">loncell</span><span class="p">,</span><span class="w"> </span><span class="s1">'mesh'</span><span class="p">,</span><span class="w"> </span><span class="s1">'lonCell'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Output.</span>
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">east</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mesh&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;east&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">north</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mesh&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;north&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">east</span><span class="p">,</span><span class="w"> </span><span class="s1">'mesh'</span><span class="p">,</span><span class="w"> </span><span class="s1">'east'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">north</span><span class="p">,</span><span class="w"> </span><span class="s1">'mesh'</span><span class="p">,</span><span class="w"> </span><span class="s1">'north'</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Computing unit vectors&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Computing unit vectors'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Make sure longitude values are within the range of [0, 2 * pi) according to MPAS mesh specifications.</span>
 <span class="w">        </span><span class="c">! Although stand-alone MPAS can still accept longitude values outside this range without issues, CAM-SIMA is less</span>
@@ -1335,12 +1335,12 @@ parameter
 
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">east</span><span class="p">,</span><span class="w"> </span><span class="n">north</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_pool_pointer</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;mesh&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_pool_pointer</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">'mesh'</span><span class="p">)</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_initialize_vectors</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; completed&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">debug_print</span><span class="p">(</span><span class="n">log_level_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">' completed'</span><span class="p">)</span>
 <span class="w">    </span><span class="k">end subroutine </span><span class="n">dyn_mpas_compute_unit_vector</span>
 </pre></div>
 

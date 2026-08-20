@@ -294,8 +294,8 @@ the <code>mpas_dynamical_core_type</code> derived type.</p>
             <li class="list-group-item">
               <ul class="list-inline">
                   <li class="list-inline-item">mpas_derived_types</li>
-                  <li class="list-inline-item">mpas_kind_types</li>
                   <li class="list-inline-item"><a href='https://www.mpi-forum.org/docs/mpi-4.1/mpi41-report/node467.htm'>mpi</a></li>
+                  <li class="list-inline-item">mpas_kind_types</li>
                   <li class="list-inline-item"><a href='https://www.intel.com/content/www/us/en/docs/fortran-compiler/developer-guide-reference/2024-2/iso-fortran-env-module.html'>iso_fortran_env</a></li>
               </ul>
             </li>
@@ -1265,7 +1265,7 @@ It will be called whenever MPAS dynamical core encounters a fatal error and cann
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-message~3"></span>
+              <span class="anchor" id="variable-message~2"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -1349,7 +1349,7 @@ MPAS dynamical core.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-constituent_name~2"></span>
+              <span class="anchor" id="variable-constituent_name"></span>
               character(len=strkind),
             </td>
               <td>private,</td>
@@ -1383,7 +1383,7 @@ MPAS dynamical core.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-coupling_time_interval~2"></span>
+              <span class="anchor" id="variable-coupling_time_interval"></span>
               integer,
             </td>
               <td>private</td>
@@ -1451,7 +1451,7 @@ MPAS dynamical core.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-is_water_species~4"></span>
+              <span class="anchor" id="variable-is_water_species"></span>
               logical,
             </td>
               <td>private,</td>
@@ -1502,7 +1502,7 @@ MPAS dynamical core.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-log_unit~2"></span>
+              <span class="anchor" id="variable-log_unit"></span>
               integer,
             </td>
               <td>private</td>
@@ -1914,7 +1914,7 @@ For example, in MPAS registry, the "xCell" variable is described as:</p><a href=
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-name~3"></span>
+              <span class="anchor" id="variable-name"></span>
               character(len=64),
             </td>
               <td>private</td>
@@ -2017,7 +2017,7 @@ For example, in MPAS registry, the "xCell" variable is described as:</p><a href=
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-constituent_name~5"></span>
+              <span class="anchor" id="variable-constituent_name~4"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -2453,7 +2453,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-areacell~4"></span>
+              <span class="anchor" id="variable-areacell~2"></span>
               real(kind=rkind),
             </td>
 <td>intent(in)</td>
@@ -2568,7 +2568,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-pio_file~7"></span>
+              <span class="anchor" id="variable-pio_file~4"></span>
               type(file_desc_t),
             </td>
 <td>intent(in),</td>
@@ -2808,7 +2808,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-level~3"></span>
+              <span class="anchor" id="variable-level~2"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -2823,7 +2823,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-message~4"></span>
+              <span class="anchor" id="variable-message~3"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -2838,7 +2838,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-printer~3"></span>
+              <span class="anchor" id="variable-printer~2"></span>
               integer,
             </td>
 <td>intent(in),</td>
@@ -2898,7 +2898,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-constituent_name~3"></span>
+              <span class="anchor" id="variable-constituent_name~2"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -2913,7 +2913,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-is_water_species~5"></span>
+              <span class="anchor" id="variable-is_water_species~2"></span>
               logical,
             </td>
 <td>intent(in)</td>
@@ -3078,7 +3078,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ncells_global~2"></span>
+              <span class="anchor" id="variable-ncells_global"></span>
               integer,
             </td>
 <td>intent(out),</td>
@@ -3093,7 +3093,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nedges_global~2"></span>
+              <span class="anchor" id="variable-nedges_global"></span>
               integer,
             </td>
 <td>intent(out),</td>
@@ -3108,7 +3108,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nvertices_global~2"></span>
+              <span class="anchor" id="variable-nvertices_global"></span>
               integer,
             </td>
 <td>intent(out),</td>
@@ -3123,7 +3123,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nvertlevels~5"></span>
+              <span class="anchor" id="variable-nvertlevels~4"></span>
               integer,
             </td>
 <td>intent(out),</td>
@@ -3138,7 +3138,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ncells_max~2"></span>
+              <span class="anchor" id="variable-ncells_max"></span>
               integer,
             </td>
 <td>intent(out),</td>
@@ -3153,7 +3153,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nedges_max~2"></span>
+              <span class="anchor" id="variable-nedges_max"></span>
               integer,
             </td>
 <td>intent(out),</td>
@@ -3168,7 +3168,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-sphere_radius~2"></span>
+              <span class="anchor" id="variable-sphere_radius"></span>
               real(kind=rkind),
             </td>
 <td>intent(out),</td>
@@ -3228,7 +3228,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ncells~3"></span>
+              <span class="anchor" id="variable-ncells~2"></span>
               integer,
             </td>
 <td>intent(out),</td>
@@ -3243,7 +3243,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ncells_solve~2"></span>
+              <span class="anchor" id="variable-ncells_solve"></span>
               integer,
             </td>
 <td>intent(out),</td>
@@ -3258,7 +3258,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nedges~3"></span>
+              <span class="anchor" id="variable-nedges~2"></span>
               integer,
             </td>
 <td>intent(out),</td>
@@ -3273,7 +3273,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nedges_solve~2"></span>
+              <span class="anchor" id="variable-nedges_solve"></span>
               integer,
             </td>
 <td>intent(out),</td>
@@ -3288,7 +3288,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nvertices~2"></span>
+              <span class="anchor" id="variable-nvertices"></span>
               integer,
             </td>
 <td>intent(out),</td>
@@ -3303,7 +3303,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nvertices_solve~2"></span>
+              <span class="anchor" id="variable-nvertices_solve"></span>
               integer,
             </td>
 <td>intent(out),</td>
@@ -3318,7 +3318,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nvertlevels~4"></span>
+              <span class="anchor" id="variable-nvertlevels~3"></span>
               integer,
             </td>
 <td>intent(out),</td>
@@ -6132,7 +6132,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-log_unit~3"></span>
+              <span class="anchor" id="variable-log_unit~2"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -6207,7 +6207,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-pio_iosystem~3"></span>
+              <span class="anchor" id="variable-pio_iosystem"></span>
               type(iosystem_desc_t),
             </td>
 <td>intent(in),</td>
@@ -6282,7 +6282,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-pio_file~4"></span>
+              <span class="anchor" id="variable-pio_file"></span>
               type(file_desc_t),
             </td>
 <td>intent(in),</td>
@@ -6342,7 +6342,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-coupling_time_interval~3"></span>
+              <span class="anchor" id="variable-coupling_time_interval~2"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -6432,7 +6432,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-pio_file~6"></span>
+              <span class="anchor" id="variable-pio_file~3"></span>
               type(file_desc_t),
             </td>
 <td>intent(in),</td>
@@ -6522,7 +6522,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-namelist_path~3"></span>
+              <span class="anchor" id="variable-namelist_path~2"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -6552,7 +6552,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-start_date_time~2"></span>
+              <span class="anchor" id="variable-start_date_time"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -6567,7 +6567,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-stop_date_time~2"></span>
+              <span class="anchor" id="variable-stop_date_time"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -6582,7 +6582,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-run_duration~2"></span>
+              <span class="anchor" id="variable-run_duration"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -6657,7 +6657,7 @@ A stream name fragment can be a predefined stream name (e.g., "invariant", "inpu
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-pio_file~5"></span>
+              <span class="anchor" id="variable-pio_file~2"></span>
               type(file_desc_t),
             </td>
 <td>intent(in),</td>

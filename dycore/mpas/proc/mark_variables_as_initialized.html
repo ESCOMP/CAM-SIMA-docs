@@ -148,8 +148,8 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../proc/mark_variables_as_initialized.html#variable-i~19">i</a>
-            <a class="list-group-item" href="../proc/mark_variables_as_initialized.html#variable-subname~33">subname</a>
+            <a class="list-group-item" href="../proc/mark_variables_as_initialized.html#variable-i~32">i</a>
+            <a class="list-group-item" href="../proc/mark_variables_as_initialized.html#variable-subname~77">subname</a>
         </div>
       </div>
     </div>
@@ -192,9 +192,9 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item">cam_logfile</li>
                   <li class="list-inline-item">phys_vars_init_check</li>
                   <li class="list-inline-item">cam_constituents</li>
+                  <li class="list-inline-item">cam_logfile</li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -666,7 +666,7 @@ implementation in a submodule of an interface in a parent module.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~19"></span>
+              <span class="anchor" id="variable-i~32"></span>
               integer,
             </td>
               <td>private</td>
@@ -683,7 +683,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-subname~33"></span>
+              <span class="anchor" id="variable-subname~77"></span>
               character(len=*),
             </td>
               <td>private,</td>
@@ -722,47 +722,47 @@ parameter
 <span class="w">        </span><span class="c">! Module(s) from CCPP.</span>
 <span class="w">        </span><span class="k">use </span><span class="n">phys_vars_init_check</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">mark_as_initialized</span>
 
-<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dyn_comp::mark_variables_as_initialized&#39;</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'dyn_comp::mark_variables_as_initialized'</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; entered&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">' entered'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! The variables below are managed by dynamics interface.</span>
 <span class="w">        </span><span class="c">! We are responsible for initializing and updating them.</span>
 
 <span class="w">        </span><span class="c">! These variables are to be set during dynamics initialization.</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;flag_for_dycore_energy_consistency_adjustment&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;total_energy_formula_for_dycore&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'flag_for_dycore_energy_consistency_adjustment'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'total_energy_formula_for_dycore'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! These variables are to be set during dynamics-physics coupling.</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;air_pressure&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;air_pressure_at_interface&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;air_pressure_of_dry_air&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;air_pressure_of_dry_air_at_interface&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;air_pressure_thickness&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;air_pressure_thickness_of_dry_air&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;air_temperature&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;dry_static_energy&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;eastward_wind&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;geopotential_height_wrt_surface&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;geopotential_height_wrt_surface_at_interface&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;lagrangian_tendency_of_air_pressure&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;ln_air_pressure&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;ln_air_pressure_at_interface&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;ln_air_pressure_of_dry_air&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;ln_air_pressure_of_dry_air_at_interface&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;northward_wind&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;reciprocal_of_air_pressure_thickness&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;reciprocal_of_air_pressure_thickness_of_dry_air&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;reciprocal_of_dimensionless_exner_function_wrt_surface_air_pressure&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;specific_heat_of_air_used_in_dycore&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;specific_heat_of_air_used_in_dycore_at_start_of_physics_timestep&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;surface_air_pressure&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;surface_geopotential&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;surface_pressure_of_dry_air&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;tendency_of_air_temperature_due_to_model_physics&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;tendency_of_eastward_wind_due_to_model_physics&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;tendency_of_northward_wind_due_to_model_physics&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'air_pressure'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'air_pressure_at_interface'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'air_pressure_of_dry_air'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'air_pressure_of_dry_air_at_interface'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'air_pressure_thickness'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'air_pressure_thickness_of_dry_air'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'air_temperature'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'dry_static_energy'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'eastward_wind'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'geopotential_height_wrt_surface'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'geopotential_height_wrt_surface_at_interface'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'lagrangian_tendency_of_air_pressure'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'ln_air_pressure'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'ln_air_pressure_at_interface'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'ln_air_pressure_of_dry_air'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'ln_air_pressure_of_dry_air_at_interface'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'northward_wind'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'reciprocal_of_air_pressure_thickness'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'reciprocal_of_air_pressure_thickness_of_dry_air'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'reciprocal_of_dimensionless_exner_function_wrt_surface_air_pressure'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'specific_heat_of_air_used_in_dycore'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'specific_heat_of_air_used_in_dycore_at_start_of_physics_timestep'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'surface_air_pressure'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'surface_geopotential'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'surface_pressure_of_dry_air'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'tendency_of_air_temperature_due_to_model_physics'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'tendency_of_eastward_wind_due_to_model_physics'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'tendency_of_northward_wind_due_to_model_physics'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! CCPP standard names of constituents.</span>
 <span class="w">        </span><span class="c">! The name-based `mark_as_initialized` silently ignores runtime-registered constituents</span>
@@ -777,15 +777,15 @@ parameter
 <span class="w">        </span><span class="c">! While we are not responsible for initializing or updating them, we still need to help mark them as initialized.</span>
 
 <span class="w">        </span><span class="c">! These variables are to be set externally by the `check_energy_chng` CCPP physics scheme.</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;vertically_integrated_total_energy_using_dycore_energy_formula&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;vertically_integrated_total_energy_using_dycore_energy_formula_at_end_of_physics_timestep&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;vertically_integrated_total_energy_using_dycore_energy_formula_at_start_of_physics_timestep&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;vertically_integrated_total_energy_using_physics_energy_formula&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;vertically_integrated_total_energy_using_physics_energy_formula_at_start_of_physics_timestep&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;vertically_integrated_total_water&#39;</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">&#39;vertically_integrated_total_water_at_start_of_physics_timestep&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'vertically_integrated_total_energy_using_dycore_energy_formula'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'vertically_integrated_total_energy_using_dycore_energy_formula_at_end_of_physics_timestep'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'vertically_integrated_total_energy_using_dycore_energy_formula_at_start_of_physics_timestep'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'vertically_integrated_total_energy_using_physics_energy_formula'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'vertically_integrated_total_energy_using_physics_energy_formula_at_start_of_physics_timestep'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'vertically_integrated_total_water'</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mark_as_initialized</span><span class="p">(</span><span class="s1">'vertically_integrated_total_water_at_start_of_physics_timestep'</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; completed&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">' completed'</span><span class="p">)</span>
 <span class="w">    </span><span class="k">end subroutine </span><span class="n">mark_variables_as_initialized</span>
 </pre></div>
 

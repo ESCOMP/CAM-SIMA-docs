@@ -148,13 +148,13 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../proc/dyn_variable_dump.html#variable-cerr~17">cerr</a>
-            <a class="list-group-item" href="../proc/dyn_variable_dump.html#variable-ierr~17">ierr</a>
-            <a class="list-group-item" href="../proc/dyn_variable_dump.html#variable-pio_file~3">pio_file</a>
+            <a class="list-group-item" href="../proc/dyn_variable_dump.html#variable-cerr~35">cerr</a>
+            <a class="list-group-item" href="../proc/dyn_variable_dump.html#variable-ierr~41">ierr</a>
+            <a class="list-group-item" href="../proc/dyn_variable_dump.html#variable-pio_file~7">pio_file</a>
             <a class="list-group-item" href="../proc/dyn_variable_dump.html#variable-pio_ioformat">pio_ioformat</a>
-            <a class="list-group-item" href="../proc/dyn_variable_dump.html#variable-pio_iosystem~2">pio_iosystem</a>
+            <a class="list-group-item" href="../proc/dyn_variable_dump.html#variable-pio_iosystem~3">pio_iosystem</a>
             <a class="list-group-item" href="../proc/dyn_variable_dump.html#variable-pio_iotype">pio_iotype</a>
-            <a class="list-group-item" href="../proc/dyn_variable_dump.html#variable-subname~36">subname</a>
+            <a class="list-group-item" href="../proc/dyn_variable_dump.html#variable-subname~80">subname</a>
             <a class="list-group-item" href="../proc/dyn_variable_dump.html#variable-surface_pressure">surface_pressure</a>
         </div>
       </div>
@@ -198,13 +198,13 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item">shr_kind_mod</li>
-                  <li class="list-inline-item"><a href='../module/dyn_grid.html'>dyn_grid</a></li>
                   <li class="list-inline-item">cam_abortutils</li>
+                  <li class="list-inline-item"><a href='../module/dyn_grid.html'>dyn_grid</a></li>
                   <li class="list-inline-item">physics_types</li>
+                  <li class="list-inline-item">shr_pio_mod</li>
                   <li class="list-inline-item">pio</li>
                   <li class="list-inline-item">cam_instance</li>
-                  <li class="list-inline-item">shr_pio_mod</li>
+                  <li class="list-inline-item">shr_kind_mod</li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -1938,7 +1938,7 @@ implementation in a submodule of an interface in a parent module.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-cerr~17"></span>
+              <span class="anchor" id="variable-cerr~35"></span>
               character(len=len_cx),
             </td>
               <td>private</td>
@@ -1955,7 +1955,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ierr~17"></span>
+              <span class="anchor" id="variable-ierr~41"></span>
               integer,
             </td>
               <td>private</td>
@@ -1972,7 +1972,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-pio_file~3"></span>
+              <span class="anchor" id="variable-pio_file~7"></span>
               type(file_desc_t),
             </td>
               <td>private,</td>
@@ -2006,7 +2006,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-pio_iosystem~2"></span>
+              <span class="anchor" id="variable-pio_iosystem~3"></span>
               type(iosystem_desc_t),
             </td>
               <td>private,</td>
@@ -2040,7 +2040,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-subname~36"></span>
+              <span class="anchor" id="variable-subname~80"></span>
               character(len=*),
             </td>
               <td>private,</td>
@@ -2099,7 +2099,7 @@ parameter
 <span class="w">        </span><span class="c">! Module(s) from external libraries.</span>
 <span class="w">        </span><span class="k">use </span><span class="n">pio</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">file_desc_t</span><span class="p">,</span><span class="w"> </span><span class="n">iosystem_desc_t</span><span class="p">,</span><span class="w"> </span><span class="n">pio_createfile</span><span class="p">,</span><span class="w"> </span><span class="n">pio_closefile</span><span class="p">,</span><span class="w"> </span><span class="n">pio_clobber</span><span class="p">,</span><span class="w"> </span><span class="n">pio_noerr</span>
 
-<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dyn_comp::dyn_variable_dump&#39;</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'dyn_comp::dyn_variable_dump'</span>
 <span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="n">len_cx</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">cerr</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ierr</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pio_ioformat</span><span class="p">,</span><span class="w"> </span><span class="n">pio_iotype</span>
@@ -2111,17 +2111,17 @@ parameter
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">pio_iosystem</span><span class="p">)</span>
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">surface_pressure</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">surface_pressure</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;diag&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;surface_pressure&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_variable_pointer</span><span class="p">(</span><span class="n">surface_pressure</span><span class="p">,</span><span class="w"> </span><span class="s1">'diag'</span><span class="p">,</span><span class="w"> </span><span class="s1">'surface_pressure'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="n">surface_pressure</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ncells_solve</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">phys_state</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">ps</span><span class="p">(:),</span><span class="w"> </span><span class="n">kind_dyn_mpas</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">surface_pressure</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">exchange_halo</span><span class="p">(</span><span class="s1">&#39;surface_pressure&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">exchange_halo</span><span class="p">(</span><span class="s1">'surface_pressure'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">allocate</span><span class="p">(</span><span class="n">pio_file</span><span class="p">,</span><span class="w"> </span><span class="n">errmsg</span><span class="o">=</span><span class="n">cerr</span><span class="p">,</span><span class="w"> </span><span class="nb">stat</span><span class="o">=</span><span class="n">ierr</span><span class="p">)</span>
-<span class="w">        </span><span class="k">call </span><span class="n">check_allocate</span><span class="p">(</span><span class="n">ierr</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;pio_file&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">            </span><span class="k">file</span><span class="o">=</span><span class="s1">&#39;dyn_comp&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="o">=</span><span class="err">__</span><span class="n">LINE__</span><span class="p">,</span><span class="w"> </span><span class="n">errmsg</span><span class="o">=</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">cerr</span><span class="p">)))</span>
+<span class="w">        </span><span class="k">call </span><span class="n">check_allocate</span><span class="p">(</span><span class="n">ierr</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="s1">'pio_file'</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">            </span><span class="k">file</span><span class="o">=</span><span class="s1">'dyn_comp'</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="o">=</span><span class="err">__</span><span class="n">LINE__</span><span class="p">,</span><span class="w"> </span><span class="n">errmsg</span><span class="o">=</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">cerr</span><span class="p">)))</span>
 
 <span class="w">        </span><span class="n">pio_iosystem</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">shr_pio_getiosys</span><span class="p">(</span><span class="n">atm_id</span><span class="p">)</span>
 
@@ -2130,13 +2130,13 @@ parameter
 
 <span class="w">        </span><span class="n">pio_iotype</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shr_pio_getiotype</span><span class="p">(</span><span class="n">atm_id</span><span class="p">)</span>
 
-<span class="w">        </span><span class="n">ierr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pio_createfile</span><span class="p">(</span><span class="n">pio_iosystem</span><span class="p">,</span><span class="w"> </span><span class="n">pio_file</span><span class="p">,</span><span class="w"> </span><span class="n">pio_iotype</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;dyn_variable_dump.nc&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">pio_ioformat</span><span class="p">)</span>
+<span class="w">        </span><span class="n">ierr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pio_createfile</span><span class="p">(</span><span class="n">pio_iosystem</span><span class="p">,</span><span class="w"> </span><span class="n">pio_file</span><span class="p">,</span><span class="w"> </span><span class="n">pio_iotype</span><span class="p">,</span><span class="w"> </span><span class="s1">'dyn_variable_dump.nc'</span><span class="p">,</span><span class="w"> </span><span class="n">pio_ioformat</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ierr</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="n">pio_noerr</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            call </span><span class="n">endrun</span><span class="p">(</span><span class="s1">&#39;Failed to create file for variable dumping&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
+<span class="k">            call </span><span class="n">endrun</span><span class="p">(</span><span class="s1">'Failed to create file for variable dumping'</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="p">,</span><span class="w"> </span><span class="err">__</span><span class="n">LINE__</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end if</span>
 
-<span class="k">        call </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">read_write_stream</span><span class="p">(</span><span class="n">pio_file</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;w&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;invariant+input+restart+output&#39;</span><span class="p">)</span>
+<span class="k">        call </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">read_write_stream</span><span class="p">(</span><span class="n">pio_file</span><span class="p">,</span><span class="w"> </span><span class="s1">'w'</span><span class="p">,</span><span class="w"> </span><span class="s1">'invariant+input+restart+output'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">call </span><span class="n">pio_closefile</span><span class="p">(</span><span class="n">pio_file</span><span class="p">)</span>
 

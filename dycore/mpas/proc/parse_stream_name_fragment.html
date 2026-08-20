@@ -581,15 +581,15 @@ implementation in a submodule of an interface in a parent module.
 <span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">var_info_type</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">var_info_list_buffer</span><span class="p">(:)</span>
 
 <span class="w">        </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">)))</span>
-<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
 <span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;invariant&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">'invariant'</span><span class="p">)</span>
 <span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="n">invariant_var_info_list</span><span class="p">)</span>
-<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">'input'</span><span class="p">)</span>
 <span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="n">input_var_info_list</span><span class="p">)</span>
-<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;restart&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">'restart'</span><span class="p">)</span>
 <span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="n">restart_var_info_list</span><span class="p">)</span>
-<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;output&#39;</span><span class="p">)</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">'output'</span><span class="p">)</span>
 <span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="n">output_var_info_list</span><span class="p">)</span>
 <span class="w">            </span><span class="k">case </span><span class="n">default</span>
 <span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>

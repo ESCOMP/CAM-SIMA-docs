@@ -150,13 +150,13 @@
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
             <a class="list-group-item" href="../proc/dyn_readnl.html#variable-cam_calendar">cam_calendar</a>
-            <a class="list-group-item" href="../proc/dyn_readnl.html#variable-log_unit">log_unit</a>
-            <a class="list-group-item" href="../proc/dyn_readnl.html#variable-pio_iosystem">pio_iosystem</a>
-            <a class="list-group-item" href="../proc/dyn_readnl.html#variable-run_duration">run_duration</a>
+            <a class="list-group-item" href="../proc/dyn_readnl.html#variable-log_unit~3">log_unit</a>
+            <a class="list-group-item" href="../proc/dyn_readnl.html#variable-pio_iosystem~2">pio_iosystem</a>
+            <a class="list-group-item" href="../proc/dyn_readnl.html#variable-run_duration~2">run_duration</a>
             <a class="list-group-item" href="../proc/dyn_readnl.html#variable-sec_since_midnight">sec_since_midnight</a>
-            <a class="list-group-item" href="../proc/dyn_readnl.html#variable-start_date_time">start_date_time</a>
-            <a class="list-group-item" href="../proc/dyn_readnl.html#variable-stop_date_time">stop_date_time</a>
-            <a class="list-group-item" href="../proc/dyn_readnl.html#variable-subname~19">subname</a>
+            <a class="list-group-item" href="../proc/dyn_readnl.html#variable-start_date_time~2">start_date_time</a>
+            <a class="list-group-item" href="../proc/dyn_readnl.html#variable-stop_date_time~2">stop_date_time</a>
+            <a class="list-group-item" href="../proc/dyn_readnl.html#variable-subname~63">subname</a>
         </div>
       </div>
     </div>
@@ -200,18 +200,18 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item">cam_logfile</li>
-                  <li class="list-inline-item"><a href='../module/dyn_procedures.html'>dyn_procedures</a></li>
-                  <li class="list-inline-item">string_utils</li>
-                  <li class="list-inline-item">time_manager</li>
-                  <li class="list-inline-item">shr_kind_mod</li>
-                  <li class="list-inline-item">cam_control_mod</li>
                   <li class="list-inline-item">cam_abortutils</li>
                   <li class="list-inline-item">shr_file_mod</li>
-                  <li class="list-inline-item">pio</li>
+                  <li class="list-inline-item"><a href='../module/dyn_procedures.html'>dyn_procedures</a></li>
                   <li class="list-inline-item">spmd_utils</li>
-                  <li class="list-inline-item">cam_instance</li>
+                  <li class="list-inline-item">string_utils</li>
+                  <li class="list-inline-item">cam_logfile</li>
+                  <li class="list-inline-item">cam_control_mod</li>
                   <li class="list-inline-item">shr_pio_mod</li>
+                  <li class="list-inline-item">pio</li>
+                  <li class="list-inline-item">time_manager</li>
+                  <li class="list-inline-item">cam_instance</li>
+                  <li class="list-inline-item">shr_kind_mod</li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -476,7 +476,7 @@ Additionally, perform early initialization of MPAS dynamical core.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-namelist_path"></span>
+              <span class="anchor" id="variable-namelist_path~3"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -1655,7 +1655,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-log_unit"></span>
+              <span class="anchor" id="variable-log_unit~3"></span>
               integer,
             </td>
               <td>private</td>
@@ -1672,7 +1672,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-pio_iosystem"></span>
+              <span class="anchor" id="variable-pio_iosystem~2"></span>
               type(iosystem_desc_t),
             </td>
               <td>private,</td>
@@ -1689,7 +1689,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-run_duration"></span>
+              <span class="anchor" id="variable-run_duration~2"></span>
               integer,
             </td>
               <td>private</td>
@@ -1723,7 +1723,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-start_date_time"></span>
+              <span class="anchor" id="variable-start_date_time~2"></span>
               integer,
             </td>
               <td>private</td>
@@ -1740,7 +1740,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-stop_date_time"></span>
+              <span class="anchor" id="variable-stop_date_time~2"></span>
               integer,
             </td>
               <td>private</td>
@@ -1757,7 +1757,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-subname~19"></span>
+              <span class="anchor" id="variable-subname~63"></span>
               character(len=*),
             </td>
               <td>private,</td>
@@ -1806,7 +1806,7 @@ parameter
 
 <span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">namelist_path</span>
 
-<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;dyn_comp::dyn_readnl&#39;</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'dyn_comp::dyn_readnl'</span>
 <span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="n">len_cs</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">cam_calendar</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">log_unit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span class="w">        </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">start_date_time</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span><span class="w"> </span><span class="c">! YYYY, MM, DD, hh, mm, ss.</span>
@@ -1815,15 +1815,15 @@ parameter
 <span class="w">                   </span><span class="n">sec_since_midnight</span><span class="w">    </span><span class="c">! Second(s) since midnight.</span>
 <span class="w">        </span><span class="k">type</span><span class="p">(</span><span class="n">iosystem_desc_t</span><span class="p">),</span><span class="w"> </span><span class="k">pointer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">pio_iosystem</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; entered&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">' entered'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">pio_iosystem</span><span class="p">)</span>
 
-<span class="w">        </span><span class="c">! Get free units for MPAS so it can write its own log files, e.g., &quot;log.atmosphere.0000.{out,err}&quot;.</span>
+<span class="w">        </span><span class="c">! Get free units for MPAS so it can write its own log files, e.g., "log.atmosphere.0000.{out,err}".</span>
 <span class="w">        </span><span class="n">log_unit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shr_file_getunit</span><span class="p">()</span>
 <span class="w">        </span><span class="n">log_unit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">shr_file_getunit</span><span class="p">()</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Initializing MPAS dynamical core (Phase 1/4)&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Initializing MPAS dynamical core (Phase 1/4)'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Initialize MPAS framework with the supplied MPI communicator group, procedure pointer to terminate the model,</span>
 <span class="w">        </span><span class="c">! log level, and units.</span>
@@ -1840,22 +1840,22 @@ parameter
 <span class="w">        </span><span class="k">call </span><span class="n">get_run_duration</span><span class="p">(</span><span class="n">run_duration</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">sec_since_midnight</span><span class="p">)</span>
 <span class="w">        </span><span class="n">run_duration</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sec_to_hour_min_sec</span><span class="p">(</span><span class="n">sec_since_midnight</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Reading namelist&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Reading namelist'</span><span class="p">)</span>
 
-<span class="w">        </span><span class="c">! Read MPAS-related namelist variables from `namelist_path`, e.g., &quot;atm_in&quot;.</span>
+<span class="w">        </span><span class="c">! Read MPAS-related namelist variables from `namelist_path`, e.g., "atm_in".</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">read_namelist</span><span class="p">(</span><span class="n">namelist_path</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
 <span class="w">            </span><span class="n">cam_calendar</span><span class="p">,</span><span class="w"> </span><span class="n">start_date_time</span><span class="p">,</span><span class="w"> </span><span class="n">stop_date_time</span><span class="p">,</span><span class="w"> </span><span class="n">run_duration</span><span class="p">,</span><span class="w"> </span><span class="n">initial_run</span><span class="p">)</span>
 
 <span class="w">        </span><span class="n">pio_iosystem</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">shr_pio_getiosys</span><span class="p">(</span><span class="n">atm_id</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Initializing MPAS dynamical core (Phase 2/4)&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_info</span><span class="p">,</span><span class="w"> </span><span class="s1">'Initializing MPAS dynamical core (Phase 2/4)'</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Initialize MPAS framework with the supplied PIO system descriptor.</span>
 <span class="w">        </span><span class="k">call </span><span class="n">mpas_dynamical_core</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">init_phase2</span><span class="p">(</span><span class="n">pio_iosystem</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">pio_iosystem</span><span class="p">)</span>
 
-<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">&#39; completed&#39;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">call </span><span class="n">dyn_debug_print</span><span class="p">(</span><span class="n">debugout_debug</span><span class="p">,</span><span class="w"> </span><span class="n">subname</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="s1">' completed'</span><span class="p">)</span>
 <span class="w">    </span><span class="k">end subroutine </span><span class="n">dyn_readnl</span>
 </pre></div>
 
