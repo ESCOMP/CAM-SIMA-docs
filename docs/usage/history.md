@@ -29,7 +29,7 @@ hist_output_frequency;h0: 1*month
 hist_max_frames;h0: 1
 hist_add_avg_fields;h0: T, Q
 hist_precision;h0: REAL32
-hist_filename_spec;h0: %c.cam.%u.%y-%m-%d-%s.nc
+hist_filename_template;h0: %c.cam.%u.%y-%m-%d-%s.nc
 hist_write_nstep0;h0: .false.
 
 hist_output_frequency;h1: 5*ndays
@@ -37,7 +37,7 @@ hist_max_frames;h1: 3
 hist_add_inst_fields;h1: U, V
 hist_add_inst_fields;h1: Q
 hist_precision;h1: REAL64
-hist_filename_spec;h1: my-history-file%m-%d
+hist_filename_template;h1: my-history-file%m-%d
 hist_write_nstep0;h1: .false.
 ```
 
