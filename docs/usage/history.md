@@ -1,6 +1,10 @@
 # History & model output
 
 ## Configuring the namelist
+
+!!!Warning "default history configuration"
+    If no namelist history configurations are specified, there will be NO history output for the run. There is no default output CAM-SIMA.
+
 The syntax for updating a the configuration for a history file is:
 ```
 <namelist_option>;<volume>: <setting>
