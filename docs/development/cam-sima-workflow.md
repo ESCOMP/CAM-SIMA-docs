@@ -104,7 +104,7 @@ Click through (via `Details` link) to see the test output of the failing tests. 
 | `.github/workflows/fleximod_test.yaml / fleximod-test (<python version>) (pull_request)` | git-fleximod test failure. Likely an invalid external | [git-fleximod testing](cam-testing.md#git-fleximod-tests) |
 | `Python unit tests / python_unit_tests (<python version>) (pull_request)` | Python unit test failure. Likely need to update sample files | [Python unit testing](cam-testing.md/#python-unit-testing) |
 | `CAM-SIMA Fotran CI / Build and run unit tests (<version>) (pull_request)` | Fortran unit test failure. Likely need to fix a modification to SIMA utilities or the PIO NetCDF reader | [Fortran unit testing](cam-testing.md/#fortran-unit-testing) |
-| `CAM-SIMA Fortran CI / Lint Fortran source code (pull_request)` | Fortran linting failure. Need to fix modified Fortran code. | [Fortran source code linting](cam-testing.md/#Fortran) |
+| `CAM-SIMA Fortran CI / Lint Fortran source code (pull_request)` | Fortran linting failure. Need to fix modified Fortran code. | [Fortran source code linting](cam-testing.md/#fortran) |
 | `MPAS Dynamical Core CI / Build and run unit tests (GCC <version>) (pull_request)` | Fortran unit test failure. Likely need to fix a modification to the MPAS procedures | [Fortran unit testing](cam-testing.md/#fortran-unit-testing) |
 | `Source Code Linting / source_code_tests (pull_request)` | Python linting failure. Need to fix modified python code. | [Python source code linting](cam-testing.md/#python) |
 
