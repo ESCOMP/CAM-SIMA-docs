@@ -104,7 +104,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="13.6% of total for modules and submodules.">631 statements</a>
+                 title="14.0% of total for modules and submodules.">666 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -147,7 +147,18 @@
   
   
   
-  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#funcs-0"
+         aria-expanded="false" aria-controls="funcs-0">
+         <h4 class="card-header bg-primary text-white">Functions</h4>
+      </a>
+      <div id="funcs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../module/dyn_comp_impl.html#proc-dyn_constituent_input_alias">dyn_constituent_input_alias</a>
+        </div>
+      </div>
+    </div>
+
       <div class="card mb-4">
       <a data-bs-toggle="collapse" href="#subs-0"
          aria-expanded="false" aria-controls="subs-0">
@@ -397,6 +408,76 @@ modules which it uses.
 
 
 
+        <section>
+          <h2>Functions</h2>
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-dyn_constituent_input_alias"></span> <h3> function <a href='../proc/dyn_constituent_input_alias.html'>dyn_constituent_input_alias</a>(pio_file, standard_name) result(input_alias)  
+</h3></div>
+    <div class="card-body">
+          
+  <p>Inquire the constituent input alias to use for the given standard name. To be successfully
+considered as the input alias, it must be:
+1. Defined in the CAM-SIMA registry;
+2. Present on the file indicated by <code>pio_file</code>.
+If no suitable input alias is found, an empty character string is produced.
+(KCW, 2026-08-17)</p>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pio_file"></span>
+              type(file_desc_t),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              pointer
+            </td>
+            <td>::</td>
+            <td><strong>pio_file</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-standard_name"></span>
+              character(len=std_name_len),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>standard_name</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>character(len=ic_name_len)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+        </section>
+        <br>
 
         <section>
           <h2>Subroutines</h2>
@@ -425,7 +506,7 @@ Otherwise, if topography file is not used, check that the surface geometric heig
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-pio_file~5"></span>
+              <span class="anchor" id="variable-pio_file~2"></span>
               type(file_desc_t),
             </td>
 <td>intent(in),</td>
@@ -563,7 +644,7 @@ If <code>printer</code> is not supplied, the MPI root rank will print. Otherwise
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-level~3"></span>
+              <span class="anchor" id="variable-level~2"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -578,7 +659,7 @@ If <code>printer</code> is not supplied, the MPI root rank will print. Otherwise
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-message~4"></span>
+              <span class="anchor" id="variable-message~2"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -593,7 +674,7 @@ If <code>printer</code> is not supplied, the MPI root rank will print. Otherwise
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-printer~3"></span>
+              <span class="anchor" id="variable-printer~2"></span>
               integer,
             </td>
 <td>intent(in),</td>
@@ -654,7 +735,7 @@ If <code>printer</code> is not supplied, the MPI root rank will print. Otherwise
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-cam_runtime_opts~7"></span>
+              <span class="anchor" id="variable-cam_runtime_opts~2"></span>
               type(runtime_options),
             </td>
 <td>intent(inout)</td>
@@ -669,7 +750,7 @@ If <code>printer</code> is not supplied, the MPI root rank will print. Otherwise
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-dyn_in~7"></span>
+              <span class="anchor" id="variable-dyn_in~2"></span>
               type(<a href='../type/dyn_import_t.html'>dyn_import_t</a>),
             </td>
 <td>intent(in)</td>
@@ -684,7 +765,7 @@ If <code>printer</code> is not supplied, the MPI root rank will print. Otherwise
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-dyn_out~7"></span>
+              <span class="anchor" id="variable-dyn_out~2"></span>
               type(<a href='../type/dyn_export_t.html'>dyn_export_t</a>),
             </td>
 <td>intent(in)</td>
@@ -728,7 +809,7 @@ Additionally, perform early initialization of MPAS dynamical core.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-namelist_path~3"></span>
+              <span class="anchor" id="variable-namelist_path~2"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>

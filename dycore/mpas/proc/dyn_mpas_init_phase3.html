@@ -109,7 +109,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 1.7% of total for procedures.">65 statements</a>
+                 title=" 1.7% of total for procedures.">68 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -155,7 +155,7 @@
             <a class="list-group-item" href="../proc/dyn_mpas_init_phase3.html#variable-mesh_format">mesh_format</a>
             <a class="list-group-item" href="../proc/dyn_mpas_init_phase3.html#variable-mpas_pool">mpas_pool</a>
             <a class="list-group-item" href="../proc/dyn_mpas_init_phase3.html#variable-num_scalars">num_scalars</a>
-            <a class="list-group-item" href="../proc/dyn_mpas_init_phase3.html#variable-subname~4">subname</a>
+            <a class="list-group-item" href="../proc/dyn_mpas_init_phase3.html#variable-subname~35">subname</a>
         </div>
       </div>
     </div>
@@ -198,10 +198,10 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item"><a href='../module/dyn_mpas_procedures.html'>dyn_mpas_procedures</a></li>
-                  <li class="list-inline-item">pio</li>
                   <li class="list-inline-item">mpas_derived_types</li>
+                  <li class="list-inline-item">pio</li>
                   <li class="list-inline-item">mpas_bootstrapping</li>
+                  <li class="list-inline-item"><a href='../module/dyn_mpas_procedures.html'>dyn_mpas_procedures</a></li>
                   <li class="list-inline-item">mpas_pool_routines</li>
               </ul>
             </li>
@@ -420,7 +420,7 @@ Ported and refactored for CAM-SIMA. (KCW, 2024-03-06)</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-pio_file"></span>
+              <span class="anchor" id="variable-pio_file~4"></span>
               type(file_desc_t),
             </td>
 <td>intent(in),</td>
@@ -1319,7 +1319,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-subname~4"></span>
+              <span class="anchor" id="variable-subname~35"></span>
               character(len=*),
             </td>
               <td>private,</td>
@@ -1403,14 +1403,18 @@ parameter
 <span class="w">        </span><span class="c">! it is operating as a dynamical core, and therefore it needs to allocate scalars separately</span>
 <span class="w">        </span><span class="c">! from other Registry-defined fields. The special logic is located in `atm_setup_block`.</span>
 <span class="w">        </span><span class="c">! This must be done before calling `mpas_bootstrap_framework_phase1`.</span>
+<span class="w">        </span><span class="k">call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_pool_pointer</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">'cfg'</span><span class="p">)</span>
+
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">les_model</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="w">            </span><span class="c">! No need to add an extra "phantom" constituent, `tke`.</span>
-<span class="w">            </span><span class="k">call </span><span class="n">mpas_pool_add_config</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">configs</span><span class="p">,</span><span class="w"> </span><span class="s1">'cam_pcnst'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="p">)</span>
+<span class="w">            </span><span class="k">call </span><span class="n">mpas_pool_add_config</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">'cam_pcnst'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="p">)</span>
 <span class="w">        </span><span class="k">else</span>
 <span class="w">            </span><span class="c">! Need to add an extra "phantom" constituent, `tke`. There is additional logic</span>
 <span class="w">            </span><span class="c">! for it in `dyn_mpas_define_scalar`.</span>
-<span class="w">            </span><span class="k">call </span><span class="n">mpas_pool_add_config</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">configs</span><span class="p">,</span><span class="w"> </span><span class="s1">'cam_pcnst'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="k">call </span><span class="n">mpas_pool_add_config</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">'cam_pcnst'</span><span class="p">,</span><span class="w"> </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">number_of_constituents</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
 <span class="w">        </span><span class="k">end if</span>
+
+<span class="k">        nullify</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">)</span>
 
 <span class="w">        </span><span class="c">! Not actually used because a PIO file descriptor is directly supplied.</span>
 <span class="w">        </span><span class="n">mesh_filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'external mesh'</span>
@@ -1457,7 +1461,9 @@ parameter
 <span class="w">            </span><span class="k">end if</span>
 <span class="k">        end if</span>
 
-<span class="k">        call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">domain_ptr</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">blocklist</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">dimensions</span><span class="p">,</span><span class="w"> </span><span class="s1">'num_scalars'</span><span class="p">,</span><span class="w"> </span><span class="n">num_scalars</span><span class="p">)</span>
+<span class="k">        call </span><span class="n">self</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">get_pool_pointer</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">'dim'</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">call </span><span class="n">mpas_pool_add_dimension</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">,</span><span class="w"> </span><span class="s1">'num_scalars'</span><span class="p">,</span><span class="w"> </span><span class="n">num_scalars</span><span class="p">)</span>
 
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">mpas_pool</span><span class="p">)</span>
 <span class="w">        </span><span class="k">nullify</span><span class="p">(</span><span class="n">num_scalars</span><span class="p">)</span>

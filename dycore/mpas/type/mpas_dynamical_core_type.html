@@ -104,7 +104,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title="&lt;p&gt;87.8% of total for derived types.&lt;/p&gt;Including implementation: 2342 statements, 99.6% of total for derived types.">72 statements</a>
+                 title="&lt;p&gt;88.1% of total for derived types.&lt;/p&gt;Including implementation: 2409 statements, 99.6% of total for derived types.">74 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -145,16 +145,17 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-constituent_name">constituent_name</a>
+            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-constituent_name~2">constituent_name</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-corelist">corelist</a>
-            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-coupling_time_interval">coupling_time_interval</a>
+            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-coupling_time_interval~2">coupling_time_interval</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-domain_ptr">domain_ptr</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-index_constituent_to_mpas_scalar">index_constituent_to_mpas_scalar</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-index_mpas_scalar_to_constituent">index_mpas_scalar_to_constituent</a>
-            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-is_water_species">is_water_species</a>
+            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-input_alias~3">input_alias</a>
+            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-is_water_species~4">is_water_species</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-les_model">les_model</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-log_level">log_level</a>
-            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-log_unit">log_unit</a>
+            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-log_unit~2">log_unit</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-model_error">model_error</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-mpi_comm">mpi_comm</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#variable-mpi_rank">mpi_rank</a>
@@ -193,6 +194,7 @@
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#boundprocedure-compute_unit_vector">compute_unit_vector</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#boundprocedure-debug_print">debug_print</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#boundprocedure-define_scalar">define_scalar</a>
+            <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#boundprocedure-define_scalar_field">define_scalar_field</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#boundprocedure-exchange_halo">exchange_halo</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#boundprocedure-final">final</a>
             <a class="list-group-item" href="../type/mpas_dynamical_core_type.html#boundprocedure-get_constituent_index">get_constituent_index</a>
@@ -377,7 +379,7 @@ said component(s).
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-constituent_name"></span>
+              <span class="anchor" id="variable-constituent_name~2"></span>
               character(len=strkind),
             </td>
               <td>private,</td>
@@ -411,7 +413,7 @@ said component(s).
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-coupling_time_interval"></span>
+              <span class="anchor" id="variable-coupling_time_interval~2"></span>
               integer,
             </td>
               <td>private</td>
@@ -479,7 +481,24 @@ said component(s).
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-is_water_species"></span>
+              <span class="anchor" id="variable-input_alias~3"></span>
+              character(len=strkind),
+            </td>
+              <td>private,</td>
+            <td>
+              allocatable
+            </td>
+            <td>::</td>
+            <td><strong>input_alias</strong>(:)</td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-is_water_species~4"></span>
               logical,
             </td>
               <td>private,</td>
@@ -530,7 +549,7 @@ said component(s).
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-log_unit"></span>
+              <span class="anchor" id="variable-log_unit~2"></span>
               integer,
             </td>
               <td>private</td>
@@ -1089,7 +1108,7 @@ said component(s).
       <ul class="list-group">
           <li class="list-group-item">
                     <h3>
-    private  subroutine <a href='../proc/dyn_mpas_define_scalar.html'>dyn_mpas_define_scalar</a>(self, constituent_name, is_water_species)  
+    private  subroutine <a href='../proc/dyn_mpas_define_scalar.html'>dyn_mpas_define_scalar</a>(self, constituent_name, input_alias, is_water_species)  
 </h3>
         <dl class="dl-horizontal">
         <dt>Author</dt><dd>Michael Duda</dd>
@@ -1144,6 +1163,21 @@ said component(s).
         <tr>
             <td>
               <span class="anchor" ></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>input_alias</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
               logical,
             </td>
 <td>intent(in)</td>
@@ -1152,6 +1186,63 @@ said component(s).
             </td>
             <td>::</td>
             <td><strong>is_water_species</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+          </li>
+      </ul>
+  </div>
+</div>
+            <div class="row">  <div class="card mt-3">
+    <div class="card-header codesum">
+      <span class="anchor" id="boundprocedure-define_scalar_field"></span>
+      <h3>
+          procedure, private, pass ::
+  <strong>define_scalar_field</strong> => <a href='/home/runner/work/CAM-SIMA-docs/CAM-SIMA-docs/CAM-SIMA/src/dynamics/mpas/assets/ford/proc/dyn_mpas_define_scalar_field.html'>dyn_mpas_define_scalar_field</a>
+        
+      </h3>
+    </div>
+      <ul class="list-group">
+          <li class="list-group-item">
+                    <h3>
+    private  subroutine <a href='../proc/dyn_mpas_define_scalar_field.html'>dyn_mpas_define_scalar_field</a>(self)  
+</h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Kuan-Chih Wang</dd>
+        <dt>Date</dt><dd>2026-08-14</dd>
+    </dl>
+
+
+  <p>Define the names of constituents at run-time.</p><a href="../proc/dyn_mpas_define_scalar_field.html" class="pull-right"><emph>Read more&hellip;</emph></a>
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" ></span>
+              class(<a href='mpas_dynamical_core_type.html'>mpas_dynamical_core_type</a>),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>self</strong></td>
             <td>
 
             </td>
@@ -8423,6 +8514,7 @@ said component(s).
 
 <span class="w">        </span><span class="c">! Initialized by `dyn_mpas_define_scalar`.</span>
 <span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="n">strkind</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">constituent_name</span><span class="p">(:)</span>
+<span class="w">        </span><span class="kt">character</span><span class="p">(</span><span class="n">strkind</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">input_alias</span><span class="p">(:)</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">index_constituent_to_mpas_scalar</span><span class="p">(:)</span>
 <span class="w">        </span><span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">index_mpas_scalar_to_constituent</span><span class="p">(:)</span>
 <span class="w">        </span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">is_water_species</span><span class="p">(:)</span>
@@ -8439,6 +8531,7 @@ said component(s).
 <span class="w">        </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">pass</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">init_phase2</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">dyn_mpas_init_phase2</span>
 <span class="w">        </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">pass</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">init_phase3</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">dyn_mpas_init_phase3</span>
 <span class="w">        </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">pass</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">define_scalar</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">dyn_mpas_define_scalar</span>
+<span class="w">        </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">pass</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">define_scalar_field</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">dyn_mpas_define_scalar_field</span>
 <span class="w">        </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">pass</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">read_write_stream</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">dyn_mpas_read_write_stream</span>
 <span class="w">        </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">pass</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">init_stream_with_pool</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">dyn_mpas_init_stream_with_pool</span>
 <span class="w">        </span><span class="k">procedure</span><span class="p">,</span><span class="w"> </span><span class="k">pass</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">check_variable_status</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">dyn_mpas_check_variable_status</span>

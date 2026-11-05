@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -27,10 +27,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
   
@@ -1027,35 +1027,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#defining-history-restart-files" class="md-nav__link">
+  <a href="#restart-output" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Defining history restart files
+        Restart output
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restart output">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restart-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restart dynamics
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#writing-a-history-restart-file" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#restart-physics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Writing a history restart file
+        Restart physics
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#reading-a-history-restart-file" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#restart-history" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reading a history restart file
+        Restart history
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restart-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restart design
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1877,35 +1905,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#defining-history-restart-files" class="md-nav__link">
+  <a href="#restart-output" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Defining history restart files
+        Restart output
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restart output">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restart-dynamics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restart dynamics
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#writing-a-history-restart-file" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#restart-physics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Writing a history restart file
+        Restart physics
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#reading-a-history-restart-file" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#restart-history" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reading a history restart file
+        Restart history
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restart-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restart design
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1944,6 +2000,7 @@
 
 <h1 id="history-model-output">History &amp; model output</h1>
 <p>CAM-SIMA history is the mechanism for configuring and generating diagnostic output from a model run. It is also used to generate initial-data files and aids in the model-restart process by saving the state of diagnostic fields whose processing window (e.g., averaging, standard deviation) crosses a restart-write cycle. This page describes the implementation of CAM-SIMA history in CAM-SIMA.</p>
+<p>A large difference between CAM and CAM-SIMA in terms of history is that, NO HISTORY OUTPUT will be written unless specified in <code>user_nl_cam</code>. There are no defaults.</p>
 <h2 id="history-initialization">History Initialization</h2>
 <h3 id="reading-and-processing-the-history-configuration">Reading and processing the history configuration</h3>
 <ul>
@@ -2089,12 +2146,24 @@
 <pre><code>  call hist_configs(file_idx)%write_time_dependent_variables(file_idx, restart)
 </code></pre>
 <p>It is during this call that we increment the number of samples written for this volume and actually write the data held within the buffer(s) to the netcdf file (as well as the time-dependent metadata for the fields).</p>
-<h2 id="defining-history-restart-files">Defining history restart files</h2>
-<p><em>Restarts not yet implemented in CAM-SIMA</em></p>
-<h2 id="writing-a-history-restart-file">Writing a history restart file</h2>
-<p><em>Restarts not yet implemented in CAM-SIMA</em></p>
-<h2 id="reading-a-history-restart-file">Reading a history restart file</h2>
-<p><em>Restarts not yet implemented in CAM-SIMA</em></p>
+<h2 id="restart-output">Restart output</h2>
+<p>Restart files (<code>.r.</code> and <code>.rhX</code> files) can be written out periodically to be used to restart the model (in case of model crash, or to run the model for longer than will fit on a single job).</p>
+<p>By default, restart files are written out at the end of a defined run (defined by <code>STOP_N</code> and <code>STOP_OPTION</code>).</p>
+<p>To write intermediate restart files, change XML variables <code>REST_N</code> and <code>REST_OPTION</code> in your case. For example:</p>
+<pre><code>! Write intermediate restart every 2 months:
+./xmlchange REST_N=2
+./xmlchange REST_OPTION=nmonths
+</code></pre>
+<p>Restart files contain all necessary information to restart the model and continue, bit-for-bit, with a run. A diagram of the design of how restarts are written can be found <a href="#restart-design">below</a>.</p>
+<h3 id="restart-dynamics">Restart dynamics</h3>
+<p>Fields required for the dynamical core to start back up are specified via the interface <code>src/dynamics/&lt;dycore&gt;/restart_dynamics.F90</code>. These fields include state variables and tracers, so the physics restart logic (described below) does not have to include those.</p>
+<h3 id="restart-physics">Restart physics</h3>
+<p>Any additional variables required for the physics to restart (input variables to physics schemes) are written out in autogenerated code living in <code>bld/atm/obj/phys_restart/restart_physics.F90</code>. The variables that are written/read to/from the restart file are identified via the <code>restart=.true.</code> flag in the registry (<code>src/data/registry.xml</code>). Any variable that is required by a physics scheme AND has the <code>restart</code> flag are included on the restart file.</p>
+<h3 id="restart-history">Restart history</h3>
+<p>Variables describing the history configuration for a run are written to the <code>.r.</code> file. Upon restart, it is confirmed that no history configurations have changed (not allowed for b4b restart runs).</p>
+<p>If a given history configuration has accumulated (min, max, average, standard deviation) fields that have not been written out on the timestep for which a restart file is being generated, a <code>.rhX</code> file is created with additional variables to keep track of the current variable buffer, the number of samples, and the standard deviation buffer (if applicable).</p>
+<h3 id="restart-design">Restart design</h3>
+<p><img alt="text" src="../figures/restart_design.png" title="CAM-SIMA restart design" /></p>
 
 
 
@@ -2117,7 +2186,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 24, 2024 19:54:14 UTC">July 24, 2024</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 5, 2026 21:29:41 UTC">November 5, 2026</span>
   </span>
 
     
@@ -2132,6 +2201,29 @@
 
     
     
+    
+      
+  <span class="md-source-file__fact">
+    
+      
+  <span class="md-icon" title="Contributors">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+  </span>
+  <span>GitHub</span>
+
+    
+    <nav>
+      
+        <a href="https://github.com/peverwhee" class="md-author" title="@peverwhee">
+          
+          <img src="https://avatars.githubusercontent.com/u/26393487?v=4&size=72" alt="peverwhee">
+        </a>
+      
+      
+      
+    </nav>
+  </span>
+
     
   </aside>
 
@@ -2176,10 +2268,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.action.edit", "content.action.view"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
       
     
   </body>

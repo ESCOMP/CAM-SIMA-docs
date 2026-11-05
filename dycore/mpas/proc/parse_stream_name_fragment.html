@@ -107,7 +107,7 @@
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
-                 title=" 1.0% of total for procedures.">40 statements</a>
+                 title=" 1.2% of total for procedures.">47 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -591,6 +591,8 @@ implementation in a submodule of an interface in a parent module.
 <span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="n">restart_var_info_list</span><span class="p">)</span>
 <span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">'output'</span><span class="p">)</span>
 <span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="n">output_var_info_list</span><span class="p">)</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">'extra'</span><span class="p">)</span>
+<span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="n">extra_var_info_list</span><span class="p">)</span>
 <span class="w">            </span><span class="k">case </span><span class="n">default</span>
 <span class="w">                </span><span class="k">allocate</span><span class="p">(</span><span class="n">var_info_list</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 
@@ -619,6 +621,13 @@ implementation in a submodule of an interface in a parent module.
 
 <span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">var_name_list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">))))</span><span class="w"> </span><span class="k">then</span>
 <span class="k">                    </span><span class="n">var_info_list_buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pack</span><span class="p">(</span><span class="n">output_var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">var_name_list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">)))</span>
+<span class="w">                    </span><span class="n">var_info_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">var_info_list_buffer</span><span class="p">]</span>
+<span class="w">                </span><span class="k">end if</span>
+
+<span class="k">                </span><span class="n">var_name_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">extra_var_info_list</span><span class="w"> </span><span class="p">%</span><span class="w"> </span><span class="n">name</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">var_name_list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">))))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                    </span><span class="n">var_info_list_buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">pack</span><span class="p">(</span><span class="n">extra_var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">var_name_list</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">trim</span><span class="p">(</span><span class="nb">adjustl</span><span class="p">(</span><span class="n">stream_name_fragment</span><span class="p">)))</span>
 <span class="w">                    </span><span class="n">var_info_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">var_info_list</span><span class="p">,</span><span class="w"> </span><span class="n">var_info_list_buffer</span><span class="p">]</span>
 <span class="w">                </span><span class="k">end if</span>
 <span class="k">        end select</span>
