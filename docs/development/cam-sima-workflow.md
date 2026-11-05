@@ -25,6 +25,8 @@ The following sections describe various workflow actions in more detail.
 
 ### Open an issue
 
+!!! warning "We require ALL text to be written by a human. If you want to attach Claude artifact, that's OK, but all issue text should be populated by you."
+
 It is generally recommended to [open an issue](https://github.com/ESCOMP/CAM-SIMA/issues/new) for any new features that will be added or bug that has been found that will need to be fixed. There is currently no offiical requirement on what should be contained within the issue text, so generally just put any information you think might be relevant.
 
 !!! note "When to open the issue in atmospheric_physics"
@@ -74,6 +76,8 @@ git push origin <branch name>
 
 ### Open a PR
 
+!!! warning "We require ALL text to be written by a human. If you want to attach Claude artifact, that's OK, but all PR text should be populated by you."
+
 1. Go to the [ESCOMP CAM-SIMA repo](https://github.com/ESCOMP/CAM-SIMA), and click on the "Pull requests" tab.
  ![text](figures/pr-workflow-1.png "PR tab")
 1. There, you should see a "New pull request" button, which you should click.
@@ -84,7 +88,7 @@ git push origin <branch name>
 1. Then select the branch which contains the commits.
  ![text](figures/pr-workflow-4.png "pull-down boxes")
 1. You should then see a list of all the different modifications. If they generally look correct, click the "Create pull request" button
-1. A new page should appear. In the first text box, add the title of your pull request. The second text box will contain additional fields that you should fill out to the best of your ability.
+1. A new page should appear. In the first text box, add the title of your pull request. The second text box will contain additional fields that you should fill out to the best of your ability. 
 1. If your code changes cause answer changes, you will need a new tag. Enter the expected tag name in the PR description. More on tag conventions [here](git-basics.md/#tagging-a-commit).
 1. Add any relevant labels to the PR, add yourself as the assignee, and add any reviewers you would like to have. Otherwise, the core SE team will add reviewers for you.
 1. Click "Create pull request"
@@ -99,6 +103,8 @@ Click through (via `Details` link) to see the test output of the failing tests. 
 | ------------ | ----------- | --------- |
 | `.github/workflows/fleximod_test.yaml / fleximod-test (<python version>) (pull_request)` | git-fleximod test failure. Likely an invalid external | [git-fleximod testing](cam-testing.md#git-fleximod-tests) |
 | `Python unit tests / python_unit_tests (<python version>) (pull_request)` | Python unit test failure. Likely need to update sample files | [Python unit testing](cam-testing.md/#python-unit-testing) |
-| `Fortran unit tests / Build and run with GCC (<version>) (pull_request)` | Fortran unit test failure. Likely need to fix a modification to SIMA utilities or the PIO NetCDF reader | [Fortran unit testing](cam-testing.md/#fortran-unit-testing) |
+| `CAM-SIMA Fotran CI / Build and run unit tests (<version>) (pull_request)` | Fortran unit test failure. Likely need to fix a modification to SIMA utilities or the PIO NetCDF reader | [Fortran unit testing](cam-testing.md/#fortran-unit-testing) |
+| `CAM-SIMA Fortran CI / Lint Fortran source code (pull_request)` | Fortran linting failure. Need to fix modified Fortran code. | [Fortran source code linting](cam-testing.md/#Fortran) |
 | `MPAS Dynamical Core CI / Build and run unit tests (GCC <version>) (pull_request)` | Fortran unit test failure. Likely need to fix a modification to the MPAS procedures | [Fortran unit testing](cam-testing.md/#fortran-unit-testing) |
 | `Source Code Linting / source_code_tests (pull_request)` | Python linting failure. Need to fix modified python code. | [Python source code linting](cam-testing.md/#python) |
+

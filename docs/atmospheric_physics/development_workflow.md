@@ -32,6 +32,8 @@ The following sections describe various workflow actions in more detail.
 
 ### 1.  Open an issue.
 
+!!! warning "We require ALL text to be written by a human. If you want to attach Claude artifact, that's OK, but all issue text should be populated by you."
+
 It is generally recommended to [open an issue](https://github.com/ESCOMP/atmospheric_physics/issues/new) for any new feature that will be added or bug that has been found that will need to be fixed.  There is currently no official requirement on what should be contained within the issue text, so generally just put any information you think might be relevant.
 
 !!! note "When to open the issue in CAM-SIMA"
@@ -195,6 +197,8 @@ At a minimum, unit tests for ESCOMP source code should:
 You can find a unit testing example at the [bottom of this page](#unit-testing-example).
 
 ### 6. Creating a Pull Request (PR)
+
+!!! warning "We require ALL text to be written by a human. If you want to attach Claude artifact, that's OK, but all PR text should be populated by you."
 
 **1.  Go to the [ESCOMP atmospheric_physics repo](https://github.com/ESCOMP/atmospheric_physics), and click on the "Pull requests" tab.**
 

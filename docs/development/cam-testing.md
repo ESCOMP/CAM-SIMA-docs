@@ -195,6 +195,42 @@ Users can also manually run `pylint` against the core python build scripts by ru
 
 Please note that `pylint` is not part of the standard python library, and so it may need to be installed before being able to run the shell script.
 
+#### Fortran
+
+Any Fortran file which is added or modified via a PR will automatically be analyzed using `fortitude`, and must not trigger any flags that the CAM-SIMA team has determined to be errors (see "select" list in the [errors .toml file](https://github.com/ESCOMP/CAM-SIMA/blob/development/test/fortitude-errors.toml)).
+
+Only the first 10 errors/warnings will be added as annotations on the source code for the PR. You can find the full list of errors/warnings by clicking on the "Lint Fortran source code" CI workflow and then clicking the "Lint Fortran source code" drop down. The list will look something like:
+
+```
+=== Fortitude errors ===
+Error: src/utils/cam_pio_utils.F90:13:4: MOD051 save statement is superfluous at the module level
+
+=== Fortitude warnings ===
+Error: src/control/cam_comp.F90:70:24: S902 Too many arguments in procedure `cam_init` (28 > 20)
+```
+
+To address linting failures, you can run fortitude locally by first installing it in a conda environment:
+
+```
+pip install fortitude-lint
+```
+
+Then running:
+```
+fortitude --config-file $CAM-SIMA/test/fortitude-errors.toml check <file>
+```
+
+or, if you want to check for warnings instead of errors:
+```
+fortitude --config-file $CAM-SIMA/test/fortitude.toml check <file>
+```
+
+There are several options for fixing Fortitude linting errors:
+
+1. Fix by hand.
+1. Fix via fortitude (`fortitude check --select <rule code> --fix --show-fixes <file>`). Fortitude is great with small, stylistic fixes, but will struggle more with complicated fixes (if it's at all tricky for you to fix, Fortitude won't be able to do it!).
+1. Have Claude fix the errors. (But check the results!)
+
 ### git-fleximod tests
 [git-fleximod](git-fleximod.md) CI tests are run on both the oldest supported (currently 3.8) and latest versions of python to confirm:
 
