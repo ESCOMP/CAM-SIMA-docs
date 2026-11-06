@@ -54,7 +54,7 @@ Upon a successful completion, you will see a `cam.h5i.xxx.nc` and `cam.h6i.xxx.n
 ## Save snapshot files
 The generated snapshot files should be saved on **derecho** here:
 ```
-/glade/campaign/cesm/community/amwg/sima_baselines/cam_sima_test_snapshots
+/glade/campaign/cesm/amwg/soft_eng/sima_baselines/cam_sima_test_snapshots
 ```
 
 with the naming convention `cam_<resolution>_<parameterization>_snapshot_derecho_<compiler>_before_cYYYYMMDD.nc` and `cam_<resolution>_<parameterization>_snapshot_derecho_<compiler>_after_cYYYYMMDD.nc`

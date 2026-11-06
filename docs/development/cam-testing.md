@@ -30,7 +30,7 @@ env CAM_FC=nvhpc ./test_driver.sh -f
 *Note: you may also have to include the environment variable `CAM_ACCOUNT` on derecho, which is your account key
 
 !!! Note "test_driver.sh default"
-    By default, `test_driver.sh` will compare against the baselines in `/glade/campaign/cesm/community/amwg/sima_baselines/latest_<CAM_FC>`. If you wish to compare against different baselines, specify the path to those baselines with the environment variable `BL_TESTDIR`
+    By default, `test_driver.sh` will compare against the baselines in `/glade/campaign/cesm/amwg/soft_eng/sima_baselines/latest_<CAM_FC>`. If you wish to compare against different baselines, specify the path to those baselines with the environment variable `BL_TESTDIR`
 
 !!! Note "Running test_driver.sh with no baseline comparison"
     If you do not wish to compare to baselines, don't use the `BL_TESTDIR` environment variable and use the flag `--no-bl-compare`

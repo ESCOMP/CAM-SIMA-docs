@@ -448,7 +448,7 @@ nhtfrq = 0,0,0,0,0,1,1
 ndens = 2,2,2,2,2,1,1
 ```
 
-and runs the model for 7 timesteps. He saves the snapshot files in `/glade/campaign/cesm/community/amwg/sima_baselines/cam_sima_test_snapshots` with the names `cam_ne3pg3_lunar_tides_snapshot_derecho_gnu_before_c20240801.nc` and `cam_ne3pg3_lunar_tides_snapshot_derecho_gnu_after_c20240801.nc`
+and runs the model for 7 timesteps. He saves the snapshot files in `/glade/campaign/cesm/amwg/soft_eng/sima_baselines/cam_sima_test_snapshots` with the names `cam_ne3pg3_lunar_tides_snapshot_derecho_gnu_before_c20240801.nc` and `cam_ne3pg3_lunar_tides_snapshot_derecho_gnu_after_c20240801.nc`
 
 ## 3 - Create metadata file
 To generate his metadata file, Bug runs:

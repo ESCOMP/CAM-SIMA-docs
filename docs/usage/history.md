@@ -25,6 +25,8 @@ Possible namelist options for your `user_nl_cam` (fields in <span style="color:l
 - `hist_write_nstep0`: logical for whether or not to write the nstep = 0 sample (defaults to .false.)
 - `hist_filename_template`: template filename for the specified history file
     - Defaults to "%c.cam.%u.%y-%m-%d-%s.nc" where "%c" is the case name, "%u" is the volume, "%y" is the year, "%m" is the month, "%d" is the day, and "%s" is the number of seconds since midnight GMT, with the timestamp itself representing the model time when the file is created.
+- `hist_diag_file`: path to (or just the filename, if it's in the case directory) a file that contains a generic history configuration (no volume specified). The history pre-processing will parse the file and assign it to the volume specified in `user_nl_cam`
+    - You can see an example here: `$CAM-SIMA/cime_config/testdefs/testmods_dirs/cam/outfrq_se_cslam_multitape/user_nl_cam`
 
 **Example**
 Take the following sample `user_nl_cam`:
@@ -111,6 +113,7 @@ During **init** time, fields can be added to the possible field list with a call
 | gridname             | Yes       | string    | gridname on which the variable's data is mapped (defaults to the physics grid) |
 | flag_xyfill          | Yes       | string    | fill value for variable values                 |
 | mixing_ratio         | Yes       | string    | constituent mixing ratio type ('wet' or 'dry'); not set to anything if not passed in |
+| sampled_on_subcycle  | Yes       | logical   | flag for whether the field will be sampled more than once per timestep. If not .true., any accumulated fields output once per timestep will be converted to instantaneous fields and placed on the instantaneous file. Defaults to .false. |
 
 !!!Note "horiz_only"
     `horiz_only` is a variable, not a string. If you have a variable with only a horizontal dimension, include this use statement in your module: `use cam_history_support, only: horiz_only`
@@ -132,6 +135,7 @@ It's important to avoid adding calls to `history_add_field` to the CCPP-ized phy
 |:---------------------|-----------|------------|-----------------------------------------------|
 | diagnostic_name      | No        | string     | diagnostic name for the field - will cause an error if the diagnostic name was not added via history_add_field |
 | field_values         | No        | real       | variable values to be stored in the history buffer(s) |
+| element_index        | Yes       | integer    | chunk output - chunk n accumulates at columns `(n-1)size+1 : nsize` (used by dynamical core) |
 
 Example:
 ```
